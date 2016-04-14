@@ -43,8 +43,8 @@ export default class OfferSearch extends React.Component{
 			  contentContainerStyle={styles.contentContainer}>
 			  	<View style={{flex:1}}>
 			  	<Image
-			  		style={{width:212,height:125,alignSelf:'center'}}
-			    	source={{uri:'pic_tongzhi'}} />
+			  		style={{alignSelf:'center'}}
+			    	source={require('image!offer_tongzhi')} />
 			    <Text style={{color:'#666666',fontSize:15,marginTop:34}}>
 			    	志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在您被录取后的第一时间将录取结果推送至您的手机。
 			    </Text>

@@ -68,8 +68,8 @@ export default class Header extends React.Component{
 								underlayColor='#fcfcfc'>
 							<View>
 								<Image
-								  style={{width:40*PixelRatio.get()/2,height:40*PixelRatio.get()/2,alignSelf:'center'}}
-								  source={{uri: 'home_icon_check'}} />
+								  style={{alignSelf:'center'}}
+								  source={require('image!home_icon_check')} />
 								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>高考查分</Text>
 							</View>
 						</TouchableHighlight>
@@ -79,8 +79,8 @@ export default class Header extends React.Component{
 								underlayColor='#fcfcfc'>
 							<View>
 								<Image
-								  style={{width:40*PixelRatio.get()/2,height:40*PixelRatio.get()/2,alignSelf:'center'}}
-								  source={{uri: 'home_icon_query'}} />
+								  style={{alignSelf:'center'}}
+								  source={require('image!home_icon_query')} />
 								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>志愿参考</Text>
 							</View>
 						</TouchableHighlight>
@@ -90,8 +90,8 @@ export default class Header extends React.Component{
 								underlayColor='#fcfcfc'>
 							<View>
 								<Image
-								  style={{width:40*PixelRatio.get()/2,height:40*PixelRatio.get()/2,alignSelf:'center'}}
-								  source={{uri: 'home_icon_volunteer'}} />
+								  style={{alignSelf:'center'}}
+								  source={require('image!home_icon_volunteer')} />
 								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取查询</Text>
 							</View>
 						</TouchableHighlight>
@@ -101,8 +101,8 @@ export default class Header extends React.Component{
 								underlayColor='#fcfcfc'>
 							<View>
 								<Image
-								  style={{width:40*PixelRatio.get()/2,height:40*PixelRatio.get()/2,alignSelf:'center'}}
-								  source={{uri: 'home_icon_set'}} />
+								  style={{alignSelf:'center'}}
+								  source={require('image!home_icon_set')} />
 								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>设置</Text>
 							</View>
 						</TouchableHighlight>

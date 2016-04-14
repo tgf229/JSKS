@@ -36,8 +36,8 @@ export default class OfferResult_Fail extends React.Component{
 			  	</View>
 
 			  	<Image
-			  		style={{width:144,height:144,alignSelf:'center',marginTop:52}}
-			    	source={{uri:'tips_none'}} />
+			  		style={{alignSelf:'center',marginTop:52}}
+			    	source={require('image!tips_none')} />
 			    <Text style={{marginTop:36,fontSize:16,color:'#999999',textAlign:'center'}}>暂未得出录取结果，请耐心等待...</Text>
 			   </View>
 		)

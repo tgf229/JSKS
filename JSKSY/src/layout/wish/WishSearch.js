@@ -14,6 +14,8 @@ import React, {
   View
 } from 'react-native';
 
+import WishAgreement from './WishAgreement';
+
 export default class WishSearch extends React.Component{
 	constructor(props){
 		super(props);
@@ -27,7 +29,10 @@ export default class WishSearch extends React.Component{
 	}
 
 	onSubmit(){
-
+		this.props.navigator.push({
+			title:'购买',
+			component:WishAgreement
+		});
 	}
 
 	render(){

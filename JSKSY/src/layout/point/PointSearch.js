@@ -13,7 +13,7 @@ import React, {
   TextInput,
   View
 } from 'react-native';
-import PointLoad from './PointLoad'
+import PointResult from './PointResult'
 
 export default class PointSearch extends React.Component{
 	constructor(props){
@@ -30,7 +30,7 @@ export default class PointSearch extends React.Component{
 	onSubmit(){
 		this.props.navigator.push({
 			title:'高考查分',
-			component:PointLoad,
+			component:PointResult,
 		});
 	}
 

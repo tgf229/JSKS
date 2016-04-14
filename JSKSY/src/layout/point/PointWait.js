@@ -83,32 +83,32 @@ export default class PointWait extends React.Component{
 				</Text>
 				<View style={{flexDirection:'row',marginTop:33,alignItems:'center'}}>
 					<Image
-					  style={{width:60,height:73,justifyContent:'center',alignItems:'center'}}
-					  source={{uri: 'time_bg'}} >
+					  style={{justifyContent:'center',alignItems:'center'}}
+					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.day}</Text>
 					</Image>
 					<View style={{width:26,height:26,borderRadius:13,margin:4,backgroundColor:'#AFD7FF',justifyContent:'center',alignItems:'center'}}>
 						<Text style={{fontSize:12,color:'#ffffff'}}>天</Text>
 					</View>
 					<Image
-					  style={{width:60,height:73,justifyContent:'center',alignItems:'center'}}
-					  source={{uri: 'time_bg'}} >
+					  style={{justifyContent:'center',alignItems:'center'}}
+					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.hour}</Text>
 					</Image>
 					<Image
-					  style={{width:4,height:24,margin:6}}
-					  source={{uri: 'time_point'}} />
+					  style={{margin:6}}
+					  source={require('image!time_point')} />
 					<Image
-					  style={{width:60,height:73,justifyContent:'center',alignItems:'center'}}
-					  source={{uri: 'time_bg'}} >
+					  style={{justifyContent:'center',alignItems:'center'}}
+					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.minute}</Text>
 					</Image>
 					<Image
-					  style={{width:4,height:24,margin:6}}
-					  source={{uri: 'time_point'}} />
+					  style={{margin:6}}
+					  source={require('image!time_point')} />
 					<Image
-					  style={{width:60,height:73,justifyContent:'center',alignItems:'center'}}
-					  source={{uri: 'time_bg'}} >
+					  style={{justifyContent:'center',alignItems:'center'}}
+					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.second}</Text>
 					</Image>
 				</View>
