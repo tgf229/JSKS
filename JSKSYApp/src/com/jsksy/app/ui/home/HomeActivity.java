@@ -14,18 +14,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
 
 import com.jsksy.app.R;
 import com.jsksy.app.bean.home.BannerDoc;
@@ -38,6 +40,8 @@ import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
+import com.jsksy.app.ui.offer.OfferSearchActivity;
+import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.view.MyImageView;
 import com.jsksy.app.view.PullToRefreshView;
@@ -53,7 +57,7 @@ import com.viewpagerindicator.CirclePageIndicator;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class HomeActivity extends BaseActivity implements OnHeaderRefreshListener
+public class HomeActivity extends BaseActivity implements OnHeaderRefreshListener,OnClickListener
 {
     private PullToRefreshView mPullToRefreshView;
     
@@ -75,7 +79,6 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private RelativeLayout endTips;
     private LinearLayout loadingMore;
-    private TextView banner_text;
     private boolean anyMore = true;
     private boolean isRefreshing = false;
     private int page = 1;
@@ -98,7 +101,6 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                 int postion = banner_Pager.getCurrentItem() + 1;
                 if (null != bannerList && bannerList.size() > 0)
                     banner_Pager.setCurrentItem(postion % bannerList.size(), true);
-//                    banner_text.setText(bannerList.get(postion % bannerList.size()).getName());
                 handler.sendEmptyMessageDelayed(0, SKIP_TIME);
             }
         }
@@ -138,8 +140,16 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         banner_Pager.setAdapter(bannerAdapter);
         banner_indicator = (CirclePageIndicator)headView.findViewById(R.id.circleindicator);
         banner_indicator.setViewPager(banner_Pager);
-//        banner_text = (TextView)headView.findViewById(R.id.banner_text);
         handler.sendEmptyMessageDelayed(0, SKIP_TIME);
+        
+        LinearLayout point_layout = (LinearLayout)headView.findViewById(R.id.point_layout);
+        LinearLayout wish_layout = (LinearLayout)headView.findViewById(R.id.wish_layout);
+        LinearLayout offer_layout = (LinearLayout)headView.findViewById(R.id.offer_layout);
+        LinearLayout set_layout = (LinearLayout)headView.findViewById(R.id.set_layout);
+        point_layout.setOnClickListener(this);
+        wish_layout.setOnClickListener(this);
+        offer_layout.setOnClickListener(this);
+        set_layout.setOnClickListener(this);
         
         //footer渲染
         loadingFooterView =
@@ -307,5 +317,23 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         anyMore = true;
         reqBannert();
         reqList();
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.point_layout:
+                Intent intentPoint = new Intent(this,PointWaitActivity.class);
+                startActivity(intentPoint);
+                break;
+            case R.id.offer_layout:
+                Intent intentOffer = new Intent(this,OfferSearchActivity.class);
+                startActivity(intentOffer);
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -37,7 +37,7 @@
     <style name="app_title">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">44dp</item>
-        <item name="android:background">@color/color_57b0ff</item>
+        <item name="android:background">@color/color_67aef7</item>
     </style>
     
     <style name="app_title_back">

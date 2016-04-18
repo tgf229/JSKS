@@ -47,6 +47,7 @@
         android:paddingTop="12dp" >
 
         <LinearLayout
+            android:id="@+id/point_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -68,6 +69,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/wish_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,6 +91,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/offer_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -110,6 +113,7 @@
         </LinearLayout>
         
         <LinearLayout
+            android:id="@+id/set_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

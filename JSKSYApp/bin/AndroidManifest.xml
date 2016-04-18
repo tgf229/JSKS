@@ -36,6 +36,21 @@
         <activity 
             android:name=".ui.home.HomeActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity 
+            android:name=".ui.point.PointSearchActivity"
+			android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity 
+            android:name=".ui.point.PointResultActivity"/>
+        <activity 
+            android:name=".ui.point.PointWaitActivity"/>
+        
+        <activity 
+            android:name=".ui.offer.OfferSearchActivity"
+			android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity 
+            android:name=".ui.offer.OfferFailActivity" />
+        <activity 
+            android:name=".ui.offer.OfferSuccessActivity" />
     </application>
 
 </manifest>

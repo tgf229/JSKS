@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/app_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp" >
+            
+            <ImageView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/offer_tongzhi"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:textSize="15sp"
+                android:textColor="@color/color_666666"
+                android:text="志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在您被录取后的第一时间将录取结果推送至您的手机。"/>
+
+            <EditText
+                android:id="@+id/num"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/text_input"
+                android:hint="请输入你的考生号"
+                android:maxLength="20"
+                android:paddingLeft="20dp"
+                android:textColor="@color/color_999999"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/ticket"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/text_input"
+                android:hint="请输入你的准考证号"
+                android:maxLength="20"
+                android:paddingLeft="20dp"
+                android:textColor="@color/color_999999"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_click"
+                android:text="预约通知"
+                android:textColor="@color/color_ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
