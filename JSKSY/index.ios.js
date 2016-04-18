@@ -31,10 +31,10 @@ class MyProject extends React.Component{
 		return(
 			<NavigatorIOS
 				style={{flex:1}}
-				barTintColor='#57b0ff'
+				barTintColor='#67aef7'
 			    titleTextColor='#ffffff'
 			  	initialRoute={{
-			    title: '江苏省教育考试院15',
+			    title: '江苏省教育考试院101-1',
 			    component: Home
 			  }} />
 		)

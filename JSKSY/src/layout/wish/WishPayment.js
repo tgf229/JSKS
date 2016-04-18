@@ -16,6 +16,8 @@ import React, {
   View
 } from 'react-native';
 
+import WishList from './WishList';
+
 export default class PayAgreement extends React.Component{
 	constructor(props){
 		super(props);
@@ -25,7 +27,10 @@ export default class PayAgreement extends React.Component{
 	}
 
 	onSubmit(){
-
+		this.props.navigator.push({
+			title:'志愿参考',
+			component:WishList
+		})
 	}
 
 	onChoise(way){
