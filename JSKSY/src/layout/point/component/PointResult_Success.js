@@ -40,12 +40,12 @@ export default class PointResult_Success extends React.Component{
 							style={{alignItems:'center',justifyContent:'center',backgroundColor:'transparent'}}
 				   			source={require('image!point_result_total_big')} >
 				   			<Text style={{fontSize:11,color:'#ae582e'}}>体艺文化总分</Text>
-				   			<Text style={{fontSize:34,color:'white',marginTop:11}}>347<Text style={{fontSize:10}}>分</Text></Text>
+				   			<Text style={{fontSize:34,color:'white'}}>347<Text style={{fontSize:10}}>分</Text></Text>
 				   		</Image>
 				   		<Image
 				   			style={{alignItems:'center',justifyContent:'center',marginTop:-40,backgroundColor:'transparent'}}
 				   			source={require('image!point_result_rank')} >
-				   			<Text style={{fontSize:14,color:'white'}}>体育类投档分位次：103名</Text>
+				   			<Text style={{fontSize:14,color:'white',fontWeight:'bold'}}>体育类投档分位次：103名</Text>
 				   		</Image>
 				  	</View>
 				</Image>

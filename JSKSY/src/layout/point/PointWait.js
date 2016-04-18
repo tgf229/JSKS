@@ -76,14 +76,11 @@ export default class PointWait extends React.Component{
 		return(
 			<View style={{flex:1,alignItems:'center'}}>
 				<Text style={{fontSize:18,color:'#999999',marginTop:158}}>
-					距离江苏省高考成绩发布
-				</Text>
-				<Text style={{fontSize:18,color:'#999999',marginTop:12}}>
-					还有
+					距离江苏省高考成绩发布还有
 				</Text>
 				<View style={{flexDirection:'row',marginTop:33,alignItems:'center'}}>
 					<Image
-					  style={{justifyContent:'center',alignItems:'center'}}
+					  style={{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'}}
 					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.day}</Text>
 					</Image>
@@ -91,7 +88,7 @@ export default class PointWait extends React.Component{
 						<Text style={{fontSize:12,color:'#ffffff'}}>天</Text>
 					</View>
 					<Image
-					  style={{justifyContent:'center',alignItems:'center'}}
+					  style={{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'}}
 					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.hour}</Text>
 					</Image>
@@ -99,7 +96,7 @@ export default class PointWait extends React.Component{
 					  style={{margin:6}}
 					  source={require('image!time_point')} />
 					<Image
-					  style={{justifyContent:'center',alignItems:'center'}}
+					  style={{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'}}
 					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.minute}</Text>
 					</Image>
@@ -107,7 +104,7 @@ export default class PointWait extends React.Component{
 					  style={{margin:6}}
 					  source={require('image!time_point')} />
 					<Image
-					  style={{justifyContent:'center',alignItems:'center'}}
+					  style={{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'}}
 					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.second}</Text>
 					</Image>
