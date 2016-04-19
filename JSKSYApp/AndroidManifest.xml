@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jsksy.app"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -16,7 +16,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar" >
+        android:theme="@android:style/Theme.NoTitleBar">
         
          <!-- BUG 报告 -->
         <meta-data
@@ -51,6 +51,26 @@
             android:name=".ui.offer.OfferFailActivity" />
         <activity 
             android:name=".ui.offer.OfferSuccessActivity" />
+        
+        <activity 
+            android:name=".ui.wish.WishSearchActivity"
+			android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity 
+            android:name=".ui.wish.WishAgreementActivity"/>
+         <activity 
+            android:name=".ui.wish.WishPayActivity"/>
+         <activity 
+            android:name=".ui.wish.WishPaySuccessActivity"/>
+         <activity 
+            android:name=".ui.wish.WishListActivity"/>
+         <activity 
+            android:name=".ui.wish.WishConditionActivity"/>
+         <activity 
+            android:name=".ui.wish.WishConditionListActivity"/>
+         
+         <activity 
+            android:name=".ui.ListSample"/>
+         
     </application>
 
 </manifest>
