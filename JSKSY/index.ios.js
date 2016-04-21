@@ -34,9 +34,10 @@ class MyProject extends React.Component{
 				barTintColor='#67aef7'
 			    titleTextColor='#ffffff'
 			  	initialRoute={{
-			    title: '江苏省教育考试院101-1',
+			    title: '江苏省教育考试院101-3',
 			    component: Home
 			  }} />
+
 		)
 	}
 

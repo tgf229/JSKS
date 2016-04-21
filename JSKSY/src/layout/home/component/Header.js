@@ -60,7 +60,7 @@ export default class Header extends React.Component{
 	render(){
 		return(
 			<View style={{backgroundColor:'#eeeeee'}}>
-					<Banner></Banner>
+					<Banner homeObj={this.props.homeObj}></Banner>
 					<View style={{flexDirection:'row',marginTop:12,backgroundColor:'#ffffff'}}>
 						<TouchableHighlight
 								style={{flex:1,paddingTop:12,paddingBottom:12}}

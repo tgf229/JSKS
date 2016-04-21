@@ -23,9 +23,6 @@ var listData = [	{id:'1101',name:'南京大学',batch:'本科一批',num:'158'},
 			   		{id:'1103',name:'南京信息工程大学',batch:'本科二批',num:'371'},
 			   ];
 var ds;
-//列表数据集合
-//是否加载完毕所有数据
-var isLoadEnd = false;
 
 export default class WishList extends React.Component{
 	constructor(props){
@@ -33,6 +30,22 @@ export default class WishList extends React.Component{
 		ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state={
 			dataSource: ds.cloneWithRows(listData),
+			
+			batch:'本科一批',
+			batchVal:'1',
+
+			provId:'',
+			provVal:'全国',
+
+			typeId:'',
+			typeVal:'',
+
+			marjorId:'',
+			marjorVal:'',
+
+			eyy:false,
+			jbw:false,
+
 		};
 	}
 
@@ -74,48 +87,76 @@ export default class WishList extends React.Component{
     onFilter(){
     	this.props.navigator.push({
     		title:'筛选',
-    		component:WishFilter
+    		component:WishFilter,
+    		passProps:{filterObj:this,batch:this.state.batch,
+    			batchVal:this.state.batchVal,
+    			provId:this.state.provId,
+    			provVal:this.state.provVal,
+    			typeId:this.state.typeId,
+    			typeVal:this.state.typeVal,
+    			marjorId:this.state.marjorId,
+    			marjorVal:this.state.marjorVal,
+    			eyy:this.state.eyy,
+    			jbw:this.state.jbw}
     	});
     }
 
     //头部界面
 	renderHeader(){
 		return(
+			<View style={{backgroundColor:'white'}}>
 			<ScrollView horizontal={true}
-				 contentContainerStyle={{backgroundColor:'white'}}
-				showsHorizontalScrollIndicator={false}>
+				 	contentContainerStyle={{backgroundColor:'white',}}
+					showsHorizontalScrollIndicator={false}>
 				<TouchableHighlight
 				  	onPress={()=>this.onFilter()}
 				  	underlayColor='white'>
-				<View style={{height:45,padding:6,alignItems:'center',flexDirection:'row'}}>
+				<View style={{height:45,padding:6,alignItems:'center',flexDirection:'row',flex:1}}>
 					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
 						padding:8 ,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>本科一批</Text>
-					</View>
-					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
-						padding:8 ,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>江苏省</Text>
-					</View>
-					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
-						height:32,width:64,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>工科院校</Text>
+						<Text style={{fontSize:13,color:'#85add7'}}>{this.state.batch}</Text>
 					</View>
 					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
 						padding:8 ,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>心理学123123类</Text>
+						<Text style={{fontSize:13,color:'#85add7'}}>{this.state.provVal}</Text>
 					</View>
-					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
-						height:32,width:64,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>211</Text>
-					</View>
-					<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
-						height:32,width:64,alignItems:'center',justifyContent:'center'}}>
-						<Text style={{fontSize:13,color:'#85add7'}}>985</Text>
-					</View>
+					{this.state.typeId === ''? 
+						<View/>
+						:
+						<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
+							height:32,width:64,alignItems:'center',justifyContent:'center'}}>
+							<Text style={{fontSize:13,color:'#85add7'}}>{this.state.typeVal}</Text>
+						</View>
+					}
+					{this.state.marjorId === ''? 
+						<View/>
+						:
+						<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
+							padding:8 ,alignItems:'center',justifyContent:'center'}}>
+							<Text style={{fontSize:13,color:'#85add7'}}>{this.state.marjorVal}</Text>
+						</View>
+					}
+					{this.state.eyy === false? 
+						<View/>
+						:
+						<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
+							height:32,width:64,alignItems:'center',justifyContent:'center'}}>
+							<Text style={{fontSize:13,color:'#85add7'}}>211</Text>
+						</View>
+					}
+					{this.state.jbw === false? 
+						<View/>
+						:
+						<View style={{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
+							height:32,width:64,alignItems:'center',justifyContent:'center'}}>
+							<Text style={{fontSize:13,color:'#85add7'}}>985</Text>
+						</View>
+					}		
 				</View>
 				</TouchableHighlight>
 			</ScrollView>
-			
+			</View>
+
 		)
 	}
 

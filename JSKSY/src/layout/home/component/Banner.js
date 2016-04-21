@@ -5,11 +5,13 @@ import React, {
   Image,
   Dimensions,
   Text,
+  TouchableHighlight,
   StyleSheet,
   View
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { urlForQueryAndPage, netClient } from '../../../util/NetUtil';
+import Web from '../../webview/Web';
 
 var listData = [];
 
@@ -19,6 +21,13 @@ export default class Banner extends React.Component{
 		this.state={
 			data:[],
 		}
+	}
+
+	onBannerClick(){
+		this.props.homeObj.props.navigator.push({
+			title:'详情',
+			component:Web
+		});
 	}
 
 	componentDidMount() {
@@ -42,6 +51,7 @@ export default class Banner extends React.Component{
 	}
 
 	render(){
+		var bannerThis = this;
 		return(
 				<Swiper autoplay={true} loop={true}
 					showsPagination={true}
@@ -51,9 +61,13 @@ export default class Banner extends React.Component{
 					{this.state.data.map(function(item){
 						return(
 							<View key={item.id} style={{backgroundColor:'#ffffff'}}>
-								<Image
-								  style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*7/15}}
-								  source={{uri: item.imageUrl}} />
+								<TouchableHighlight
+							  	  onPress={()=>bannerThis.onBannerClick()}
+							  	  underlayColor='#fcfcfc'>
+									<Image
+									  style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*7/15}}
+									  source={{uri: item.imageUrl}} />
+								</TouchableHighlight>
 								<Text style={{textAlign:'center',paddingTop:7,paddingBottom:7,color:'#666666',fontSize:14}}>{item.name}</Text>
 							</View>
 						)

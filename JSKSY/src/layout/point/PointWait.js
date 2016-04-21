@@ -37,11 +37,12 @@ export default class PointWait extends React.Component{
 	countDown(){
 		this.timer = setTimeout(
 			()=>{
-				var ts = (new Date(2016, 6, 1, 0, 0, 0)) - (new Date());//计算剩余的毫秒数  
-                var dd = parseInt(ts / 1000 / 60 / 60 / 24, 10);//计算剩余的天数  
-                var hh = parseInt(ts / 1000 / 60 / 60 % 24, 10);//计算剩余的小时数  
-                var mm = parseInt(ts / 1000 / 60 % 60, 10);//计算剩余的分钟数  
-                var ss = parseInt(ts / 1000 % 60, 10);//计算剩余的秒数  
+				//var ts = (new Date(2016, 6, 1, 0, 0, 0)) - (new Date());//计算剩余的毫秒数  
+				var ts = new Date('2016/06/01 00:00:00').getTime() - new Date().getTime();
+                var dd = parseInt(ts / 1000 / 60 / 60 / 24);//计算剩余的天数  
+                var hh = parseInt(ts / 1000 / 60 / 60 % 24);//计算剩余的小时数  
+                var mm = parseInt(ts / 1000 / 60 % 60);//计算剩余的分钟数  
+                var ss = parseInt(ts / 1000 % 60);//计算剩余的秒数  
                 dd = checkTime(dd);  
                 hh = checkTime(hh);  
                 mm = checkTime(mm);  
