@@ -43,6 +43,12 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
     private String provId;
     private String schoolId;
     private String majorId;
+    
+    private String batchVal;
+    private String provVal;
+    private String schoolVal;
+    private String majorVal;
+    
     private ImageView eyy_img, jbw_img;
     private TextView batch_val,prov_val,school_val,major_val;
     
@@ -51,6 +57,17 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wish_condition);
+        batchId = getIntent().getStringExtra("batchId");
+        provId = getIntent().getStringExtra("provId");
+        schoolId = getIntent().getStringExtra("schoolId");
+        majorId = getIntent().getStringExtra("majorId");
+        isEYY = getIntent().getBooleanExtra("isEYY", false);
+        isJBW = getIntent().getBooleanExtra("isJBW", false);
+        batchVal = getIntent().getStringExtra("batchVal");
+        provVal = getIntent().getStringExtra("provVal");
+        schoolVal = getIntent().getStringExtra("schoolVal");
+        majorVal = getIntent().getStringExtra("majorVal");
+        
         init();
     }
     
@@ -60,6 +77,9 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
         TextView title_name = (TextView)findViewById(R.id.title_name);
         title_name.setText("筛选");
         app_title_back.setOnClickListener(this);
+        
+        TextView submit_btn = (TextView)findViewById(R.id.submit_btn);
+        
         
         LinearLayout eyy_layout = (LinearLayout)findViewById(R.id.eyy_layout);
         LinearLayout jbw_layout = (LinearLayout)findViewById(R.id.jbw_layout);
@@ -72,8 +92,31 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
         LinearLayout major_layout = (LinearLayout)findViewById(R.id.major_layout);
         major_val = (TextView)findViewById(R.id.major_val);
         
+        batch_val.setText(batchVal);
+        prov_val.setText(provVal);
+        school_val.setText(schoolVal);
+        major_val.setText(majorVal);
+        
         eyy_img = (ImageView)findViewById(R.id.eyy_img);
         jbw_img = (ImageView)findViewById(R.id.jbw_img);
+        
+        if (isEYY)
+        {
+            eyy_img.setImageResource(R.drawable.switch_on);
+        }
+        else
+        {
+            eyy_img.setImageResource(R.drawable.switch_off);
+        }
+        if (isJBW)
+        {
+            jbw_img.setImageResource(R.drawable.switch_on);
+        }
+        else
+        {
+            jbw_img.setImageResource(R.drawable.switch_off);
+        }
+        
         
         eyy_layout.setOnClickListener(this);
         jbw_layout.setOnClickListener(this);
@@ -81,6 +124,7 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
         prov_layout.setOnClickListener(this);
         school_layout.setOnClickListener(this);
         major_layout.setOnClickListener(this);
+        submit_btn.setOnClickListener(this);
     }
     
     @Override
@@ -143,6 +187,21 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
                 intentMajor.putExtra("title", "开设专业");
                 startActivityForResult(intentMajor, 1004);
                 break;
+            case R.id.submit_btn:
+                Intent intent = new Intent(this, WishListActivity.class);
+                intent.putExtra("batchId", batchId);
+                intent.putExtra("batchVal", batchVal);
+                intent.putExtra("provId", provId);
+                intent.putExtra("provVal", provVal);
+                intent.putExtra("schoolId", schoolId);
+                intent.putExtra("schoolVal", schoolVal);
+                intent.putExtra("majorId", majorId);
+                intent.putExtra("majorVal", majorVal);
+                intent.putExtra("isEYY", isEYY);
+                intent.putExtra("isJBW", isJBW);
+                setResult(1001, intent);
+                finish();
+                break;
             default:
                 break;
         }
@@ -157,18 +216,22 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
             case 1001:
                 batchId = data.getStringExtra("id");
                 batch_val.setText(data.getStringExtra("val"));
+                batchVal = data.getStringExtra("val");
                 break;
             case 1002:
                 provId = data.getStringExtra("id");
                 prov_val.setText(data.getStringExtra("val"));
+                provVal = data.getStringExtra("val");
                 break;
             case 1003:
                 schoolId = data.getStringExtra("id");
                 school_val.setText(data.getStringExtra("val"));
+                schoolVal = data.getStringExtra("val");
                 break;
             case 1004:
                 majorId = data.getStringExtra("id");
                 major_val.setText(data.getStringExtra("val"));
+                majorVal = data.getStringExtra("val");
                 break;
             default:
                 break;

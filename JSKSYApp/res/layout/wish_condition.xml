@@ -235,6 +235,7 @@
             android:background="@color/color_8dc3fa"/>
         
         <TextView
+            android:id="@+id/submit_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="39dp"

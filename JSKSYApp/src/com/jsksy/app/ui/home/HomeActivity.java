@@ -42,7 +42,7 @@ import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
-import com.jsksy.app.ui.wish.WishSearchActivity;
+import com.jsksy.app.ui.wish.WishListActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.view.MyImageView;
 import com.jsksy.app.view.PullToRefreshView;
@@ -334,7 +334,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                 startActivity(intentOffer);
                 break;
             case R.id.wish_layout:
-                Intent intentWish = new Intent(this,WishSearchActivity.class);
+                Intent intentWish = new Intent(this,WishListActivity.class);
                 startActivity(intentWish);
                 break;
             default:

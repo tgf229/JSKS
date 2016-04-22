@@ -19,6 +19,7 @@
             android:layout_height="match_parent" >
 
             <LinearLayout
+                android:id="@+id/batch_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
@@ -28,6 +29,7 @@
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/batch_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="本科一批"
@@ -36,6 +38,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/prov_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
@@ -45,23 +48,27 @@
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/prov_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="江苏省"
+                    android:text="全国"
                     android:textColor="@color/color_85add7"
                     android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/school_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
                 android:background="@color/color_f3f9ff"
                 android:gravity="center"
+                android:visibility="gone"
                 android:minWidth="64dp"
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/school_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="工科院校"
@@ -70,15 +77,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/major_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
+                android:visibility="gone"
                 android:background="@color/color_f3f9ff"
                 android:gravity="center"
                 android:minWidth="64dp"
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/major_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="心里学类"
@@ -90,6 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
+                android:visibility="gone"
                 android:background="@color/color_f3f9ff"
                 android:gravity="center"
                 android:minWidth="64dp"
@@ -108,6 +119,7 @@
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
                 android:background="@color/color_f3f9ff"
+                android:visibility="gone"
                 android:gravity="center"
                 android:minWidth="64dp"
                 android:padding="5dp" >

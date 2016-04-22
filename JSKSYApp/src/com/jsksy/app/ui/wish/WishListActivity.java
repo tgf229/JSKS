@@ -48,6 +48,17 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     
     private View headView;
     
+    private String batchId = "1";
+    private String batchVal =  "本科一批";
+    private String provId = "";
+    private String provVal = "全国";
+    private String schoolId = "";
+    private String schoolVal = "";
+    private String majorId = "";
+    private String majorVal = "";
+    private boolean isEYY = false; //是否211
+    private boolean isJBW = false; //是否985
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -98,17 +109,17 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         wishList.add(doc);
         wishList.add(doc1);
         wishListAdapter.notifyDataSetChanged();
-//        Map<String, String> param = new HashMap<String, String>();
-//        param.put("cId", "1");
-//        param.put("uId", "1");
-//        param.put("page", "1");
-//        param.put("num", "10");
-//        ConnectService.instance().connectServiceReturnResponse(this,
-//            param,
-//            WishListActivity.this,
-//            NewsResponse.class,
-//            URLUtil.Bus302301,
-//            Constants.ENCRYPT_NONE);
+        //        Map<String, String> param = new HashMap<String, String>();
+        //        param.put("cId", "1");
+        //        param.put("uId", "1");
+        //        param.put("page", "1");
+        //        param.put("num", "10");
+        //        ConnectService.instance().connectServiceReturnResponse(this,
+        //            param,
+        //            WishListActivity.this,
+        //            NewsResponse.class,
+        //            URLUtil.Bus302301,
+        //            Constants.ENCRYPT_NONE);
     }
     
     @Override
@@ -118,15 +129,15 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         mPullToRefreshView.onHeaderRefreshComplete();
         if (ob instanceof NewsResponse)
         {
-//            WishResponse resp = (WishResponse)ob;
-//            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
-//            {
-//                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
-//                {
-//                    wishList.addAll(resp.getDoc());
-//                    wishListAdapter.notifyDataSetChanged();
-//                }
-//            }
+            //            WishResponse resp = (WishResponse)ob;
+            //            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
+            //            {
+            //                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
+            //                {
+            //                    wishList.addAll(resp.getDoc());
+            //                    wishListAdapter.notifyDataSetChanged();
+            //                }
+            //            }
         }
     }
     
@@ -146,8 +157,41 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
                 finish();
                 break;
             case R.id.condition_layout:
-                Intent intent = new Intent(this,WishConditionActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(this, WishConditionActivity.class);
+                intent.putExtra("batchId", batchId);
+                intent.putExtra("batchVal", batchVal);
+                intent.putExtra("provId", provId);
+                intent.putExtra("provVal", provVal);
+                intent.putExtra("schoolId", schoolId);
+                intent.putExtra("schoolVal", schoolVal);
+                intent.putExtra("majorId", majorId);
+                intent.putExtra("majorVal", majorVal);
+                intent.putExtra("isEYY", isEYY);
+                intent.putExtra("isJBW", isJBW);
+                startActivityForResult(intent, 1001);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode)
+        {
+            case 1001:
+                batchId = data.getStringExtra("batchId");
+                batchVal = data.getStringExtra("batchVal");
+                provId = data.getStringExtra("provId");
+                provVal = data.getStringExtra("provVal");
+                schoolId = data.getStringExtra("schoolId");
+                schoolVal = data.getStringExtra("schoolVal");
+                majorId = data.getStringExtra("majorId");
+                majorVal = data.getStringExtra("majorVal");
+                isEYY = data.getBooleanExtra("isEYY", false);
+                isJBW = data.getBooleanExtra("isJBW", false);
                 break;
             default:
                 break;
