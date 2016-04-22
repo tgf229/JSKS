@@ -17,6 +17,7 @@ import React, {
 } from 'react-native';
 
 import WishPayment from './WishPayment';
+import App_Title from '../common/App_Title';
 
 export default class WishAgreement extends React.Component{
 	constructor(props){
@@ -35,7 +36,6 @@ export default class WishAgreement extends React.Component{
 			return;
 		}
 		this.props.navigator.push({
-			title:'购买',
 			component:WishPayment
 		});
 	}
@@ -46,6 +46,8 @@ export default class WishAgreement extends React.Component{
 
 	render(){
 		return(
+			<View style={{flex:1}}>
+			<App_Title title={'购买'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 
@@ -83,6 +85,7 @@ export default class WishAgreement extends React.Component{
 				</TouchableHighlight>
 
 			</ScrollView>
+			</View>
 		)
 	}
 }

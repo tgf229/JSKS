@@ -18,6 +18,7 @@ import React, {
 } from 'react-native';
 import WishFilter_List from './component/WishFilter_List';
 import WishFilter_Section_List from './component/WishFilter_Section_List';
+import App_Title from '../common/App_Title';
 
 var BATCH_DATA = ['本科一批','本科二批','取消'];
 var TYPE_DATA = [{id:'',name:'全部'},{id:'01',name:'综合院校'},{id:'02',name:'工科院校'},{id:'03',name:'农业院校'}];
@@ -82,25 +83,31 @@ export default class WishFilter extends React.Component{
 			case 1:
 				//传参type 1 院校类型   
 				this.props.navigator.push({
-					title:'院校类型',
+					// title:'院校类型',
+					// leftButtonIcon:require('image!back_btn'),
+					// onLeftButtonPress: () => this.props.navigator.pop(),
 					component:WishFilter_List,
-					passProps:{listData:TYPE_DATA, filterObj:this, selectedID:this.state.typeId, type:1}
+					params:{listData:TYPE_DATA, filterObj:this, selectedID:this.state.typeId, type:1}
 				});
 			break;
 			case 2:
 				//传参type 2 省份
 				this.props.navigator.push({
-					title:'院校省份',
+					// title:'院校省份',
+					// leftButtonIcon:require('image!back_btn'),
+					// onLeftButtonPress: () => this.props.navigator.pop(),
 					component:WishFilter_List,
-					passProps:{listData:PROVINCE_DATA, filterObj:this, selectedID:this.state.provId, type:2}
+					params:{listData:PROVINCE_DATA, filterObj:this, selectedID:this.state.provId, type:2}
 				});
 			break;
 			case 3:
 				//传参type 3 开设专业
 				this.props.navigator.push({
-					title:'开设专业',
+					// title:'开设专业',
+					// leftButtonIcon:require('image!back_btn'),
+					// onLeftButtonPress: () => this.props.navigator.pop(),
 					component:WishFilter_Section_List,
-					passProps:{filterObj:this, selectedID:this.state.marjorId}
+					params:{filterObj:this, selectedID:this.state.marjorId}
 				});
 			break;
 			default:
@@ -139,7 +146,8 @@ export default class WishFilter extends React.Component{
 
 	render(){
 		return(
-			<View>
+				<View style={{flex:1}}>
+				<App_Title title={'筛选'} navigator={this.props.navigator}/>
 				<ScrollView
 				  contentContainerStyle={styles.contentContainer}>
 				  	<TouchableHighlight

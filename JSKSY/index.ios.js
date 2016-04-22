@@ -7,6 +7,7 @@ import React, {
   AppRegistry,
   Component,
   NavigatorIOS,
+  Navigator,
   StyleSheet,
   StatusBarIOS,
   View
@@ -29,15 +30,15 @@ class MyProject extends React.Component{
 
 	render(){
 		return(
-			<NavigatorIOS
-				style={{flex:1}}
-				barTintColor='#67aef7'
-			    titleTextColor='#ffffff'
-			  	initialRoute={{
-			    title: '江苏省教育考试院101-3',
-			    component: Home
-			  }} />
-
+			  <Navigator
+		          initialRoute={{ component: Home }}
+		          configureScene={(route) => {
+		            return Navigator.SceneConfigs.PushFromRight;
+		          }}
+		          renderScene={(route, navigator) => {
+		            let Component = route.component;
+		            return <Component {...route.params} navigator={navigator} />
+		          }} />
 		)
 	}
 

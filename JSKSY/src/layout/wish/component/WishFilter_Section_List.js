@@ -14,6 +14,9 @@ import React, {
   View
 } from 'react-native';
 
+import App_Title from '../../common/App_Title';
+
+
 var dataBlob = {};
 var MAJOR_DATA = [{id:'0015',name:'文科试验班类'},{id:'00201',name:'经济管理试验班'},{id:'00201_1',name:'经济管理实验班'},
 	{id:'00300',name:'法学试验班'},{id:'0060',name:'工科试验班类'},{id:'0070',name:'理科试验班类'},
@@ -106,11 +109,14 @@ export default class WishFilter_Section_List extends React.Component{
 
 	render(){
 		return(
-			<ListView
-			  dataSource={this.state.dataSource}
-			  pageSize={10}
-			  renderSectionHeader={(sectionData)=>this.renderSectionHeader(sectionData)}
-			  renderRow={(rowData) => this.renderRow(rowData)} />
+			<View style={{flex:1}}>
+				<App_Title title={'筛选'} navigator={this.props.navigator}/>
+				<ListView
+				  dataSource={this.state.dataSource}
+				  pageSize={10}
+				  renderSectionHeader={(sectionData)=>this.renderSectionHeader(sectionData)}
+				  renderRow={(rowData) => this.renderRow(rowData)} />
+			 </View>
 		)
 	}
 }

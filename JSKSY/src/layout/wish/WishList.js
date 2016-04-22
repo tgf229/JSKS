@@ -17,6 +17,7 @@ import React, {
 import GiftedListView from 'react-native-gifted-listview';
 import { urlForQueryAndPage, netClient } from '../../util/NetUtil';
 import WishFilter from './WishFilter';
+import App_Title from '../common/App_Title';
 
 var listData = [	{id:'1101',name:'南京大学',batch:'本科一批',num:'158'},
 			   		{id:'1102',name:'南京航空航天大学',batch:'本一',num:'28'},
@@ -38,10 +39,10 @@ export default class WishList extends React.Component{
 			provVal:'全国',
 
 			typeId:'',
-			typeVal:'',
+			typeVal:'请选择',
 
 			marjorId:'',
-			marjorVal:'',
+			marjorVal:'请选择',
 
 			eyy:false,
 			jbw:false,
@@ -86,9 +87,8 @@ export default class WishList extends React.Component{
 
     onFilter(){
     	this.props.navigator.push({
-    		title:'筛选',
     		component:WishFilter,
-    		passProps:{filterObj:this,batch:this.state.batch,
+    		params:{filterObj:this,batch:this.state.batch,
     			batchVal:this.state.batchVal,
     			provId:this.state.provId,
     			provVal:this.state.provVal,
@@ -162,7 +162,8 @@ export default class WishList extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1,marginTop:64}}>
+			<View style={{flex:1}}>
+				<App_Title title={'志愿参考'} navigator={this.props.navigator}/>
 				<GiftedListView
 						style={{backgroundColor:'#eeeeee',}}
 						dataSource={this.state.dataSource}

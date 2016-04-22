@@ -7,12 +7,15 @@ import React, {
   View,
   WebView,
 } from 'react-native';
+import App_Title from '../common/App_Title';
+
 var DEFAULT_URL = 'http://mp.weixin.qq.com/s?__biz=MjM5NjAzNDgxNg==&mid=2650351268&idx=1&sn=92e58825af08c83f2a1bb98be2131519&scene=0#wechat_redirect';
  
  export default class Web extends React.Component{
   render(){
       return (
         <View style={{flex:1}}>
+          <App_Title title={'详情'} navigator={this.props.navigator}/>
           <WebView style={styles.webview_style} 
             url={DEFAULT_URL}
             startInLoadingState={true}

@@ -18,6 +18,7 @@ import React, {
 import Header from './component/Header'
 import { urlForQueryAndPage, netClient } from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
+import App_Title from '../common/App_Title';
 
 var ds;
 var PAGE_NUM = 1;
@@ -118,7 +119,8 @@ export default class Home extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1,marginTop:64}}>
+			<View style={{flex:1}}>
+				<App_Title title={'江苏省教育考试院101-4'} navigator={this.props.navigator} leftHid={true}/>
 				<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 

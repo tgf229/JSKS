@@ -14,6 +14,8 @@ import React, {
   View
 } from 'react-native';
 
+import App_Title from '../../common/App_Title';
+
 var ds;
 export default class WishFilter_List extends React.Component{
 	constructor(props){
@@ -68,9 +70,12 @@ export default class WishFilter_List extends React.Component{
 
 	render(){
 		return(
-			<ListView
-			  dataSource={this.state.dataSource}
-			  renderRow={(rowData) => this.renderRow(rowData)} />
+			<View style={{flex:1}}>
+				<App_Title title={'筛选'} navigator={this.props.navigator}/>
+				<ListView
+				  dataSource={this.state.dataSource}
+				  renderRow={(rowData) => this.renderRow(rowData)} />
+			</View>
 		)
 	}
 }

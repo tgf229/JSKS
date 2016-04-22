@@ -12,7 +12,7 @@ import React, {
   Text,
   View
 } from 'react-native';
-
+import App_Title from '../common/App_Title';
 import PointSearch from './PointSearch';
 
     function checkTime(i)    
@@ -68,13 +68,14 @@ export default class PointWait extends React.Component{
 
 	onSubmit(){
 		this.props.navigator.push({
-			title:'高考查分',
 			component:PointSearch,
 		});
 	}
 
 	render(){
 		return(
+			<View>
+			<App_Title title={'高考查分'} navigator={this.props.navigator} />
 			<View style={{flex:1,alignItems:'center'}}>
 				<Text style={{fontSize:18,color:'#999999',marginTop:158}}>
 					距离江苏省高考成绩发布还有
@@ -118,7 +119,7 @@ export default class PointWait extends React.Component{
 					underlayColor='#fcfcfc'>
 					<Text style={{fontSize:16,color:'white'}}>测试用，点击下一步</Text>
 				</TouchableHighlight>
-
+				</View>
 			</View>
 		)
 	}

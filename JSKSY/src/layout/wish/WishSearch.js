@@ -15,6 +15,7 @@ import React, {
 } from 'react-native';
 
 import WishAgreement from './WishAgreement';
+import App_Title from '../common/App_Title';
 
 export default class WishSearch extends React.Component{
 	constructor(props){
@@ -30,13 +31,14 @@ export default class WishSearch extends React.Component{
 
 	onSubmit(){
 		this.props.navigator.push({
-			title:'购买',
 			component:WishAgreement
 		});
 	}
 
 	render(){
 		return(
+			<View style={{flex:1}}>
+			<App_Title title={'志愿参考'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 			  	<TextInput
@@ -67,6 +69,7 @@ export default class WishSearch extends React.Component{
 				<Text style={{marginTop:18,fontSize:12,color:'#999999'}}>PS: 已购买过该项服务的考生，可在验证后再次查询</Text>
 
 			</ScrollView>
+			</View>
 		)
 	}
 }

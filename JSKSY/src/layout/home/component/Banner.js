@@ -25,7 +25,6 @@ export default class Banner extends React.Component{
 
 	onBannerClick(){
 		this.props.homeObj.props.navigator.push({
-			title:'详情',
 			component:Web
 		});
 	}

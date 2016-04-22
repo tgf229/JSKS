@@ -10,6 +10,7 @@ import React, {
   Image,
   Text,
   PixelRatio,
+  Navigator,
   TouchableHighlight,
   View
 } from 'react-native';
@@ -28,29 +29,35 @@ export default class Header extends React.Component{
 	}
 
 	onBtnClick(flag){
+		const { navigator } = this.props.homeObj.props;
 		switch(flag){
 			case 1:
-				this.props.homeObj.props.navigator.push({
-					title:'高考查分',
-					leftButtonIcon:require('../../../resource/images/back_btn.png'),
-					onLeftButtonPress: () => this.props.homeObj.props.navigator.pop(),
-					component:PointWait,
-				});
+				if(navigator) {
+			            navigator.push({
+			                component: PointWait,
+			            })
+			        }
+				// this.props.homeObj.props.navigator.push({
+				// 	title:'高考查分',
+				// 	leftButtonIcon:require('image!back_btn'),
+				// 	onLeftButtonPress: () => this.props.homeObj.props.navigator.pop(),
+				// 	component:PointWait,
+				// });
 				break;
 			case 2:
-				this.props.homeObj.props.navigator.push({
-					title:'志愿参考',
-					leftButtonIcon:require('../../../resource/images/back_btn.png'),
-					onLeftButtonPress: () => this.props.homeObj.props.navigator.pop(),
-					component:WishSearch,
-				});
+				if(navigator) {
+			            navigator.push({
+			                component: WishSearch,
+			            })
+			        }
+				break;
 			case 3:
-				this.props.homeObj.props.navigator.push({
-					title:'录取查询',
-					leftButtonIcon:require('../../../resource/images/back_btn.png'),
-					onLeftButtonPress: () => this.props.homeObj.props.navigator.pop(),
-					component:OfferSearch,
-				});
+				if(navigator) {
+			            navigator.push({
+			                component: OfferSearch,
+			            })
+			        }
+				break;
 			default:
 				console.log('按钮=其他');
 				break;

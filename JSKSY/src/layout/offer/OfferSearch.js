@@ -16,6 +16,7 @@ import React, {
   View
 } from 'react-native';
 import OfferResult from './OfferResult';
+import App_Title from '../common/App_Title';
 
 export default class OfferSearch extends React.Component{
 	constructor(props){
@@ -31,17 +32,17 @@ export default class OfferSearch extends React.Component{
 
 	onSubmit(){
 		this.props.navigator.push({
-			title:'录取查询',
-			rightButtonTitle:'取消预约',
 			component:OfferResult,
 		});
 	}
 
 	render(){
 		return(
+			<View style={{flex:1}}>
+			<App_Title title={'录取查询'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
-			  	<View style={{flex:1}}>
+			  	<View>
 			  	<Image
 			  		style={{alignSelf:'center'}}
 			    	source={require('image!offer_tongzhi')} />
@@ -76,6 +77,7 @@ export default class OfferSearch extends React.Component{
 				</TouchableHighlight>
 				</View>
 			</ScrollView>
+			</View>
 		)
 	}
 }
@@ -86,6 +88,7 @@ const styles = StyleSheet.create({
 		paddingLeft:20,
 		paddingRight:20,
 		backgroundColor:'white',
+
 	},
 });
 

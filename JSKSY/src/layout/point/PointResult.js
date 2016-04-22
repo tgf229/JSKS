@@ -14,6 +14,7 @@ import React, {
   View
 } from 'react-native';
 import PointResult_Success from './component/PointResult_Success';
+import App_Title from '../common/App_Title';
 
 export default class PointResult extends React.Component{
 	constructor(props){
@@ -31,7 +32,10 @@ export default class PointResult extends React.Component{
 
 	render(){
 		return(
+			<View style={{flex:1}}>
+			<App_Title title={'高考查分'} navigator={this.props.navigator} />
 			<ScrollView
+
 			  	contentContainerStyle={styles.contentContainer}>
 			
 				{
@@ -47,6 +51,7 @@ export default class PointResult extends React.Component{
 					</View>:<PointResult_Success/>
 				}
 			</ScrollView>
+			</View>
 		)
 	}
 }

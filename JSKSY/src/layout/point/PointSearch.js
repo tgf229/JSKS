@@ -14,6 +14,7 @@ import React, {
   View
 } from 'react-native';
 import PointResult from './PointResult'
+import App_Title from '../common/App_Title';
 
 export default class PointSearch extends React.Component{
 	constructor(props){
@@ -29,13 +30,14 @@ export default class PointSearch extends React.Component{
 
 	onSubmit(){
 		this.props.navigator.push({
-			title:'高考查分',
 			component:PointResult,
 		});
 	}
 
 	render(){
 		return(
+			<View style={{flex:1}}>
+			<App_Title title={'高考查分'} navigator={this.props.navigator} />
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 			  	<TextInput
@@ -64,6 +66,7 @@ export default class PointSearch extends React.Component{
 					<Text style={{fontSize:16,color:'white'}}>查询</Text>
 				</TouchableHighlight>
 			</ScrollView>
+			</View>
 		)
 	}
 }
