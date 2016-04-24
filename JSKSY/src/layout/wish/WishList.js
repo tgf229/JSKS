@@ -160,10 +160,14 @@ export default class WishList extends React.Component{
 		)
 	}
 
+	onRightNavCilck(){
+		this.onFilter();
+	}
+
 	render(){
 		return(
-			<View style={{flex:1}}>
-				<App_Title title={'志愿参考'} navigator={this.props.navigator}/>
+			<View style={{flex:1,backgroundColor:'white',}}>
+				<App_Title title={'志愿参考'} navigator={this.props.navigator} rightShow={true} rightText={'筛选'} obj={this}/>
 				<GiftedListView
 						style={{backgroundColor:'#eeeeee',}}
 						dataSource={this.state.dataSource}

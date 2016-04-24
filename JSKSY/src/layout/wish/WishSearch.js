@@ -1,4 +1,5 @@
 /**
+/**
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
@@ -37,7 +38,7 @@ export default class WishSearch extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white'}}>
 			<App_Title title={'志愿参考'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
 		paddingTop:54,
 		paddingLeft:20,
 		paddingRight:20,
-		backgroundColor:'white',
+
 	},
 });
 

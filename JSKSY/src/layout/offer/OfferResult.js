@@ -27,10 +27,14 @@ export default class OfferResult extends React.Component{
 		}
 	}
 
+	onRightNavCilck(){
+		console.log('right');
+	}
+
 	render(){
 		return(
-			<View>
-			<App_Title title={'录取结果'} navigator={this.props.navigator}/>
+			<View style={{flex:1,backgroundColor:'white'}}>
+			<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 			  	<OfferResult_Success/>
@@ -42,7 +46,7 @@ export default class OfferResult extends React.Component{
 
 const styles = StyleSheet.create({
 	contentContainer:{
-		backgroundColor:'white',
+
 	},
 });
 

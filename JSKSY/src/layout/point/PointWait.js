@@ -74,7 +74,7 @@ export default class PointWait extends React.Component{
 
 	render(){
 		return(
-			<View>
+			<View style={{backgroundColor:'white'}}>
 			<App_Title title={'高考查分'} navigator={this.props.navigator} />
 			<View style={{flex:1,alignItems:'center'}}>
 				<Text style={{fontSize:18,color:'#999999',marginTop:158}}>

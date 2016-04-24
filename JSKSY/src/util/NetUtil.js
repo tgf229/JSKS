@@ -19,7 +19,7 @@ export function netClient(object,query) {
 			.then(json => object.busCB(json))
 			.catch(error => 
 				object.setState({
-					isLoading:false,
+					//isLoading:false,
 				})
 			);
 }

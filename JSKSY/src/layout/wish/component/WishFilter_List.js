@@ -70,7 +70,7 @@ export default class WishFilter_List extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white',}}>
 				<App_Title title={'筛选'} navigator={this.props.navigator}/>
 				<ListView
 				  dataSource={this.state.dataSource}

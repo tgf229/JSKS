@@ -14,7 +14,7 @@ var DEFAULT_URL = 'http://mp.weixin.qq.com/s?__biz=MjM5NjAzNDgxNg==&mid=26503512
  export default class Web extends React.Component{
   render(){
       return (
-        <View style={{flex:1}}>
+        <View style={{flex:1,backgroundColor:'white',}}>
           <App_Title title={'详情'} navigator={this.props.navigator}/>
           <WebView style={styles.webview_style} 
             url={DEFAULT_URL}

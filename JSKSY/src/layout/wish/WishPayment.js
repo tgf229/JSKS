@@ -16,7 +16,7 @@ import React, {
   View
 } from 'react-native';
 
-import WishList from './WishList';
+import WishPaySuccess from './WishPaySuccess';
 import App_Title from '../common/App_Title';
 
 export default class PayAgreement extends React.Component{
@@ -29,7 +29,7 @@ export default class PayAgreement extends React.Component{
 
 	onSubmit(){
 		this.props.navigator.push({
-			component:WishList
+			component:WishPaySuccess
 		})
 	}
 
@@ -40,7 +40,7 @@ export default class PayAgreement extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white',}}>
 			<App_Title title={'购买'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
@@ -129,7 +129,6 @@ const styles = StyleSheet.create({
 	contentContainer:{
 		paddingLeft:16,
 		paddingRight:16,
-		backgroundColor:'white',
 
 	},
 });

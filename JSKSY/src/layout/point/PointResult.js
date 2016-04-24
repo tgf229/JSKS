@@ -32,7 +32,7 @@ export default class PointResult extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white',}}>
 			<App_Title title={'高考查分'} navigator={this.props.navigator} />
 			<ScrollView
 
@@ -58,7 +58,7 @@ export default class PointResult extends React.Component{
 
 const styles = StyleSheet.create({
 	contentContainer:{
-		backgroundColor:'white',
+
 	},
 });
 

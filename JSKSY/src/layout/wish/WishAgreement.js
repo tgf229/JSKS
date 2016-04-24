@@ -46,7 +46,7 @@ export default class WishAgreement extends React.Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white',}}>
 			<App_Title title={'购买'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
@@ -95,8 +95,6 @@ const styles = StyleSheet.create({
 		paddingTop:45,
 		paddingLeft:20,
 		paddingRight:20,
-		backgroundColor:'white',
-
 	},
 });
 
