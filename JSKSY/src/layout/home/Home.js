@@ -16,12 +16,15 @@ import React, {
   View
 } from 'react-native';
 import Header from './component/Header'
-import { urlForQueryAndPage, netClient } from '../../util/NetUtil';
+import { BUS_100101,BUS_100301 ,netClientPost} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
+import DeviceUUID from "react-native-device-uuid";
+var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
 var ds;
 var PAGE_NUM = 1;
+var NUM = 10;
 //列表数据集合
 var listData = [];
 //是否加载完毕所有数据
@@ -44,7 +47,6 @@ export default class Home extends React.Component{
 
 	//渲染cell
 	renderRow(rowData,sectionID,rowID){
-		var price = rowData.price_formatted.split(' ')[0];
 		return(
 			<TouchableHighlight
 				onPress={()=>this.rowPressed(rowData)}
@@ -53,10 +55,10 @@ export default class Home extends React.Component{
 			  		<View style={{flexDirection:'row',padding:14}}>
 			  			<Image
 			  			  style={{width:PixelRatio.get() * 130/4,height:PixelRatio.get() * 130/4}}
-			  			  source={{uri: rowData.img_url}} />
+			  			  source={{uri: rowData.imageUrl}} />
 			  			<View style={{height:PixelRatio.get() * 130/4,marginLeft:13,flex:1}}>
-			  				<Text style={styles.title} numberOfLines={2}>{rowData.title}</Text>
-			  				<Text style={styles.price}>{price}</Text>
+			  				<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
+			  				<Text style={styles.price}>{rowData.time}</Text>
 			  			</View>
 			  		</View>
 			  		<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}></View>
@@ -77,14 +79,67 @@ export default class Home extends React.Component{
 	    return <ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />;
 	}
 
+	//初始化接口回调
+	BUS_100101_CB(object,json){
+		console.log('BUS_100101_CB成功');
+	}
+
+	//初始化接口请求
+	BUS_100101_REQ(model,uuid){
+		var params = {
+			encrypt:'none',
+			type:'2',
+			model:model,
+			version:'1.0.0',
+			imei:uuid,
+		}
+		netClientPost(this,BUS_100101,this.BUS_100101_CB,params);
+	}
+
+	componentDidMount() {
+		  	//RN调用原生方法 获取UUDID和model 并调用初始化接口
+			DeviceUUID.getUUID().then((uuid) => {
+				NativeBridge.findEvents((error,events)=>{
+					if (error) {
+						console.log(error);
+					}else{
+						this.BUS_100101_REQ(events,uuid);
+					}
+				}) 
+			});
+	}
+
+	//初始化接口回调
+	BUS_100301_CB(object,json){
+		if (json.retcode === '000000') {
+			if (json.doc.length < 10) {
+				isLoadEnd = true;
+			}
+			listData = listData.concat(json.doc);
+			object.setState({dataSource:ds.cloneWithRows(listData)});
+			console.log('成功='+listData);
+		}else{
+			isLoadEnd = true;
+			console.log('失败');
+		}
+	}
+
+	//初始化接口请求
+	BUS_100301_REQ(){
+		var params = {
+			encrypt:'none',
+			page:PAGE_NUM,
+			num:NUM,
+		}
+		netClientPost(this,BUS_100301,this.BUS_100301_CB,params);
+	}
+
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
   		PAGE_NUM = 1;
   		listData = [];
-	    //封装链接地址
-		var query = urlForQueryAndPage('place_name','london',PAGE_NUM);
-		//调用接口
-		netClient(this,query);
+
+  		this.BUS_100301_REQ();
 
 		var rows={};
 		callback(rows);
@@ -96,25 +151,10 @@ export default class Home extends React.Component{
 	 	if (isLoadEnd) {
 	 		return;
 	 	}
-
 		PAGE_NUM = PAGE_NUM+1;
-		console.log('PAGE_NUM= '+PAGE_NUM);
-		//封装链接地址
-		var query = urlForQueryAndPage('place_name','london',PAGE_NUM);
-		//调用接口
-		netClient(this,query); 
-	}
+		console.log('PAGE_NUM='+PAGE_NUM);
 
-	//请求回调
-	busCB(json){
-		if (json.response.application_response_code.substr(0,1) === '1') {
-			listData = listData.concat(json.response.listings);
-			this.setState({dataSource:ds.cloneWithRows(listData)});
-			console.log('成功');
-		}else{
-			isLoadEnd = true;
-			console.log('失败');
-		}
+		this.BUS_100301_REQ();
 	}
 
 	render(){

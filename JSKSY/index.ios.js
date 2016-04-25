@@ -15,6 +15,9 @@ import React, {
 import Home from './src/layout/home/Home';
 import codePush from "react-native-code-push";
 
+
+var device_uuid='';
+var device_model='';
 class MyProject extends React.Component{
 	constructor(props){
 		super(props);
@@ -31,7 +34,7 @@ class MyProject extends React.Component{
 	render(){
 		return(
 			  <Navigator
-		          initialRoute={{ component: Home }}
+		          initialRoute={{ component: Home, }}
 		          configureScene={(route) => {
 		            return Navigator.SceneConfigs.PushFromRight;
 		          }}

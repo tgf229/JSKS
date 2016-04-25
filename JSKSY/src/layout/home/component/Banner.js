@@ -10,7 +10,8 @@ import React, {
   View
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import { urlForQueryAndPage, netClient } from '../../../util/NetUtil';
+import { netClientPost,BUS_100201} from '../../../util/NetUtil';
+import NetUtil from '../../../util/NetUtil';
 import Web from '../../webview/Web';
 
 var listData = [];
@@ -29,17 +30,11 @@ export default class Banner extends React.Component{
 		});
 	}
 
-	componentDidMount() {
-		var query = "http://mobile.crossroad.love/Bus100201?encrypt=none&cId=1";
-		//调用接口
-		netClient(this,query);
-	}
-
-	//请求回调
-	busCB(json){
+	//轮播通告回调
+	BUS_100201_CB(object,json){
 		if (json.retcode === '000000') {
 			listData=listData.concat(json.doc);
-			this.setState({
+			object.setState({
 				data: listData,
 			});
 			console.log('成功='+listData);
@@ -47,6 +42,18 @@ export default class Banner extends React.Component{
 			isLoadEnd = true;
 			console.log('失败');
 		}
+	}
+
+	//轮播通告请求
+	BUS_100201_REQ(){
+		var params = {
+			encrypt:'none',
+		};
+		netClientPost(this,BUS_100201,this.BUS_100201_CB,params);
+	}
+
+	componentDidMount() {
+		this.BUS_100201_REQ();
 	}
 
 	render(){
@@ -59,7 +66,7 @@ export default class Banner extends React.Component{
 					>
 					{this.state.data.map(function(item){
 						return(
-							<View key={item.id} style={{backgroundColor:'#ffffff'}}>
+							<View key={item.aId} style={{backgroundColor:'#ffffff'}}>
 								<TouchableHighlight
 							  	  onPress={()=>bannerThis.onBannerClick()}
 							  	  underlayColor='#fcfcfc'>
