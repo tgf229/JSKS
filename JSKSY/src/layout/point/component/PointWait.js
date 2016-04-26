@@ -12,8 +12,6 @@ import React, {
   Text,
   View
 } from 'react-native';
-import App_Title from '../common/App_Title';
-import PointSearch from './PointSearch';
 
     function checkTime(i)    
     {    
@@ -21,11 +19,43 @@ import PointSearch from './PointSearch';
             i = "0" + i;    
         }    
         return i;    
-    }   
+    }  
 
+    function formatStrToDate(dateString) {
+		var pattern = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
+		var formatedDate = dateString.replace(pattern, '$1-$2-$3 $4:$5:$6');
+		return formatedDate;
+     } 
+
+     function dateCon(d,num){
+	    var d = new Date(d.substring(0,4),
+	    d.substring(5,7)-1,
+	    d.substring(8,10),
+	    d.substring(11,13),
+	    d.substring(14,16),
+	    d.substring(17,19));
+	    d.setTime(d.getTime()+num*1000);
+	    // console.log(d.toLocaleString());
+	    return d.getFullYear()+"-"
+	    +checkTime(d.getMonth()+1)
+	    +"-"+checkTime(d.getDate())
+	    +" "+checkTime(d.getHours())
+	    +":"+checkTime(d.getMinutes())
+	    +":"+checkTime(d.getSeconds());
+	}
+
+var currentTime;
+var examTime;
 export default class PointWait extends React.Component{
 	constructor(props){
 		super(props);
+
+		//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		currentTime = '2016-04-26 11:36:01';
+		examTime = '2016-04-26 11:36:05';
+		// currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
+		// examTime = formatStrToDate(this.props.exTime);
+		
 		this.state={
 			day:'--',
 			hour:'--',
@@ -37,8 +67,18 @@ export default class PointWait extends React.Component{
 	countDown(){
 		this.timer = setTimeout(
 			()=>{
-				//var ts = (new Date(2016, 6, 1, 0, 0, 0)) - (new Date());//计算剩余的毫秒数  
-				var ts = new Date('2016/06/01 00:00:00').getTime() - new Date().getTime();
+				//var ts = (new Date(2016, 6, 1, 0, 0, 0)) - (new Date());//计算剩余的毫秒数
+				currentTime = dateCon(currentTime,1);
+
+				if (currentTime >= examTime) {
+					this.timer && clearTimeout(this.timer);
+					this.props.searchObj.setState({
+						isPointSearchOpen:true,
+					});
+					return;
+				}
+
+				var ts = new Date(examTime).getTime() - new Date(currentTime).getTime();
                 var dd = parseInt(ts / 1000 / 60 / 60 / 24);//计算剩余的天数  
                 var hh = parseInt(ts / 1000 / 60 / 60 % 24);//计算剩余的小时数  
                 var mm = parseInt(ts / 1000 / 60 % 60);//计算剩余的分钟数  
@@ -66,17 +106,9 @@ export default class PointWait extends React.Component{
 	  	this.timer && clearTimeout(this.timer);
 	}
 
-	onSubmit(){
-		this.props.navigator.push({
-			component:PointSearch,
-		});
-	}
-
 	render(){
 		return(
-			<View style={{backgroundColor:'white'}}>
-			<App_Title title={'高考查分'} navigator={this.props.navigator} />
-			<View style={{flex:1,alignItems:'center'}}>
+			<View style={{flex:1,alignItems:'center',backgroundColor:'white'}}>
 				<Text style={{fontSize:18,color:'#999999',marginTop:158}}>
 					距离江苏省高考成绩发布还有
 				</Text>
@@ -110,15 +142,6 @@ export default class PointWait extends React.Component{
 					  source={require('image!time_bg')} >
 					  	<Text style={{fontSize:35,color:'#ff902d'}}>{this.state.second}</Text>
 					</Image>
-				</View>
-
-				<TouchableHighlight
-					style={{marginTop:30,justifyContent:'center',alignItems:'center',
-						backgroundColor:'#ff902d',height:45,borderRadius:3}}
-					onPress={()=>this.onSubmit()}
-					underlayColor='#fcfcfc'>
-					<Text style={{fontSize:16,color:'white'}}>测试用，点击下一步</Text>
-				</TouchableHighlight>
 				</View>
 			</View>
 		)

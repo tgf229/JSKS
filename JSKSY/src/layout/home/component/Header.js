@@ -16,7 +16,7 @@ import React, {
 } from 'react-native';
 import Banner from './Banner';
 
-import PointWait from '../../point/PointWait';
+import PointSearch from '../../point/PointSearch';
 import WishSearch from '../../wish/WishSearch';
 import OfferSearch from '../../offer/OfferSearch';
 
@@ -34,7 +34,7 @@ export default class Header extends React.Component{
 			case 1:
 				if(navigator) {
 			            navigator.push({
-			                component: PointWait,
+			                component: PointSearch,
 			            })
 			        }
 				// this.props.homeObj.props.navigator.push({

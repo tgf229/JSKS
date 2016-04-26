@@ -11,7 +11,6 @@ import React, {
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { netClientPost,BUS_100201} from '../../../util/NetUtil';
-import NetUtil from '../../../util/NetUtil';
 import Web from '../../webview/Web';
 
 var listData = [];
@@ -21,12 +20,16 @@ export default class Banner extends React.Component{
 		super(props);
 		this.state={
 			data:[],
+			isDataLoaded:false,
 		}
 	}
 
-	onBannerClick(){
+	onBannerClick(item){
 		this.props.homeObj.props.navigator.push({
-			component:Web
+			component:Web,
+			params:{
+				url:item.aUrl,
+			},
 		});
 	}
 
@@ -36,10 +39,10 @@ export default class Banner extends React.Component{
 			listData=listData.concat(json.doc);
 			object.setState({
 				data: listData,
+				isDataLoaded:true,
 			});
 			console.log('成功='+listData);
 		}else{
-			isLoadEnd = true;
 			console.log('失败');
 		}
 	}
@@ -59,26 +62,35 @@ export default class Banner extends React.Component{
 	render(){
 		var bannerThis = this;
 		return(
-				<Swiper autoplay={true} loop={true}
-					showsPagination={true}
-					height={Dimensions.get('window').width*7/15+30} 
-					paginationStyle={{bottom:40,}}
-					>
-					{this.state.data.map(function(item){
-						return(
-							<View key={item.aId} style={{backgroundColor:'#ffffff'}}>
-								<TouchableHighlight
-							  	  onPress={()=>bannerThis.onBannerClick()}
-							  	  underlayColor='#fcfcfc'>
-									<Image
-									  style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*7/15}}
-									  source={{uri: item.imageUrl}} />
-								</TouchableHighlight>
-								<Text style={{textAlign:'center',paddingTop:7,paddingBottom:7,color:'#666666',fontSize:14}}>{item.name}</Text>
-							</View>
-						)
-					})}
-				</Swiper>
+			<View>
+				{
+					this.state.isDataLoaded?
+					<Swiper autoplay={true} loop={true}
+						showsPagination={true}
+						height={Dimensions.get('window').width*7/15+30} 
+						paginationStyle={{bottom:40,}}
+						>
+						{this.state.data.map(function(item){
+							return(
+								<View key={item.aId} style={{backgroundColor:'#ffffff'}}>
+									<TouchableHighlight
+								  	  onPress={()=>bannerThis.onBannerClick(item)}
+								  	  underlayColor='#fcfcfc'>
+										<Image
+										  style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*7/15}}
+										  source={{uri: item.imageUrl}} />
+									</TouchableHighlight>
+									<Text style={{textAlign:'center',paddingTop:7,paddingBottom:7,color:'#666666',fontSize:14}}>{item.name}</Text>
+								</View>
+							)
+						})}
+					</Swiper>
+					:
+					<Image
+						style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*7/15}}
+						source={require('image!banner_default')} />
+				}
+			</View>
 		)
 	}
 }
