@@ -11,8 +11,10 @@ package com.jsksy.app.ui.point;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,30 +39,66 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
 {
     private TextView dayTxt, hourTxt, minuteTxt, secondTxt;
     
-    String d1 = "20160601000000";
+    private Date cuDate;
     
-    Date dd1;
+    private Date exDate;
     
-    private Handler handler = new Handler()
+    private Handler handler = new Handler();
+    Runnable runnable = new Runnable()
     {
-        
+        @Override
+        public void run()
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(cuDate);
+            calendar.add(Calendar.SECOND, 1);
+            cuDate = calendar.getTime();
+            
+            if (cuDate.after(exDate))
+            {
+                Intent intent = new Intent(PointWaitActivity.this,PointSearchActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+            
+            long ms = exDate.getTime() - cuDate.getTime();
+            int day = (int)(ms / 1000 / 60 / 60 / 24);
+            int hour = (int)(ms / 1000 / 60 / 60 % 24);
+            int minute = (int)(ms / 1000 / 60 % 60);
+            int second = (int)(ms / 1000 % 60);
+            dayTxt.setText(checkTime(day));
+            hourTxt.setText(checkTime(hour));
+            minuteTxt.setText(checkTime(minute));
+            secondTxt.setText(checkTime(second));
+            handler.postDelayed(this, 1000);
+        }
     };
     
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.point_wait);
+        String cuStr = getIntent().getStringExtra("cuTime");
+        String exStr = getIntent().getStringExtra("exTime");
+        
+        //TODO ²âÊÔ ÒªÉ¾³ý
+        cuStr = "20160426161201";
+        exStr = "20160426161205";
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try
         {
-            dd1 = sdf.parse(d1);
+            cuDate = sdf.parse(cuStr);
+            exDate = sdf.parse(exStr);
         }
         catch (ParseException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
         init();
     }
     
@@ -76,44 +114,22 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         minuteTxt = (TextView)findViewById(R.id.minute);
         secondTxt = (TextView)findViewById(R.id.second);
         
-        handler.postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                long ms = dd1.getTime() - new Date().getTime();
-                int day = (int)(ms / 1000 / 60 / 60 / 24);
-                int hour = (int)(ms / 1000 / 60 / 60 % 24);
-                int minute = (int)(ms / 1000 / 60 % 60);
-                int second = (int)(ms / 1000 % 60);
-                dayTxt.setText(checkTime(day));
-                hourTxt.setText(checkTime(hour));
-                minuteTxt.setText(checkTime(minute));
-                secondTxt.setText(checkTime(second));
-                handler.postDelayed(this, 1000);
-            }
-        }, 1000);
-        
-        //²âÊÔ
-        handler.postDelayed(new Runnable()
-        {
-            
-            @Override
-            public void run()
-            {
-                Intent intent = new Intent(PointWaitActivity.this,PointSearchActivity.class);
-                startActivity(intent);
-            }
-        }, 5000);
-        
+        handler.postDelayed(runnable, 1000);
+    }
+    
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        handler.removeCallbacks(runnable);
     }
     
     private String checkTime(int str)
     {
         String strC = String.valueOf(str);
-        if(str < 10)
+        if (str < 10)
         {
-            strC = "0"+str;
+            strC = "0" + str;
         }
         return strC;
     }

@@ -2,32 +2,58 @@ package com.jsksy.app.bean.home;
 
 public class NewsDoc
 {
-    private String content;
+    private String aId;
+    
+    private String name;
+    
+    private String type;
+    
+    private String aUrl;
     
     private String time;
     
     private String imageUrl;
-
-    public String getContent()
+    
+    public String getaId()
     {
-        return content;
+        return aId;
     }
-
-    public void setContent(String content)
+    
+    public void setaId(String aId)
     {
-        this.content = content;
+        this.aId = aId;
     }
-
-    public String getImageUrl()
+    
+    public String getName()
     {
-        return imageUrl;
+        return name;
     }
-
-    public void setImageUrl(String imageUrl)
+    
+    public void setName(String name)
     {
-        this.imageUrl = imageUrl;
+        this.name = name;
     }
-
+    
+    public String getType()
+    {
+        return type;
+    }
+    
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+    
+    public String getaUrl()
+    {
+        return aUrl;
+    }
+    
+    public void setaUrl(String aUrl)
+    {
+        this.aUrl = aUrl;
+    }
+    
     public String getTime()
     {
         return time;
@@ -36,5 +62,15 @@ public class NewsDoc
     public void setTime(String time)
     {
         this.time = time;
+    }
+    
+    public String getImageUrl()
+    {
+        return imageUrl;
+    }
+    
+    public void setImageUrl(String imageUrl)
+    {
+        this.imageUrl = imageUrl;
     }
 }

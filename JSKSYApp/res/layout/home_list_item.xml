@@ -12,6 +12,7 @@
 
         <ImageView
             android:id="@+id/img"
+            android:scaleType="fitXY"
             android:layout_width="65dp"
             android:layout_height="65dp" />
 

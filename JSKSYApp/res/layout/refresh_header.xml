@@ -30,15 +30,15 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:gravity="center"
-        android:indeterminateDrawable="@drawable/refresh_pull"
+        android:indeterminateDrawable="@drawable/loading_progress"
         android:visibility="gone" />
 
     <ImageView
         android:id="@+id/pull_to_refresh_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:gravity="center"
-        android:src="@drawable/refresh_pull"
+        android:src="@drawable/indicator"
         android:visibility="visible" />
 
     <TextView

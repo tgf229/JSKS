@@ -71,5 +71,15 @@ public class Constants
      */
     public static final String JSKSY_INFO = "jsksy_info";
     
+    /**
+     * 手机类型   1 安卓  2 苹果
+     */
+    public static final String clientType = "1";
+    
     public static final String SUCESS_CODE = "000000";
+    
+    /**
+     * 推出应用
+     */
+    public static final String EXIT_APP = "1";
 }

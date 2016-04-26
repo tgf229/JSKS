@@ -3,6 +3,7 @@ package com.jsksy.app.ui.home.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.bean.home.BannerDoc;
+import com.jsksy.app.sharepref.SharePref;
+import com.jsksy.app.ui.WebviewActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.viewpagerindicator.IconPagerAdapter;
@@ -51,19 +54,22 @@ public class BannerAdapter extends PagerAdapter implements IconPagerAdapter
             @Override
             public void onClick(View v)
             {
-//                if (null != mPaths && null != mPaths.get(position))
-//                {
-//                    
-//                    Intent intent = new Intent();
-//                    intent.setClass(mContext, AdvertiseDetailActivity.class);
-//                    intent.putExtra("id", mPaths.get(position).getId());
-//                    mContext.startActivity(intent);
-//                }
-//                else
-//                {
-//                    ToastUtil.makeText(mContext,
-//                        mContext.getResources().getString(R.string.home_shop_event_none));
-//                }
+                Intent intent = new Intent(mContext, WebviewActivity.class);
+                intent.putExtra("wev_view_url", mPaths.get(position).getaUrl());
+                mContext.startActivity(intent);
+                //                if (null != mPaths && null != mPaths.get(position))
+                //                {
+                //                    
+                //                    Intent intent = new Intent();
+                //                    intent.setClass(mContext, AdvertiseDetailActivity.class);
+                //                    intent.putExtra("id", mPaths.get(position).getId());
+                //                    mContext.startActivity(intent);
+                //                }
+                //                else
+                //                {
+                //                    ToastUtil.makeText(mContext,
+                //                        mContext.getResources().getString(R.string.home_shop_event_none));
+                //                }
             }
         });
         
@@ -115,10 +121,10 @@ public class BannerAdapter extends PagerAdapter implements IconPagerAdapter
     @Override
     public int getItemPosition(Object object)
     {
-        if(count > 0)//null != mPaths && mPaths.size() == 0)
+        if (count > 0)//null != mPaths && mPaths.size() == 0)
         {
             count--;
-            return  POSITION_NONE;
+            return POSITION_NONE;
         }
         return super.getItemPosition(object);
     }

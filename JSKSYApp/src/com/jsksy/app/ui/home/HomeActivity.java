@@ -29,11 +29,14 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
 import com.jsksy.app.bean.home.BannerDoc;
 import com.jsksy.app.bean.home.BannerResponse;
+import com.jsksy.app.bean.home.InitResponse;
 import com.jsksy.app.bean.home.NewsDoc;
 import com.jsksy.app.bean.home.NewsResponse;
+import com.jsksy.app.bean.point.PointTimeResponse;
 import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
@@ -41,9 +44,11 @@ import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
+import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.wish.WishListActivity;
 import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.NetLoadingDailog;
 import com.jsksy.app.view.MyImageView;
 import com.jsksy.app.view.PullToRefreshView;
 import com.jsksy.app.view.PullToRefreshView.OnHeaderRefreshListener;
@@ -58,7 +63,7 @@ import com.viewpagerindicator.CirclePageIndicator;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class HomeActivity extends BaseActivity implements OnHeaderRefreshListener,OnClickListener
+public class HomeActivity extends BaseActivity implements OnHeaderRefreshListener, OnClickListener
 {
     private PullToRefreshView mPullToRefreshView;
     
@@ -66,7 +71,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private MyImageView default_img;
     
-    private View headView,loadingFooterView;
+    private View headView, loadingFooterView;
     
     private ArrayList<NewsDoc> freshNewsList;
     
@@ -79,11 +84,19 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private CirclePageIndicator banner_indicator;
     
     private RelativeLayout endTips;
+    
     private LinearLayout loadingMore;
+    
     private boolean anyMore = true;
+    
     private boolean isRefreshing = false;
+    
     private int page = 1;
+    
     private int pageNum = 10;
+    
+    private NetLoadingDailog dailog;
+    
     /**
      * 跳转时间
      */
@@ -114,8 +127,9 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         init();
-        reqBannert();
+        reqBanner();
         reqList();
+        reqInit();
     }
     
     private void init()
@@ -180,6 +194,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                     reqList();
                 }
             }
+            
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
             {
@@ -190,14 +205,34 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     /**
      * 
+     * <初始化>
+     * <功能详细描述>
+     * @see [类、类#方法、类#成员]
+     */
+    private void reqInit()
+    {
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("version", GeneralUtils.getVersionName(this));
+        param.put("type", Constants.clientType);
+        param.put("model", android.os.Build.MODEL);
+        param.put("imei", GeneralUtils.getDeviceId(this));
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            HomeActivity.this,
+            InitResponse.class,
+            URLUtil.Bus100101,
+            Constants.ENCRYPT_NONE);
+    }
+    
+    /**
+     * 
      * <请求轮播通告列表>
      * <功能详细描述>
      * @see [类、类#方法、类#成员]
      */
-    private void reqBannert()
+    private void reqBanner()
     {
         Map<String, String> param = new HashMap<String, String>();
-        param.put("cId", "1");
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             HomeActivity.this,
@@ -209,15 +244,29 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private void reqList()
     {
         Map<String, String> param = new HashMap<String, String>();
-        param.put("cId", "1");
-        param.put("uId", "1");
         param.put("page", String.valueOf(page));
         param.put("num", String.valueOf(pageNum));
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             HomeActivity.this,
             NewsResponse.class,
-            URLUtil.Bus302301,
+            URLUtil.Bus100301,
+            Constants.ENCRYPT_NONE);
+    }
+    
+    /**
+     * <访问时间校准接口>
+     * <功能详细描述>
+     * @see [类、类#方法、类#成员]
+     */
+    private void reqPointTime()
+    {
+        Map<String, String> param = new HashMap<String, String>();
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            HomeActivity.this,
+            PointTimeResponse.class,
+            URLUtil.Bus200101,
             Constants.ENCRYPT_NONE);
     }
     
@@ -226,7 +275,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     {
         super.netBack(ob);
         mPullToRefreshView.onHeaderRefreshComplete();
-        if(ob instanceof NewsResponse)
+        if (ob instanceof NewsResponse)
         {
             isRefreshing = false;
             loadingMore.setVisibility(View.GONE);
@@ -236,7 +285,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             {
                 if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
                 {
-                    if(page == 1)
+                    if (page == 1)
                     {
                         freshNewsList.clear();
                     }
@@ -258,7 +307,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                 anyMore = false;
             }
         }
-        if (ob instanceof BannerResponse)
+        else if (ob instanceof BannerResponse)
         {
             BannerResponse resp = (BannerResponse)ob;
             if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
@@ -307,6 +356,50 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                 banner_indicator.notifyDataSetChanged();
             }
         }
+        else if (ob instanceof InitResponse)
+        {
+            InitResponse initresp = (InitResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(initresp.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(initresp.getRetcode()))
+                {
+                    String flag = initresp.getFlag();
+                    
+                    if (flag != null && flag.equals(Constants.EXIT_APP))
+                    {
+                        JSKSYApplication.jsksyApplication.onTerminate();
+                    }
+                }
+            }
+        }
+        else if (ob instanceof PointTimeResponse)
+        {
+            dailog.dismissDialog();
+            PointTimeResponse ptrest = (PointTimeResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(ptrest.getRetcode()))
+                {
+                    if (Double.parseDouble(ptrest.getExTime()) > Double.parseDouble(ptrest.getCuTime()))
+                    {
+                        Intent intentPoint = new Intent(this, PointWaitActivity.class);
+                        intentPoint.putExtra("cuTime", ptrest.getCuTime());
+                        intentPoint.putExtra("exTime", ptrest.getExTime());
+                        startActivity(intentPoint);
+                    }
+                }
+                else
+                {
+                    Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                    startActivity(intentPoint);
+                }
+            }
+            else
+            {
+                Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                startActivity(intentPoint);
+            }
+        }
     }
     
     @Override
@@ -316,25 +409,26 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         freshNewsList.clear();
         endTips.setVisibility(View.GONE);
         anyMore = true;
-        reqBannert();
+        reqBanner();
         reqList();
     }
-
+    
     @Override
     public void onClick(View v)
     {
         switch (v.getId())
         {
             case R.id.point_layout:
-                Intent intentPoint = new Intent(this,PointWaitActivity.class);
-                startActivity(intentPoint);
+                dailog = new NetLoadingDailog(this);
+                dailog.loading();
+                reqPointTime();
                 break;
             case R.id.offer_layout:
-                Intent intentOffer = new Intent(this,OfferSearchActivity.class);
+                Intent intentOffer = new Intent(this, OfferSearchActivity.class);
                 startActivity(intentOffer);
                 break;
             case R.id.wish_layout:
-                Intent intentWish = new Intent(this,WishListActivity.class);
+                Intent intentWish = new Intent(this, WishListActivity.class);
                 startActivity(intentWish);
                 break;
             default:

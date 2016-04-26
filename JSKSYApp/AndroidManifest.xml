@@ -69,7 +69,7 @@
             android:name=".ui.wish.WishConditionListActivity"/>
          
          <activity 
-            android:name=".ui.ListSample"/>
+            android:name=".ui.WebviewActivity"/>
          
     </application>
 

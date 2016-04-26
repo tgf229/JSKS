@@ -1,45 +1,23 @@
 package com.jsksy.app.bean.home;
 
-/**
- * 
- * <轮播通告列表>
- * <功能详细描述>
- * 
- * @author  sunqing
- * @version  [版本�? 2014�?1�?7日]
- * @see  [相关�?方法]
- * @since  [产品/模块版本]
- */
 public class BannerDoc
 {
-    /**
-     * 通告活动ID
-     */
-    private String id;
+    private String aId;
     
-    /**
-     * 通告活动名称
-     */
     private String name;
     
-    /**
-     * 通告活动描述
-     */
-    private String desc;
-    
-    /**
-     * 活动图片
-     */
     private String imageUrl;
+    
+    private String aUrl;
 
-    public String getId()
+    public String getaId()
     {
-        return id;
+        return aId;
     }
 
-    public void setId(String id)
+    public void setaId(String aId)
     {
-        this.id = id;
+        this.aId = aId;
     }
 
     public String getName()
@@ -52,16 +30,6 @@ public class BannerDoc
         this.name = name;
     }
 
-    public String getDesc()
-    {
-        return desc;
-    }
-
-    public void setDesc(String desc)
-    {
-        this.desc = desc;
-    }
-
     public String getImageUrl()
     {
         return imageUrl;
@@ -70,5 +38,15 @@ public class BannerDoc
     public void setImageUrl(String imageUrl)
     {
         this.imageUrl = imageUrl;
+    }
+
+    public String getaUrl()
+    {
+        return aUrl;
+    }
+
+    public void setaUrl(String aUrl)
+    {
+        this.aUrl = aUrl;
     }
 }

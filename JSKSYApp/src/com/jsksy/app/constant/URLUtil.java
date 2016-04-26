@@ -11,9 +11,17 @@ package com.jsksy.app.constant;
  */
 public class URLUtil
 {
-    public static final String SERVER = "http://mobile.crossroad.love/";
+    //小马本机
+//    public static final String SERVER = "http://192.168.1.114:8081/web-mobile/";
+    //服务器
+    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
     
+    
+    public static final String Bus100101 = "Bus100101";
     public static final String Bus100201 = "Bus100201";
-    public static final String Bus302301 = "Bus302301";
+    public static final String Bus100301 = "Bus100301";
+    
+    public static final String Bus200101 = "Bus200101";
+    
     
 }
