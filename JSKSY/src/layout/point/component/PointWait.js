@@ -51,10 +51,10 @@ export default class PointWait extends React.Component{
 		super(props);
 
 		//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-		currentTime = '2016-04-26 11:36:01';
-		examTime = '2016-04-26 11:36:05';
-		// currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
-		// examTime = formatStrToDate(this.props.exTime);
+		// currentTime = '2016-04-26 11:36:01';
+		// examTime = '2016-04-26 11:36:05';
+		currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
+		examTime = formatStrToDate(this.props.exTime);
 		
 		this.state={
 			day:'--',
