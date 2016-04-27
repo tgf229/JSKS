@@ -23,7 +23,7 @@ import React, {
 
     function formatStrToDate(dateString) {
 		var pattern = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
-		var formatedDate = dateString.replace(pattern, '$1-$2-$3 $4:$5:$6');
+		var formatedDate = dateString.replace(pattern, '$1/$2/$3 $4:$5:$6');
 		return formatedDate;
      } 
 
@@ -36,9 +36,9 @@ import React, {
 	    d.substring(17,19));
 	    d.setTime(d.getTime()+num*1000);
 	    // console.log(d.toLocaleString());
-	    return d.getFullYear()+"-"
+	    return d.getFullYear()+"/"
 	    +checkTime(d.getMonth()+1)
-	    +"-"+checkTime(d.getDate())
+	    +"/"+checkTime(d.getDate())
 	    +" "+checkTime(d.getHours())
 	    +":"+checkTime(d.getMinutes())
 	    +":"+checkTime(d.getSeconds());
@@ -51,10 +51,10 @@ export default class PointWait extends React.Component{
 		super(props);
 
 		//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-		// currentTime = '2016-04-26 11:36:01';
-		// examTime = '2016-04-26 11:36:05';
-		currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
-		examTime = formatStrToDate(this.props.exTime);
+		currentTime = '2016/04/26 11:36:01';
+		examTime = '2016/04/26 11:36:06';
+		// currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
+		// examTime = formatStrToDate(this.props.exTime);
 		
 		this.state={
 			day:'--',
@@ -87,7 +87,7 @@ export default class PointWait extends React.Component{
                 hh = checkTime(hh);  
                 mm = checkTime(mm);  
                 ss = checkTime(ss);  
-                console.log(dd + "天" + hh + "时" + mm + "分" + ss + "秒")
+                // console.log(dd + "天" + hh + "时" + mm + "分" + ss + "秒")
                 this.setState({
                 	day:dd,
                 	hour:hh,

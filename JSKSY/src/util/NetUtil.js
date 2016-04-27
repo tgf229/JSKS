@@ -12,11 +12,13 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	var queryString = Object.keys(data).map(key=> key+'='+encodeURIComponent(data[key])).join('&');
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
-const URL_ADDR = "http://192.168.1.114:8081/web-mobile/";
+const URL_ADDR = "http://10.2.48.16:9080/web-mobile/";
 export const BUS_100101 = "Bus100101";
 export const BUS_100201 = "Bus100201";
 export const BUS_100301 = "Bus100301";
+
 export const BUS_200101 = "Bus200101";
+export const BUS_200201 = "Bus200201";
 
 //执行请求
 export function netClient(object,query) {

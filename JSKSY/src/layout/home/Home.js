@@ -187,7 +187,7 @@ export default class Home extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1}}>
-				<App_Title title={'江苏省教育考试院101-4'} navigator={this.props.navigator} leftHid={true}/>
+				<App_Title title={'江苏省教育考试院102-1'} navigator={this.props.navigator} leftHid={true}/>
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 

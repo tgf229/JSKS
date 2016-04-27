@@ -1277,7 +1277,7 @@ GLOBAL.document.createElement=null;}
 
 GLOBAL.MutationObserver=undefined;})(
 this);
-__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);var 
+__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);
 
 
 
@@ -1293,6 +1293,10 @@ __d('MyProject/index.ios.js',function(global, require, module, exports) {  'use 
 
 
 
+
+
+var device_uuid='';
+var device_model='';var 
 MyProject=function(_React$Component){babelHelpers.inherits(MyProject,_React$Component);
 function MyProject(props){babelHelpers.classCallCheck(this,MyProject);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(MyProject).call(this,
 props));
@@ -1308,14 +1312,14 @@ _reactNative.StatusBarIOS.setStyle('light-content');}},{key:'render',value:funct
 
 {
 return (
-_reactNative2.default.createElement(_reactNative.NavigatorIOS,{
-style:{flex:1},
-barTintColor:'#67aef7',
-titleTextColor:'#ffffff',
-initialRoute:{
-title:'江苏省教育考试院101-2',
-component:_Home2.default}}));}}]);return MyProject;}(_reactNative2.default.Component);
+_reactNative2.default.createElement(_reactNative.Navigator,{
+initialRoute:{component:_Home2.default},
+configureScene:function(route){
+return _reactNative.Navigator.SceneConfigs.PushFromRight;},
 
+renderScene:function(route,navigator){
+var Component=route.component;
+return _reactNative2.default.createElement(Component,babelHelpers.extends({},route.params,{navigator:navigator}));}}));}}]);return MyProject;}(_reactNative2.default.Component);
 
 
 
@@ -59436,7 +59440,7 @@ return ReactMount.getNodeFromInstance(componentOrElement);}
 
 module.exports=findDOMNode;
 });
-__d('MyProject/src/layout/home/Home.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Header=require('MyProject/src/layout/home/component/Header.js');var _Header2=babelHelpers.interopRequireDefault(_Header);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);
+__d('MyProject/src/layout/home/Home.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Header=require('MyProject/src/layout/home/component/Header.js');var _Header2=babelHelpers.interopRequireDefault(_Header);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _reactNativeDeviceUuid=require('react-native-device-uuid/DeviceUUID.ios.js');var _reactNativeDeviceUuid2=babelHelpers.interopRequireDefault(_reactNativeDeviceUuid);var _Web=require('MyProject/src/layout/webview/Web.js');var _Web2=babelHelpers.interopRequireDefault(_Web);
 
 
 
@@ -59456,13 +59460,20 @@ __d('MyProject/src/layout/home/Home.js',function(global, require, module, export
 
 
 
+
+
+
+
+
+var NativeBridge=require('react-native/Libraries/react-native/react-native.js').NativeModules.NativeBridge;
 
 var ds;
 var PAGE_NUM=1;
+var NUM=10;
 
 var listData=[];
 
-var isLoadEnd=false;var 
+var hasMore=false;var 
 
 Home=function(_React$Component){babelHelpers.inherits(Home,_React$Component);
 
@@ -59476,12 +59487,17 @@ dataSource:ds.cloneWithRows(listData)};return _this;}babelHelpers.createClass(Ho
 
 
 rowData){
-console.log(rowData.title);}},{key:'renderRow',value:function renderRow(
+this.props.navigator.push({
+component:_Web2.default,
+params:{
+url:rowData.aUrl}});}},{key:'renderRow',value:function renderRow(
+
+
 
 
 
 rowData,sectionID,rowID){var _this2=this;
-var price=rowData.price_formatted.split(' ')[0];
+if(rowData.type==='2'){
 return (
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 onPress:function(){return _this2.rowPressed(rowData);},
@@ -59490,13 +59506,31 @@ _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',padding:14}},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{width:_reactNative.PixelRatio.get()*130/4,height:_reactNative.PixelRatio.get()*130/4},
-source:{uri:rowData.img_url}}),
+source:{uri:rowData.imageUrl}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:_reactNative.PixelRatio.get()*130/4,marginLeft:13,flex:1}},
-_reactNative2.default.createElement(_reactNative.Text,{style:styles.title,numberOfLines:2},rowData.title),
-_reactNative2.default.createElement(_reactNative.Text,{style:styles.price},price))),
+_reactNative2.default.createElement(_reactNative.Text,{style:styles.title,numberOfLines:2},rowData.name),
+_reactNative2.default.createElement(_reactNative.Text,{style:styles.price},rowData.time))),
 
 
-_reactNative2.default.createElement(_reactNative.View,{style:{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}))));}},{key:'renderHeader',value:function renderHeader()
+_reactNative2.default.createElement(_reactNative.View,{style:{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}))));}else 
+
+
+
+{
+return (
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+onPress:function(){return _this2.rowPressed(rowData);},
+underlayColor:'#fcfcfc'},
+_reactNative2.default.createElement(_reactNative.View,null,
+_reactNative2.default.createElement(_reactNative.View,{style:{padding:14}},
+_reactNative2.default.createElement(_reactNative.Text,{style:styles.title,numberOfLines:1},rowData.name),
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{marginTop:11,width:_reactNative.Dimensions.get('window').width-28,height:(_reactNative.Dimensions.get('window').width-28)*2/7},
+source:{uri:rowData.imageUrl}})),
+
+_reactNative2.default.createElement(_reactNative.View,{style:{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}))));}}},{key:'renderHeader',value:function renderHeader()
+
+
 
 
 
@@ -59511,7 +59545,63 @@ _reactNative2.default.createElement(_Header2.default,{homeObj:this}));}},{key:'r
 
 
 {
-return _reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginVertical:30,marginBottom:30}});}},{key:'_onFetch',value:function _onFetch()
+if(hasMore){
+return _reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginVertical:30,marginBottom:30}});}}},{key:'BUS_100101_CB',value:function BUS_100101_CB(
+
+
+
+
+object,json){
+console.log('BUS_100101_CB成功');}},{key:'BUS_100101_REQ',value:function BUS_100101_REQ(
+
+
+
+model,uuid){
+var params={
+encrypt:'none',
+type:'2',
+model:model,
+version:'1.0.0',
+imei:uuid};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_100101,this.BUS_100101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{var _this3=this;
+
+_reactNativeDeviceUuid2.default.getUUID().then(function(uuid){
+NativeBridge.findEvents(function(error,events){
+if(error){
+console.log(error);}else 
+{
+_this3.BUS_100101_REQ(events,uuid);}});});}},{key:'BUS_100301_CB',value:function BUS_100301_CB(
+
+
+
+
+
+
+object,json){
+if(json.retcode==='000000'){
+if(json.doc.length>=10){
+hasMore=true;}
+
+listData=listData.concat(json.doc);
+object.setState({dataSource:ds.cloneWithRows(listData)});
+console.log('成功='+listData);}else 
+{
+console.log('失败');}}},{key:'BUS_100301_REQ',value:function BUS_100301_REQ()
+
+
+
+
+{
+var params={
+encrypt:'none',
+page:PAGE_NUM,
+num:NUM};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_100301,this.BUS_100301_CB,params);}},{key:'_onFetch',value:function _onFetch()
 
 
 
@@ -59519,9 +59609,7 @@ return _reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{st
 PAGE_NUM=1;
 listData=[];
 
-var query=(0,_NetUtil.urlForQueryAndPage)('place_name','london',PAGE_NUM);
-
-(0,_NetUtil.netClient)(this,query);
+this.BUS_100301_REQ();
 
 var rows={};
 callback(rows);}},{key:'onEndReached',value:function onEndReached()
@@ -59530,45 +59618,30 @@ callback(rows);}},{key:'onEndReached',value:function onEndReached()
 
 {
 console.log('到达底部!');
-if(isLoadEnd){
-return;}
-
-
+if(hasMore){
 PAGE_NUM=PAGE_NUM+1;
-console.log('PAGE_NUM= '+PAGE_NUM);
+console.log('PAGE_NUM='+PAGE_NUM);
 
-var query=(0,_NetUtil.urlForQueryAndPage)('place_name','london',PAGE_NUM);
-
-(0,_NetUtil.netClient)(this,query);}},{key:'busCB',value:function busCB(
+this.BUS_100301_REQ();}}},{key:'render',value:function render()
 
 
 
-json){
-if(json.response.application_response_code.substr(0,1)==='1'){
-listData=listData.concat(json.response.listings);
-this.setState({dataSource:ds.cloneWithRows(listData)});
-console.log('成功');}else 
-{
-isLoadEnd=true;
-console.log('失败');}}},{key:'render',value:function render()
-
-
-
-{var _this3=this;
+{var _this4=this;
 return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,marginTop:64}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院102-1',navigator:this.props.navigator,leftHid:true}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 dataSource:this.state.dataSource,
-renderRow:function(rowData){return _this3.renderRow(rowData);},
+renderRow:function(rowData){return _this4.renderRow(rowData);},
 
 pageSize:10,
 onEndReachedThreshold:50,
 automaticallyAdjustContentInsets:false,
 showsVerticalScrollIndicator:false,
 
-onEndReached:function(){return _this3.onEndReached();},
+onEndReached:function(){return _this4.onEndReached();},
 renderHeader:this.renderHeader.bind(this),
-renderFooter:function(){return _this3.renderFooter();},
+renderFooter:function(){return _this4.renderFooter();},
 
 onFetch:this._onFetch.bind(this),
 refreshable:true})));}}]);return Home;}(_reactNative2.default.Component);exports.default=Home;
@@ -59591,7 +59664,8 @@ fontSize:16,
 color:'#444444',
 flex:1}});
 });
-__d('MyProject/src/layout/home/component/Header.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Banner=require('MyProject/src/layout/home/component/Banner.js');var _Banner2=babelHelpers.interopRequireDefault(_Banner);var _PointWait=require('MyProject/src/layout/point/PointWait.js');var _PointWait2=babelHelpers.interopRequireDefault(_PointWait);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _OfferSearch=require('MyProject/src/layout/offer/OfferSearch.js');var _OfferSearch2=babelHelpers.interopRequireDefault(_OfferSearch);var 
+__d('MyProject/src/layout/home/component/Header.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Banner=require('MyProject/src/layout/home/component/Banner.js');var _Banner2=babelHelpers.interopRequireDefault(_Banner);var _PointSearch=require('MyProject/src/layout/point/PointSearch.js');var _PointSearch2=babelHelpers.interopRequireDefault(_PointSearch);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _OfferSearch=require('MyProject/src/layout/offer/OfferSearch.js');var _OfferSearch2=babelHelpers.interopRequireDefault(_OfferSearch);var 
+
 
 
 
@@ -59620,44 +59694,50 @@ _this.state={};return _this;}babelHelpers.createClass(Header,[{key:'onBtnClick',
 
 
 
-flag){var _this2=this;
+flag){var 
+navigator=this.props.homeObj.props.navigator;
 switch(flag){
 case 1:
-this.props.homeObj.props.navigator.push({
-title:'高考查分',
-leftButtonIcon:require('MyProject/src/resource/images/back_btn.png'),
-onLeftButtonPress:function(){return _this2.props.homeObj.props.navigator.pop();},
-component:_PointWait2.default});
+if(navigator){
+navigator.push({
+component:_PointSearch2.default});}
+
+
+
+
+
+
+
 
 break;
 case 2:
-this.props.homeObj.props.navigator.push({
-title:'志愿参考',
-leftButtonIcon:require('MyProject/src/resource/images/back_btn.png'),
-onLeftButtonPress:function(){return _this2.props.homeObj.props.navigator.pop();},
-component:_WishSearch2.default});
+if(navigator){
+navigator.push({
+component:_WishSearch2.default});}
 
+
+break;
 case 3:
-this.props.homeObj.props.navigator.push({
-title:'录取查询',
-leftButtonIcon:require('MyProject/src/resource/images/back_btn.png'),
-onLeftButtonPress:function(){return _this2.props.homeObj.props.navigator.pop();},
-component:_OfferSearch2.default});
+if(navigator){
+navigator.push({
+component:_OfferSearch2.default});}
 
+
+break;
 default:
 console.log('按钮=其他');
 break;}}},{key:'render',value:function render()
 
 
 
-{var _this3=this;
+{var _this2=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#eeeeee'}},
 _reactNative2.default.createElement(_Banner2.default,{homeObj:this.props.homeObj}),
 _reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:12,backgroundColor:'#ffffff'}},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{flex:1,paddingTop:12,paddingBottom:12},
-onPress:function(){return _this3.onBtnClick(1);},
+onPress:function(){return _this2.onBtnClick(1);},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -59668,7 +59748,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:8,fontSi
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{flex:1,paddingTop:12,paddingBottom:12},
-onPress:function(){return _this3.onBtnClick(2);},
+onPress:function(){return _this2.onBtnClick(2);},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -59679,7 +59759,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:8,fontSi
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{flex:1,paddingTop:12,paddingBottom:12},
-onPress:function(){return _this3.onBtnClick(3);},
+onPress:function(){return _this2.onBtnClick(3);},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -59690,7 +59770,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:8,fontSi
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{flex:1,paddingTop:12,paddingBottom:12},
-onPress:function(){return _this3.onBtnClick(4);},
+onPress:function(){return _this2.onBtnClick(4);},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -59736,40 +59816,52 @@ Banner=function(_React$Component){babelHelpers.inherits(Banner,_React$Component)
 function Banner(props){babelHelpers.classCallCheck(this,Banner);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Banner).call(this,
 props));
 _this.state={
-data:[]};return _this;}babelHelpers.createClass(Banner,[{key:'onBannerClick',value:function onBannerClick()
+data:[],
+isDataLoaded:false};return _this;}babelHelpers.createClass(Banner,[{key:'onBannerClick',value:function onBannerClick(
 
 
 
-{
+item){
 this.props.homeObj.props.navigator.push({
-title:'详情',
-component:_Web2.default});}},{key:'componentDidMount',value:function componentDidMount()
+component:_Web2.default,
+params:{
+url:item.aUrl}});}},{key:'BUS_100201_CB',value:function BUS_100201_CB(
 
 
 
-{
-var query="http://mobile.crossroad.love/Bus100201?encrypt=none&cId=1";
-
-(0,_NetUtil.netClient)(this,query);}},{key:'busCB',value:function busCB(
 
 
-
-json){
+object,json){
 if(json.retcode==='000000'){
 listData=listData.concat(json.doc);
-this.setState({
-data:listData});
+object.setState({
+data:listData,
+isDataLoaded:true});
 
 console.log('成功='+listData);}else 
 {
-isLoadEnd=true;
-console.log('失败');}}},{key:'render',value:function render()
+console.log('失败');}}},{key:'BUS_100201_REQ',value:function BUS_100201_REQ()
 
+
+
+
+{
+var params={
+encrypt:'none'};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_100201,this.BUS_100201_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{
+this.BUS_100201_REQ();}},{key:'render',value:function render()
 
 
 {
 var bannerThis=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,null,
+
+this.state.isDataLoaded?
 _reactNative2.default.createElement(_reactNativeSwiper2.default,{autoplay:true,loop:true,
 showsPagination:true,
 height:_reactNative.Dimensions.get('window').width*7/15+30,
@@ -59777,17 +59869,23 @@ paginationStyle:{bottom:40}},
 
 this.state.data.map(function(item){
 return (
-_reactNative2.default.createElement(_reactNative.View,{key:item.id,style:{backgroundColor:'#ffffff'}},
+_reactNative2.default.createElement(_reactNative.View,{key:item.aId,style:{backgroundColor:'#ffffff'}},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-onPress:function(){return bannerThis.onBannerClick();},
+onPress:function(){return bannerThis.onBannerClick(item);},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*7/15},
 source:{uri:item.imageUrl}})),
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',paddingTop:7,paddingBottom:7,color:'#666666',fontSize:14}},item.name)));})));}}]);return Banner;}(_reactNative2.default.Component);exports.default=Banner;
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',paddingTop:7,paddingBottom:7,color:'#666666',fontSize:14}},item.name)));})):
 
 
+
+
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*7/15},
+source:require('image!banner_default')})));}}]);return Banner;}(_reactNative2.default.Component);exports.default=Banner;
 
 
 
@@ -60350,15 +60448,37 @@ urlForQueryAndPage=urlForQueryAndPage;exports.
 
 
 
-netClient=netClient;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}function netClient(object,query){
-fetch(query).
+
+
+
+
+
+
+
+
+netClient=netClient;exports.
+
+
+
+
+
+
+
+
+
+
+netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){
+var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');
+fetch(URL_ADDR+busName,{
+method:'POST',
+body:data}).
+
 then(function(response){return response.json();}).
-then(function(json){return object.busCB(json);}).
+then(function(json){return busCB(object,json);}).
 catch(function(error){return (
-object.setState({
-isLoading:false}));});}
+console.log('error='+error));});}
 });
-__d('MyProject/src/layout/webview/Web.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
+__d('MyProject/src/layout/webview/Web.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
 
 
 
@@ -60367,14 +60487,17 @@ __d('MyProject/src/layout/webview/Web.js',function(global, require, module, expo
 
 
 
-var DEFAULT_URL='http://mp.weixin.qq.com/s?__biz=MjM5NjAzNDgxNg==&mid=2650351268&idx=1&sn=92e58825af08c83f2a1bb98be2131519&scene=0#wechat_redirect';var 
+
+
+
 
 Web=function(_React$Component){babelHelpers.inherits(Web,_React$Component);function Web(){babelHelpers.classCallCheck(this,Web);return babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Web).apply(this,arguments));}babelHelpers.createClass(Web,[{key:'render',value:function render()
 {
 return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'详情',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.WebView,{style:styles.webview_style,
-url:DEFAULT_URL,
+url:this.props.url,
 startInLoadingState:true,
 domStorageEnabled:true,
 javaScriptEnabled:true})));}}]);return Web;}(_reactNative2.default.Component);exports.default=Web;
@@ -60388,9 +60511,683 @@ javaScriptEnabled:true})));}}]);return Web;}(_reactNative2.default.Component);ex
 var styles=_reactNative.StyleSheet.create({
 webview_style:{}});
 });
-__d('MyProject/src/layout/point/PointWait.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointSearch=require('MyProject/src/layout/point/PointSearch.js');var _PointSearch2=babelHelpers.interopRequireDefault(_PointSearch);
+__d('MyProject/src/layout/common/App_Title.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+App_Title=function(_React$Component){babelHelpers.inherits(App_Title,_React$Component);
+function App_Title(props){babelHelpers.classCallCheck(this,App_Title);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(App_Title).call(this,
+props));
+_this.state={};return _this;}babelHelpers.createClass(App_Title,[{key:'onLeftClick',value:function onLeftClick()
+
+
+
+
+{
+this.props.navigator.pop();}},{key:'onRightClick',value:function onRightClick(
+
+
+obj){
+obj.onRightNavCilck();}},{key:'render',value:function render()
+
+
+{var _this2=this;
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#67aef7'}},
+_reactNative2.default.createElement(_reactNative.View,{style:{height:20}}),
+_reactNative2.default.createElement(_reactNative.View,{style:{height:44,flexDirection:'row',alignItems:'center',justifyContent:'center'}},
+
+this.props.leftHid?_reactNative2.default.createElement(_reactNative.View,null):
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{position:'absolute',left:10,paddingRight:60,paddingLeft:10,paddingTop:10,paddingBottom:10},
+onPress:function(){return _this2.onLeftClick();},
+underlayColor:'#67aef7'},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!back_btn')})),
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',fontSize:18,color:'white'}},this.props.title),
+
+this.props.rightShow?
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{position:'absolute',right:5,paddingRight:10,top:1,paddingLeft:20,paddingTop:14,paddingBottom:10},
+onPress:function(e){return _this2.onRightClick(_this2.props.obj);},
+underlayColor:'#67aef7'},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'white'}},this.props.rightText)):
+
+
+_reactNative2.default.createElement(_reactNative.View,null))));}}]);return App_Title;}(_reactNative2.default.Component);exports.default=App_Title;
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({});
+});
+__d('image!back_btn',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/back_btn.imageset/back_btn@2x.png","uri":"back_btn","width":13,"height":21,"deprecated":true};
+});
+__d('image!banner_default',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/banner_default.imageset/banner_default@2x.png","uri":"banner_default","width":375,"height":175,"deprecated":true};
+});
+__d('MyProject/src/layout/point/PointSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointResult=require('MyProject/src/layout/point/PointResult.js');var _PointResult2=babelHelpers.interopRequireDefault(_PointResult);var _PointWait=require('MyProject/src/layout/point/component/PointWait.js');var _PointWait2=babelHelpers.interopRequireDefault(_PointWait);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function trim(str){
+return str.replace(/(^\s*)|(\s*$)/g,"");}
+
+
+var cuTime;
+var exTime;var 
+PointSearch=function(_React$Component){babelHelpers.inherits(PointSearch,_React$Component);
+function PointSearch(props){babelHelpers.classCallCheck(this,PointSearch);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointSearch).call(this,
+props));
+_this.state={
+sNumStr:'',
+sTicketStr:'',
+isLoaded:false,
+isPointSearchOpen:false};return _this;}babelHelpers.createClass(PointSearch,[{key:'BUS_200101_CB',value:function BUS_200101_CB(
+
+
+
+
+object,json){
+console.log('BUS_200101_CB = '+json);
+if(json.retcode==='000000'){
+var isOpen=false;
+cuTime=json.cuTime;
+exTime=json.exTime;
+
+if(json.exTime<=json.cuTime){
+isOpen=true;}
+
+
+object.setState({
+isLoaded:true,
+isPointSearchOpen:isOpen});}else 
+
+
+{}}},{key:'BUS_200101_REQ',value:function BUS_200101_REQ()
+
+
+
+
+
+{
+var params={
+encrypt:'none'};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_200101,this.BUS_200101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{
+this.BUS_200101_REQ();}},{key:'onNumChangeText',value:function onNumChangeText(
+
+
+e){
+this.setState({sNumStr:e});}},{key:'onTicketChangeText',value:function onTicketChangeText(
+
+
+e){
+this.setState({sTicketStr:e});}},{key:'onSubmit',value:function onSubmit()
+
+
+{
+var num=trim(this.state.sNumStr);
+var tick=trim(this.state.sTicketStr);
+if(num===''){
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'请输入你的考生号');
+
+return;}
+
+if(tick===''){
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'请输入你的准考证号');
+
+return;}
+
+this.props.navigator.push({
+component:_PointResult2.default,
+params:{
+sNum:num,
+sTicket:tick}});}},{key:'render',value:function render()
+
+
+
+
+{var _this2=this;
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'高考查分',navigator:this.props.navigator}),
+
+this.state.isLoaded?
+this.state.isPointSearchOpen?
+_reactNative2.default.createElement(_reactNative.ScrollView,{
+contentContainerStyle:styles.contentContainer},
+_reactNative2.default.createElement(_reactNative.TextInput,{
+style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'},
+clearButtonMode:'while-editing',
+keyboardType:'numeric',
+maxLength:20,
+value:this.state.sNumStr,
+onChangeText:function(e){return _this2.onNumChangeText(e);},
+onSubmitEditing:function(){return _this2.onSubmit();},
+enablesReturnKeyAutomatically:true,
+placeholder:'请输入你的考生号'}),
+
+_reactNative2.default.createElement(_reactNative.TextInput,{
+style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21},
+clearButtonMode:'while-editing',
+keyboardType:'numeric',
+maxLength:20,
+value:this.state.sTicketStr,
+onChangeText:function(e){return _this2.onTicketChangeText(e);},
+onSubmitEditing:function(){return _this2.onSubmit();},
+enablesReturnKeyAutomatically:true,
+placeholder:'请输入你的准考证号'}),
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{marginTop:30,justifyContent:'center',alignItems:'center',
+backgroundColor:'#ff902d',height:45,borderRadius:3},
+onPress:function(){return _this2.onSubmit();},
+underlayColor:'#fcfcfc'},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'查询'))):
+
+
+
+_reactNative2.default.createElement(_PointWait2.default,{cuTime:cuTime,exTime:exTime,searchObj:this}):
+
+
+_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginTop:_reactNative.Dimensions.get('window').height/2-65}})));}}]);return PointSearch;}(_reactNative2.default.Component);exports.default=PointSearch;
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+contentContainer:{
+paddingTop:54,
+paddingLeft:20,
+paddingRight:20}});
+});
+__d('MyProject/src/layout/point/PointResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointResult_Success=require('MyProject/src/layout/point/component/PointResult_Success.js');var _PointResult_Success2=babelHelpers.interopRequireDefault(_PointResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data;var 
+PointResult=function(_React$Component){babelHelpers.inherits(PointResult,_React$Component);
+function PointResult(props){babelHelpers.classCallCheck(this,PointResult);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointResult).call(this,
+props));
+_this.state={
+isLoaded:false,
+errorLoading:true,
+errorTips:'正在拼命查询中，请稍候...'};
+
+data={};return _this;}babelHelpers.createClass(PointResult,[{key:'BUS_200201_CB',value:function BUS_200201_CB(
+
+
+object,json){
+console.log('BUS_200201_CB = '+json);
+if(json.retcode==='000000'){
+data=json;
+object.setState({
+isLoaded:true,
+errorLoading:false});}else 
+
+{
+var error='请求失败，请稍后再试';
+if(json.retinfo){
+error=json.retinfo;}
+
+object.setState({
+errorLoading:false,
+errorTips:error});}}},{key:'BUS_200201_REQ',value:function BUS_200201_REQ()
+
+
+
+
+{
+var params={
+encrypt:'none',
+sNum:this.props.sNum,
+sTicket:this.props.sTicket};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_200201,this.BUS_200201_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{
+this.BUS_200201_REQ();}},{key:'render',value:function render()
+
+
+{
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'高考查分',navigator:this.props.navigator}),
+_reactNative2.default.createElement(_reactNative.ScrollView,{
+
+contentContainerStyle:styles.contentContainer},
+
+
+this.state.isLoaded?_reactNative2.default.createElement(_PointResult_Success2.default,{data:data}):
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',marginTop:90}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!load_pic')}),
+
+this.state.errorLoading?
+
+_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{
+style:{marginTop:10},
+animating:true,
+color:'#808080',
+size:'small'}):
+
+null,
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:'#888888',marginTop:10}},this.state.errorTips)))));}}]);return PointResult;}(_reactNative2.default.Component);exports.default=PointResult;
+
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+contentContainer:{}});
+});
+__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var totalTitle;
+var totalPoint;
+var chineseTitle;
+var mathTitle;
+
+var KM4Pic;
+var KM5Pic;
+var isKMshow;
+
+
+var addTitle;
+var addPoint;
+var addPic;
+
+var isSingle;var 
+
+PointResult_Success=function(_React$Component){babelHelpers.inherits(PointResult_Success,_React$Component);
+function PointResult_Success(props){babelHelpers.classCallCheck(this,PointResult_Success);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointResult_Success).call(this,
+props));
+_this.state={};
+
+
+
+chineseTitle='语文';
+mathTitle='数学';
+isKMshow=true;
+addPic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_A_add')});
+isSingle=true;
+
+
+if(_this.props.data.type==='1'){
+totalTitle='文科类总分';
+totalPoint=_this.props.data.chTotal;
+chineseTitle='语文＋附加分';
+addTitle='文理类奖励分';
+addPoint=_this.props.data.cmAdd;}else 
+
+
+if(_this.props.data.type==='2'){
+totalTitle='理科类总分';
+totalPoint=_this.props.data.maTotal;
+mathTitle='数学＋附加分';
+addTitle='文理类奖励分';
+addPoint=_this.props.data.cmAdd;}else 
+
+
+if(_this.props.data.type==='3'||_this.props.data.type==='4'){
+totalTitle='体艺文化总分';
+totalPoint=_this.props.data.saTotal;
+addTitle='体艺类奖励分';
+addPoint=_this.props.data.saAdd;
+addPic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_B_add')});
+isKMshow=false;}else 
+
+
+if(_this.props.data.type==='5'||_this.props.data.type==='7'){
+isSingle=false;
+totalTitle='文科类总分';
+totalPoint=_this.props.data.chTotal;
+chineseTitle='语文＋附加分';}else 
+
+
+if(_this.props.data.type==='6'||_this.props.data.type==='8'){
+isSingle=false;
+totalTitle='理科类总分';
+totalPoint=_this.props.data.maTotal;
+mathTitle='数学＋附加分';}
+
+
+if(_this.props.data.KM4Name==='历史'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_lishi')});}else 
+if(_this.props.data.KM4Name==='政治'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_zhengzhi')});}else 
+
+if(_this.props.data.KM4Name==='地理'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_dili')});}else 
+
+if(_this.props.data.KM4Name==='化学'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_huaxue')});}else 
+
+if(_this.props.data.KM4Name==='生物'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_shengwu')});}else 
+
+if(_this.props.data.KM4Name==='物理'){
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_wuli')});}else 
+{
+KM4Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_A_add')});}
+
+
+if(_this.props.data.KM5Name==='历史'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_lishi')});}else 
+if(_this.props.data.KM5Name==='政治'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_zhengzhi')});}else 
+
+if(_this.props.data.KM5Name==='地理'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_dili')});}else 
+
+if(_this.props.data.KM5Name==='化学'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_huaxue')});}else 
+
+if(_this.props.data.KM5Name==='生物'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_shengwu')});}else 
+
+if(_this.props.data.KM5Name==='物理'){
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_wuli')});}else 
+{
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_A_add')});}return _this;}babelHelpers.createClass(PointResult_Success,[{key:'render',value:function render()
+
+
+
+{
+
+return (
+_reactNative2.default.createElement(_reactNative.View,null,
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*0.6},
+source:require('image!point_result_top')},
+_reactNative2.default.createElement(_reactNative.View,{style:{position:'absolute',left:(_reactNative.Dimensions.get('window').width-288)/2,bottom:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：xxxx      考生号：xxxxxxxxx'))),
+
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignItems:'center',justifyContent:'center',width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*0.8},
+source:require('image!point_result_bg')},
+_reactNative2.default.createElement(_reactNative.View,{style:{alignItems:'center'}},
+
+isSingle?
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignItems:'center',justifyContent:'center',backgroundColor:'transparent'},
+source:require('image!point_result_total_big')},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,color:'#ae582e'}},totalTitle),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:34,color:'white'}},totalPoint,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:10}},'分'))):
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row'}},
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignItems:'center',justifyContent:'center',backgroundColor:'transparent'},
+source:require('image!point_result_total_small')},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,color:'#ae582e'}},'体艺文化总分'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:34,color:'white'}},this.props.data.saTotal,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:10}},'分'))),
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{marginLeft:3,alignItems:'center',justifyContent:'center',backgroundColor:'transparent'},
+source:require('image!point_result_total_small')},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,color:'#ae582e'}},totalTitle),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:34,color:'white'}},totalPoint,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:10}},'分')))),
+
+
+
+
+this.props.data.totalName?
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignItems:'center',justifyContent:'center',marginTop:-40,backgroundColor:'transparent'},
+source:require('image!point_result_rank')},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'white',fontWeight:'bold'}},this.props.data.totalName,'：',this.props.data.totalLevel,'名')):
+
+
+null)),
+
+
+
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:17,paddingTop:16,paddingBottom:16}},
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.chinese,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),
+
+this.props.data.chAdd?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.chAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
+
+null),
+
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{marginTop:10},
+source:require('image!point_icon_yuwen')}),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},chineseTitle)),
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.math,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),
+
+this.props.data.maAdd?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.maAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
+
+null),
+
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{marginTop:10},
+source:require('image!point_icon_shuxue')}),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},mathTitle)),
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.english,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{marginTop:10},
+source:require('image!point_icon_yingyu')}),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},'外语'))),
+
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width-60,marginLeft:30}}),
+
+
+isKMshow?
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row'}},
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-140,alignItems:'center',paddingTop:16,paddingBottom:16}},
+KM4Pic,
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},this.props.data.KM4Level),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},this.props.data.KM4Name))),
+
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-180,alignItems:'center',paddingTop:16,paddingBottom:16}},
+KM5Pic,
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},this.props.data.KM5Level),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},this.props.data.KM5Name)))):
+
+
+
+
+null,
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row'}},
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-140,alignItems:'center',paddingTop:16,paddingBottom:16}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!point_icon_policy')}),
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},this.props.data.poAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'政策性照顾分'))),
+
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-180,alignItems:'center',paddingTop:16,paddingBottom:16}},
+addPic,
+
+isSingle?
+
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},addPoint,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},addTitle)):
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},this.props.data.cmAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'文理类奖励分')))),
+
+
+
+
+
+
+isSingle?
+null:
+
+_reactNative2.default.createElement(_reactNative.View,null,
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-140,alignItems:'center',paddingTop:16,paddingBottom:16}},
+_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_B_add')}),
+_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},this.props.data.saAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'体艺类奖励分')))),
+
+
+
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginBottom:10,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({});
+});
+__d('image!point_icon_A_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_A_add.imageset/point_icon_A_add@2x.png","uri":"point_icon_A_add","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_B_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_B_add.imageset/point_icon_B_add@2x.png","uri":"point_icon_B_add","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_lishi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_lishi.imageset/point_icon_lishi@2x.png","uri":"point_icon_lishi","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_zhengzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_zhengzhi.imageset/point_icon_zhengzhi@2x.png","uri":"point_icon_zhengzhi","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_dili',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_dili.imageset/point_icon_dili@2x.png","uri":"point_icon_dili","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_huaxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_huaxue.imageset/point_icon_huaxue@2x.png","uri":"point_icon_huaxue","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_shengwu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shengwu.imageset/point_icon_shengwu@2x.png","uri":"point_icon_shengwu","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_wuli',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_wuli.imageset/point_icon_wuli@2x.png","uri":"point_icon_wuli","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_result_top',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_top.imageset/point_result_top@2x.png","uri":"point_result_top","width":360,"height":219.5,"deprecated":true};
+});
+__d('image!point_result_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_bg.imageset/point_result_bg@2x.png","uri":"point_result_bg","width":360,"height":274,"deprecated":true};
+});
+__d('image!point_result_total_big',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_big.imageset/point_result_total_big@2x.png","uri":"point_result_total_big","width":110,"height":121,"deprecated":true};
+});
+__d('image!point_result_total_small',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_small.imageset/point_result_total_small@2x.png","uri":"point_result_total_small","width":97.5,"height":107.5,"deprecated":true};
+});
+__d('image!point_result_rank',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_rank.imageset/point_result_rank@2x.png","uri":"point_result_rank","width":262,"height":54.5,"deprecated":true};
+});
+__d('image!point_icon_yuwen',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yuwen.imageset/point_icon_yuwen@2x.png","uri":"point_icon_yuwen","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_shuxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shuxue.imageset/point_icon_shuxue@2x.png","uri":"point_icon_shuxue","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_yingyu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yingyu.imageset/point_icon_yingyu@2x.png","uri":"point_icon_yingyu","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_policy',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_policy.imageset/point_icon_policy@2x.png","uri":"point_icon_policy","width":45,"height":45,"deprecated":true};
+});
+__d('image!load_pic',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/load_pic.imageset/load_pic@2x.png","uri":"load_pic","width":264,"height":214,"deprecated":true};
+});
+__d('MyProject/src/layout/point/component/PointWait.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
 
 
 
@@ -60410,12 +61207,44 @@ function checkTime(i)
 if(i<10){
 i="0"+i;}
 
-return i;}var 
+return i;}
 
 
+function formatStrToDate(dateString){
+var pattern=/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
+var formatedDate=dateString.replace(pattern,'$1/$2/$3 $4:$5:$6');
+return formatedDate;}
+
+
+function dateCon(d,num){
+var d=new Date(d.substring(0,4),
+d.substring(5,7)-1,
+d.substring(8,10),
+d.substring(11,13),
+d.substring(14,16),
+d.substring(17,19));
+d.setTime(d.getTime()+num*1000);
+
+return d.getFullYear()+"/"+
+checkTime(d.getMonth()+1)+
+"/"+checkTime(d.getDate())+
+" "+checkTime(d.getHours())+
+":"+checkTime(d.getMinutes())+
+":"+checkTime(d.getSeconds());}
+
+
+var currentTime;
+var examTime;var 
 PointWait=function(_React$Component){babelHelpers.inherits(PointWait,_React$Component);
 function PointWait(props){babelHelpers.classCallCheck(this,PointWait);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointWait).call(this,
 props));
+
+
+currentTime='2016/04/26 11:36:01';
+examTime='2016/04/26 11:36:06';
+
+
+
 _this.state={
 day:'--',
 hour:'--',
@@ -60428,7 +61257,17 @@ second:'--'};return _this;}babelHelpers.createClass(PointWait,[{key:'countDown',
 this.timer=setTimeout(
 function(){
 
-var ts=new Date('2016/06/01 00:00:00').getTime()-new Date().getTime();
+currentTime=dateCon(currentTime,1);
+
+if(currentTime>=examTime){
+_this2.timer&&clearTimeout(_this2.timer);
+_this2.props.searchObj.setState({
+isPointSearchOpen:true});
+
+return;}
+
+
+var ts=new Date(examTime).getTime()-new Date(currentTime).getTime();
 var dd=parseInt(ts/1000/60/60/24);
 var hh=parseInt(ts/1000/60/60%24);
 var mm=parseInt(ts/1000/60%60);
@@ -60437,7 +61276,7 @@ dd=checkTime(dd);
 hh=checkTime(hh);
 mm=checkTime(mm);
 ss=checkTime(ss);
-console.log(dd+"天"+hh+"时"+mm+"分"+ss+"秒");
+
 _this2.setState({
 day:dd,
 hour:hh,
@@ -60453,19 +61292,12 @@ this.countDown();}},{key:'componentWillUnmount',value:function componentWillUnmo
 
 
 {
-this.timer&&clearTimeout(this.timer);}},{key:'onSubmit',value:function onSubmit()
+this.timer&&clearTimeout(this.timer);}},{key:'render',value:function render()
 
 
 {
-this.props.navigator.push({
-title:'高考查分',
-component:_PointSearch2.default});}},{key:'render',value:function render()
-
-
-
-{var _this3=this;
 return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center'}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',backgroundColor:'white'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:18,color:'#999999',marginTop:158}},'距离江苏省高考成绩发布还有'),
 
 
@@ -60497,16 +61329,7 @@ source:require('image!time_point')}),
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'},
 source:require('image!time_bg')},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:35,color:'#ff902d'}},this.state.second))),
-
-
-
-_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-style:{marginTop:30,justifyContent:'center',alignItems:'center',
-backgroundColor:'#ff902d',height:45,borderRadius:3},
-onPress:function(){return _this3.onSubmit();},
-underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'测试用，点击下一步'))));}}]);return PointWait;}(_reactNative2.default.Component);exports.default=PointWait;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:35,color:'#ff902d'}},this.state.second)))));}}]);return PointWait;}(_reactNative2.default.Component);exports.default=PointWait;
 
 
 
@@ -60515,294 +61338,14 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:
 
 
 var styles=_reactNative.StyleSheet.create({});
-});
-__d('MyProject/src/layout/point/PointSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointResult=require('MyProject/src/layout/point/PointResult.js');var _PointResult2=babelHelpers.interopRequireDefault(_PointResult);var 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PointSearch=function(_React$Component){babelHelpers.inherits(PointSearch,_React$Component);
-function PointSearch(props){babelHelpers.classCallCheck(this,PointSearch);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointSearch).call(this,
-props));
-_this.state={
-searchString:''};return _this;}babelHelpers.createClass(PointSearch,[{key:'onChangeText',value:function onChangeText(
-
-
-
-e){
-this.setState({searchString:e});}},{key:'onSubmit',value:function onSubmit()
-
-
-{
-this.props.navigator.push({
-title:'高考查分',
-component:_PointResult2.default});}},{key:'render',value:function render()
-
-
-
-{var _this2=this;
-return (
-_reactNative2.default.createElement(_reactNative.ScrollView,{
-contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_reactNative.TextInput,{
-style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'},
-clearButtonMode:'while-editing',
-value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
-onSubmitEditing:function(){return _this2.onSubmit();},
-enablesReturnKeyAutomatically:true,
-placeholder:'请输入你的考生号'}),
-
-_reactNative2.default.createElement(_reactNative.TextInput,{
-style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21},
-clearButtonMode:'while-editing',
-value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
-onSubmitEditing:function(){return _this2.onSubmit();},
-enablesReturnKeyAutomatically:true,
-placeholder:'请输入你的准考证号'}),
-
-_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-style:{marginTop:30,justifyContent:'center',alignItems:'center',
-backgroundColor:'#ff902d',height:45,borderRadius:3},
-onPress:function(){return _this2.onSubmit();},
-underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'查询'))));}}]);return PointSearch;}(_reactNative2.default.Component);exports.default=PointSearch;
-
-
-
-
-
-
-var styles=_reactNative.StyleSheet.create({
-contentContainer:{
-paddingTop:54,
-paddingLeft:20,
-paddingRight:20,
-backgroundColor:'white'}});
-});
-__d('MyProject/src/layout/point/PointResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointResult_Success=require('MyProject/src/layout/point/component/PointResult_Success.js');var _PointResult_Success2=babelHelpers.interopRequireDefault(_PointResult_Success);var 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PointResult=function(_React$Component){babelHelpers.inherits(PointResult,_React$Component);
-function PointResult(props){babelHelpers.classCallCheck(this,PointResult);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointResult).call(this,
-props));
-_this.state={
-isLoading:true};return _this;}babelHelpers.createClass(PointResult,[{key:'componentDidMount',value:function componentDidMount()
-
-
-
-{var _this2=this;
-this.timer=setTimeout(
-function(){_this2.setState({isLoading:false});},
-500);}},{key:'render',value:function render()
-
-
-{
-return (
-_reactNative2.default.createElement(_reactNative.ScrollView,{
-contentContainerStyle:styles.contentContainer},
-
-
-this.state.isLoading?_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',marginTop:90}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!load_pic')}),
-_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{
-style:{marginTop:10},
-animating:true,
-color:'#808080',
-size:'small'}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:'#888888',marginTop:10}},'正在拼命查询中，请稍后...')):
-_reactNative2.default.createElement(_PointResult_Success2.default,null)));}}]);return PointResult;}(_reactNative2.default.Component);exports.default=PointResult;
-
-
-
-
-
-
-var styles=_reactNative.StyleSheet.create({
-contentContainer:{
-backgroundColor:'white'}});
-});
-__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PointResult_Success=function(_React$Component){babelHelpers.inherits(PointResult_Success,_React$Component);
-function PointResult_Success(props){babelHelpers.classCallCheck(this,PointResult_Success);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointResult_Success).call(this,
-props));
-_this.state={};return _this;}babelHelpers.createClass(PointResult_Success,[{key:'render',value:function render()
-
-
-
-
-{
-return (
-_reactNative2.default.createElement(_reactNative.View,null,
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*0.6},
-source:require('image!point_result_top')},
-_reactNative2.default.createElement(_reactNative.View,{style:{position:'absolute',left:(_reactNative.Dimensions.get('window').width-288)/2,bottom:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：王大雷      考生号：16262838493939'))),
-
-
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{alignItems:'center',justifyContent:'center',width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*0.8},
-source:require('image!point_result_bg')},
-_reactNative2.default.createElement(_reactNative.View,{style:{alignItems:'center'}},
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{alignItems:'center',justifyContent:'center',backgroundColor:'transparent'},
-source:require('image!point_result_total_big')},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,color:'#ae582e'}},'体艺文化总分'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:34,color:'white'}},'347',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:10}},'分'))),
-
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{alignItems:'center',justifyContent:'center',marginTop:-40,backgroundColor:'transparent'},
-source:require('image!point_result_rank')},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'white',fontWeight:'bold'}},'体育类投档分位次：103名')))),
-
-
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:17,paddingTop:16,paddingBottom:16}},
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},'122',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),'+5',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{marginTop:10},
-source:require('image!point_icon_yuwen')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},'语文＋附加分')),
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},'122',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),'+5',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{marginTop:10},
-source:require('image!point_icon_shuxue')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},'数学＋附加分')),
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},'122',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{marginTop:10},
-source:require('image!point_icon_yingyu')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:10}},'外语'))),
-
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width-60,marginLeft:30}}),
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row'}},
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-140,alignItems:'center',paddingTop:16,paddingBottom:16}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!point_icon_lishi')}),
-_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},'A+'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'历史'))),
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-180,alignItems:'center',paddingTop:16,paddingBottom:16}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!point_icon_zhengzhi')}),
-_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},'A+'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'历史')))),
-
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row'}},
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-140,alignItems:'center',paddingTop:16,paddingBottom:16}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!point_icon_policy')}),
-_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},'0',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'政策性照顾分'))),
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,flexDirection:'row',marginLeft:_reactNative.Dimensions.get('window').width/2-180,alignItems:'center',paddingTop:16,paddingBottom:16}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!point_icon_A_add')}),
-_reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,fontWeight:'bold',color:'#333333'}},'5',_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWeight:'bold',color:'#999999',marginTop:2}},'文理类奖励分')))),
-
-
-
-
-_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginBottom:10,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
-
-
-
-
-
-
-var styles=_reactNative.StyleSheet.create({});
-});
-__d('image!point_result_top',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_top.imageset/point_result_top@2x.png","uri":"point_result_top","width":360,"height":219.5,"deprecated":true};
-});
-__d('image!point_result_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_bg.imageset/point_result_bg@2x.png","uri":"point_result_bg","width":360,"height":274,"deprecated":true};
-});
-__d('image!point_result_total_big',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_big.imageset/point_result_total_big@2x.png","uri":"point_result_total_big","width":110,"height":121,"deprecated":true};
-});
-__d('image!point_result_rank',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_rank.imageset/point_result_rank@2x.png","uri":"point_result_rank","width":262,"height":54.5,"deprecated":true};
-});
-__d('image!point_icon_yuwen',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yuwen.imageset/point_icon_yuwen@2x.png","uri":"point_icon_yuwen","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_shuxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shuxue.imageset/point_icon_shuxue@2x.png","uri":"point_icon_shuxue","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_yingyu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yingyu.imageset/point_icon_yingyu@2x.png","uri":"point_icon_yingyu","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_lishi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_lishi.imageset/point_icon_lishi@2x.png","uri":"point_icon_lishi","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_zhengzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_zhengzhi.imageset/point_icon_zhengzhi@2x.png","uri":"point_icon_zhengzhi","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_policy',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_policy.imageset/point_icon_policy@2x.png","uri":"point_icon_policy","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_A_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_A_add.imageset/point_icon_A_add@2x.png","uri":"point_icon_A_add","width":45,"height":45,"deprecated":true};
-});
-__d('image!load_pic',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/load_pic.imageset/load_pic@2x.png","uri":"load_pic","width":264,"height":214,"deprecated":true};
 });
 __d('image!time_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/time_bg.imageset/time_bg@2x.png","uri":"time_bg","width":60,"height":73,"deprecated":true};
 });
 __d('image!time_point',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/time_point.imageset/time_point@2x.png","uri":"time_point","width":4,"height":24,"deprecated":true};
 });
-__d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishAgreement=require('MyProject/src/layout/wish/WishAgreement.js');var _WishAgreement2=babelHelpers.interopRequireDefault(_WishAgreement);var 
+__d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishAgreement=require('MyProject/src/layout/wish/WishAgreement.js');var _WishAgreement2=babelHelpers.interopRequireDefault(_WishAgreement);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
+
 
 
 
@@ -60834,13 +61377,14 @@ this.setState({searchString:e});}},{key:'onSubmit',value:function onSubmit()
 
 {
 this.props.navigator.push({
-title:'购买',
 component:_WishAgreement2.default});}},{key:'render',value:function render()
 
 
 
 {var _this2=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'志愿参考',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.TextInput,{
@@ -60868,7 +61412,8 @@ onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步')),
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:18,fontSize:12,color:'#999999'}},'PS: 已购买过该项服务的考生，可在验证后再次查询')));}}]);return WishSearch;}(_reactNative2.default.Component);exports.default=WishSearch;
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:18,fontSize:12,color:'#999999'}},'PS: 已购买过该项服务的考生，可在验证后再次查询'))));}}]);return WishSearch;}(_reactNative2.default.Component);exports.default=WishSearch;
+
 
 
 
@@ -60879,10 +61424,10 @@ var styles=_reactNative.StyleSheet.create({
 contentContainer:{
 paddingTop:54,
 paddingLeft:20,
-paddingRight:20,
-backgroundColor:'white'}});
+paddingRight:20}});
 });
-__d('MyProject/src/layout/wish/WishAgreement.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishPayment=require('MyProject/src/layout/wish/WishPayment.js');var _WishPayment2=babelHelpers.interopRequireDefault(_WishPayment);var 
+__d('MyProject/src/layout/wish/WishAgreement.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishPayment=require('MyProject/src/layout/wish/WishPayment.js');var _WishPayment2=babelHelpers.interopRequireDefault(_WishPayment);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
 
 
 
@@ -60919,7 +61464,6 @@ _reactNative.AlertIOS.alert(
 return;}
 
 this.props.navigator.push({
-title:'购买',
 component:_WishPayment2.default});}},{key:'onChoise',value:function onChoise()
 
 
@@ -60930,6 +61474,8 @@ this.setState({isChoise:!this.state.isChoise});}},{key:'render',value:function r
 
 {var _this2=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'购买',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 
@@ -60963,7 +61509,8 @@ style:{justifyContent:'center',alignItems:'center',
 backgroundColor:'#ff902d',height:45,borderRadius:3},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'购买'))));}}]);return WishAgreement;}(_reactNative2.default.Component);exports.default=WishAgreement;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'购买')))));}}]);return WishAgreement;}(_reactNative2.default.Component);exports.default=WishAgreement;
+
 
 
 
@@ -60975,10 +61522,10 @@ var styles=_reactNative.StyleSheet.create({
 contentContainer:{
 paddingTop:45,
 paddingLeft:20,
-paddingRight:20,
-backgroundColor:'white'}});
+paddingRight:20}});
 });
-__d('MyProject/src/layout/wish/WishPayment.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var 
+__d('MyProject/src/layout/wish/WishPayment.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishPaySuccess=require('MyProject/src/layout/wish/WishPaySuccess.js');var _WishPaySuccess2=babelHelpers.interopRequireDefault(_WishPaySuccess);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
 
 
 
@@ -61008,8 +61555,7 @@ payWay:1};return _this;}babelHelpers.createClass(PayAgreement,[{key:'onSubmit',v
 
 {
 this.props.navigator.push({
-title:'志愿参考',
-component:_WishList2.default});}},{key:'onChoise',value:function onChoise(
+component:_WishPaySuccess2.default});}},{key:'onChoise',value:function onChoise(
 
 
 
@@ -61020,6 +61566,8 @@ this.setState({payWay:way});}},{key:'render',value:function render()
 
 {var _this2=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'购买',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 
@@ -61094,7 +61642,8 @@ style:{marginTop:26,justifyContent:'center',alignItems:'center',
 backgroundColor:'#ff902d',height:45,borderRadius:3},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'确认支付 ¥98'))));}}]);return PayAgreement;}(_reactNative2.default.Component);exports.default=PayAgreement;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'确认支付 ¥98')))));}}]);return PayAgreement;}(_reactNative2.default.Component);exports.default=PayAgreement;
+
 
 
 
@@ -61105,10 +61654,81 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:
 var styles=_reactNative.StyleSheet.create({
 contentContainer:{
 paddingLeft:16,
-paddingRight:16,
-backgroundColor:'white'}});
+paddingRight:16}});
 });
-__d('MyProject/src/layout/wish/WishList.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _WishFilter=require('MyProject/src/layout/wish/WishFilter.js');var _WishFilter2=babelHelpers.interopRequireDefault(_WishFilter);
+__d('MyProject/src/layout/wish/WishPaySuccess.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WishPaySuccess=function(_React$Component){babelHelpers.inherits(WishPaySuccess,_React$Component);
+function WishPaySuccess(props){babelHelpers.classCallCheck(this,WishPaySuccess);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishPaySuccess).call(this,
+props));
+_this.state={
+searchString:''};return _this;}babelHelpers.createClass(WishPaySuccess,[{key:'onChangeText',value:function onChangeText(
+
+
+
+e){
+this.setState({searchString:e});}},{key:'onSubmit',value:function onSubmit()
+
+
+{
+this.props.navigator.push({
+component:_WishList2.default});}},{key:'render',value:function render()
+
+
+
+{var _this2=this;
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'志愿参考',navigator:this.props.navigator}),
+_reactNative2.default.createElement(_reactNative.ScrollView,{
+contentContainerStyle:styles.contentContainer},
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignSelf:'center'},
+source:require('image!pic_success')}),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:28,fontSize:18,color:'#444444',alignSelf:'center'}},'恭喜你，支付成功'),
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{justifyContent:'center',alignItems:'center',marginTop:40,
+backgroundColor:'#ff902d',height:45,borderRadius:3},
+onPress:function(){return _this2.onSubmit();},
+underlayColor:'#fcfcfc'},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'查看')))));}}]);return WishPaySuccess;}(_reactNative2.default.Component);exports.default=WishPaySuccess;
+
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+contentContainer:{
+paddingTop:44,
+paddingLeft:20,
+paddingRight:20}});
+});
+__d('MyProject/src/layout/wish/WishList.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _WishFilter=require('MyProject/src/layout/wish/WishFilter.js');var _WishFilter2=babelHelpers.interopRequireDefault(_WishFilter);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+
 
 
 
@@ -61148,10 +61768,10 @@ provId:'',
 provVal:'全国',
 
 typeId:'',
-typeVal:'',
+typeVal:'请选择',
 
 marjorId:'',
-marjorVal:'',
+marjorVal:'请选择',
 
 eyy:false,
 jbw:false};return _this;}babelHelpers.createClass(WishList,[{key:'renderRow',value:function renderRow(
@@ -61196,9 +61816,8 @@ callback(rows);}},{key:'onFilter',value:function onFilter()
 
 {
 this.props.navigator.push({
-title:'筛选',
 component:_WishFilter2.default,
-passProps:{filterObj:this,batch:this.state.batch,
+params:{filterObj:this,batch:this.state.batch,
 batchVal:this.state.batchVal,
 provId:this.state.provId,
 provVal:this.state.provVal,
@@ -61259,7 +61878,7 @@ _reactNative2.default.createElement(_reactNative.View,null):
 
 _reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
 height:32,width:64,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:'#85add7'}},'985')))))));}},{key:'render',value:function render()
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:'#85add7'}},'985')))))));}},{key:'onRightNavCilck',value:function onRightNavCilck()
 
 
 
@@ -61268,11 +61887,16 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:
 
 
 
+
+
+{
+this.onFilter();}},{key:'render',value:function render()
 
 
 {var _this3=this;
 return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,marginTop:64}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'志愿参考',navigator:this.props.navigator,rightShow:true,rightText:'筛选',obj:this}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 style:{backgroundColor:'#eeeeee'},
 dataSource:this.state.dataSource,
@@ -61693,7 +62317,8 @@ this._getSpinner()));}});
 
 module.exports=GiftedSpinner;
 });
-__d('MyProject/src/layout/wish/WishFilter.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishFilter_List=require('MyProject/src/layout/wish/component/WishFilter_List.js');var _WishFilter_List2=babelHelpers.interopRequireDefault(_WishFilter_List);var _WishFilter_Section_List=require('MyProject/src/layout/wish/component/WishFilter_Section_List.js');var _WishFilter_Section_List2=babelHelpers.interopRequireDefault(_WishFilter_Section_List);
+__d('MyProject/src/layout/wish/WishFilter.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishFilter_List=require('MyProject/src/layout/wish/component/WishFilter_List.js');var _WishFilter_List2=babelHelpers.interopRequireDefault(_WishFilter_List);var _WishFilter_Section_List=require('MyProject/src/layout/wish/component/WishFilter_Section_List.js');var _WishFilter_Section_List2=babelHelpers.interopRequireDefault(_WishFilter_Section_List);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+
 
 
 
@@ -61777,25 +62402,31 @@ switch(flag){
 case 1:
 
 this.props.navigator.push({
-title:'院校类型',
+
+
+
 component:_WishFilter_List2.default,
-passProps:{listData:TYPE_DATA,filterObj:this,selectedID:this.state.typeId,type:1}});
+params:{listData:TYPE_DATA,filterObj:this,selectedID:this.state.typeId,type:1}});
 
 break;
 case 2:
 
 this.props.navigator.push({
-title:'院校省份',
+
+
+
 component:_WishFilter_List2.default,
-passProps:{listData:PROVINCE_DATA,filterObj:this,selectedID:this.state.provId,type:2}});
+params:{listData:PROVINCE_DATA,filterObj:this,selectedID:this.state.provId,type:2}});
 
 break;
 case 3:
 
 this.props.navigator.push({
-title:'开设专业',
+
+
+
 component:_WishFilter_Section_List2.default,
-passProps:{filterObj:this,selectedID:this.state.marjorId}});
+params:{filterObj:this,selectedID:this.state.marjorId}});
 
 break;
 default:
@@ -61834,7 +62465,8 @@ this.props.navigator.pop();}},{key:'render',value:function render()
 
 {var _this3=this;
 return (
-_reactNative2.default.createElement(_reactNative.View,null,
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'筛选',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
@@ -61934,7 +62566,9 @@ contentContainer:{
 height:_reactNative.Dimensions.get('window').height-55,
 backgroundColor:'#eeeeee'}});
 });
-__d('MyProject/src/layout/wish/component/WishFilter_List.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
+__d('MyProject/src/layout/wish/component/WishFilter_List.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+
+
 
 
 
@@ -62004,9 +62638,12 @@ _reactNative2.default.createElement(_reactNative.View,{style:{height:0.5,backgro
 
 {var _this3=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'筛选',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ListView,{
 dataSource:this.state.dataSource,
-renderRow:function(rowData){return _this3.renderRow(rowData);}}));}}]);return WishFilter_List;}(_reactNative2.default.Component);exports.default=WishFilter_List;
+renderRow:function(rowData){return _this3.renderRow(rowData);}})));}}]);return WishFilter_List;}(_reactNative2.default.Component);exports.default=WishFilter_List;
+
 
 
 
@@ -62015,7 +62652,10 @@ var styles=_reactNative.StyleSheet.create({});
 });
 __d('image!state_select',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/state_select.imageset/state_select@2x.png","uri":"state_select","width":14,"height":11,"deprecated":true};
 });
-__d('MyProject/src/layout/wish/component/WishFilter_Section_List.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
+__d('MyProject/src/layout/wish/component/WishFilter_Section_List.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+
+
+
 
 
 
@@ -62123,11 +62763,14 @@ _reactNative2.default.createElement(_reactNative.View,{style:{height:0.5,backgro
 
 {var _this3=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'筛选',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ListView,{
 dataSource:this.state.dataSource,
 pageSize:10,
 renderSectionHeader:function(sectionData){return _this3.renderSectionHeader(sectionData);},
-renderRow:function(rowData){return _this3.renderRow(rowData);}}));}}]);return WishFilter_Section_List;}(_reactNative2.default.Component);exports.default=WishFilter_Section_List;
+renderRow:function(rowData){return _this3.renderRow(rowData);}})));}}]);return WishFilter_Section_List;}(_reactNative2.default.Component);exports.default=WishFilter_Section_List;
+
 
 
 
@@ -62137,6 +62780,8 @@ var styles=_reactNative.StyleSheet.create({});
 __d('image!arrow_grey',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/arrow_grey.imageset/arrow_grey@2x.png","uri":"arrow_grey","width":8,"height":13,"deprecated":true};
 });
 __d('image!arrow_blue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/arrow_blue.imageset/arrow_blue@2x.png","uri":"arrow_blue","width":7,"height":11,"deprecated":true};
+});
+__d('image!pic_success',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/pic_success.imageset/pic_success@2x.png","uri":"pic_success","width":120,"height":120,"deprecated":true};
 });
 __d('image!wish_buy_circleline',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/wish_buy_circleline.imageset/wish_buy_circleline@2x.png","uri":"wish_buy_circleline","width":375,"height":8,"deprecated":true};
 });
@@ -62158,7 +62803,8 @@ __d('image!will_checkbox_press',function(global, require, module, exports) {  mo
 });
 __d('image!will_checkbox_none',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_checkbox_none.imageset/will_checkbox_none@2x.png","uri":"will_checkbox_none","width":20,"height":20,"deprecated":true};
 });
-__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var 
+__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
 
 
 
@@ -62191,17 +62837,17 @@ this.setState({searchString:e});}},{key:'onSubmit',value:function onSubmit()
 
 {
 this.props.navigator.push({
-title:'录取查询',
-rightButtonTitle:'取消预约',
 component:_OfferResult2.default});}},{key:'render',value:function render()
 
 
 
 {var _this2=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取查询',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
+_reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{alignSelf:'center'},
 source:require('image!offer_tongzhi')}),
@@ -62232,7 +62878,8 @@ style:{marginTop:30,justifyContent:'center',alignItems:'center',
 backgroundColor:'#ff902d',height:45,borderRadius:3},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'预约通知')))));}}]);return OfferSearch;}(_reactNative2.default.Component);exports.default=OfferSearch;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'预约通知'))))));}}]);return OfferSearch;}(_reactNative2.default.Component);exports.default=OfferSearch;
+
 
 
 
@@ -62244,10 +62891,10 @@ var styles=_reactNative.StyleSheet.create({
 contentContainer:{
 paddingTop:54,
 paddingLeft:20,
-paddingRight:20,
-backgroundColor:'white'}});
+paddingRight:20}});
 });
-__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var 
+__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
 
 
 
@@ -62270,24 +62917,30 @@ __d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module
 OfferResult=function(_React$Component){babelHelpers.inherits(OfferResult,_React$Component);
 function OfferResult(props){babelHelpers.classCallCheck(this,OfferResult);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(OfferResult).call(this,
 props));
-_this.state={};return _this;}babelHelpers.createClass(OfferResult,[{key:'render',value:function render()
+_this.state={};return _this;}babelHelpers.createClass(OfferResult,[{key:'onRightNavCilck',value:function onRightNavCilck()
 
 
 
 
 {
+console.log('right');}},{key:'render',value:function render()
+
+
+{
 return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,rightText:'取消预约',obj:this}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_OfferResult_Success2.default,null)));}}]);return OfferResult;}(_reactNative2.default.Component);exports.default=OfferResult;
+_reactNative2.default.createElement(_OfferResult_Success2.default,null))));}}]);return OfferResult;}(_reactNative2.default.Component);exports.default=OfferResult;
+
 
 
 
 
 
 var styles=_reactNative.StyleSheet.create({
-contentContainer:{
-backgroundColor:'white'}});
+contentContainer:{}});
 });
 __d('MyProject/src/layout/offer/component/OfferResult_Fail.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var 
 
@@ -62399,8 +63052,6 @@ __d('image!offer_result_bottom',function(global, require, module, exports) {  mo
 });
 __d('image!offer_tongzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/offer_tongzhi.imageset/offer_tongzhi@2x.png","uri":"offer_tongzhi","width":212,"height":125,"deprecated":true};
 });
-__d('MyProject/src/resource/images/back_btn.png',function(global, require, module, exports) {  module.exports = require("AssetRegistry").registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/src/resource/images","httpServerLocation":"/assets/src/resource/images","width":13,"height":21,"scales":[2,3],"files":["/Users/tugaofeng/tgf/work/JSKS/JSKSY/src/resource/images/back_btn@2x.png","/Users/tugaofeng/tgf/work/JSKS/JSKSY/src/resource/images/back_btn@3x.png"],"hash":"44fd4ade4092d412e85dee7de2d45313","name":"back_btn","type":"png"});
-});
 __d('image!home_icon_check',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_check.imageset/home_icon_check@2x.png","uri":"home_icon_check","width":40,"height":40,"deprecated":true};
 });
 __d('image!home_icon_query',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_query.imageset/home_icon_query@2x.png","uri":"home_icon_query","width":40,"height":40,"deprecated":true};
@@ -62408,6 +63059,24 @@ __d('image!home_icon_query',function(global, require, module, exports) {  module
 __d('image!home_icon_volunteer',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_volunteer.imageset/home_icon_volunteer@2x.png","uri":"home_icon_volunteer","width":40,"height":40,"deprecated":true};
 });
 __d('image!home_icon_set',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_set.imageset/home_icon_set@2x.png","uri":"home_icon_set","width":40,"height":40,"deprecated":true};
+});
+__d('react-native-device-uuid/DeviceUUID.ios.js',function(global, require, module, exports) {  'use strict';
+
+var DeviceUUID=require('react-native/Libraries/react-native/react-native.js').NativeModules.DeviceUUID;
+
+
+
+
+
+module.exports={
+getUUID:function(){
+return new Promise(function(resolve,reject){
+DeviceUUID.getUUID(function(error,uuid){
+if(error){
+console.log("Got error when trying to get uuid from Native side");
+reject(error);}else 
+{
+resolve(uuid[0]);}});});}};
 });
 __d('react-native-code-push/CodePush.js',function(global, require, module, exports) {  var _acquisitionSdk=require("code-push/script/acquisition-sdk.js");var _AlertAdapter=require("react-native-code-push/AlertAdapter.js");var _requestFetchAdapter=require("react-native-code-push/request-fetch-adapter.js");var _requestFetchAdapter2=babelHelpers.interopRequireDefault(_requestFetchAdapter);var _reactNative=require("react-native/Libraries/react-native/react-native.js");
 

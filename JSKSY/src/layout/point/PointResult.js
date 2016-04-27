@@ -15,19 +15,51 @@ import React, {
 } from 'react-native';
 import PointResult_Success from './component/PointResult_Success';
 import App_Title from '../common/App_Title';
+import { netClientPost,BUS_200201} from '../../util/NetUtil';
 
+var data;
 export default class PointResult extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			isLoading:true,
+			isLoaded:false,
+			errorLoading:true,
+			errorTips:'正在拼命查询中，请稍候...',
+		}
+		data = {};
+	}
+
+	BUS_200201_CB(object,json){
+		console.log('BUS_200201_CB = '+json)
+		if (json.retcode === '000000') {
+			data = json;
+			object.setState({
+				isLoaded:true,
+				errorLoading:false,
+			});
+		}else{
+			var error='请求失败，请稍后再试';
+			if (json.retinfo) {
+				error = json.retinfo;
+			}
+			object.setState({
+				errorLoading:false,
+				errorTips:error,
+			});
 		}
 	}
 
+	BUS_200201_REQ(){
+		var params = {
+			encrypt:'none',
+			sNum:this.props.sNum,
+			sTicket:this.props.sTicket,
+		}
+		netClientPost(this,BUS_200201,this.BUS_200201_CB,params);
+	}
+
 	componentDidMount() {
-		this.timer = setTimeout(
-			()=>{this.setState({isLoading:false})},
-		500);
+		this.BUS_200201_REQ();
 	}
 
 	render(){
@@ -39,16 +71,25 @@ export default class PointResult extends React.Component{
 			  	contentContainerStyle={styles.contentContainer}>
 			
 				{
-					this.state.isLoading? <View style={{flex:1,alignItems:'center',marginTop:90}}>
-						<Image
-				  			source={require('image!load_pic')} />
-						<ActivityIndicatorIOS
-							style={{marginTop:10}}
-						  	animating={true}
-						  	color={'#808080'}
-						  	size={'small'} />
-						<Text style={{fontSize:20,color:'#888888',marginTop:10}}>正在拼命查询中，请稍后...</Text>
-					</View>:<PointResult_Success/>
+					this.state.isLoaded? <PointResult_Success data={data}/>
+						:
+						<View style={{flex:1,alignItems:'center',marginTop:90}}>
+							<Image
+					  			source={require('image!load_pic')} />
+					  		{
+					  			this.state.errorLoading
+					  				?
+					  				<ActivityIndicatorIOS
+										style={{marginTop:10}}
+									  	animating={true}
+									  	color={'#808080'}
+									  	size={'small'} />
+									:
+									null
+					  		}
+							
+							<Text style={{fontSize:20,color:'#888888',marginTop:10}}>{this.state.errorTips}</Text>
+						</View>
 				}
 			</ScrollView>
 			</View>

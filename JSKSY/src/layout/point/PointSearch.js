@@ -13,6 +13,7 @@ import React, {
   TextInput,
   Dimensions,
   ActivityIndicatorIOS,
+  AlertIOS,
   View
 } from 'react-native';
 import PointResult from './PointResult'
@@ -20,13 +21,18 @@ import PointWait from './component/PointWait'
 import App_Title from '../common/App_Title';
 import { netClientPost,BUS_200101} from '../../util/NetUtil';
 
+function trim(str){ //删除左右两端的空格
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
 var cuTime;
 var exTime;
 export default class PointSearch extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			searchString:'',
+			sNumStr:'',
+			sTicketStr:'',
 			isLoaded:false,	//是否调用时间基准接口完毕
 			isPointSearchOpen:false, //查分是否一开始
 		}
@@ -66,13 +72,37 @@ export default class PointSearch extends React.Component{
 		this.BUS_200101_REQ();
 	}
 
-	onChangeText(e){
-		this.setState({searchString:e});
+	onNumChangeText(e){
+		this.setState({sNumStr:e});
+	}
+
+	onTicketChangeText(e){
+		this.setState({sTicketStr:e});
 	}
 
 	onSubmit(){
+		var num = trim(this.state.sNumStr);
+		var tick = trim(this.state.sTicketStr);
+		if (num === '') {
+			AlertIOS.alert(
+				'温馨提示',
+				'请输入你的考生号',
+			);
+			return;
+		}
+		if (tick === '') {
+			AlertIOS.alert(
+				'温馨提示',
+				'请输入你的准考证号',
+			);
+			return;
+		}
 		this.props.navigator.push({
 			component:PointResult,
+			params:{
+				sNum:num,
+				sTicket:tick,
+			}
 		});
 	}
 
@@ -88,8 +118,10 @@ export default class PointSearch extends React.Component{
 						  	<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'}}
 								clearButtonMode='while-editing'
-								value={this.state.searchString}
-								onChangeText={e=>this.onChangeText(e)}
+								keyboardType='numeric'
+								maxLength={20}
+								value={this.state.sNumStr}
+								onChangeText={e=>this.onNumChangeText(e)}
 								onSubmitEditing={()=>this.onSubmit()}
 								enablesReturnKeyAutomatically={true}
 								placeholder='请输入你的考生号'
@@ -97,8 +129,10 @@ export default class PointSearch extends React.Component{
 							<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21}}
 								clearButtonMode='while-editing'
-								value={this.state.searchString}
-								onChangeText={e=>this.onChangeText(e)}
+								keyboardType='numeric'
+								maxLength={20}
+								value={this.state.sTicketStr}
+								onChangeText={e=>this.onTicketChangeText(e)}
 								onSubmitEditing={()=>this.onSubmit()}
 								enablesReturnKeyAutomatically={true}
 								placeholder='请输入你的准考证号'
