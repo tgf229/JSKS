@@ -27,12 +27,12 @@ export default class OfferResult_Fail extends React.Component{
 			  	<View>
 			  	<View style={{backgroundColor:'#67aef7',height:54,flexDirection:'row',padding:18,alignItems:'center'}}>
 			  		<Text style={{fontSize:14,color:'#d8ebff'}}>姓名</Text>
-			  		<Text style={{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}}>王大雷</Text>
+			  		<Text style={{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}}>{this.props.data.sName}</Text>
 			  	</View>
 			  	<View style={{height:0.2,width:Dimensions.get('window').width,backgroundColor:'#d5d5d5'}}></View>
 			  	<View style={{backgroundColor:'#67aef7',height:54,flexDirection:'row',padding:18,alignItems:'center'}}>
 			  		<Text style={{fontSize:14,color:'#d8ebff'}}>考生号</Text>
-			  		<Text style={{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}}>17751028374</Text>
+			  		<Text style={{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}}>{this.props.sNum}</Text>
 			  	</View>
 
 			  	<Image

@@ -114,7 +114,8 @@ export default class PointSearch extends React.Component{
 				this.state.isLoaded?
 					(this.state.isPointSearchOpen?
 						<ScrollView
-						  contentContainerStyle={styles.contentContainer}>
+							keyboardDismissMode={'on-drag'}
+						  	contentContainerStyle={styles.contentContainer}>
 						  	<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'}}
 								clearButtonMode='while-editing'

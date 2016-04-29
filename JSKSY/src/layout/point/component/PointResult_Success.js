@@ -132,7 +132,7 @@ export default class PointResult_Success extends React.Component{
 					style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*0.6}}
 				  	source={require('image!point_result_top')} >
 				  	<View style={{position:'absolute',left:(Dimensions.get('window').width-288)/2,bottom:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}}>
-					  	<Text style={{fontSize:12,color:'white'}}>姓名：xxxx      考生号：xxxxxxxxx</Text>
+					  	<Text style={{fontSize:12,color:'white'}}>姓名：{this.props.data.sName}      考生号：{this.props.sNum}</Text>
 					</View>
 				</Image>
 				<Image
@@ -170,7 +170,7 @@ export default class PointResult_Success extends React.Component{
 								<Image
 						   			style={{alignItems:'center',justifyContent:'center',marginTop:-40,backgroundColor:'transparent'}}
 						   			source={require('image!point_result_rank')} >
-						   			<Text style={{fontSize:14,color:'white',fontWeight:'bold'}}>{this.props.data.totalName}：{this.props.data.totalLevel}名</Text>
+						   			<Text style={{fontSize:14,color:'white',fontWeight:'bold'}}>{this.props.data.totalName}{this.props.data.totalLevel}名</Text>
 						   		</Image>
 						   		:
 						   		null

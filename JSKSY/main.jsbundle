@@ -59629,7 +59629,7 @@ this.BUS_100301_REQ();}}},{key:'render',value:function render()
 {var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院102-1',navigator:this.props.navigator,leftHid:true}),
+_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院110-1',navigator:this.props.navigator,leftHid:true}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 dataSource:this.state.dataSource,
 renderRow:function(rowData){return _this4.renderRow(rowData);},
@@ -60456,6 +60456,8 @@ urlForQueryAndPage=urlForQueryAndPage;exports.
 
 
 
+
+
 netClient=netClient;exports.
 
 
@@ -60467,7 +60469,7 @@ netClient=netClient;exports.
 
 
 
-netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){
+netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){
 var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');
 fetch(URL_ADDR+busName,{
 method:'POST',
@@ -60699,6 +60701,7 @@ _reactNative2.default.createElement(_App_Title2.default,{title:'高考查分',na
 this.state.isLoaded?
 this.state.isPointSearchOpen?
 _reactNative2.default.createElement(_reactNative.ScrollView,{
+keyboardDismissMode:'on-drag',
 contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.TextInput,{
 style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'},
@@ -60821,7 +60824,7 @@ _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 
 
-this.state.isLoaded?_reactNative2.default.createElement(_PointResult_Success2.default,{data:data}):
+this.state.isLoaded?_reactNative2.default.createElement(_PointResult_Success2.default,{data:data,sNum:this.props.sNum}):
 
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',marginTop:90}},
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -60984,7 +60987,7 @@ _reactNative2.default.createElement(_reactNative.Image,{
 style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*0.6},
 source:require('image!point_result_top')},
 _reactNative2.default.createElement(_reactNative.View,{style:{position:'absolute',left:(_reactNative.Dimensions.get('window').width-288)/2,bottom:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：xxxx      考生号：xxxxxxxxx'))),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：',this.props.data.sName,'      考生号：',this.props.sNum))),
 
 
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -61022,7 +61025,7 @@ this.props.data.totalName?
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{alignItems:'center',justifyContent:'center',marginTop:-40,backgroundColor:'transparent'},
 source:require('image!point_result_rank')},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'white',fontWeight:'bold'}},this.props.data.totalName,'：',this.props.data.totalLevel,'名')):
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'white',fontWeight:'bold'}},this.props.data.totalName,this.props.data.totalLevel,'名')):
 
 
 null)),
@@ -61241,7 +61244,7 @@ props));
 
 
 currentTime='2016/04/26 11:36:01';
-examTime='2016/04/26 11:36:06';
+examTime='2016/04/26 11:36:04';
 
 
 
@@ -62803,7 +62806,7 @@ __d('image!will_checkbox_press',function(global, require, module, exports) {  mo
 });
 __d('image!will_checkbox_none',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_checkbox_none.imageset/will_checkbox_none@2x.png","uri":"will_checkbox_none","width":20,"height":20,"deprecated":true};
 });
-__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
 
 
 
@@ -62821,24 +62824,60 @@ __d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module
 
 
 
+
+
+
+function trim(str){
+return str.replace(/(^\s*)|(\s*$)/g,"");}var 
 
 
 OfferSearch=function(_React$Component){babelHelpers.inherits(OfferSearch,_React$Component);
 function OfferSearch(props){babelHelpers.classCallCheck(this,OfferSearch);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(OfferSearch).call(this,
 props));
 _this.state={
-searchString:''};return _this;}babelHelpers.createClass(OfferSearch,[{key:'onChangeText',value:function onChangeText(
+sNumStr:'',
+sTicketStr:''};return _this;}babelHelpers.createClass(OfferSearch,[{key:'onNumChangeText',value:function onNumChangeText(
 
 
 
 e){
-this.setState({searchString:e});}},{key:'onSubmit',value:function onSubmit()
+this.setState({sNumStr:e});}},{key:'onTicketChangeText',value:function onTicketChangeText(
+
+
+e){
+this.setState({sTicketStr:e});}},{key:'onSubmit',value:function onSubmit()
 
 
 {
-this.props.navigator.push({
-component:_OfferResult2.default});}},{key:'render',value:function render()
+var num=trim(this.state.sNumStr);
+var tick=trim(this.state.sTicketStr);
+if(num===''){
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'请输入你的考生号');
 
+return;}
+
+if(tick===''){
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'请输入你的准考证号');
+
+return;}
+
+this.props.navigator.push({
+component:_OfferResult2.default,
+params:{
+sNum:num,
+sTicket:tick}});}},{key:'scrollViewTo',value:function scrollViewTo(
+
+
+
+
+e){
+var target=e.nativeEvent.target;
+var scrollLength=220;
+this.refs.scroll.scrollTo(scrollLength);}},{key:'render',value:function render()
 
 
 {var _this2=this;
@@ -62846,8 +62885,16 @@ return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
 _reactNative2.default.createElement(_App_Title2.default,{title:'录取查询',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
+ref:'scroll',
+keyboardShouldPersistTaps:true,
+keyboardDismissMode:'on-drag',
 contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_reactNative.View,null,
+_reactNative2.default.createElement(_reactNative.View,{onStartShouldSetResponderCapture:function(e){
+var target=e.nativeEvent.target;
+if(target!==_reactNative2.default.findNodeHandle(_this2.refs.sNumInput)&&target!==_reactNative2.default.findNodeHandle(_this2.refs.sTicketInput)){
+_this2.refs.sNumInput.blur();
+_this2.refs.sTicketInput.blur();}}},
+
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{alignSelf:'center'},
 source:require('image!offer_tongzhi')}),
@@ -62856,22 +62903,34 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{color:'#666666',fo
 
 
 _reactNative2.default.createElement(_reactNative.TextInput,{
-style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21},
+style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:20},
 clearButtonMode:'while-editing',
-value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
+keyboardType:'numeric',
+maxLength:20,
+value:this.state.sNumStr,
+onChangeText:function(e){return _this2.onNumChangeText(e);},
 onSubmitEditing:function(){return _this2.onSubmit();},
 enablesReturnKeyAutomatically:true,
-placeholder:'请输入你的考生号'}),
+placeholder:'请输入你的考生号',
+
+ref:'sNumInput',
+onFocus:this.scrollViewTo.bind(this),
+onEndEditing:function(){_this2.refs.scroll.scrollTo(220);}}),
 
 _reactNative2.default.createElement(_reactNative.TextInput,{
-style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21},
+style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:19},
 clearButtonMode:'while-editing',
-value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
+keyboardType:'numeric',
+maxLength:20,
+value:this.state.sTicketStr,
+onChangeText:function(e){return _this2.onTicketChangeText(e);},
 onSubmitEditing:function(){return _this2.onSubmit();},
 enablesReturnKeyAutomatically:true,
-placeholder:'请输入你的准考证号'}),
+placeholder:'请输入你的准考证号',
+
+ref:'sTicketInput',
+onFocus:this.scrollViewTo.bind(this),
+onEndEditing:function(){_this2.refs.scroll.scrollTo(220);}}),
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{marginTop:30,justifyContent:'center',alignItems:'center',
@@ -62893,7 +62952,7 @@ paddingTop:54,
 paddingLeft:20,
 paddingRight:20}});
 });
-__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');
 
 
 
@@ -62914,12 +62973,65 @@ __d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module
 
 
 
+
+
+var data;var 
 OfferResult=function(_React$Component){babelHelpers.inherits(OfferResult,_React$Component);
 function OfferResult(props){babelHelpers.classCallCheck(this,OfferResult);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(OfferResult).call(this,
 props));
-_this.state={};return _this;}babelHelpers.createClass(OfferResult,[{key:'onRightNavCilck',value:function onRightNavCilck()
+_this.state={
+isLoaded:false,
+isSuccess:false,
+errorLoading:true,
+errorTips:'正在拼命查询中，请稍候...'};
+
+data={};return _this;}babelHelpers.createClass(OfferResult,[{key:'BUS_400101_CB',value:function BUS_400101_CB(
 
 
+object,json){
+console.log('BUS_400101_CB = '+json);
+if(json.retcode==='000000'){
+data=json;
+object.setState({
+isLoaded:true,
+isSuccess:true,
+errorLoading:false});}else 
+
+
+if(json.retcode==='000002'){
+data=json;
+object.setState({
+isLoaded:true,
+isSuccess:false,
+errorLoading:false});}else 
+
+
+{
+var error='请求失败，请稍后再试';
+if(json.retinfo){
+error=json.retinfo;}
+
+object.setState({
+errorLoading:false,
+errorTips:error});}}},{key:'BUS_400101_REQ',value:function BUS_400101_REQ()
+
+
+
+
+
+{
+var params={
+encrypt:'none',
+sNum:this.props.sNum,
+sTicket:this.props.sTicket,
+type:'2',
+alias:'test'};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_400101,this.BUS_400101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{
+this.BUS_400101_REQ();}},{key:'onRightNavCilck',value:function onRightNavCilck()
 
 
 {
@@ -62932,7 +63044,34 @@ _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundC
 _reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,rightText:'取消预约',obj:this}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_OfferResult_Success2.default,null))));}}]);return OfferResult;}(_reactNative2.default.Component);exports.default=OfferResult;
+
+
+this.state.isLoaded?
+
+this.state.isSuccess?
+
+_reactNative2.default.createElement(_OfferResult_Success2.default,{data:data,sNum:this.props.sNum}):
+
+_reactNative2.default.createElement(_OfferResult_Fail2.default,{data:data,sNum:this.props.sNum}):
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',marginTop:90}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!load_pic')}),
+
+this.state.errorLoading?
+
+_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{
+style:{marginTop:10},
+animating:true,
+color:'#808080',
+size:'small'}):
+
+null,
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:'#888888',marginTop:10}},this.state.errorTips)))));}}]);return OfferResult;}(_reactNative2.default.Component);exports.default=OfferResult;
+
+
 
 
 
@@ -62971,12 +63110,12 @@ return (
 _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#67aef7',height:54,flexDirection:'row',padding:18,alignItems:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff'}},'姓名'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}},'王大雷')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}},this.props.data.sName)),
 
 _reactNative2.default.createElement(_reactNative.View,{style:{height:0.2,width:_reactNative.Dimensions.get('window').width,backgroundColor:'#d5d5d5'}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#67aef7',height:54,flexDirection:'row',padding:18,alignItems:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff'}},'考生号'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}},'17751028374')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#d8ebff',position:'absolute',top:18,right:20}},this.props.sNum)),
 
 
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -63025,7 +63164,7 @@ _reactNative2.default.createElement(_reactNative.Image,{
 style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dimensions.get('window').width*1.06,alignItems:'center'},
 source:require('image!offer_result_top')},
 _reactNative2.default.createElement(_reactNative.View,{style:{alignItems:'center',justifyContent:'center',backgroundColor:'#a31c26',width:288,height:28,marginTop:20,borderRadius:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：王大雷      考生号：16262838493939'))),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'white'}},'姓名：',this.props.data.sName,'      考生号：',this.props.sNum))),
 
 
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -63033,7 +63172,14 @@ style:{width:_reactNative.Dimensions.get('window').width,height:_reactNative.Dim
 source:require('image!offer_result_bottom')},
 _reactNative2.default.createElement(_reactNative.View,{style:{alignItems:'center',justifyContent:'center',backgroundColor:'transparent'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'white',fontWeight:'bold'}},'恭喜您！'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:'white',fontWeight:'bold',marginTop:6}},'已被南京大学－新闻传播学院录取')))));}}]);return OfferResult_Success;}(_reactNative2.default.Component);exports.default=OfferResult_Success;
+
+this.props.data.major?
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:'white',fontWeight:'bold',marginTop:6}},'已被',this.props.data.school,'－',this.props.data.major,'录取'):
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:'white',fontWeight:'bold',marginTop:6}},'已被',this.props.data.school,'预录取')))));}}]);return OfferResult_Success;}(_reactNative2.default.Component);exports.default=OfferResult_Success;
+
+
 
 
 

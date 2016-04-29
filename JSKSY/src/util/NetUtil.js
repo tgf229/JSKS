@@ -20,6 +20,8 @@ export const BUS_100301 = "Bus100301";
 export const BUS_200101 = "Bus200101";
 export const BUS_200201 = "Bus200201";
 
+export const BUS_400101 = "Bus400101";
+
 //执行请求
 export function netClient(object,query) {
 		fetch(query)
