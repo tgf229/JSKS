@@ -14,11 +14,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.ToastUtil;
 
 /**
  * <一句话功能简述>
@@ -31,6 +34,7 @@ import com.jsksy.app.ui.BaseActivity;
  */
 public class PointSearchActivity extends BaseActivity implements OnClickListener
 {
+    private EditText num,ticket;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,8 +50,33 @@ public class PointSearchActivity extends BaseActivity implements OnClickListener
         title_name.setText("高考查分");
         app_title_back.setOnClickListener(this);
         
+        num = (EditText)findViewById(R.id.num);
+        ticket = (EditText)findViewById(R.id.ticket);
+        
         Button btn = (Button)findViewById(R.id.btn);
         btn.setOnClickListener(this);
+    }
+    
+    private void onSubmit()
+    {
+        String sNum = num.getText().toString().trim();
+        String sTicket = ticket.getText().toString().trim();
+        
+        if (GeneralUtils.isNullOrZeroLenght(sNum))
+        {
+            ToastUtil.makeText(this, "请输入你的考生号");
+            return;
+        }
+        if (GeneralUtils.isNullOrZeroLenght(sTicket))
+        {
+            ToastUtil.makeText(this, "请输入你的准考证号");
+            return;
+        }
+        
+        Intent intent = new Intent(this,PointResultActivity.class);
+        intent.putExtra("sNum", sNum);
+        intent.putExtra("sTicket", sTicket);
+        startActivity(intent);
     }
 
     @Override
@@ -59,8 +88,7 @@ public class PointSearchActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.btn:
-                Intent intent = new Intent(this,PointResultActivity.class);
-                startActivity(intent);
+                onSubmit();
                 break;
             default:
                 break;

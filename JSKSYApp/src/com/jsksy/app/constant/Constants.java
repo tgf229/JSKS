@@ -78,6 +78,8 @@ public class Constants
     
     public static final String SUCESS_CODE = "000000";
     
+    public static final String ERROR_MESSAGE = "请求失败，请稍后再试";
+    
     /**
      * 推出应用
      */
