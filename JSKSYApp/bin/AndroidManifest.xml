@@ -53,8 +53,7 @@
             android:name=".ui.offer.OfferSuccessActivity" />
         
         <activity 
-            android:name=".ui.wish.WishSearchActivity"
-			android:windowSoftInputMode="adjustResize|adjustPan" />
+            android:name=".ui.wish.WishSearchActivity"/>
         <activity 
             android:name=".ui.wish.WishAgreementActivity"/>
          <activity 

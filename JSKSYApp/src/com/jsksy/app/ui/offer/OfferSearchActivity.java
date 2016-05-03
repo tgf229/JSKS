@@ -9,16 +9,30 @@
  */
 package com.jsksy.app.ui.offer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
+import com.jsksy.app.bean.offer.OfferResponse;
+import com.jsksy.app.constant.Constants;
+import com.jsksy.app.constant.URLUtil;
+import com.jsksy.app.network.ConnectService;
+import com.jsksy.app.sharepref.SharePref;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.point.PointResultActivity;
+import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.NetLoadingDailog;
+import com.jsksy.app.util.ToastUtil;
 
 /**
  * <一句话功能简述>
@@ -31,11 +45,29 @@ import com.jsksy.app.ui.BaseActivity;
  */
 public class OfferSearchActivity extends BaseActivity implements OnClickListener
 {
+    /**
+     * 网络请求等待框
+     */
+    private NetLoadingDailog dailog = new NetLoadingDailog(this);
+    
+    private EditText num, ticket;
+    
+    private String sNum, sTicket;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.offer_search);
+        
+        sNum = SharePref.getString(SharePref.STORAGE_SNUM, null);
+        sTicket = SharePref.getString(SharePref.STORAGE_STICKET, null);
+        if (GeneralUtils.isNotNullOrZeroLenght(sNum) && GeneralUtils.isNotNullOrZeroLenght(sTicket))
+        {
+            reqOffer();
+        }
+        
         init();
     }
     
@@ -46,10 +78,90 @@ public class OfferSearchActivity extends BaseActivity implements OnClickListener
         title_name.setText("录取查询");
         app_title_back.setOnClickListener(this);
         
+        num = (EditText)findViewById(R.id.num);
+        ticket = (EditText)findViewById(R.id.ticket);
+        
         Button btn = (Button)findViewById(R.id.btn);
         btn.setOnClickListener(this);
     }
-
+    
+    private void onSubmit()
+    {
+        sNum = num.getText().toString().trim();
+        sTicket = ticket.getText().toString().trim();
+        
+        if (GeneralUtils.isNullOrZeroLenght(sNum))
+        {
+            ToastUtil.makeText(this, "请输入你的考生号");
+            return;
+        }
+        if (GeneralUtils.isNullOrZeroLenght(sTicket))
+        {
+            ToastUtil.makeText(this, "请输入你的准考证号");
+            return;
+        }
+        
+        reqOffer();
+    }
+    
+    private void reqOffer()
+    {
+        dailog.loading();
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("sNum", sNum);
+        param.put("sTicket", sTicket);
+        param.put("type", "1");
+        param.put("alias", SharePref.getString(SharePref.STORAGE_ALIAS, null));
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            this,
+            OfferResponse.class,
+            URLUtil.Bus400101,
+            Constants.ENCRYPT_NONE);
+    }
+    
+    @Override
+    public void netBack(Object ob)
+    {
+        super.netBack(ob);
+        dailog.dismissDialog();
+        if (ob instanceof OfferResponse)
+        {
+            OfferResponse resp = (OfferResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
+                {
+                    Intent intent = new Intent(this, OfferSuccessActivity.class);
+                    intent.putExtra("sNum", sNum);
+                    intent.putExtra("offerResponse", resp);
+                    startActivity(intent);
+                    finish();
+                }
+                else if ("000002".equals(resp.getRetcode()))
+                {
+                    SharePref.saveString(SharePref.STORAGE_SNUM, sNum);
+                    SharePref.saveString(SharePref.STORAGE_STICKET, sTicket);
+                    
+                    Intent intent = new Intent(this, OfferFailActivity.class);
+                    intent.putExtra("sNum", sNum);
+                    intent.putExtra("sTicket", sTicket);
+                    intent.putExtra("offerResponse", resp);
+                    startActivity(intent);
+                    finish();
+                }
+                else
+                {
+                    ToastUtil.makeText(this, resp.getRetinfo());
+                }
+            }
+            else
+            {
+                ToastUtil.showError(this);
+            }
+        }
+    }
+    
     @Override
     public void onClick(View v)
     {
@@ -59,8 +171,7 @@ public class OfferSearchActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.btn:
-                Intent intent = new Intent(this,OfferSuccessActivity.class);
-                startActivity(intent);
+                onSubmit();
                 break;
             default:
                 break;

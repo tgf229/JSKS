@@ -24,5 +24,8 @@ public class URLUtil
     public static final String Bus200101 = "Bus200101";
     public static final String Bus200201 = "Bus200201";
     
+    public static final String Bus400101 = "Bus400101";
+    public static final String Bus400201 = "Bus400201";
+    
     
 }

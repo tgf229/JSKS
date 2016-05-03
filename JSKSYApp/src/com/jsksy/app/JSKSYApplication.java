@@ -3,6 +3,7 @@ package com.jsksy.app;
 import im.fir.sdk.FIR;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,6 +13,8 @@ import android.graphics.Bitmap;
 import cn.jpush.android.api.JPushInterface;
 
 import com.jsksy.app.constant.Global;
+import com.jsksy.app.sharepref.SharePref;
+import com.jsksy.app.util.GeneralUtils;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -56,6 +59,13 @@ public class JSKSYApplication extends Application
         jsksyApplication = this;
         loadData(getApplicationContext());
 //        JPushInterface.init(this);//开启极光推送
+        
+        String alias = SharePref.getString(SharePref.STORAGE_ALIAS, null);
+        if (GeneralUtils.isNullOrZeroLenght(alias))
+        {
+            alias = System.currentTimeMillis()+"";
+            SharePref.saveString(SharePref.STORAGE_ALIAS, alias);
+        }
     }
     
     public static void loadData(Context context)

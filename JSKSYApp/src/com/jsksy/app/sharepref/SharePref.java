@@ -18,6 +18,10 @@ import com.jsksy.app.constant.Constants;
  */
 public class SharePref
 {
+    public static final String STORAGE_ALIAS = "STORAGE_ALIAS";
+    
+    public static final String STORAGE_SNUM = "STORAGE_SNUM";
+    public static final String STORAGE_STICKET = "STORAGE_STICKET";
 //    /**
 //     * appÊÇ·ñ¿ªÆô
 //     */
