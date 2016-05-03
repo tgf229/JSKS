@@ -143,11 +143,15 @@ export default class OfferResult extends React.Component{
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
 				{
-					this.state.isSuccess
+					this.state.isLoaded
+					? 
+						this.state.isSuccess
 						?	
-					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
+						<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
 						:
-					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
+						<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
+					:
+					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
 				}
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
