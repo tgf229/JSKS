@@ -17,7 +17,7 @@ import React, {
   View
 } from 'react-native';
 import Header from './component/Header'
-import { BUS_100101,BUS_100301 ,netClientPost} from '../../util/NetUtil';
+import { BUS_100101,BUS_100301 ,netClientPost,base64encode,base64decode} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import DeviceUUID from "react-native-device-uuid";
@@ -41,6 +41,8 @@ export default class Home extends React.Component{
 		this.state={
 			dataSource: ds.cloneWithRows(listData),
 		};
+		console.log(base64encode('123'));
+		console.log(base64decode('MTIz'));
 	}
 
 	//行点击
@@ -187,7 +189,7 @@ export default class Home extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1}}>
-				<App_Title title={'江苏省教育考试院111-1'} navigator={this.props.navigator} leftHid={true}/>
+				<App_Title title={'江苏省教育考试院111-2'} navigator={this.props.navigator} leftHid={true}/>
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 

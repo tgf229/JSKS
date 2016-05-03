@@ -12,6 +12,8 @@ import React, {
   Image,
   Dimensions,
   NavigatorIOS,
+  AlertIOS,
+  AsyncStorage,
   ActivityIndicatorIOS,
   Text,
   View
@@ -19,7 +21,8 @@ import React, {
 import OfferResult_Fail from './component/OfferResult_Fail';
 import OfferResult_Success from './component/OfferResult_Success';
 import App_Title from '../common/App_Title';
-import { netClientPost,BUS_400101} from '../../util/NetUtil';
+import { netClientPost,BUS_400101,BUS_400201} from '../../util/NetUtil';
+import { STORAGE_KEY_SNUM,STORAGE_KEY_STICKET} from '../../util/Global';
 
 var data;
 export default class OfferResult extends React.Component{
@@ -34,6 +37,28 @@ export default class OfferResult extends React.Component{
 		data={};
 	}
 
+	//进行存储数据删除_ONE
+	  async _removeValue(){
+	      try{
+	         await AsyncStorage.removeItem(STORAGE_KEY_SNUM);
+	         await AsyncStorage.removeItem(STORAGE_KEY_STICKET);
+	         console.log('数据删除成功...');
+	      }catch(error){
+	         console.log('AsyncStorage错误'+error.message);
+	      }
+	  }
+
+	//进行储存数据_ONE
+	async _saveValue(){
+	     try{
+		    await AsyncStorage.setItem(STORAGE_KEY_SNUM,this.props.sNum);
+		    await AsyncStorage.setItem(STORAGE_KEY_STICKET,this.props.sTicket);
+		       	console.log('保存到存储的数据成功');
+		    }catch(error){
+		        console.log('AsyncStorage错误'+error.message);
+		    }
+	}
+
 	BUS_400101_CB(object,json){
 		console.log('BUS_400101_CB = '+json)
 		if (json.retcode === '000000') {
@@ -46,6 +71,8 @@ export default class OfferResult extends React.Component{
 		}
 		else if(json.retcode === '000002'){
 			data = json;
+			//如果进入预约流程，则保存用户信息
+			object._saveValue();
 			object.setState({
 				isLoaded:true,
 				isSuccess:false,
@@ -71,9 +98,37 @@ export default class OfferResult extends React.Component{
 			sNum:this.props.sNum,
 			sTicket:this.props.sTicket,
 			type:'2',
-			alias:'test',
+			alias:this.props.alias,
 		}
 		netClientPost(this,BUS_400101,this.BUS_400101_CB,params);
+	}
+
+	BUS_400201_CB(object,json){
+		console.log('BUS_400201_CB = '+json)
+		if (json.retcode === '000000') {
+			object._removeValue();
+			AlertIOS.alert(
+				'温馨提示',
+				'取消预约成功',
+			);
+		}
+		else{
+			AlertIOS.alert(
+				'温馨提示',
+				'很抱歉，取消预约失败',
+			);
+		}
+
+	}
+
+	BUS_400201_REQ(){
+		var params = {
+			encrypt:'none',
+			sNum:this.props.sNum,
+			sTicket:this.props.sTicket,
+			alias:this.props.alias,
+		}
+		netClientPost(this,BUS_400201,this.BUS_400201_CB,params);
 	}
 
 	componentDidMount() {
@@ -81,13 +136,19 @@ export default class OfferResult extends React.Component{
 	}
 
 	onRightNavCilck(){
-		console.log('right');
+		this.BUS_400201_REQ();
 	}
 
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-			<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
+				{
+					this.state.isSuccess
+						?	
+					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
+						:
+					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
+				}
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 			  	

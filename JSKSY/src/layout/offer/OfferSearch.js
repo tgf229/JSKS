@@ -13,16 +13,19 @@ import React, {
   Image,
   Text,
   AlertIOS,
+  AsyncStorage,
   TextInput,
   View
 } from 'react-native';
 import OfferResult from './OfferResult';
 import App_Title from '../common/App_Title';
+import { STORAGE_KEY_SNUM,STORAGE_KEY_STICKET,STORAGE_KEY_ALIAS} from '../../util/Global';
 
 function trim(str){ //删除左右两端的空格
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
+var aliasVal;
 export default class OfferSearch extends React.Component{
 	constructor(props){
 		super(props);
@@ -30,6 +33,31 @@ export default class OfferSearch extends React.Component{
 			sNumStr:'',
 			sTicketStr:'',
 		}
+	}
+
+	//初始化数据-默认从AsyncStorage中获取数据
+	  async _loadInitialState(){
+	       try{
+	          var sNumVal=await AsyncStorage.getItem(STORAGE_KEY_SNUM);
+	          var sTicketVal=await AsyncStorage.getItem(STORAGE_KEY_STICKET);
+	           aliasVal = await AsyncStorage.getItem(STORAGE_KEY_ALIAS);
+	          if(sNumVal!=null && sTicketVal!=null){
+	          	this.setState({
+	          		sNumStr:sNumVal,
+	          		sTicketStr:sTicketVal,
+	          	});
+	          	this.onSubmit();
+	            console.log('从存储中获取到数据为:'+sNumVal+' 和 '+sTicketVal);
+	          }else{
+	            console.log('存储中无数据,初始化为空数据');
+	          }
+	       }catch(error){
+	            console.log('AsyncStorage错误'+error.message);
+	       }
+	  }
+
+	componentDidMount() {
+		this._loadInitialState().done();
 	}
 
 	onNumChangeText(e){
@@ -62,6 +90,7 @@ export default class OfferSearch extends React.Component{
 			params:{
 				sNum:num,
 				sTicket:tick,
+				alias:aliasVal,
 			}
 		});
 	}

@@ -36,12 +36,14 @@ export default class Banner extends React.Component{
 	//轮播通告回调
 	BUS_100201_CB(object,json){
 		if (json.retcode === '000000') {
-			listData=listData.concat(json.doc);
-			object.setState({
-				data: listData,
-				isDataLoaded:true,
-			});
-			console.log('成功='+listData);
+			if (json.doc.length !== 0) {
+				listData=listData.concat(json.doc);
+				object.setState({
+					data: listData,
+					isDataLoaded:true,
+				});
+				console.log('成功='+listData);
+			}
 		}else{
 			console.log('失败');
 		}
