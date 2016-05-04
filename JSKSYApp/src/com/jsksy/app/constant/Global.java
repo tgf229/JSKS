@@ -41,6 +41,18 @@ public class Global
         SharePref.saveBoolean(SharePref.APP_OPEN, isOpen);
     }
     
+    /**
+     * 获取推送状态
+     */
+    public static boolean getPush()
+    {
+        return SharePref.getBoolean(SharePref.SET_MESSAGE, true);
+    }
+    
+    public static void savePush(boolean push)
+    {
+        SharePref.saveBoolean(SharePref.SET_MESSAGE, push);
+    }
     
     /**
      * <退出应用>

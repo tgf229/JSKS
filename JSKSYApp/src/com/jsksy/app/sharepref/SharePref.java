@@ -26,6 +26,11 @@ public class SharePref
      * app是否开启
      */
     public static final String APP_OPEN = "app_open";
+    
+    /**
+     * 保存推送设置
+     */
+    public static final String SET_MESSAGE = "set_push";
 //    
 //    /**
 //     * app是否开启引导页
@@ -36,7 +41,6 @@ public class SharePref
 //     * 用户ID
 //     */
 //    public static final String USER_ID = "userId";
-    
     
     public static void saveBoolean(String key, boolean value)
     {

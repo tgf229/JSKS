@@ -80,7 +80,8 @@
             android:name=".ui.wish.WishConditionActivity"/>
          <activity 
             android:name=".ui.wish.WishConditionListActivity"/>
-         
+         <activity 
+            android:name=".ui.set.SetActivity"/>
          <activity 
             android:name=".ui.WebviewActivity"/>
          

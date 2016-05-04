@@ -48,6 +48,7 @@ import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
 import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
+import com.jsksy.app.ui.set.SetActivity;
 import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
@@ -456,6 +457,10 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             case R.id.wish_layout:
                 Intent intentWish = new Intent(this, WishSearchActivity.class);
                 startActivity(intentWish);
+                break;
+            case R.id.set_layout:
+                Intent intentSet = new Intent(this, SetActivity.class);
+                startActivity(intentSet);
                 break;
             default:
                 break;
