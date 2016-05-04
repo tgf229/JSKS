@@ -22,10 +22,10 @@ public class SharePref
     
     public static final String STORAGE_SNUM = "STORAGE_SNUM";
     public static final String STORAGE_STICKET = "STORAGE_STICKET";
-//    /**
-//     * app是否开启
-//     */
-//    public static final String APP_OPEN = "app_open";
+    /**
+     * app是否开启
+     */
+    public static final String APP_OPEN = "app_open";
 //    
 //    /**
 //     * app是否开启引导页

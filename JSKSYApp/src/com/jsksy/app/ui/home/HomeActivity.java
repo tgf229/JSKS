@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
@@ -103,6 +105,11 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private final int SKIP_TIME = 5 * 1000;
     
     /**
+     * 上次退出的时间
+     */
+    private long downTime;
+    
+    /**
      * handle接受广告定时跳转,下载apk后安装apk
      */
     private Handler handler = new Handler()
@@ -130,6 +137,25 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         reqBanner();
         reqList();
         reqInit();
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            if (event.getDownTime() - downTime <= 2000)
+            {
+                JSKSYApplication.jsksyApplication.onTerminate();
+            }
+            else
+            {
+                Toast.makeText(this, getString(R.string.home_back), Toast.LENGTH_SHORT).show();
+                downTime = event.getDownTime();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
     
     private void init()

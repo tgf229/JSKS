@@ -58,7 +58,7 @@ public class JSKSYApplication extends Application
         super.onCreate();
         jsksyApplication = this;
         loadData(getApplicationContext());
-//        JPushInterface.init(this);//开启极光推送
+        JPushInterface.init(this);//开启极光推送
         
         String alias = SharePref.getString(SharePref.STORAGE_ALIAS, null);
         if (GeneralUtils.isNullOrZeroLenght(alias))

@@ -12,8 +12,10 @@ package com.jsksy.app.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import cn.jpush.android.api.JPushInterface;
 
 import com.jsksy.app.R;
+import com.jsksy.app.constant.Global;
 import com.jsksy.app.ui.home.HomeActivity;
 
 /**
@@ -37,7 +39,23 @@ public class WelcomeActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
+        //…Ë÷√“—ø™∆ÙAPP
+        Global.setAppOpen(true);
         init();
+    }
+    
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+    
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
     
     private void init()

@@ -25,11 +25,11 @@ import android.widget.TextView;
 import com.jsksy.app.R;
 import com.jsksy.app.bean.offer.OfferResponse;
 import com.jsksy.app.constant.Constants;
+import com.jsksy.app.constant.Global;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.sharepref.SharePref;
 import com.jsksy.app.ui.BaseActivity;
-import com.jsksy.app.ui.point.PointResultActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
 import com.jsksy.app.util.ToastUtil;
@@ -142,6 +142,13 @@ public class OfferSearchActivity extends BaseActivity implements OnClickListener
                 {
                     SharePref.saveString(SharePref.STORAGE_SNUM, sNum);
                     SharePref.saveString(SharePref.STORAGE_STICKET, sTicket);
+                    
+                    String alias = SharePref.getString(SharePref.STORAGE_ALIAS, null);
+                    if (GeneralUtils.isNotNullOrZeroLenght(alias))
+                    {
+                        //JPUSH Ìí¼Ó±ðÃû
+                        Global.setAliasApp(this, alias);
+                    }
                     
                     Intent intent = new Intent(this, OfferFailActivity.class);
                     intent.putExtra("sNum", sNum);

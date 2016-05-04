@@ -22,6 +22,7 @@ import com.jsksy.app.R;
 import com.jsksy.app.bean.BaseResponse;
 import com.jsksy.app.bean.offer.OfferResponse;
 import com.jsksy.app.constant.Constants;
+import com.jsksy.app.constant.Global;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.sharepref.SharePref;
@@ -107,6 +108,10 @@ public class OfferFailActivity extends BaseActivity implements OnClickListener
                 {
                     SharePref.saveString(SharePref.STORAGE_SNUM, null);
                     SharePref.saveString(SharePref.STORAGE_STICKET, null);
+                    
+                    //JPUSH 添加别名
+                    Global.setAliasApp(this, "");
+                    
                     ToastUtil.makeText(this, "取消预约成功");
                 }
                 else
