@@ -19,6 +19,7 @@ import Banner from './Banner';
 import PointSearch from '../../point/PointSearch';
 import WishSearch from '../../wish/WishSearch';
 import OfferSearch from '../../offer/OfferSearch';
+import SetActivity from '../../set/SetActivity';
 
 export default class Header extends React.Component{
 	constructor(props){
@@ -55,6 +56,13 @@ export default class Header extends React.Component{
 				if(navigator) {
 			            navigator.push({
 			                component: OfferSearch,
+			            })
+			        }
+				break;
+			case 4:
+				if(navigator) {
+			            navigator.push({
+			                component: SetActivity,
 			            })
 			        }
 				break;
