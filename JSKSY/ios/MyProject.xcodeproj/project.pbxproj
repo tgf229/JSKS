@@ -13,6 +13,13 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* MyProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyProjectTests.m */; };
+		0C1F6D4D1CDB2A7500097697 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D4C1CDB2A7500097697 /* libBaiduMobStat.a */; settings = {ASSET_TAGS = (); }; };
+		0C1F6D5B1CDB2C0600097697 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5A1CDB2C0600097697 /* JavaScriptCore.framework */; };
+		0C1F6D5D1CDB2C1A00097697 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5C1CDB2C1A00097697 /* Security.framework */; };
+		0C1F6D5F1CDB2C9200097697 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5E1CDB2C9200097697 /* libstdc++.tbd */; };
+		0C1F6D611CDB2C9B00097697 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D601CDB2C9B00097697 /* CoreLocation.framework */; };
+		0C1F6D631CDB2CB200097697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D621CDB2CB200097697 /* SystemConfiguration.framework */; };
+		0C1F6D651CDB2CC100097697 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D641CDB2CC100097697 /* CoreTelephony.framework */; };
 		0CCD75CA1CCDB35B00435F14 /* libRCTDeviceUUID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCD75B61CCDB2B900435F14 /* libRCTDeviceUUID.a */; };
 		0CCD75EB1CCE0A8300435F14 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD75EA1CCE0A8300435F14 /* NativeBridge.m */; settings = {ASSET_TAGS = (); }; };
 		0CE1844E1CAA65D50093D251 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE1844D1CAA65D50093D251 /* libz.tbd */; };
@@ -132,6 +139,14 @@
 		00E356EE1AD99517003FC87E /* MyProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MyProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProjectTests.m; sourceTree = "<group>"; };
+		0C1F6D4B1CDB2A7500097697 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		0C1F6D4C1CDB2A7500097697 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		0C1F6D5A1CDB2C0600097697 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		0C1F6D5C1CDB2C1A00097697 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0C1F6D5E1CDB2C9200097697 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		0C1F6D601CDB2C9B00097697 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0C1F6D621CDB2CB200097697 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0C1F6D641CDB2CC100097697 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0CCD75AF1CCDB2B900435F14 /* RCTDeviceUUID.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTDeviceUUID.xcodeproj; path = "../node_modules/react-native-device-uuid/RCTDeviceUUID.xcodeproj"; sourceTree = "<group>"; };
 		0CCD75E91CCE0A8300435F14 /* NativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeBridge.h; sourceTree = "<group>"; };
 		0CCD75EA1CCE0A8300435F14 /* NativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeBridge.m; sourceTree = "<group>"; };
@@ -163,12 +178,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1F6D651CDB2CC100097697 /* CoreTelephony.framework in Frameworks */,
+				0C1F6D631CDB2CB200097697 /* SystemConfiguration.framework in Frameworks */,
+				0C1F6D611CDB2C9B00097697 /* CoreLocation.framework in Frameworks */,
+				0C1F6D5F1CDB2C9200097697 /* libstdc++.tbd in Frameworks */,
+				0C1F6D5D1CDB2C1A00097697 /* Security.framework in Frameworks */,
+				0C1F6D5B1CDB2C0600097697 /* JavaScriptCore.framework in Frameworks */,
 				0CCD75CA1CCDB35B00435F14 /* libRCTDeviceUUID.a in Frameworks */,
 				0CE184CF1CAA68ED0093D251 /* libCodePush.a in Frameworks */,
 				0CE1844E1CAA65D50093D251 /* libz.tbd in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				0C1F6D4D1CDB2A7500097697 /* libBaiduMobStat.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -333,6 +355,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0C1F6D641CDB2CC100097697 /* CoreTelephony.framework */,
+				0C1F6D621CDB2CB200097697 /* SystemConfiguration.framework */,
+				0C1F6D601CDB2C9B00097697 /* CoreLocation.framework */,
+				0C1F6D5E1CDB2C9200097697 /* libstdc++.tbd */,
+				0C1F6D5C1CDB2C1A00097697 /* Security.framework */,
+				0C1F6D5A1CDB2C0600097697 /* JavaScriptCore.framework */,
+				0C1F6D4B1CDB2A7500097697 /* BaiduMobStat.h */,
+				0C1F6D4C1CDB2A7500097697 /* libBaiduMobStat.a */,
 				0CE1844D1CAA65D50093D251 /* libz.tbd */,
 				13B07FAE1A68108700A75B9A /* MyProject */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -695,6 +725,10 @@
 				);
 				INFOPLIST_FILE = MyProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymdq.thy;
 				PRODUCT_NAME = MyProject;
@@ -716,6 +750,10 @@
 				);
 				INFOPLIST_FILE = MyProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymdq.thy;
 				PRODUCT_NAME = MyProject;

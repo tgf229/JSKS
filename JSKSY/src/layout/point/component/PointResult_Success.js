@@ -290,7 +290,7 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				}
 
-				<Text style={{textAlign:'center',marginBottom:10,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
+				<Text style={{textAlign:'center',marginTop:10,marginBottom:10,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
 
 			</View>
 		)

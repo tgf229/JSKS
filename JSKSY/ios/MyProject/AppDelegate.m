@@ -11,6 +11,8 @@
 
 #import "RCTRootView.h"
 #import "CodePush.h"
+//百度统计
+#import "BaiduMobStat.h"
 
 @implementation AppDelegate
 
@@ -46,7 +48,8 @@
 //  #else
 //    jsCodeLocation = [CodePush bundleURL];
 //  #endif
-
+  
+  [self configBaiduMobStat];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"MyProject"
@@ -59,6 +62,27 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+/**
+ * 百度统计
+ */
+#pragma mark -
+#pragma mark 百度统计
+-(void)configBaiduMobStat
+{
+  BaiduMobStat* statTracker = [BaiduMobStat defaultStat];
+  statTracker.enableExceptionLog = YES;   // 是否允许截获并发送崩溃信息，请设置YES或者NO
+  statTracker.channelId = @"AppStore";    // 设置您的app的发布渠道
+  statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;// 根据开发者设定的时间间隔接口发送 也可以使用启动时发送策略
+  statTracker.logSendInterval = 1;        // 为1时表示发送日志的时间间隔为1小时
+  statTracker.logSendWifiOnly = YES;      // 是否仅在WIfi情况下发送日志数据
+  // 设置应用进入后台再回到前台为同一次session的间隔时间[0~600s],超过600s则设为600s，默认为30s,测试时使用1S可以用来测试日志的发送。
+  statTracker.sessionResumeInterval = 35;
+  // 参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+  statTracker.shortAppVersion  = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+  statTracker.enableDebugOn = YES;        // 打开sdk调试接口，会有log打印
+  [statTracker startWithAppId:@"d094734473"];// 设置您在mtj网站上添加的app的appkey
 }
 
 @end
