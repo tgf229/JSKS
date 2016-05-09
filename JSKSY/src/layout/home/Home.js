@@ -26,18 +26,20 @@ import Web from '../webview/Web';
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
 var ds;
-var PAGE_NUM = 1;
+var PAGE_NUM;
 var NUM = 10;
 //列表数据集合
 var listData = [];
 //是否加载完毕所有数据
-var hasMore = false;
+var hasMore;
 
 export default class Home extends React.Component{
 
 	constructor(props){
 		super(props);
 		ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.guid !== r2.guid});
+		PAGE_NUM = 1;
+		hasMore = false;
 		this.state={
 			dataSource: ds.cloneWithRows(listData),
 		};
@@ -130,7 +132,7 @@ export default class Home extends React.Component{
 	componentDidMount() {
 		  	//RN调用原生方法 获取UUDID和model 并调用初始化接口
 			DeviceUUID.getUUID().then((uuid) => {
-				NativeBridge.findEvents((error,events)=>{
+				NativeBridge.NATIVE_getDeviceModel((error,events)=>{
 					if (error) {
 						console.log(error);
 					}else{
@@ -145,12 +147,13 @@ export default class Home extends React.Component{
 		if (json.retcode === '000000') {
 			if (json.doc.length >= 10) {
 				hasMore = true;
+			}else{
+				hasMore = false;
 			}
 			listData = listData.concat(json.doc);
 			object.setState({dataSource:ds.cloneWithRows(listData)});
-			console.log('成功='+listData);
 		}else{
-			console.log('失败');
+			console.log('Home BUS_100301_CB 失败');
 		}
 	}
 
@@ -177,11 +180,8 @@ export default class Home extends React.Component{
 
     //加载更多
     onEndReached() {
-		console.log('到达底部!')
 	 	if (hasMore) {
 	 		PAGE_NUM = PAGE_NUM+1;
-			console.log('PAGE_NUM='+PAGE_NUM);
-
 			this.BUS_100301_REQ();
 	 	}
 	}
@@ -189,7 +189,7 @@ export default class Home extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1}}>
-				<App_Title title={'江苏省教育考试院111-3'} navigator={this.props.navigator} leftHid={true}/>
+				<App_Title title={'江苏省教育考试院100-3'} navigator={this.props.navigator} leftHid={true}/>
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 

@@ -1277,7 +1277,9 @@ GLOBAL.document.createElement=null;}
 
 GLOBAL.MutationObserver=undefined;})(
 this);
-__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);
+__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _Welcome=require('MyProject/src/layout/Welcome.js');var _Welcome2=babelHelpers.interopRequireDefault(_Welcome);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);var _Global=require('MyProject/src/util/Global.js');
+
+
 
 
 
@@ -1300,17 +1302,44 @@ var device_model='';var
 MyProject=function(_React$Component){babelHelpers.inherits(MyProject,_React$Component);
 function MyProject(props){babelHelpers.classCallCheck(this,MyProject);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(MyProject).call(this,
 props));
-_this.state={};return _this;}babelHelpers.createClass(MyProject,[{key:'componentDidMount',value:function componentDidMount()
+_this.state={
+loadAD:true};return _this;}babelHelpers.createClass(MyProject,[{key:'_loadInitialState',value:function _loadInitialState(){var 
 
+
+
+
+
+alias;return regeneratorRuntime.async(function _loadInitialState$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_ALIAS));case 3:alias=_context.sent;
+console.log('别名＝'+alias);if(!(
+alias==null)){_context.next=11;break;}
+alias=new Date().getTime()+"";_context.next=9;return regeneratorRuntime.awrap(
+_reactNative.AsyncStorage.setItem(_Global.STORAGE_KEY_ALIAS,alias));case 9:_context.next=12;break;case 11:
+
+console.log('存储中无数据,初始化为空数据');case 12:_context.next=17;break;case 14:_context.prev=14;_context.t0=_context['catch'](0);
+
+
+console.log('AsyncStorage错误'+_context.t0.message);case 17:case 'end':return _context.stop();}}},null,this,[[0,14]]);}},{key:'setToggleTimeout',value:function setToggleTimeout()
+
+
+
+{var _this2=this;
+this.timer=setTimeout(
+function(){
+_this2.setState({loadAD:false});},
+3000);}},{key:'componentDidMount',value:function componentDidMount()
 
 
 
 {
 _reactNativeCodePush2.default.sync();
-_reactNative.StatusBarIOS.setStyle('light-content');}},{key:'render',value:function render()
+_reactNative.StatusBarIOS.setStyle('light-content');
+this._loadInitialState().done();
+
+this.setToggleTimeout();}},{key:'render',value:function render()
 
 
 {
+if(!this.state.loadAD){
 return (
 _reactNative2.default.createElement(_reactNative.Navigator,{
 initialRoute:{component:_Home2.default},
@@ -1319,8 +1348,12 @@ return _reactNative.Navigator.SceneConfigs.PushFromRight;},
 
 renderScene:function(route,navigator){
 var Component=route.component;
-return _reactNative2.default.createElement(Component,babelHelpers.extends({},route.params,{navigator:navigator}));}}));}}]);return MyProject;}(_reactNative2.default.Component);
+return _reactNative2.default.createElement(Component,babelHelpers.extends({},route.params,{navigator:navigator}));}}));}else 
 
+
+{
+return (
+_reactNative2.default.createElement(_Welcome2.default,null));}}}]);return MyProject;}(_reactNative2.default.Component);
 
 
 
@@ -59468,21 +59501,25 @@ __d('MyProject/src/layout/home/Home.js',function(global, require, module, export
 var NativeBridge=require('react-native/Libraries/react-native/react-native.js').NativeModules.NativeBridge;
 
 var ds;
-var PAGE_NUM=1;
+var PAGE_NUM;
 var NUM=10;
 
 var listData=[];
 
-var hasMore=false;var 
+var hasMore;var 
 
 Home=function(_React$Component){babelHelpers.inherits(Home,_React$Component);
 
 function Home(props){babelHelpers.classCallCheck(this,Home);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Home).call(this,
 props));
 ds=new _reactNative.ListView.DataSource({rowHasChanged:function(r1,r2){return r1.guid!==r2.guid;}});
+PAGE_NUM=1;
+hasMore=false;
 _this.state={
-dataSource:ds.cloneWithRows(listData)};return _this;}babelHelpers.createClass(Home,[{key:'rowPressed',value:function rowPressed(
+dataSource:ds.cloneWithRows(listData)};
 
+console.log((0,_NetUtil.base64encode)('123'));
+console.log((0,_NetUtil.base64decode)('MTIz'));return _this;}babelHelpers.createClass(Home,[{key:'rowPressed',value:function rowPressed(
 
 
 
@@ -59570,7 +59607,7 @@ imei:uuid};
 {var _this3=this;
 
 _reactNativeDeviceUuid2.default.getUUID().then(function(uuid){
-NativeBridge.findEvents(function(error,events){
+NativeBridge.NATIVE_getDeviceModel(function(error,events){
 if(error){
 console.log(error);}else 
 {
@@ -59584,13 +59621,14 @@ _this3.BUS_100101_REQ(events,uuid);}});});}},{key:'BUS_100301_CB',value:function
 object,json){
 if(json.retcode==='000000'){
 if(json.doc.length>=10){
-hasMore=true;}
+hasMore=true;}else 
+{
+hasMore=false;}
 
 listData=listData.concat(json.doc);
-object.setState({dataSource:ds.cloneWithRows(listData)});
-console.log('成功='+listData);}else 
+object.setState({dataSource:ds.cloneWithRows(listData)});}else 
 {
-console.log('失败');}}},{key:'BUS_100301_REQ',value:function BUS_100301_REQ()
+console.log('Home BUS_100301_CB 失败');}}},{key:'BUS_100301_REQ',value:function BUS_100301_REQ()
 
 
 
@@ -59617,11 +59655,8 @@ callback(rows);}},{key:'onEndReached',value:function onEndReached()
 
 
 {
-console.log('到达底部!');
 if(hasMore){
 PAGE_NUM=PAGE_NUM+1;
-console.log('PAGE_NUM='+PAGE_NUM);
-
 this.BUS_100301_REQ();}}},{key:'render',value:function render()
 
 
@@ -59629,7 +59664,7 @@ this.BUS_100301_REQ();}}},{key:'render',value:function render()
 {var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院110-1',navigator:this.props.navigator,leftHid:true}),
+_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院100-3',navigator:this.props.navigator,leftHid:true}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 dataSource:this.state.dataSource,
 renderRow:function(rowData){return _this4.renderRow(rowData);},
@@ -59664,7 +59699,10 @@ fontSize:16,
 color:'#444444',
 flex:1}});
 });
-__d('MyProject/src/layout/home/component/Header.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Banner=require('MyProject/src/layout/home/component/Banner.js');var _Banner2=babelHelpers.interopRequireDefault(_Banner);var _PointSearch=require('MyProject/src/layout/point/PointSearch.js');var _PointSearch2=babelHelpers.interopRequireDefault(_PointSearch);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _OfferSearch=require('MyProject/src/layout/offer/OfferSearch.js');var _OfferSearch2=babelHelpers.interopRequireDefault(_OfferSearch);var 
+__d('MyProject/src/layout/home/component/Header.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Banner=require('MyProject/src/layout/home/component/Banner.js');var _Banner2=babelHelpers.interopRequireDefault(_Banner);var _PointSearch=require('MyProject/src/layout/point/PointSearch.js');var _PointSearch2=babelHelpers.interopRequireDefault(_PointSearch);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _OfferSearch=require('MyProject/src/layout/offer/OfferSearch.js');var _OfferSearch2=babelHelpers.interopRequireDefault(_OfferSearch);var _SetActivity=require('MyProject/src/layout/set/SetActivity.js');var _SetActivity2=babelHelpers.interopRequireDefault(_SetActivity);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var 
+
+
+
 
 
 
@@ -59713,7 +59751,7 @@ break;
 case 2:
 if(navigator){
 navigator.push({
-component:_WishSearch2.default});}
+component:_WishList2.default});}
 
 
 break;
@@ -59721,6 +59759,13 @@ case 3:
 if(navigator){
 navigator.push({
 component:_OfferSearch2.default});}
+
+
+break;
+case 4:
+if(navigator){
+navigator.push({
+component:_SetActivity2.default});}
 
 
 break;
@@ -59833,12 +59878,14 @@ url:item.aUrl}});}},{key:'BUS_100201_CB',value:function BUS_100201_CB(
 
 object,json){
 if(json.retcode==='000000'){
+if(json.doc.length!==0){
 listData=listData.concat(json.doc);
 object.setState({
 data:listData,
 isDataLoaded:true});
 
-console.log('成功='+listData);}else 
+console.log('成功='+listData);}}else 
+
 {
 console.log('失败');}}},{key:'BUS_100201_REQ',value:function BUS_100201_REQ()
 
@@ -60458,6 +60505,7 @@ urlForQueryAndPage=urlForQueryAndPage;exports.
 
 
 
+
 netClient=netClient;exports.
 
 
@@ -60469,16 +60517,101 @@ netClient=netClient;exports.
 
 
 
-netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){
-var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');
-fetch(URL_ADDR+busName,{
-method:'POST',
-body:data}).
+netClientPost=netClientPost;exports.
 
-then(function(response){return response.json();}).
-then(function(json){return busCB(object,json);}).
-catch(function(error){return (
-console.log('error='+error));});}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+base64encode=base64encode;exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+base64decode=base64decode;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return response.json();}).then(function(json){return busCB(object,json);}).catch(function(error){return console.log('error='+error);});}var base64EncodeChars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";var base64DecodeChars=new Array(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,52,53,54,55,56,57,58,59,60,61,-1,-1,-1,-1,-1,-1,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,-1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1);function base64encode(str){var out,i,len;var c1,c2,c3;len=str.length;i=0;out="";while(i<len){c1=str.charCodeAt(i++)&0xff;if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4);out+="==";break;}c2=str.charCodeAt(i++);if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2);out+="=";break;}c3=str.charCodeAt(i++);out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2|(c3&0xC0)>>6);out+=base64EncodeChars.charAt(c3&0x3F);}return out;}function base64decode(str){
+var c1,c2,c3,c4;
+var i,len,out;
+len=str.length;
+i=0;
+out="";
+while(i<len){
+
+do {
+c1=base64DecodeChars[str.charCodeAt(i++)&0xff];}while(
+
+i<len&&c1==-1);
+if(c1==-1)
+break;
+
+do {
+c2=base64DecodeChars[str.charCodeAt(i++)&0xff];}while(
+
+i<len&&c2==-1);
+if(c2==-1)
+break;
+out+=String.fromCharCode(c1<<2|(c2&0x30)>>4);
+
+do {
+c3=str.charCodeAt(i++)&0xff;
+if(c3==61)
+return out;
+c3=base64DecodeChars[c3];}while(
+
+i<len&&c3==-1);
+if(c3==-1)
+break;
+out+=String.fromCharCode((c2&0XF)<<4|(c3&0x3C)>>2);
+
+do {
+c4=str.charCodeAt(i++)&0xff;
+if(c4==61)
+return out;
+c4=base64DecodeChars[c4];}while(
+
+i<len&&c4==-1);
+if(c4==-1)
+break;
+out+=String.fromCharCode((c3&0x03)<<6|c4);}
+
+return out;}
 });
 __d('MyProject/src/layout/webview/Web.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
 
@@ -61145,7 +61278,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWe
 
 
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginBottom:10,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginTop:10,marginBottom:10,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
 
 
 
@@ -62806,7 +62939,9 @@ __d('image!will_checkbox_press',function(global, require, module, exports) {  mo
 });
 __d('image!will_checkbox_none',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_checkbox_none.imageset/will_checkbox_none@2x.png","uri":"will_checkbox_none","width":20,"height":20,"deprecated":true};
 });
-__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+__d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _Global=require('MyProject/src/util/Global.js');
+
+
 
 
 
@@ -62828,16 +62963,42 @@ __d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module
 
 
 function trim(str){
-return str.replace(/(^\s*)|(\s*$)/g,"");}var 
+return str.replace(/(^\s*)|(\s*$)/g,"");}
 
 
+var aliasVal;var 
 OfferSearch=function(_React$Component){babelHelpers.inherits(OfferSearch,_React$Component);
 function OfferSearch(props){babelHelpers.classCallCheck(this,OfferSearch);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(OfferSearch).call(this,
 props));
 _this.state={
 sNumStr:'',
-sTicketStr:''};return _this;}babelHelpers.createClass(OfferSearch,[{key:'onNumChangeText',value:function onNumChangeText(
+sTicketStr:''};return _this;}babelHelpers.createClass(OfferSearch,[{key:'_loadInitialState',value:function _loadInitialState(){var 
 
+
+
+
+
+
+sNumVal,
+sTicketVal;return regeneratorRuntime.async(function _loadInitialState$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_SNUM));case 3:sNumVal=_context.sent;_context.next=6;return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_STICKET));case 6:sTicketVal=_context.sent;_context.next=9;return regeneratorRuntime.awrap(
+_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_ALIAS));case 9:aliasVal=_context.sent;
+if(sNumVal!=null&&sTicketVal!=null){
+this.setState({
+sNumStr:sNumVal,
+sTicketStr:sTicketVal});
+
+this.onSubmit();
+console.log('从存储中获取到数据为:'+sNumVal+' 和 '+sTicketVal);}else 
+{
+console.log('存储中无数据,初始化为空数据');}_context.next=16;break;case 13:_context.prev=13;_context.t0=_context['catch'](0);
+
+
+console.log('AsyncStorage错误'+_context.t0.message);case 16:case 'end':return _context.stop();}}},null,this,[[0,13]]);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+
+{
+this._loadInitialState().done();}},{key:'onNumChangeText',value:function onNumChangeText(
 
 
 e){
@@ -62869,7 +63030,8 @@ this.props.navigator.push({
 component:_OfferResult2.default,
 params:{
 sNum:num,
-sTicket:tick}});}},{key:'scrollViewTo',value:function scrollViewTo(
+sTicket:tick,
+alias:aliasVal}});}},{key:'scrollViewTo',value:function scrollViewTo(
 
 
 
@@ -62952,7 +63114,7 @@ paddingTop:54,
 paddingLeft:20,
 paddingRight:20}});
 });
-__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');
+__d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult_Fail=require('MyProject/src/layout/offer/component/OfferResult_Fail.js');var _OfferResult_Fail2=babelHelpers.interopRequireDefault(_OfferResult_Fail);var _OfferResult_Success=require('MyProject/src/layout/offer/component/OfferResult_Success.js');var _OfferResult_Success2=babelHelpers.interopRequireDefault(_OfferResult_Success);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _Global=require('MyProject/src/util/Global.js');
 
 
 
@@ -62974,6 +63136,11 @@ __d('MyProject/src/layout/offer/OfferResult.js',function(global, require, module
 
 
 
+
+
+
+
+var NativeBridge=require('react-native/Libraries/react-native/react-native.js').NativeModules.NativeBridge;
 
 var data;var 
 OfferResult=function(_React$Component){babelHelpers.inherits(OfferResult,_React$Component);
@@ -62985,7 +63152,33 @@ isSuccess:false,
 errorLoading:true,
 errorTips:'正在拼命查询中，请稍候...'};
 
-data={};return _this;}babelHelpers.createClass(OfferResult,[{key:'BUS_400101_CB',value:function BUS_400101_CB(
+data={};return _this;}babelHelpers.createClass(OfferResult,[{key:'_removeValue',value:function _removeValue(){return regeneratorRuntime.async(function _removeValue$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(
+
+
+
+
+
+_reactNative.AsyncStorage.removeItem(_Global.STORAGE_KEY_SNUM));case 3:_context.next=5;return regeneratorRuntime.awrap(
+_reactNative.AsyncStorage.removeItem(_Global.STORAGE_KEY_STICKET));case 5:
+console.log('数据删除成功...');
+
+NativeBridge.NATIVE_setAlias('');_context.next=12;break;case 9:_context.prev=9;_context.t0=_context['catch'](0);
+
+console.log('AsyncStorage错误'+_context.t0.message);case 12:case 'end':return _context.stop();}}},null,this,[[0,9]]);}},{key:'_saveValue',value:function _saveValue(){return regeneratorRuntime.async(function _saveValue$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:_context2.prev=0;_context2.next=3;return regeneratorRuntime.awrap(
+
+
+
+
+
+
+_reactNative.AsyncStorage.setItem(_Global.STORAGE_KEY_SNUM,this.props.sNum));case 3:_context2.next=5;return regeneratorRuntime.awrap(
+_reactNative.AsyncStorage.setItem(_Global.STORAGE_KEY_STICKET,this.props.sTicket));case 5:
+console.log('保存到存储的数据成功');
+
+NativeBridge.NATIVE_setAlias(this.props.alias);_context2.next=12;break;case 9:_context2.prev=9;_context2.t0=_context2['catch'](0);
+
+console.log('AsyncStorage错误'+_context2.t0.message);case 12:case 'end':return _context2.stop();}}},null,this,[[0,9]]);}},{key:'BUS_400101_CB',value:function BUS_400101_CB(
+
 
 
 object,json){
@@ -63000,6 +63193,8 @@ errorLoading:false});}else
 
 if(json.retcode==='000002'){
 data=json;
+
+object._saveValue();
 object.setState({
 isLoaded:true,
 isSuccess:false,
@@ -63025,9 +63220,37 @@ encrypt:'none',
 sNum:this.props.sNum,
 sTicket:this.props.sTicket,
 type:'2',
-alias:'test'};
+alias:this.props.alias};
 
-(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_400101,this.BUS_400101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_400101,this.BUS_400101_CB,params);}},{key:'BUS_400201_CB',value:function BUS_400201_CB(
+
+
+object,json){
+console.log('BUS_400201_CB = '+json);
+if(json.retcode==='000000'){
+object._removeValue();
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'取消预约成功');}else 
+
+
+{
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'很抱歉，取消预约失败');}}},{key:'BUS_400201_REQ',value:function BUS_400201_REQ()
+
+
+
+
+
+{
+var params={
+encrypt:'none',
+sNum:this.props.sNum,
+sTicket:this.props.sTicket,
+alias:this.props.alias};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_400201,this.BUS_400201_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
 
 
 {
@@ -63035,13 +63258,23 @@ this.BUS_400101_REQ();}},{key:'onRightNavCilck',value:function onRightNavCilck()
 
 
 {
-console.log('right');}},{key:'render',value:function render()
+this.BUS_400201_REQ();}},{key:'render',value:function render()
 
 
 {
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,rightText:'取消预约',obj:this}),
+
+this.state.isLoaded?
+
+this.state.isSuccess?
+
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,obj:this}):
+
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,rightText:'取消预约',obj:this}):
+
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取结果',navigator:this.props.navigator,rightShow:true,obj:this}),
+
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 
@@ -63196,7 +63429,67 @@ __d('image!offer_result_top',function(global, require, module, exports) {  modul
 });
 __d('image!offer_result_bottom',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/offer_result_bottom.imageset/offer_result_bottom@2x.png","uri":"offer_result_bottom","width":360,"height":198,"deprecated":true};
 });
+__d('MyProject/src/util/Global.js',function(global, require, module, exports) {  Object.defineProperty(exports,"__esModule",{value:true});var STORAGE_KEY_SNUM=exports.STORAGE_KEY_SNUM='sNumKEY';
+var STORAGE_KEY_STICKET=exports.STORAGE_KEY_STICKET='sTicketKEY';
+var STORAGE_KEY_ALIAS=exports.STORAGE_KEY_ALIAS='aliasKEY';
+});
 __d('image!offer_tongzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/offer_tongzhi.imageset/offer_tongzhi@2x.png","uri":"offer_tongzhi","width":212,"height":125,"deprecated":true};
+});
+__d('MyProject/src/layout/set/SetActivity.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SetActivity=function(_React$Component){babelHelpers.inherits(SetActivity,_React$Component);
+function SetActivity(props){babelHelpers.classCallCheck(this,SetActivity);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(SetActivity).call(this,
+props));
+_this.state={};return _this;}babelHelpers.createClass(SetActivity,[{key:'render',value:function render()
+
+
+
+{
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'#eeeeee'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'设置',navigator:this.props.navigator}),
+_reactNative2.default.createElement(_reactNative.ScrollView,{
+contentContainerStyle:styles.contentContainer},
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'江苏省教育考试院'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本x.x.x'),
+_reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
+_reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666',position:'absolute',top:20,right:20}},'已关闭')),
+
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width,marginLeft:10}}),
+_reactNative2.default.createElement(_reactNative.View,{style:{height:68,justifyContent:'center',padding:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#999999'}},'如果要开启或者关“江苏考试院”接收消息通知，请在iPhone的”设置－通知“中找到“江苏考试院”进行更改'))),
+
+
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'#999999',alignSelf:'center',marginBottom:20}},'江苏省教育院版权所有')));}}]);return SetActivity;}(_reactNative2.default.Component);exports.default=SetActivity;
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+contentContainer:{
+paddingTop:38,
+backgroundColor:'white'}});
 });
 __d('image!home_icon_check',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_check.imageset/home_icon_check@2x.png","uri":"home_icon_check","width":40,"height":40,"deprecated":true};
 });
@@ -63223,6 +63516,52 @@ console.log("Got error when trying to get uuid from Native side");
 reject(error);}else 
 {
 resolve(uuid[0]);}});});}};
+});
+__d('MyProject/src/layout/Welcome.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome=function(_React$Component){babelHelpers.inherits(Welcome,_React$Component);
+function Welcome(props){babelHelpers.classCallCheck(this,Welcome);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Welcome).call(this,
+props));
+_this.state={};return _this;}babelHelpers.createClass(Welcome,[{key:'render',value:function render()
+
+
+
+
+{
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#f6f6f6'}},
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{height:_reactNative.Dimensions.get('window').height-100,width:_reactNative.Dimensions.get('window').width},
+source:require('image!loading_bg')}),
+
+_reactNative2.default.createElement(_reactNative.View,{style:{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!loading_logo')}))));}}]);return Welcome;}(_reactNative2.default.Component);exports.default=Welcome;
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({});
+});
+__d('image!loading_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_bg.imageset/loading_bg@2x.png","uri":"loading_bg","width":540,"height":815,"deprecated":true};
+});
+__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":273,"height":62,"deprecated":true};
 });
 __d('react-native-code-push/CodePush.js',function(global, require, module, exports) {  var _acquisitionSdk=require("code-push/script/acquisition-sdk.js");var _AlertAdapter=require("react-native-code-push/AlertAdapter.js");var _requestFetchAdapter=require("react-native-code-push/request-fetch-adapter.js");var _requestFetchAdapter2=babelHelpers.interopRequireDefault(_requestFetchAdapter);var _reactNative=require("react-native/Libraries/react-native/react-native.js");
 

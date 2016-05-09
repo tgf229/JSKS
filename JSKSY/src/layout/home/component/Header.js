@@ -21,6 +21,8 @@ import WishSearch from '../../wish/WishSearch';
 import OfferSearch from '../../offer/OfferSearch';
 import SetActivity from '../../set/SetActivity';
 
+import WishList from '../../wish/WishList';
+
 export default class Header extends React.Component{
 	constructor(props){
 		super(props);
@@ -48,7 +50,7 @@ export default class Header extends React.Component{
 			case 2:
 				if(navigator) {
 			            navigator.push({
-			                component: WishSearch,
+			                component: WishList,
 			            })
 			        }
 				break;

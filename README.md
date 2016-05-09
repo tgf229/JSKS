@@ -23,3 +23,6 @@
 5-3  接口调测：录取查询，取消录取
 5-4  android UI布局：设置   android推送
 5-5  ios  UI布局：设置   百度统计
+5-6  调休
+
+5-9  appstore证书，ios推送，ios Loading页

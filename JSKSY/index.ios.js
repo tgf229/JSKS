@@ -14,6 +14,7 @@ import React, {
   View
 } from 'react-native';
 import Home from './src/layout/home/Home';
+import Welcome from './src/layout/Welcome';
 import codePush from "react-native-code-push";
 import {STORAGE_KEY_ALIAS} from './src/util/Global';
 
@@ -23,7 +24,7 @@ class MyProject extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-
+			loadAD:true,
 		}
 	}
 
@@ -42,26 +43,41 @@ class MyProject extends React.Component{
 	       }
 	  }
 
+	setToggleTimeout(){
+	    this.timer = setTimeout(
+	        ()=>{
+	            this.setState({loadAD: false});
+	        },3000
+	    )
+	}
+
 	componentDidMount(){
 	    codePush.sync();
 	    StatusBarIOS.setStyle('light-content');
 	    this._loadInitialState().done();
+
+	    this.setToggleTimeout();
 	}
 
 	render(){
-		return(
-			  <Navigator
-		          initialRoute={{ component: Home, }}
-		          configureScene={(route) => {
-		            return Navigator.SceneConfigs.PushFromRight;
-		          }}
-		          renderScene={(route, navigator) => {
-		            let Component = route.component;
-		            return <Component {...route.params} navigator={navigator} />
-		          }} />
-		)
+		if (!this.state.loadAD) {
+			return(
+				<Navigator
+					initialRoute={{ component: Home, }}
+			        configureScene={(route) => {
+			            return Navigator.SceneConfigs.PushFromRight;
+			        }}
+			        renderScene={(route, navigator) => {
+			            let Component = route.component;
+			            return <Component {...route.params} navigator={navigator} />
+			        }} />
+			)
+		}else{
+			return(
+				<Welcome/>
+			)
+		}
 	}
-
 }
 
 const styles = StyleSheet.create({

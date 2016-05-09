@@ -12,6 +12,8 @@
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 
+#import "JPUSHService.h"
+
 #import <sys/utsname.h>
 
 @implementation NativeBridge
@@ -19,14 +21,40 @@
 //RCT_EXPORT_MODULE();
 RCT_EXPORT_MODULE();
 
-//RN调原生方法并获取回调
-//此方法为取model
-RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
+//RN调原生方法并获取回调   取手机model
+RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
 {
   NSString *model =  [self deviceModelString];
   callback(@[[NSNull null],model]);
 }
 
+//RN调原生方法并获取回调   设置JPUSH别名
+RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
+{
+  [self jpushSetAlias:alias];
+}
+
+//设置别名
+-(void)jpushSetAlias:(NSString *)alias{
+  [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+}
+
+// 设置别名方法回调
+- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
+  if(iResCode == 0){
+    NSLog(@"设置别名成功");
+  }else{
+    NSLog(@"设置别名失败");
+  }
+}
+
+// 清除别名
+-(void)clearAliasForLoginUser
+{
+  [JPUSHService setAlias:@"" callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+}
+
+//获取手机model
 -(NSString*)deviceModelString
 {
   struct utsname systemInfo;

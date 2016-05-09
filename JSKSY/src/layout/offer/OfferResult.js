@@ -24,6 +24,8 @@ import App_Title from '../common/App_Title';
 import { netClientPost,BUS_400101,BUS_400201} from '../../util/NetUtil';
 import { STORAGE_KEY_SNUM,STORAGE_KEY_STICKET} from '../../util/Global';
 
+var NativeBridge = require('react-native').NativeModules.NativeBridge;
+
 var data;
 export default class OfferResult extends React.Component{
 	constructor(props){
@@ -43,6 +45,8 @@ export default class OfferResult extends React.Component{
 	         await AsyncStorage.removeItem(STORAGE_KEY_SNUM);
 	         await AsyncStorage.removeItem(STORAGE_KEY_STICKET);
 	         console.log('数据删除成功...');
+	         //调用原生 设置JPUSH别名
+	         NativeBridge.NATIVE_setAlias('');
 	      }catch(error){
 	         console.log('AsyncStorage错误'+error.message);
 	      }
@@ -53,7 +57,9 @@ export default class OfferResult extends React.Component{
 	     try{
 		    await AsyncStorage.setItem(STORAGE_KEY_SNUM,this.props.sNum);
 		    await AsyncStorage.setItem(STORAGE_KEY_STICKET,this.props.sTicket);
-		       	console.log('保存到存储的数据成功');
+		    console.log('保存到存储的数据成功');
+		    //调用原生 清除JPUSH别名
+			NativeBridge.NATIVE_setAlias(this.props.alias);
 		    }catch(error){
 		        console.log('AsyncStorage错误'+error.message);
 		    }
