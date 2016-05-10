@@ -27,7 +27,6 @@
 		0C789C601CE067D700FECB79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C5F1CE067D700FECB79 /* Foundation.framework */; };
 		0C789C621CE067E000FECB79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C611CE067E000FECB79 /* UIKit.framework */; };
 		0C789C641CE0690300FECB79 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C789C631CE0690300FECB79 /* PushConfig.plist */; settings = {ASSET_TAGS = (); }; };
-		0C789C7F1CE0859000FECB79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C789C7E1CE0859000FECB79 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		0C789CAE1CE08A1400FECB79 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C8E1CE08A1400FECB79 /* MKAnnotationView+WebCache.m */; settings = {ASSET_TAGS = (); }; };
 		0C789CAF1CE08A1400FECB79 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C901CE08A1400FECB79 /* NSData+ImageContentType.m */; settings = {ASSET_TAGS = (); }; };
 		0C789CB01CE08A1400FECB79 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C921CE08A1400FECB79 /* SDImageCache.m */; settings = {ASSET_TAGS = (); }; };
@@ -179,7 +178,6 @@
 		0C789C5F1CE067D700FECB79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C789C611CE067E000FECB79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0C789C631CE0690300FECB79 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
-		0C789C7E1CE0859000FECB79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = JSKSY/Images.xcassets; sourceTree = "<group>"; };
 		0C789C8D1CE08A1400FECB79 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		0C789C8E1CE08A1400FECB79 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		0C789C8F1CE08A1400FECB79 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -465,7 +463,6 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				0CCD75E91CCE0A8300435F14 /* NativeBridge.h */,
 				0CCD75EA1CCE0A8300435F14 /* NativeBridge.m */,
-				0C789C7E1CE0859000FECB79 /* Images.xcassets */,
 			);
 			name = JSKSY;
 			sourceTree = "<group>";
@@ -762,7 +759,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				0C789C7F1CE0859000FECB79 /* Images.xcassets in Resources */,
 				0C789C641CE0690300FECB79 /* PushConfig.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

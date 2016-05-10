@@ -30,16 +30,16 @@ export default class SetActivity extends React.Component{
 				<ScrollView
 				  contentContainerStyle={styles.contentContainer}>
 					<Text style={{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}}>江苏省教育考试院</Text>
-					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本x.x.x</Text>
+					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本S1.0.1-V2</Text>
 					<View style={{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width}}></View>
 					<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}}>
 						<Text style={{fontSize:15,color:'#666666'}}>消息推送</Text>
-						<Text style={{fontSize:15,color:'#666666',position:'absolute',top:20,right:20}}>已关闭</Text>
+						{/* <Text style={{fontSize:15,color:'#666666',position:'absolute',top:20,right:20}}>已关闭</Text> */}
 					</View>
 					<View style={{backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width,marginLeft:10}}></View>
 					<View style={{height:68,justifyContent:'center',padding:20}}>
 						<Text style={{fontSize:14,color:'#999999'}}>
-							如果要开启或者关“江苏考试院”接收消息通知，请在iPhone的”设置－通知“中找到“江苏考试院”进行更改
+							如果要开启或者关闭“江苏考试院”接收消息通知，请在iPhone的”设置－通知“中找到“江苏考试院”进行更改
 						</Text>
 					</View>
 				</ScrollView>

@@ -1335,7 +1335,11 @@ _reactNativeCodePush2.default.sync();
 _reactNative.StatusBarIOS.setStyle('light-content');
 this._loadInitialState().done();
 
-this.setToggleTimeout();}},{key:'render',value:function render()
+this.setToggleTimeout();}},{key:'componentWillUnmount',value:function componentWillUnmount()
+
+
+{
+this.timer&&clearTimeout(this.timer);}},{key:'render',value:function render()
 
 
 {
@@ -1353,7 +1357,7 @@ return _reactNative2.default.createElement(Component,babelHelpers.extends({},rou
 
 {
 return (
-_reactNative2.default.createElement(_Welcome2.default,null));}}}]);return MyProject;}(_reactNative2.default.Component);
+_reactNative2.default.createElement(_Welcome2.default,{homeObj:this}));}}}]);return MyProject;}(_reactNative2.default.Component);
 
 
 
@@ -59664,7 +59668,7 @@ this.BUS_100301_REQ();}}},{key:'render',value:function render()
 {var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院100-3',navigator:this.props.navigator,leftHid:true}),
+_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院',navigator:this.props.navigator,leftHid:true}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 dataSource:this.state.dataSource,
 renderRow:function(rowData){return _this4.renderRow(rowData);},
@@ -63467,11 +63471,11 @@ _reactNative2.default.createElement(_App_Title2.default,{title:'设置',navigato
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'江苏省教育考试院'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本x.x.x'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本S1.0.1-V1'),
 _reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666',position:'absolute',top:20,right:20}},'已关闭')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送')),
+
 
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width,marginLeft:10}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:68,justifyContent:'center',padding:20}},
@@ -63532,20 +63536,43 @@ __d('MyProject/src/layout/Welcome.js',function(global, require, module, exports)
 
 
 
+
 Welcome=function(_React$Component){babelHelpers.inherits(Welcome,_React$Component);
 function Welcome(props){babelHelpers.classCallCheck(this,Welcome);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Welcome).call(this,
 props));
-_this.state={};return _this;}babelHelpers.createClass(Welcome,[{key:'render',value:function render()
+_this.state={};return _this;}babelHelpers.createClass(Welcome,[{key:'onSkipPress',value:function onSkipPress()
 
 
 
 
 {
+this.props.homeObj.setState({
+loadAD:false});}},{key:'onADPress',value:function onADPress()
+
+
+
+{
+console.log('12312312');}},{key:'render',value:function render()
+
+
+{var _this2=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#f6f6f6'}},
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+underlayColor:'#fcfcfc',
+onPress:function(){return _this2.onADPress();}},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{height:_reactNative.Dimensions.get('window').height-100,width:_reactNative.Dimensions.get('window').width},
-source:require('image!loading_bg')}),
+source:require('image!loading_bg')})),
+
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{position:'absolute',top:33,right:25,padding:25},
+underlayColor:'#fcfcfc',
+onPress:function(){return _this2.onSkipPress();}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!loading_skip')})),
+
 
 _reactNative2.default.createElement(_reactNative.View,{style:{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Image,{
@@ -63560,6 +63587,8 @@ source:require('image!loading_logo')}))));}}]);return Welcome;}(_reactNative2.de
 var styles=_reactNative.StyleSheet.create({});
 });
 __d('image!loading_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_bg.imageset/loading_bg@2x.png","uri":"loading_bg","width":540,"height":815,"deprecated":true};
+});
+__d('image!loading_skip',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_skip.imageset/loading_skip@2x.png","uri":"loading_skip","width":79.5,"height":41,"deprecated":true};
 });
 __d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":273,"height":62,"deprecated":true};
 });

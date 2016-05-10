@@ -59,6 +59,10 @@ class MyProject extends React.Component{
 	    this.setToggleTimeout();
 	}
 
+	componentWillUnmount() {
+	  	this.timer && clearTimeout(this.timer);
+	}
+
 	render(){
 		if (!this.state.loadAD) {
 			return(
@@ -74,7 +78,7 @@ class MyProject extends React.Component{
 			)
 		}else{
 			return(
-				<Welcome/>
+				<Welcome homeObj={this}/>
 			)
 		}
 	}
