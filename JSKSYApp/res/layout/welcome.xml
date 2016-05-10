@@ -4,10 +4,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/loading_welcome"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        
+        <ImageView
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/loading_content"/>
+        
+        <LinearLayout
+            android:id="@+id/skip_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp">
+            <ImageView
+	            android:layout_width="80dp"
+	            android:layout_height="40dp"
+	            android:src="@drawable/loading_skip"/>
+        </LinearLayout>
+    
+    </RelativeLayout>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="30dp"
+        android:gravity="center"
+        android:background="@color/color_ffffff">
+        <ImageView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/loading_logo"/>
+    </LinearLayout>
 
 </LinearLayout>

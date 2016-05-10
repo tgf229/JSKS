@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/loading_bg"
+        android:background="@drawable/loading_content"
         android:indeterminateDrawable="@drawable/loading_progress2"
         android:padding="10dip" />
 

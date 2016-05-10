@@ -12,8 +12,12 @@ package com.jsksy.app.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import cn.jpush.android.api.JPushInterface;
 
+import com.baidu.mobstat.StatService;
 import com.jsksy.app.R;
 import com.jsksy.app.constant.Global;
 import com.jsksy.app.ui.home.HomeActivity;
@@ -27,11 +31,18 @@ import com.jsksy.app.ui.home.HomeActivity;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class WelcomeActivity extends BaseActivity
+public class WelcomeActivity extends BaseActivity implements OnClickListener
 {
-    private Handler handler = new Handler()
+    private Handler handler = new Handler();
+    Runnable runnable = new Runnable()
     {
-        
+        @Override
+        public void run()
+        {
+            Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
     };
     
     @Override
@@ -60,16 +71,33 @@ public class WelcomeActivity extends BaseActivity
     
     private void init()
     {
-        handler.postDelayed(new Runnable()
+        LinearLayout skip_layout = (LinearLayout)findViewById(R.id.skip_layout);
+        skip_layout.setOnClickListener(this);
+        
+        handler.postDelayed(runnable, 3000);
+    }
+    
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
         {
-            
-            @Override
-            public void run()
-            {
-                Intent intent = new Intent(WelcomeActivity.this,HomeActivity.class);
+            case R.id.skip_layout:
+                Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        }, 2000);
+                break;
+            
+            default:
+                break;
+        }
+        
     }
 }

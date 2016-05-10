@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import com.baidu.mobstat.StatService;
 import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.callback.UICallBack;
 
@@ -40,12 +41,14 @@ public class BaseActivity extends Activity implements UICallBack
     {
         JSKSYApplication.currentActivity = this.getClass().getName();
         super.onResume();
+        StatService.onResume(this);
     }
 
     @Override
     protected void onPause()
     {
         super.onPause();
+        StatService.onPause(this);
     }
     
     @Override
