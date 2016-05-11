@@ -1277,9 +1277,7 @@ GLOBAL.document.createElement=null;}
 
 GLOBAL.MutationObserver=undefined;})(
 this);
-__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _Welcome=require('MyProject/src/layout/Welcome.js');var _Welcome2=babelHelpers.interopRequireDefault(_Welcome);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);var _Global=require('MyProject/src/util/Global.js');
-
-
+__d('MyProject/index.ios.js',function(global, require, module, exports) {  'use strict';var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Home=require('MyProject/src/layout/home/Home.js');var _Home2=babelHelpers.interopRequireDefault(_Home);var _Welcome=require('MyProject/src/layout/Welcome.js');var _Welcome2=babelHelpers.interopRequireDefault(_Welcome);var _reactNativeCodePush=require('react-native-code-push/CodePush.js');var _reactNativeCodePush2=babelHelpers.interopRequireDefault(_reactNativeCodePush);
 
 
 
@@ -1303,43 +1301,13 @@ MyProject=function(_React$Component){babelHelpers.inherits(MyProject,_React$Comp
 function MyProject(props){babelHelpers.classCallCheck(this,MyProject);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(MyProject).call(this,
 props));
 _this.state={
-loadAD:true};return _this;}babelHelpers.createClass(MyProject,[{key:'_loadInitialState',value:function _loadInitialState(){var 
-
-
-
-
-
-alias;return regeneratorRuntime.async(function _loadInitialState$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_ALIAS));case 3:alias=_context.sent;
-console.log('别名＝'+alias);if(!(
-alias==null)){_context.next=11;break;}
-alias=new Date().getTime()+"";_context.next=9;return regeneratorRuntime.awrap(
-_reactNative.AsyncStorage.setItem(_Global.STORAGE_KEY_ALIAS,alias));case 9:_context.next=12;break;case 11:
-
-console.log('存储中无数据,初始化为空数据');case 12:_context.next=17;break;case 14:_context.prev=14;_context.t0=_context['catch'](0);
-
-
-console.log('AsyncStorage错误'+_context.t0.message);case 17:case 'end':return _context.stop();}}},null,this,[[0,14]]);}},{key:'setToggleTimeout',value:function setToggleTimeout()
-
-
-
-{var _this2=this;
-this.timer=setTimeout(
-function(){
-_this2.setState({loadAD:false});},
-3000);}},{key:'componentDidMount',value:function componentDidMount()
+loadAD:true};return _this;}babelHelpers.createClass(MyProject,[{key:'componentDidMount',value:function componentDidMount()
 
 
 
 {
 _reactNativeCodePush2.default.sync();
-_reactNative.StatusBarIOS.setStyle('light-content');
-this._loadInitialState().done();
-
-this.setToggleTimeout();}},{key:'componentWillUnmount',value:function componentWillUnmount()
-
-
-{
-this.timer&&clearTimeout(this.timer);}},{key:'render',value:function render()
+_reactNative.StatusBarIOS.setStyle('light-content');}},{key:'render',value:function render()
 
 
 {
@@ -59668,7 +59636,7 @@ this.BUS_100301_REQ();}}},{key:'render',value:function render()
 {var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'江苏省教育考试院',navigator:this.props.navigator,leftHid:true}),
+_reactNative2.default.createElement(_App_Title2.default,{title:'高考君',navigator:this.props.navigator,leftHid:true}),
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 dataSource:this.state.dataSource,
 renderRow:function(rowData){return _this4.renderRow(rowData);},
@@ -59825,7 +59793,7 @@ _reactNative2.default.createElement(_reactNative.View,null,
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{alignSelf:'center'},
 source:require('image!home_icon_set')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}},'设置')))),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}},'系统设置')))),
 
 
 
@@ -60570,7 +60538,7 @@ base64encode=base64encode;exports.
 
 
 
-base64decode=base64decode;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://10.2.48.16:9080/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return response.json();}).then(function(json){return busCB(object,json);}).catch(function(error){return console.log('error='+error);});}var base64EncodeChars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";var base64DecodeChars=new Array(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,52,53,54,55,56,57,58,59,60,61,-1,-1,-1,-1,-1,-1,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,-1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1);function base64encode(str){var out,i,len;var c1,c2,c3;len=str.length;i=0;out="";while(i<len){c1=str.charCodeAt(i++)&0xff;if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4);out+="==";break;}c2=str.charCodeAt(i++);if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2);out+="=";break;}c3=str.charCodeAt(i++);out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2|(c3&0xC0)>>6);out+=base64EncodeChars.charAt(c3&0x3F);}return out;}function base64decode(str){
+base64decode=base64decode;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://58.213.145.35/web-mobile/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPost(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return response.json();}).then(function(json){return busCB(object,json);}).catch(function(error){return console.log('error='+error);});}var base64EncodeChars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";var base64DecodeChars=new Array(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,52,53,54,55,56,57,58,59,60,61,-1,-1,-1,-1,-1,-1,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,-1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1);function base64encode(str){var out,i,len;var c1,c2,c3;len=str.length;i=0;out="";while(i<len){c1=str.charCodeAt(i++)&0xff;if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4);out+="==";break;}c2=str.charCodeAt(i++);if(i==len){out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2);out+="=";break;}c3=str.charCodeAt(i++);out+=base64EncodeChars.charAt(c1>>2);out+=base64EncodeChars.charAt((c1&0x3)<<4|(c2&0xF0)>>4);out+=base64EncodeChars.charAt((c2&0xF)<<2|(c3&0xC0)>>6);out+=base64EncodeChars.charAt(c3&0x3F);}return out;}function base64decode(str){
 var c1,c2,c3,c4;
 var i,len,out;
 len=str.length;
@@ -60773,6 +60741,9 @@ exTime=json.exTime;
 if(json.exTime<=json.cuTime){
 isOpen=true;}
 
+
+
+isOpen=true;
 
 object.setState({
 isLoaded:true,
@@ -63457,6 +63428,7 @@ __d('MyProject/src/layout/set/SetActivity.js',function(global, require, module, 
 
 
 
+
 SetActivity=function(_React$Component){babelHelpers.inherits(SetActivity,_React$Component);
 function SetActivity(props){babelHelpers.classCallCheck(this,SetActivity);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(SetActivity).call(this,
 props));
@@ -63470,8 +63442,12 @@ _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundC
 _reactNative2.default.createElement(_App_Title2.default,{title:'设置',navigator:this.props.navigator}),
 _reactNative2.default.createElement(_reactNative.ScrollView,{
 contentContainerStyle:styles.contentContainer},
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'江苏省教育考试院'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本S1.0.1-V1'),
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignSelf:'center'},
+source:require('image!set_icon')}),
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'高考君'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本S1.0.2-V1'),
 _reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送')),
@@ -63479,12 +63455,12 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:
 
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width,marginLeft:10}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:68,justifyContent:'center',padding:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#999999'}},'如果要开启或者关“江苏考试院”接收消息通知，请在iPhone的”设置－通知“中找到“江苏考试院”进行更改'))),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:'#999999'}},'如果要开启或者关闭“高考君”接收消息通知，请在iPhone的”设置－通知“中找到“高考君”进行更改'))),
 
 
 
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'#999999',alignSelf:'center',marginBottom:20}},'江苏省教育院版权所有')));}}]);return SetActivity;}(_reactNative2.default.Component);exports.default=SetActivity;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'#999999',alignSelf:'center',marginBottom:20}},'江苏华胜天成教育科技有限公司版权所有')));}}]);return SetActivity;}(_reactNative2.default.Component);exports.default=SetActivity;
 
 
 
@@ -63494,6 +63470,8 @@ var styles=_reactNative.StyleSheet.create({
 contentContainer:{
 paddingTop:38,
 backgroundColor:'white'}});
+});
+__d('image!set_icon',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/set_icon.imageset/set_icon@3x.png","uri":"set_icon","width":132,"height":132,"deprecated":true};
 });
 __d('image!home_icon_check',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_check.imageset/home_icon_check@2x.png","uri":"home_icon_check","width":40,"height":40,"deprecated":true};
 });
@@ -63521,7 +63499,11 @@ reject(error);}else
 {
 resolve(uuid[0]);}});});}};
 });
-__d('MyProject/src/layout/Welcome.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var 
+__d('MyProject/src/layout/Welcome.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Global=require('MyProject/src/util/Global.js');var _Welcome_Guide=require('MyProject/src/layout/Welcome_Guide.js');var _Welcome_Guide2=babelHelpers.interopRequireDefault(_Welcome_Guide);var 
+
+
+
+
 
 
 
@@ -63540,9 +63522,48 @@ __d('MyProject/src/layout/Welcome.js',function(global, require, module, exports)
 Welcome=function(_React$Component){babelHelpers.inherits(Welcome,_React$Component);
 function Welcome(props){babelHelpers.classCallCheck(this,Welcome);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Welcome).call(this,
 props));
-_this.state={};return _this;}babelHelpers.createClass(Welcome,[{key:'onSkipPress',value:function onSkipPress()
+_this.state={
+isFirst:false};return _this;}babelHelpers.createClass(Welcome,[{key:'_loadInitialState',value:function _loadInitialState(){var 
 
 
+
+
+
+alias;return regeneratorRuntime.async(function _loadInitialState$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(_Global.STORAGE_KEY_ALIAS));case 3:alias=_context.sent;
+console.log('别名＝'+alias);if(
+alias){_context.next=12;break;}
+
+this.setState({isFirst:true});
+
+alias=new Date().getTime()+"";_context.next=10;return regeneratorRuntime.awrap(
+_reactNative.AsyncStorage.setItem(_Global.STORAGE_KEY_ALIAS,alias));case 10:_context.next=14;break;case 12:
+
+
+this.setState({isFirst:false});
+
+this.setToggleTimeout();case 14:_context.next=19;break;case 16:_context.prev=16;_context.t0=_context['catch'](0);
+
+
+console.log('AsyncStorage错误'+_context.t0.message);case 19:case 'end':return _context.stop();}}},null,this,[[0,16]]);}},{key:'setToggleTimeout',value:function setToggleTimeout()
+
+
+
+{var _this2=this;
+this.timer=setTimeout(
+function(){
+_this2.props.homeObj.setState({
+loadAD:false});},
+
+3000);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+
+{
+this._loadInitialState().done();}},{key:'componentWillUnmount',value:function componentWillUnmount()
+
+
+{
+this.timer&&clearTimeout(this.timer);}},{key:'onSkipPress',value:function onSkipPress()
 
 
 {
@@ -63555,28 +63576,36 @@ loadAD:false});}},{key:'onADPress',value:function onADPress()
 console.log('12312312');}},{key:'render',value:function render()
 
 
-{var _this2=this;
+{var _this3=this;
 return (
+_reactNative2.default.createElement(_reactNative.View,null,
+
+this.state.isFirst?
+
+_reactNative2.default.createElement(_Welcome_Guide2.default,{homeObj:this.props.homeObj}):
+
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#f6f6f6'}},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 underlayColor:'#fcfcfc',
-onPress:function(){return _this2.onADPress();}},
+onPress:function(){return _this3.onADPress();}},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{height:_reactNative.Dimensions.get('window').height-100,width:_reactNative.Dimensions.get('window').width},
 source:require('image!loading_bg')})),
 
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-style:{position:'absolute',top:33,right:25,padding:25},
+style:{position:'absolute',top:15,right:1,padding:20},
 underlayColor:'#fcfcfc',
-onPress:function(){return _this2.onSkipPress();}},
+onPress:function(){return _this3.onSkipPress();}},
 _reactNative2.default.createElement(_reactNative.Image,{
 source:require('image!loading_skip')})),
 
 
 _reactNative2.default.createElement(_reactNative.View,{style:{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Image,{
-source:require('image!loading_logo')}))));}}]);return Welcome;}(_reactNative2.default.Component);exports.default=Welcome;
+source:require('image!loading_logo')})))));}}]);return Welcome;}(_reactNative2.default.Component);exports.default=Welcome;
+
+
 
 
 
@@ -63586,11 +63615,83 @@ source:require('image!loading_logo')}))));}}]);return Welcome;}(_reactNative2.de
 
 var styles=_reactNative.StyleSheet.create({});
 });
+__d('MyProject/src/layout/Welcome_Guide.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _reactNativeSwiper=require('react-native-swiper/dist/index.js');var _reactNativeSwiper2=babelHelpers.interopRequireDefault(_reactNativeSwiper);var 
+
+
+
+
+
+
+
+
+
+
+
+Welcome_Guide=function(_React$Component){babelHelpers.inherits(Welcome_Guide,_React$Component);
+function Welcome_Guide(props){babelHelpers.classCallCheck(this,Welcome_Guide);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(Welcome_Guide).call(this,
+props));
+_this.state={};return _this;}babelHelpers.createClass(Welcome_Guide,[{key:'onClick',value:function onClick()
+
+
+
+
+{
+this.props.homeObj.setState({
+loadAD:false});}},{key:'render',value:function render()
+
+
+
+{
+var guideThis=this;
+return (
+
+_reactNative2.default.createElement(_reactNativeSwiper2.default,{
+style:styles.wrapper,
+autoplay:false,loop:false,
+showsPagination:true},
+
+_reactNative2.default.createElement(_reactNative.View,{style:styles.slide},
+_reactNative2.default.createElement(_reactNative.Image,{style:styles.image,source:require('image!guide1')})),
+
+_reactNative2.default.createElement(_reactNative.View,{style:styles.slide},
+_reactNative2.default.createElement(_reactNative.Image,{style:styles.image,source:require('image!guide2')})),
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+underlayColor:'#fcfcfc',
+onPress:function(){return guideThis.onClick();}},
+
+_reactNative2.default.createElement(_reactNative.View,{style:styles.slide},
+_reactNative2.default.createElement(_reactNative.Image,{style:styles.image,source:require('image!guide3')})))));}}]);return Welcome_Guide;}(_reactNative2.default.Component);exports.default=Welcome_Guide;
+
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+wrapper:{},
+
+
+slide:{
+flex:1},
+
+
+image:{
+width:_reactNative.Dimensions.get('window').width,
+height:_reactNative.Dimensions.get('window').height}});
+});
+__d('image!guide1',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide1.imageset/guide1@3x.png","uri":"guide1","width":360,"height":640,"deprecated":true};
+});
+__d('image!guide2',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide2.imageset/guide2@3x.png","uri":"guide2","width":360,"height":640,"deprecated":true};
+});
+__d('image!guide3',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide3.imageset/guide3@3x.png","uri":"guide3","width":360,"height":640,"deprecated":true};
+});
 __d('image!loading_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_bg.imageset/loading_bg@2x.png","uri":"loading_bg","width":540,"height":815,"deprecated":true};
 });
 __d('image!loading_skip',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_skip.imageset/loading_skip@2x.png","uri":"loading_skip","width":79.5,"height":41,"deprecated":true};
 });
-__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":273,"height":62,"deprecated":true};
+__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":305.5,"height":64,"deprecated":true};
 });
 __d('react-native-code-push/CodePush.js',function(global, require, module, exports) {  var _acquisitionSdk=require("code-push/script/acquisition-sdk.js");var _AlertAdapter=require("react-native-code-push/AlertAdapter.js");var _requestFetchAdapter=require("react-native-code-push/request-fetch-adapter.js");var _requestFetchAdapter2=babelHelpers.interopRequireDefault(_requestFetchAdapter);var _reactNative=require("react-native/Libraries/react-native/react-native.js");
 

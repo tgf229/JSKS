@@ -189,7 +189,7 @@ export default class Home extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1}}>
-				<App_Title title={'江苏省教育考试院'} navigator={this.props.navigator} leftHid={true}/>
+				<App_Title title={'高考君'} navigator={this.props.navigator} leftHid={true}/>
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 
@@ -221,8 +221,8 @@ const styles = StyleSheet.create({
 	},
 	title:{
 		fontSize:16,
+		lineHeight:22,
 		color:'#444444',
-		flex:1
 	},
 });
 

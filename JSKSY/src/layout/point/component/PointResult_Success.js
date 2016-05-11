@@ -179,7 +179,7 @@ export default class PointResult_Success extends React.Component{
 				  	</View>
 				</Image>
 
-				<View style={{flexDirection:'row',marginTop:17,paddingTop:16,paddingBottom:16}}>
+				<View style={{flexDirection:'row',marginTop:17,padding:16}}>
 		{/* 语文 */}
 					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
 						<Text style={{fontSize:17,color:'#333333',fontWeight:'bold'}}>{this.props.data.chinese}<Text style={{fontSize:9}}>分</Text>
@@ -218,7 +218,7 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				</View>
 
-				<View style={{backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width-60,marginLeft:30}}></View>
+				<View style={{backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width-30,marginLeft:15}}></View>
 
 				{
 					isKMshow
@@ -290,7 +290,7 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				}
 
-				<Text style={{textAlign:'center',marginTop:10,marginBottom:10,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
+				<Text style={{textAlign:'center',marginTop:30,marginBottom:20,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
 
 			</View>
 		)

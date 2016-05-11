@@ -120,7 +120,7 @@ export default class Header extends React.Component{
 								<Image
 								  style={{alignSelf:'center'}}
 								  source={require('image!home_icon_set')} />
-								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>设置</Text>
+								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>系统设置</Text>
 							</View>
 						</TouchableHighlight>
 					</View>

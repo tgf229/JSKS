@@ -50,6 +50,9 @@ export default class PointSearch extends React.Component{
 				isOpen = true;
 			}
 
+			//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+			isOpen = true;
+			
 			object.setState({
 				isLoaded:true,
 				isPointSearchOpen:isOpen,
