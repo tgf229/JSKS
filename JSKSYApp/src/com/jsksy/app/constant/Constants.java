@@ -12,6 +12,11 @@ package com.jsksy.app.constant;
  */
 public class Constants
 {
+    /**
+     * 是否显示引导页，版本控制,需要引导页时，版本号变大1
+     */
+    public static final int GUIDE_VERSION_CODE = 1;
+    
     public static final String[] BATCH_DATA = new String[]{",全部","1,本科一批","2,本科二批"};
     public static final String[] PROV_DATA = new String[]{",全国","320000,江苏省","110000,北京市","120000,天津市"};
     public static final String[] SCHOOL_DATA = new String[]{",全部","01,综合院校","02,工科院校","03,农业院校","04,林业院校"};

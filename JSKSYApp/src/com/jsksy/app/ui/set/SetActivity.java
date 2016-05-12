@@ -20,6 +20,7 @@ import cn.jpush.android.api.JPushInterface;
 import com.jsksy.app.R;
 import com.jsksy.app.constant.Global;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.util.GeneralUtils;
 
 /**
  * <一句话功能简述>
@@ -47,6 +48,9 @@ public class SetActivity extends BaseActivity implements OnClickListener
         TextView title_name = (TextView)findViewById(R.id.title_name);
         title_name.setText("设置");
         app_title_back.setOnClickListener(this);
+        
+        TextView version_txt = (TextView)findViewById(R.id.version_txt);
+        version_txt.setText("当前版本V"+GeneralUtils.getVersionName(this));
         
         LinearLayout switch_layout = (LinearLayout)findViewById(R.id.switch_layout);
         switch_img = (ImageView)findViewById(R.id.switch_img);

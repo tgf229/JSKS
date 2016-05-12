@@ -31,11 +31,11 @@ public class SharePref
      * 保存推送设置
      */
     public static final String SET_MESSAGE = "set_push";
-//    
-//    /**
-//     * app是否开启引导页
-//     */
-//    public static final String APP_GUIDE = "app_guide";
+   
+    /**
+     * app是否开启引导页
+     */
+    public static final String APP_GUIDE = "app_guide";
 //    
 //    /**
 //     * 用户ID

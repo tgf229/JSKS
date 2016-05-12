@@ -9,18 +9,36 @@
  */
 package com.jsksy.app.ui;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.w3c.dom.Text;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 
-import com.baidu.mobstat.StatService;
+import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
+import com.jsksy.app.bean.home.AdResponse;
+import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.Global;
+import com.jsksy.app.constant.URLUtil;
+import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.home.HomeActivity;
+import com.jsksy.app.util.GeneralUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.viewpagerindicator.CirclePageIndicator;
 
 /**
  * <一句话功能简述>
@@ -33,17 +51,23 @@ import com.jsksy.app.ui.home.HomeActivity;
  */
 public class WelcomeActivity extends BaseActivity implements OnClickListener
 {
-    private Handler handler = new Handler();
-    Runnable runnable = new Runnable()
-    {
-        @Override
-        public void run()
-        {
-            Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    };
+    private String add_guide = Constants.GUIDE_VERSION_CODE + "";
+    
+    private GuidePagerAdapter circleImagePagerAdapter;
+    
+    private ArrayList<String> images;
+    
+    private ViewPager banner_Pager;
+    
+    private CirclePageIndicator banner_indicator;
+    
+    private ImageView welcome_ad;
+    private TextView skip_txt;
+    
+    /**
+     * 倒计时
+     */
+    private MyTime myTime;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,7 +76,32 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
         setContentView(R.layout.welcome);
         //设置已开启APP
         Global.setAppOpen(true);
-        init();
+        if (add_guide.equals(Global.getUserGuide()))
+        {
+            init();
+        }
+        else
+        {
+            appGuide();
+            Global.saveUserGuide(add_guide);
+        }
+    }
+    
+    private void appGuide()
+    {
+        images = new ArrayList<String>();
+        images.add("guide_one");
+        images.add("guide_two");
+        images.add("guide_three");
+        images.add("guide_four");
+        RelativeLayout rl = (RelativeLayout)findViewById(R.id.circlepager_rl);
+        rl.setVisibility(View.VISIBLE);
+        banner_Pager = (ViewPager)findViewById(R.id.circlepager);
+        circleImagePagerAdapter = new GuidePagerAdapter(this, images, WelcomeActivity.this);
+        banner_Pager.setAdapter(circleImagePagerAdapter);
+        //实例化CirclePageIndicator 并设置与ViewPager关联
+        banner_indicator = (CirclePageIndicator)findViewById(R.id.circleindicator);
+        banner_indicator.setViewPager(banner_Pager);
     }
     
     @Override
@@ -69,21 +118,73 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
         JPushInterface.onResume(this);
     }
     
-    private void init()
-    {
-        LinearLayout skip_layout = (LinearLayout)findViewById(R.id.skip_layout);
-        skip_layout.setOnClickListener(this);
-        
-        handler.postDelayed(runnable, 3000);
-    }
-    
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-        handler.removeCallbacks(runnable);
+        myTime.cancel();
     }
-
+    
+    private void init()
+    {
+        LinearLayout welcome_layout = (LinearLayout)findViewById(R.id.welcome_layout);
+        welcome_layout.setVisibility(View.VISIBLE);
+        
+        welcome_ad = (ImageView)findViewById(R.id.welcome_ad);
+        
+        LinearLayout skip_layout = (LinearLayout)findViewById(R.id.skip_layout);
+        skip_layout.setOnClickListener(this);
+        skip_txt = (TextView)findViewById(R.id.skip_txt);
+        
+        
+        reqAD();
+        
+        myTime = new MyTime(5000, 1000);
+        myTime.start();
+    }
+    
+    private void reqAD()
+    {
+        Map<String, String> param = new HashMap<String, String>();
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            WelcomeActivity.this,
+            AdResponse.class,
+            URLUtil.Bus100401,
+            Constants.ENCRYPT_NONE);
+    }
+    
+    @Override
+    public void netBack(Object ob)
+    {
+        super.netBack(ob);
+        if (ob instanceof AdResponse)
+        {
+            final AdResponse resp = (AdResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
+                {
+                    ImageLoader.getInstance().displayImage(resp.getImageUrl(),
+                        welcome_ad,
+                        JSKSYApplication.setAllDisplayImageOptions(this, "loading_content", "loading_content", "loading_content"));
+                    welcome_ad.setOnClickListener(new OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View arg0)
+                        {
+                            Intent skipIntent = new Intent(WelcomeActivity.this, WebviewActivity.class);
+                            skipIntent.putExtra("wev_view_url",resp.getaUrl());
+                            skipIntent.putExtra("back_to_home", "1");
+                            startActivity(skipIntent);
+                            finish();
+                        }
+                    });
+                }
+            }
+        }
+    }
+    
     @Override
     public void onClick(View v)
     {
@@ -94,9 +195,34 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
                 startActivity(intent);
                 finish();
                 break;
-            
             default:
                 break;
+        }
+        
+    }
+    
+    //倒计时
+    private class MyTime extends CountDownTimer
+    {
+        
+        public MyTime(long millisInFuture, long countDownInterval)
+        {
+            super(millisInFuture, countDownInterval);
+        }
+        
+        @Override
+        public void onFinish()
+        {
+            skip_txt.setText("跳过");
+            Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        
+        @Override
+        public void onTick(long millisUntilFinished)
+        {
+            skip_txt.setText("跳过" + millisUntilFinished / 1000);
         }
         
     }

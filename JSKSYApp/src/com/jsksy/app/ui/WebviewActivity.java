@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
+import com.jsksy.app.ui.home.HomeActivity;
 import com.jsksy.app.util.NetLoadingDailog;
 
 public class WebviewActivity extends Activity
@@ -63,7 +65,17 @@ public class WebviewActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                WebviewActivity.this.finish();
+                if ("1".equals(getIntent().getStringExtra("back_to_home")))
+                {
+                    Intent intent = new Intent(WebviewActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                    finish();
+                }
+                else
+                {
+                    WebviewActivity.this.finish();
+                }
             }
         });
     }
@@ -146,6 +158,13 @@ public class WebviewActivity extends Activity
             {
                 web.goBack();
                 return true;
+            }
+            else if ("1".equals(getIntent().getStringExtra("back_to_home")))
+            {
+                Intent intent = new Intent(WebviewActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
             }
         }
         return super.onKeyDown(keyCode, event);

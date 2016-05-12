@@ -55,6 +55,23 @@ public class Global
     }
     
     /**
+     * 引导页
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @return
+     * @see [类、类#方法、类#成员]
+     */
+    public static String getUserGuide()
+    {
+        return SharePref.getString(SharePref.APP_GUIDE, "");
+    }
+    
+    public static void saveUserGuide(String guide)
+    {
+        SharePref.saveString(SharePref.APP_GUIDE, guide);
+    }
+    
+    /**
      * <退出应用>
      * <功能详细描述>
      * @param context

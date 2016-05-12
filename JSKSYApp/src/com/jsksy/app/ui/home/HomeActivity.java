@@ -168,7 +168,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         app_title_back.setVisibility(View.GONE);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("江苏省教育考试院");
+        title_name.setText(getString(R.string.app_name));
         
         //head渲染
         headView =
