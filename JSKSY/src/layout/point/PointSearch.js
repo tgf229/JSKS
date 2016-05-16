@@ -86,6 +86,8 @@ export default class PointSearch extends React.Component{
 	onSubmit(){
 		var num = trim(this.state.sNumStr);
 		var tick = trim(this.state.sTicketStr);
+		num='15320104680173';
+		tick='1501046804727';
 		if (num === '') {
 			AlertIOS.alert(
 				'温馨提示',

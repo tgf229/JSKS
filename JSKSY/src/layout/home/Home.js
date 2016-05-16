@@ -140,6 +140,14 @@ export default class Home extends React.Component{
 					}
 				}) 
 			});
+		if (this.props.adUrl) {
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:this.props.adUrl,
+				},
+			});
+		}
 	}
 
 	//列表接口回调

@@ -59668,8 +59668,8 @@ height:13},
 
 title:{
 fontSize:16,
-color:'#444444',
-flex:1}});
+lineHeight:22,
+color:'#444444'}});
 });
 __d('MyProject/src/layout/home/component/Header.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _Banner=require('MyProject/src/layout/home/component/Banner.js');var _Banner2=babelHelpers.interopRequireDefault(_Banner);var _PointSearch=require('MyProject/src/layout/point/PointSearch.js');var _PointSearch2=babelHelpers.interopRequireDefault(_PointSearch);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _OfferSearch=require('MyProject/src/layout/offer/OfferSearch.js');var _OfferSearch2=babelHelpers.interopRequireDefault(_OfferSearch);var _SetActivity=require('MyProject/src/layout/set/SetActivity.js');var _SetActivity2=babelHelpers.interopRequireDefault(_SetActivity);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var 
 
@@ -61142,7 +61142,7 @@ null)),
 
 
 
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:17,paddingTop:16,paddingBottom:16}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:17,padding:16}},
 
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.chinese,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),
@@ -61181,7 +61181,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWe
 
 
 
-_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width-60,marginLeft:30}}),
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width-30,marginLeft:15}}),
 
 
 isKMshow?
@@ -61253,7 +61253,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWe
 
 
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginTop:10,marginBottom:10,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginTop:30,marginBottom:20,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院')));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
 
 
 
@@ -63447,7 +63447,8 @@ style:{alignSelf:'center'},
 source:require('image!set_icon')}),
 
 _reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'高考君'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本S1.0.2-V1'),
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本P1.0.1-V1'),
 _reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送')),
@@ -63471,7 +63472,7 @@ contentContainer:{
 paddingTop:38,
 backgroundColor:'white'}});
 });
-__d('image!set_icon',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/set_icon.imageset/set_icon@3x.png","uri":"set_icon","width":132,"height":132,"deprecated":true};
+__d('image!set_icon',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/set_icon.imageset/set_icon@2x.png","uri":"set_icon","width":132,"height":132,"deprecated":true};
 });
 __d('image!home_icon_check',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/home_icon_check.imageset/home_icon_check@2x.png","uri":"home_icon_check","width":40,"height":40,"deprecated":true};
 });
@@ -63681,17 +63682,17 @@ image:{
 width:_reactNative.Dimensions.get('window').width,
 height:_reactNative.Dimensions.get('window').height}});
 });
-__d('image!guide1',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide1.imageset/guide1@3x.png","uri":"guide1","width":360,"height":640,"deprecated":true};
+__d('image!guide1',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide1.imageset/guide1@2x.png","uri":"guide1","width":375,"height":667,"deprecated":true};
 });
-__d('image!guide2',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide2.imageset/guide2@3x.png","uri":"guide2","width":360,"height":640,"deprecated":true};
+__d('image!guide2',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide2.imageset/guide2@2x.png","uri":"guide2","width":375,"height":667,"deprecated":true};
 });
-__d('image!guide3',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide3.imageset/guide3@3x.png","uri":"guide3","width":360,"height":640,"deprecated":true};
+__d('image!guide3',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide3.imageset/guide3@2x.png","uri":"guide3","width":375,"height":667,"deprecated":true};
 });
 __d('image!loading_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_bg.imageset/loading_bg@2x.png","uri":"loading_bg","width":540,"height":815,"deprecated":true};
 });
 __d('image!loading_skip',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_skip.imageset/loading_skip@2x.png","uri":"loading_skip","width":79.5,"height":41,"deprecated":true};
 });
-__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":305.5,"height":64,"deprecated":true};
+__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":295,"height":64,"deprecated":true};
 });
 __d('react-native-code-push/CodePush.js',function(global, require, module, exports) {  var _acquisitionSdk=require("code-push/script/acquisition-sdk.js");var _AlertAdapter=require("react-native-code-push/AlertAdapter.js");var _requestFetchAdapter=require("react-native-code-push/request-fetch-adapter.js");var _requestFetchAdapter2=babelHelpers.interopRequireDefault(_requestFetchAdapter);var _reactNative=require("react-native/Libraries/react-native/react-native.js");
 

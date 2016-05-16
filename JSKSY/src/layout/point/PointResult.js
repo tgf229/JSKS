@@ -71,7 +71,7 @@ export default class PointResult extends React.Component{
 			  	contentContainerStyle={styles.contentContainer}>
 			
 				{
-					this.state.isLoaded? <PointResult_Success data={data} sNum={this.props.sNum}/>
+					this.state.isLoaded? <PointResult_Success data={data} navigator={this.props.navigator} sNum={this.props.sNum}/>
 						:
 						<View style={{flex:1,alignItems:'center',marginTop:90}}>
 							<Image

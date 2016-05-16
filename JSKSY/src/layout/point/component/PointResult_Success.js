@@ -11,8 +11,11 @@ import React, {
   Image,
   Dimensions,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native';
+
+import WishSearch from '../../wish/WishSearch';
 
 var totalTitle; 
 var totalPoint;
@@ -122,6 +125,12 @@ export default class PointResult_Success extends React.Component{
 		}else{
 			KM5Pic = <Image source={require('image!point_icon_A_add')} />
 		}
+	}
+
+	onAdClick(){
+		this.props.navigator.push({
+			component: WishSearch,
+		});
 	}
 
 	render(){
@@ -291,6 +300,25 @@ export default class PointResult_Success extends React.Component{
 				}
 
 				<Text style={{textAlign:'center',marginTop:30,marginBottom:20,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
+
+				<View style={{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,
+					paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
+					<Text style={{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}}>广告</Text>
+					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
+				</View>
+				<View style={{backgroundColor:'#eeeeee',paddingLeft:12,
+					paddingRight:12}}>
+					<TouchableHighlight
+						onPress={()=>this.onAdClick(1)}
+						underlayColor='#fcfcfc'>
+						<Image 
+							style={{width:Dimensions.get('window').width-24,
+									height:(Dimensions.get('window').width-24)/3.5,
+									marginBottom:15}}
+								source={require('image!point_ad')} />
+					</TouchableHighlight>
+				</View>
 
 			</View>
 		)

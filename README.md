@@ -28,3 +28,7 @@
 5-9  appstore证书，ios推送，ios Loading页
 5-10 ios Loading页  android Loading页  接口更新设计
 5-11 ios 引导页  Appstore预发布准备
+5-12 android 引导页
+5-13 ios Appstore发布 android 欢迎广告
+
+5-16 ios 欢迎广告
