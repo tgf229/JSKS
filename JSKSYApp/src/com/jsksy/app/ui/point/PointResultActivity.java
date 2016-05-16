@@ -30,6 +30,7 @@ import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.GeneralUtils;
 
 /**
@@ -110,6 +111,9 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         
         double_saadd_layout = (LinearLayout)findViewById(R.id.double_saadd_layout);
         saAdd = (TextView)findViewById(R.id.saAdd);
+        
+        LinearLayout wish_pic_layout = (LinearLayout)findViewById(R.id.wish_pic_layout);
+        wish_pic_layout.setOnClickListener(this);
     }
     
     private void reqPoint()
@@ -297,7 +301,9 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             case R.id.app_title_back:
                 finish();
                 break;
-            
+            case R.id.wish_pic_layout:
+                Intent intentWish = new Intent(this, WishSearchActivity.class);
+                startActivity(intentWish);
             default:
                 break;
         }

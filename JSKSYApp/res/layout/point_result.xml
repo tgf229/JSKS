@@ -480,6 +480,65 @@
 		                </LinearLayout>
 		            </LinearLayout>
 		            
+	           	<RelativeLayout 
+	           	    android:layout_width="match_parent"
+	           	    android:layout_height="wrap_content"
+	           	    android:gravity="center"
+	           	    android:paddingTop="33dp"
+	           	    android:paddingBottom="10dp">
+	           	    <TextView
+	           	        android:layout_width="wrap_content"
+	           	        android:layout_height="wrap_content"
+	           	        android:text="数据来源  BY 江苏省教育考试院"
+	           	        android:textSize="9sp"
+	           	        android:textColor="@color/color_666666"/>
+	           	</RelativeLayout>
+		            
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="11dp"
+	                android:paddingRight="11dp"
+	                android:paddingTop="17dp"
+	                android:paddingBottom="17dp"
+	                android:background="@color/color_eeeeee"
+	                android:gravity="center_vertical"
+	                android:orientation="horizontal">
+		                <View
+		                    android:layout_width="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_height="1px"
+		                    android:background="@color/color_d5d5d5"/>
+		                <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:textSize="11sp"
+		                    android:layout_marginLeft="20dp"
+		                    android:layout_marginRight="20dp"
+		                    android:text="广告"
+		                    android:textColor="@color/color_444444"/>
+		                <View
+		                    android:layout_width="0dp"
+		                    android:layout_weight="1"
+		                    android:layout_height="1px"
+		                    android:background="@color/color_d5d5d5"/>
+	            </LinearLayout>
+	            
+	            <LinearLayout 
+	                android:id="@+id/wish_pic_layout"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:background="@color/color_eeeeee"
+	                android:paddingLeft="11dp"
+	                android:paddingRight="11dp"
+	                android:paddingBottom="15dp"
+	                >
+		                <ImageView 
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:src="@drawable/point_ad"/>
+	            </LinearLayout>
+		            
 	            
 	        </LinearLayout>
 	        
