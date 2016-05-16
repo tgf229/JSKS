@@ -31,4 +31,4 @@
 5-12 android 引导页
 5-13 ios Appstore发布 android 欢迎广告
 
-5-16 ios 欢迎广告
+5-16 ios 欢迎广告  加解密方案 

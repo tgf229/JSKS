@@ -89,6 +89,9 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
+  //清空消息
+  [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+  
 //  NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
   //Required
   if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {

@@ -13,6 +13,7 @@
 #import "RCTEventDispatcher.h"
 
 #import "JPUSHService.h"
+#import "DES3Util.h"
 
 #import <sys/utsname.h>
 
@@ -32,6 +33,19 @@ RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
 RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
 {
   [self jpushSetAlias:alias];
+}
+
+//RN调原生方法并获取回调   取加密信息
+RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
+{
+  NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCEncrypt];
+  callback(@[[NSNull null],data]);
+}
+//RN调原生方法并获取回调   取解密密信息
+RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
+{
+  NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCDecrypt];
+  callback(@[[NSNull null],data]);
 }
 
 //设置别名

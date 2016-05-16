@@ -127,10 +127,8 @@ export default class Welcome extends React.Component{
 											/>
 									</TouchableHighlight>
 									:
-									<Image
-										style={{height:Dimensions.get('window').height-100,width:Dimensions.get('window').width}}
-										source={require('image!loading_bg')}
-										/>
+									<View
+										style={{height:Dimensions.get('window').height-100,width:Dimensions.get('window').width}}/>
 							}
 							
 						

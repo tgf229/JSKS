@@ -17,7 +17,7 @@ import React, {
   View
 } from 'react-native';
 import Header from './component/Header'
-import { BUS_100101,BUS_100301 ,netClientPost,base64encode,base64decode} from '../../util/NetUtil';
+import { BUS_100101,BUS_100301 ,netClientPost} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import DeviceUUID from "react-native-device-uuid";
@@ -43,8 +43,16 @@ export default class Home extends React.Component{
 		this.state={
 			dataSource: ds.cloneWithRows(listData),
 		};
-		console.log(base64encode('123'));
-		console.log(base64decode('MTIz'));
+
+		//加解密测试========================
+		NativeBridge.NATIVE_getDecryptData('RDOgYeUUE3k=',(error,events)=>{
+					if (error) {
+						console.log(error);
+					}else{
+						console.log('hahaha='+events);
+					}
+				}) 
+
 	}
 
 	//行点击
