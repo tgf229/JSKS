@@ -12,7 +12,7 @@ import React, {
   AsyncStorage,
   Image,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View
 } from 'react-native';
 
@@ -118,21 +118,21 @@ export default class Welcome extends React.Component{
 					<View style={{backgroundColor:'#f6f6f6'}}>
 							{
 								this.state.adData?
-									<TouchableHighlight
+									<TouchableOpacity
 										underlayColor='#fcfcfc'
 										onPress={()=>this.onADPress()}>
 										<Image
 											style={{height:Dimensions.get('window').height-100,width:Dimensions.get('window').width}}
 											source={{uri:this.state.adData.imageUrl}}
 											/>
-									</TouchableHighlight>
+									</TouchableOpacity>
 									:
 									<View
 										style={{height:Dimensions.get('window').height-100,width:Dimensions.get('window').width}}/>
 							}
 							
 						
-						<TouchableHighlight
+						<TouchableOpacity
 							style={{position:'absolute',top:15,right:1,padding:20}}
 							underlayColor='#fcfcfc'
 							onPress={()=>this.onSkipPress()}>
@@ -142,7 +142,7 @@ export default class Welcome extends React.Component{
 								>
 								<Text style={{fontSize:14,color:'#444444'}}>跳过{this.state.skipTime}</Text>
 							</Image>
-						</TouchableHighlight>
+						</TouchableOpacity>
 						<View style={{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}}>
 							<Image
 								source={require('image!loading_logo')}

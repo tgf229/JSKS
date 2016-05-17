@@ -37,7 +37,7 @@ export default class Home extends React.Component{
 
 	constructor(props){
 		super(props);
-		ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.guid !== r2.guid});
+		ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		PAGE_NUM = 1;
 		hasMore = false;
 		this.state={
