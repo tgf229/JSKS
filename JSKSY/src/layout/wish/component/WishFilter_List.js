@@ -37,7 +37,7 @@ export default class WishFilter_List extends React.Component{
 			//回调父对象的state,重新渲染父对象
 			this.props.filterObj.setState({provId:rowData.id,provVal:rowData.name});
 		}
-		
+
 		this.props.navigator.pop();
 	}
 

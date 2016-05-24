@@ -79,7 +79,7 @@ export default class Home extends React.Component{
 				 			 source={{uri: rowData.imageUrl}} />
 				  			<View style={{height:PixelRatio.get() * 130/4,marginLeft:13,flex:1}}>
 				  				<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
-				  				<Text style={styles.price}>{rowData.time}</Text>
+				  				<Text style={styles.time}>{rowData.time}</Text>
 				  			</View>
 		  			</View>
 			  		<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}></View>
@@ -230,9 +230,12 @@ export default class Home extends React.Component{
 }
 
 const styles = StyleSheet.create({
-	price:{
+	time:{
 		fontSize:12,
 		color:'#999999',
+		position:'absolute',
+		left:1,
+		bottom:1,
 		height:13,
 	},
 	title:{
