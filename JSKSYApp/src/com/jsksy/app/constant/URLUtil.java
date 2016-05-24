@@ -14,7 +14,9 @@ public class URLUtil
     //小马本机
 //    public static final String SERVER = "http://192.168.1.114:8081/web-mobile/";
     //服务器
-    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
+//    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
+    //生产
+  public static final String SERVER = "http://58.213.145.35/web-mobile/";
     
     
     public static final String Bus100101 = "Bus100101";
