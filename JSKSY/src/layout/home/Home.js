@@ -43,16 +43,6 @@ export default class Home extends React.Component{
 		this.state={
 			dataSource: ds.cloneWithRows(listData),
 		};
-
-		//加解密测试========================
-		NativeBridge.NATIVE_getDecryptData('RDOgYeUUE3k=',(error,events)=>{
-					if (error) {
-						console.log(error);
-					}else{
-						console.log('hahaha='+events);
-					}
-				}) 
-
 	}
 
 	//行点击

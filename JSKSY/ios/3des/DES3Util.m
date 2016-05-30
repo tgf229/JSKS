@@ -101,7 +101,7 @@
  */
 + (NSString *) tripleDES:(NSString*)plainText encryptOrDecrypt:(CCOperation)encryptOrDecrypt
 {
-    return [self tripleDES:plainText tripleKey:@"201605161609001234567890" encryptOrDecrypt:encryptOrDecrypt];
+    return [self tripleDES:plainText tripleKey:@"2016051616090012345678tm" encryptOrDecrypt:encryptOrDecrypt];
 }
 
 /**

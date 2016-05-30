@@ -145,6 +145,7 @@ export default class Welcome extends React.Component{
 						</TouchableOpacity>
 						<View style={{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}}>
 							<Image
+								style={{height:44,width:264}}
 								source={require('image!loading_logo')}
 								/>
 						</View>

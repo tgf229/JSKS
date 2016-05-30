@@ -15,7 +15,9 @@ import React, {
 } from 'react-native';
 import PointResult_Success from './component/PointResult_Success';
 import App_Title from '../common/App_Title';
-import { netClientPost,BUS_200201} from '../../util/NetUtil';
+import { netClientPostEncrypt,BUS_200201} from '../../util/NetUtil';
+
+var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
 var data;
 export default class PointResult extends React.Component{
@@ -29,33 +31,47 @@ export default class PointResult extends React.Component{
 		data = {};
 	}
 
-	BUS_200201_CB(object,json){
-		console.log('BUS_200201_CB = '+json)
-		if (json.retcode === '000000') {
-			data = json;
-			object.setState({
-				isLoaded:true,
-				errorLoading:false,
-			});
-		}else{
-			var error='请求失败，请稍后再试';
-			if (json.retinfo) {
-				error = json.retinfo;
-			}
-			object.setState({
-				errorLoading:false,
-				errorTips:error,
-			});
-		}
+	BUS_200201_CB(object,response){
+		//加解密参数
+		NativeBridge.NATIVE_getDecryptData(response._bodyText,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				console.log('BUS_200201_CB = '+events);
+				var json = JSON.parse(events);
+				if (json.retcode === '000000') {
+					data = json;
+					object.setState({
+						isLoaded:true,
+						errorLoading:false,
+					});
+				}else{
+					var error='请求失败，请稍后再试';
+					if (json.retinfo) {
+						error = json.retinfo;
+					}
+					object.setState({
+						errorLoading:false,
+						errorTips:error,
+					});
+				}
+			}	
+		})
 	}
 
 	BUS_200201_REQ(){
-		var params = {
-			encrypt:'none',
-			sNum:this.props.sNum,
-			sTicket:this.props.sTicket,
-		}
-		netClientPost(this,BUS_200201,this.BUS_200201_CB,params);
+		var dict = {
+			sNum : this.props.sNum,
+			sTicket : this.props.sTicket,
+		};
+		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				events.encrypt='simple';
+				netClientPostEncrypt(this,BUS_200201,this.BUS_200201_CB,events);
+			}
+		})  
 	}
 
 	componentDidMount() {

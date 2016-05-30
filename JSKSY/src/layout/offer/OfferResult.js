@@ -21,7 +21,7 @@ import React, {
 import OfferResult_Fail from './component/OfferResult_Fail';
 import OfferResult_Success from './component/OfferResult_Success';
 import App_Title from '../common/App_Title';
-import { netClientPost,BUS_400101,BUS_400201} from '../../util/NetUtil';
+import { netClientPostEncrypt,BUS_400101,BUS_400201} from '../../util/NetUtil';
 import { STORAGE_KEY_SNUM,STORAGE_KEY_STICKET} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
@@ -65,76 +65,102 @@ export default class OfferResult extends React.Component{
 		    }
 	}
 
-	BUS_400101_CB(object,json){
-		console.log('BUS_400101_CB = '+json)
-		if (json.retcode === '000000') {
-			data = json;
-			object.setState({
-				isLoaded:true,
-				isSuccess:true,
-				errorLoading:false,
-			});
-		}
-		else if(json.retcode === '000002'){
-			data = json;
-			//如果进入预约流程，则保存用户信息
-			object._saveValue();
-			object.setState({
-				isLoaded:true,
-				isSuccess:false,
-				errorLoading:false,
-			});
-		}
-		else{
-			var error='请求失败，请稍后再试';
-			if (json.retinfo) {
-				error = json.retinfo;
-			}
-			object.setState({
-				errorLoading:false,
-				errorTips:error,
-			});
-		}
-
+	BUS_400101_CB(object,response){
+		//加解密参数
+		NativeBridge.NATIVE_getDecryptData(response._bodyText,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				console.log('BUS_400101_CB = '+events)
+				var json = JSON.parse(events);
+				if (json.retcode === '000000') {
+					data = json;
+					object.setState({
+						isLoaded:true,
+						isSuccess:true,
+						errorLoading:false,
+					});
+				}
+				else if(json.retcode === '000002'){
+					data = json;
+					//如果进入预约流程，则保存用户信息
+					object._saveValue();
+					object.setState({
+						isLoaded:true,
+						isSuccess:false,
+						errorLoading:false,
+					});
+				}
+				else{
+					var error='请求失败，请稍后再试';
+					if (json.retinfo) {
+						error = json.retinfo;
+					}
+					object.setState({
+						errorLoading:false,
+						errorTips:error,
+					});
+				}
+			}	
+		})
 	}
 
 	BUS_400101_REQ(){
-		var params = {
-			encrypt:'none',
-			sNum:this.props.sNum,
-			sTicket:this.props.sTicket,
+		var dict = {
+			sNum : this.props.sNum,
+			sTicket : this.props.sTicket,
 			type:'2',
 			alias:this.props.alias,
-		}
-		netClientPost(this,BUS_400101,this.BUS_400101_CB,params);
+		};
+		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				events.encrypt='simple';
+				netClientPostEncrypt(this,BUS_400101,this.BUS_400101_CB,events);
+			}
+		})
 	}
 
-	BUS_400201_CB(object,json){
-		console.log('BUS_400201_CB = '+json)
-		if (json.retcode === '000000') {
-			object._removeValue();
-			AlertIOS.alert(
-				'温馨提示',
-				'取消预约成功',
-			);
-		}
-		else{
-			AlertIOS.alert(
-				'温馨提示',
-				'很抱歉，取消预约失败',
-			);
-		}
-
+	BUS_400201_CB(object,response){
+		//加解密参数
+		NativeBridge.NATIVE_getDecryptData(response._bodyText,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				console.log('BUS_400201_CB = '+events)
+				var json = JSON.parse(events);
+				if (json.retcode === '000000') {
+					object._removeValue();
+					AlertIOS.alert(
+						'温馨提示',
+						'取消预约成功',
+					);
+				}
+				else{
+					AlertIOS.alert(
+						'温馨提示',
+						'很抱歉，取消预约失败',
+					);
+				}
+			}	
+		})
 	}
 
 	BUS_400201_REQ(){
-		var params = {
-			encrypt:'none',
+		var dict = {
 			sNum:this.props.sNum,
 			sTicket:this.props.sTicket,
 			alias:this.props.alias,
-		}
-		netClientPost(this,BUS_400201,this.BUS_400201_CB,params);
+		};
+		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				events.encrypt='simple';
+				netClientPost(this,BUS_400201,this.BUS_400201_CB,events);
+			}
+		})
 	}
 
 	componentDidMount() {

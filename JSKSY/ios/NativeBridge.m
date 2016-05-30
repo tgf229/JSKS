@@ -36,11 +36,21 @@ RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
 }
 
 //RN调原生方法并获取回调   取加密信息
-RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSDictionary *)dict callback:(RCTResponseSenderBlock)callback)
 {
-  NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCEncrypt];
-  callback(@[[NSNull null],data]);
+  NSMutableDictionary *dicts = [NSMutableDictionary dictionary];
+  for (NSString *key in dict) {
+    NSLog(@"key: %@ value: %@", key, dict[key]);
+    NSString *data = [DES3Util tripleDES:dict[key] encryptOrDecrypt:kCCEncrypt];
+    [dicts setObject:data forKey:key];
+  }
+    callback(@[[NSNull null],dicts]);
 }
+//RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
+//{
+//  NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCEncrypt];
+//  callback(@[[NSNull null],data]);
+//}
 //RN调原生方法并获取回调   取解密密信息
 RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
 {
