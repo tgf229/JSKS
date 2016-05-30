@@ -50,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="本服务会结合考生本年高考分数及全省位次、往年高考录取数据、本年度各院校招生计划，并按照如院校省份、专业、推荐策略等附加条件推荐出适合您的院校及专业。"
                 android:textColor="@color/color_666666"
                 android:textSize="15sp" />

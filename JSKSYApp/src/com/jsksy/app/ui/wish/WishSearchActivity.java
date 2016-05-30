@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.util.ToastUtil;
 
 /**
  * <一句话功能简述>
@@ -61,8 +62,9 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.btn:
-                Intent intent = new Intent(this,WishAgreementActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this,WishAgreementActivity.class);
+//                startActivity(intent);
+                ToastUtil.makeText(this, "暂未开放此功能，请耐心等待或更新App版本");
                 break;
             default:
                 break;

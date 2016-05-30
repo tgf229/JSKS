@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.wish.WishSearchActivity;
 
 /**
  * <一句话功能简述>
@@ -43,7 +44,10 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
     
     private Date exDate;
     
+    private String waitType;
+    
     private Handler handler = new Handler();
+    
     Runnable runnable = new Runnable()
     {
         @Override
@@ -56,8 +60,16 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
             
             if (cuDate.after(exDate))
             {
-                Intent intent = new Intent(PointWaitActivity.this,PointSearchActivity.class);
-                startActivity(intent);
+                if ("2".equals(waitType))
+                {
+                    Intent intent = new Intent(PointWaitActivity.this, WishSearchActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent(PointWaitActivity.this, PointSearchActivity.class);
+                    startActivity(intent);
+                }
                 finish();
                 return;
             }
@@ -83,10 +95,11 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         setContentView(R.layout.point_wait);
         String cuStr = getIntent().getStringExtra("cuTime");
         String exStr = getIntent().getStringExtra("exTime");
+        waitType = getIntent().getStringExtra("waitType");
         
         //TODO 测试 要删除
-        cuStr = "20160426161201";
-        exStr = "20160426161205";
+//        cuStr = "20160426161201";
+//        exStr = "20160426161205";
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try
@@ -106,7 +119,17 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
     {
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("高考查分");
+        TextView name_txt = (TextView)findViewById(R.id.name_txt);
+        if ("2".equals(waitType))
+        {
+            title_name.setText("志愿参考");
+            name_txt.setText("距离志愿参考服务开放还有");
+        }else
+        {
+            title_name.setText("高考查分");
+            name_txt.setText("距离江苏省高考成绩发布还有");
+        }
+        
         app_title_back.setOnClickListener(this);
         
         dayTxt = (TextView)findViewById(R.id.day);

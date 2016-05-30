@@ -32,3 +32,5 @@
 5-13 ios Appstore发布 android 欢迎广告
 
 5-16 ios 欢迎广告  加解密方案 
+
+5-30 android 细节调整 加解密

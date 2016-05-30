@@ -2,6 +2,7 @@ package com.jsksy.app.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
 public class MyImageView2 extends ImageView
@@ -18,7 +19,8 @@ public class MyImageView2 extends ImageView
     {
         // TODO Auto-generated method stub
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int width=getResources().getDisplayMetrics().widthPixels;
+        float density = getResources().getDisplayMetrics().density;  // ÆÁÄ»ÃÜ¶È£¨0.75 / 1.0 / 1.5£©
+        int width=(int)(getResources().getDisplayMetrics().widthPixels-28*density);
         int height=width * 2 / 7;
         setMeasuredDimension(width, height);
     }

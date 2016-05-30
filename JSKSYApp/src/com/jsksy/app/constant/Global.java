@@ -26,7 +26,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  */
 public class Global
 {
-    private static final String vip = "201412250933001234567890";
+    private static final String vip = "2016051616090012345678tm";
     
     /**
      * appÊÇ·ñ¿ªÆô

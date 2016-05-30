@@ -14,8 +14,6 @@ import java.util.Map;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -25,13 +23,13 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.bean.point.PointResponse;
-import com.jsksy.app.bean.point.PointTimeResponse;
 import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.SecurityUtils;
 
 /**
  * <一句话功能简述>
@@ -121,12 +119,21 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         Map<String, String> param = new HashMap<String, String>();
         param.put("sNum", sNum);
         param.put("sTicket", sTicket);
+        try
+        {
+            param.put("sNum", SecurityUtils.encode2Str(sNum));
+            param.put("sTicket", SecurityUtils.encode2Str(sTicket));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             PointResultActivity.this,
             PointResponse.class,
             URLUtil.Bus200201,
-            Constants.ENCRYPT_NONE);
+            Constants.ENCRYPT_SIMPLE);
     }
     
     @Override

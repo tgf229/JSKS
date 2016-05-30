@@ -29,6 +29,7 @@ import com.jsksy.app.sharepref.SharePref;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
+import com.jsksy.app.util.SecurityUtils;
 import com.jsksy.app.util.ToastUtil;
 
 /**
@@ -83,15 +84,23 @@ public class OfferFailActivity extends BaseActivity implements OnClickListener
     {
         dailog.loading();
         Map<String, String> param = new HashMap<String, String>();
-        param.put("sNum", sNum);
-        param.put("sTicket", sTicket);
-        param.put("alias", SharePref.getString(SharePref.STORAGE_ALIAS, null));
+        try
+        {
+            param.put("sNum", SecurityUtils.encode2Str(sNum));
+            param.put("sTicket", SecurityUtils.encode2Str(sTicket));
+            param.put("alias", SecurityUtils.encode2Str(SharePref.getString(SharePref.STORAGE_ALIAS, null)));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             this,
             BaseResponse.class,
             URLUtil.Bus400201,
-            Constants.ENCRYPT_NONE);
+            Constants.ENCRYPT_SIMPLE);
     }
     
     @Override

@@ -110,6 +110,8 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
      */
     private long downTime;
     
+    private String waitType = "1";
+    
     /**
      * handle接受广告定时跳转,下载apk后安装apk
      */
@@ -286,8 +288,9 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
      * <功能详细描述>
      * @see [类、类#方法、类#成员]
      */
-    private void reqPointTime()
+    private void reqPointTime(String type)
     {
+        waitType = type;
         Map<String, String> param = new HashMap<String, String>();
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
@@ -412,19 +415,36 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                         Intent intentPoint = new Intent(this, PointWaitActivity.class);
                         intentPoint.putExtra("cuTime", ptrest.getCuTime());
                         intentPoint.putExtra("exTime", ptrest.getExTime());
+                        intentPoint.putExtra("waitType", waitType);
                         startActivity(intentPoint);
                     }
+                }
+                else
+                {
+                    if ("2".equals(waitType))
+                    {
+                        Intent intentPoint = new Intent(this, WishSearchActivity.class);
+                        startActivity(intentPoint);
+                    }
+                    else
+                    {
+                        Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                        startActivity(intentPoint);
+                    }
+                }
+            }
+            else
+            {
+                if ("2".equals(waitType))
+                {
+                    Intent intentPoint = new Intent(this, WishSearchActivity.class);
+                    startActivity(intentPoint);
                 }
                 else
                 {
                     Intent intentPoint = new Intent(this, PointSearchActivity.class);
                     startActivity(intentPoint);
                 }
-            }
-            else
-            {
-                Intent intentPoint = new Intent(this, PointSearchActivity.class);
-                startActivity(intentPoint);
             }
         }
     }
@@ -448,15 +468,16 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             case R.id.point_layout:
                 dailog = new NetLoadingDailog(this);
                 dailog.loading();
-                reqPointTime();
+                reqPointTime("1");
                 break;
             case R.id.offer_layout:
                 Intent intentOffer = new Intent(this, OfferSearchActivity.class);
                 startActivity(intentOffer);
                 break;
             case R.id.wish_layout:
-                Intent intentWish = new Intent(this, WishSearchActivity.class);
-                startActivity(intentWish);
+                dailog = new NetLoadingDailog(this);
+                dailog.loading();
+                reqPointTime("2");
                 break;
             case R.id.set_layout:
                 Intent intentSet = new Intent(this, SetActivity.class);

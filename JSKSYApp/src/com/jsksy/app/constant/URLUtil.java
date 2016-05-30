@@ -1,23 +1,22 @@
 package com.jsksy.app.constant;
 
 /**
- * <ÍøÂçÇëÇóAPI>
- * <¹¦ÄÜÏêÏ¸ÃèÊö>
+ * <é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·API>
+ * <é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·ç»†é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·>
  * 
  * @author  tgf
- * @version  [°æ±¾ºÅ, 2016-4-1]
- * @see  [Ïà¹ØÀà/·½·¨]
- * @since  [²úÆ·/Ä£¿é°æ±¾]
+ * @version  [é”ŸèŠ¥æœ¬é”Ÿæ–¤æ‹·, 2016-4-1]
+ * @see  [é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·]
+ * @since  [é”Ÿæ–¤æ‹·å“/æ¨¡é”Ÿæ–¤æ‹·å§¹ç¶¸
  */
 public class URLUtil
 {
-    //Ğ¡Âí±¾»ú
-//    public static final String SERVER = "http://192.168.1.114:8081/web-mobile/";
-    //·şÎñÆ÷
+    //å°é”Ÿï¿½é”Ÿæ–¤æ‹·
+//    public static final String SERVER = "http://172.16.1.6:8080/web-mobile/";
+    //é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 //    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
-    //Éú²ú
+    //é”Ÿæ–¤æ‹·é”Ÿï¿½
   public static final String SERVER = "http://58.213.145.35/web-mobile/";
-    
     
     public static final String Bus100101 = "Bus100101";
     public static final String Bus100201 = "Bus100201";
@@ -29,6 +28,4 @@ public class URLUtil
     
     public static final String Bus400101 = "Bus400101";
     public static final String Bus400201 = "Bus400201";
-    
-    
 }

@@ -13,12 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.w3c.dom.Text;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -95,6 +92,8 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
         images.add("guide_three");
         images.add("guide_four");
         RelativeLayout rl = (RelativeLayout)findViewById(R.id.circlepager_rl);
+        LinearLayout welcome_layout = (LinearLayout)findViewById(R.id.welcome_layout);
+        welcome_layout.setVisibility(View.GONE);
         rl.setVisibility(View.VISIBLE);
         banner_Pager = (ViewPager)findViewById(R.id.circlepager);
         circleImagePagerAdapter = new GuidePagerAdapter(this, images, WelcomeActivity.this);
@@ -122,7 +121,10 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
     protected void onDestroy()
     {
         super.onDestroy();
-        myTime.cancel();
+        if (GeneralUtils.isNotNull(myTime))
+        {
+            myTime.cancel();
+        }
     }
     
     private void init()
