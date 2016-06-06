@@ -170,18 +170,21 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
                     ImageLoader.getInstance().displayImage(resp.getImageUrl(),
                         welcome_ad,
                         JSKSYApplication.setAllDisplayImageOptions(this, "loading_content", "loading_content", "loading_content"));
-                    welcome_ad.setOnClickListener(new OnClickListener()
+                    if (GeneralUtils.isNotNullOrZeroLenght(resp.getaUrl()))
                     {
-                        @Override
-                        public void onClick(View arg0)
+                        welcome_ad.setOnClickListener(new OnClickListener()
                         {
-                            Intent skipIntent = new Intent(WelcomeActivity.this, WebviewActivity.class);
-                            skipIntent.putExtra("wev_view_url",resp.getaUrl());
-                            skipIntent.putExtra("back_to_home", "1");
-                            startActivity(skipIntent);
-                            finish();
-                        }
-                    });
+                            @Override
+                            public void onClick(View arg0)
+                            {
+                                Intent skipIntent = new Intent(WelcomeActivity.this, WebviewActivity.class);
+                                skipIntent.putExtra("wev_view_url",resp.getaUrl());
+                                skipIntent.putExtra("back_to_home", "1");
+                                startActivity(skipIntent);
+                                finish();
+                            }
+                        });
+                    }
                 }
             }
         }

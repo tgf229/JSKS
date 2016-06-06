@@ -98,8 +98,8 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         waitType = getIntent().getStringExtra("waitType");
         
         //TODO ²âÊÔ ÒªÉ¾³ý
-//        cuStr = "20160426161201";
-//        exStr = "20160426161205";
+        cuStr = "20160426161201";
+        exStr = "20160426161202";
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try

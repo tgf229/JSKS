@@ -89,4 +89,10 @@ public class Constants
      * 推出应用
      */
     public static final String EXIT_APP = "1";
+    
+    public static final int DOWNLOAD = 5;
+    
+    public static final int DOWNLOAD_FINISH = 6;
+    
+    public static final int NO_SD = 9;
 }

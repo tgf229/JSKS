@@ -12,11 +12,11 @@ package com.jsksy.app.constant;
 public class URLUtil
 {
     //小锟�锟斤拷
-//    public static final String SERVER = "http://172.16.1.6:8080/web-mobile/";
+//    public static final String SERVER = "http://172.16.1.3:8080/web-mobile/";
     //锟斤拷锟斤拷锟斤拷
-//    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
+    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
     //锟斤拷锟�
-  public static final String SERVER = "http://58.213.145.35/web-mobile/";
+//  public static final String SERVER = "http://58.213.145.35/web-mobile/";
     
     public static final String Bus100101 = "Bus100101";
     public static final String Bus100201 = "Bus100201";
@@ -26,6 +26,10 @@ public class URLUtil
     public static final String Bus200101 = "Bus200101";
     public static final String Bus200201 = "Bus200201";
     
+    public static final String Bus300101 = "Bus300101";
+    
     public static final String Bus400101 = "Bus400101";
     public static final String Bus400201 = "Bus400201";
+    
+    public static final String Bus500101 = "Bus500101";
 }

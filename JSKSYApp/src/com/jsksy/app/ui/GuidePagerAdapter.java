@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.home.HomeActivity;
@@ -61,7 +61,7 @@ public class GuidePagerAdapter extends PagerAdapter implements IconPagerAdapter
         if (position == mPaths.size() - 1)
         {
             pageView = LayoutInflater.from(mContext).inflate(R.layout.guide_item_last, null);
-            TextView btn = (TextView)pageView.findViewById(R.id.btn);
+            RelativeLayout btn = (RelativeLayout)pageView.findViewById(R.id.btn);
             btn.setOnClickListener(new OnClickListener()
             {
                 @Override

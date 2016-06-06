@@ -38,7 +38,9 @@ import com.jsksy.app.bean.home.BannerResponse;
 import com.jsksy.app.bean.home.InitResponse;
 import com.jsksy.app.bean.home.NewsDoc;
 import com.jsksy.app.bean.home.NewsResponse;
+import com.jsksy.app.bean.home.UpdateVersionResponse;
 import com.jsksy.app.bean.point.PointTimeResponse;
+import com.jsksy.app.callback.DialogCallBack;
 import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
@@ -50,8 +52,11 @@ import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.set.SetActivity;
 import com.jsksy.app.ui.wish.WishSearchActivity;
+import com.jsksy.app.util.DialogUtil;
+import com.jsksy.app.util.DownApkUtil;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
+import com.jsksy.app.util.ToastUtil;
 import com.jsksy.app.view.MyImageView;
 import com.jsksy.app.view.PullToRefreshView;
 import com.jsksy.app.view.PullToRefreshView.OnHeaderRefreshListener;
@@ -113,6 +118,16 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private String waitType = "1";
     
     /**
+     * 下载apk文件类
+     */
+    private DownApkUtil downApkUtil;
+    
+    /**
+     * 当前版本号
+     */
+    private String versionName;
+    
+    /**
      * handle接受广告定时跳转,下载apk后安装apk
      */
     private Handler handler = new Handler()
@@ -129,6 +144,28 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             }
         }
         
+        @Override
+        public void dispatchMessage(Message msg)
+        {
+            super.dispatchMessage(msg);
+            switch (msg.what)
+            {
+                case Constants.DOWNLOAD:
+                    // 设置进度条位置  
+                    downApkUtil.updateProgress();
+                    break;
+                case Constants.DOWNLOAD_FINISH:
+                    // 安装文件  
+                    downApkUtil.installApk();
+                    break;
+                case Constants.NO_SD:
+                    ToastUtil.makeText(HomeActivity.this, "请插入SD卡");
+                    break;
+                default:
+                    break;
+            }
+        }
+        
     };
     
     @Override
@@ -140,6 +177,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         reqBanner();
         reqList();
         reqInit();
+        reqUpdateVersion();
     }
     
     @Override
@@ -300,6 +338,28 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             Constants.ENCRYPT_NONE);
     }
     
+    /**
+     * 
+     * <检查版本更新>
+     * <功能详细描述>
+     * @see [类、类#方法、类#成员]
+     */
+    private void reqUpdateVersion()
+    {
+        versionName = GeneralUtils.getVersionName(this);
+        HashMap<String, String> param = new HashMap<String, String>();
+        param.put("version", "" + versionName);
+        param.put("type", "" + Constants.clientType);
+        param.put("imei", GeneralUtils.getDeviceId(this));
+        
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            HomeActivity.this,
+            UpdateVersionResponse.class,
+            URLUtil.Bus500101,
+            Constants.ENCRYPT_NONE);
+    }
+    
     @Override
     public void netBack(Object ob)
     {
@@ -445,6 +505,48 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                     Intent intentPoint = new Intent(this, PointSearchActivity.class);
                     startActivity(intentPoint);
                 }
+            }
+        }
+        else if (ob instanceof UpdateVersionResponse)
+        {
+            final UpdateVersionResponse response = (UpdateVersionResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(response.getRetcode()))
+            {
+                if (response.getRetcode().equals(Constants.SUCESS_CODE))
+                {
+                    downApkUtil = new DownApkUtil(this, handler, response.getUrlAddress());
+                    
+                    String[] contentString = response.getContent().split(";");
+                    String cancel = getResources().getString(R.string.set_update_cancel);
+                    
+                    if ("1".equals(response.getIsUpdate()))
+                    {
+                        cancel = getResources().getString(R.string.set_update_quit);
+                    }
+                    DialogUtil.showUpdateDialog(this,
+                        getResources().getString(R.string.updateVersionTitel),
+                        contentString,
+                        getResources().getString(R.string.updateVersion),
+                        cancel,
+                        response.getIsUpdate(),
+                        new DialogCallBack()
+                        {
+                            
+                            @Override
+                            public void dialogBack()
+                            {
+                                downApkUtil.downApk(response.getIsUpdate());
+                            }
+                        });
+                }
+                else
+                {
+                    //                    ToastUtil.makeText(getActivity(), response.getRetinfo());
+                }
+            }
+            else
+            {
+                //                ToastUtil.showError(getActivity());
             }
         }
     }
