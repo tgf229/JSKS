@@ -9,17 +9,20 @@
  */
 package com.jsksy.app.ui.point;
 
+import java.util.Random;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
+import com.jsksy.app.constant.Constants;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.ToastUtil;
@@ -35,7 +38,10 @@ import com.jsksy.app.util.ToastUtil;
  */
 public class PointSearchActivity extends BaseActivity implements OnClickListener
 {
-    private EditText num,ticket;
+    private EditText num, ticket;
+    
+    private String sCheckKeyA, sCheckKeyB;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -54,6 +60,17 @@ public class PointSearchActivity extends BaseActivity implements OnClickListener
         
         num = (EditText)findViewById(R.id.num);
         ticket = (EditText)findViewById(R.id.ticket);
+        TextView check_txt = (TextView)findViewById(R.id.check_txt);
+        
+        Random random = new Random();//创建随机对象
+        String checkA_Num = Constants.POINT_CHECK_NUM[random.nextInt(8)];
+        String checkA_Point = Constants.POINT_CHECK_POINT[random.nextInt(8)];
+        String checkB_Num = Constants.POINT_CHECK_NUM[random.nextInt(8)];
+        String checkB_Point = Constants.POINT_CHECK_POINT[random.nextInt(8)];
+        
+        sCheckKeyA = checkA_Num + checkA_Point;
+        sCheckKeyB = checkB_Num + checkB_Point;
+        check_txt.setText(sCheckKeyA + " : " + sCheckKeyB);
         
         Button btn = (Button)findViewById(R.id.btn);
         btn.setOnClickListener(this);
@@ -71,16 +88,18 @@ public class PointSearchActivity extends BaseActivity implements OnClickListener
         }
         if (GeneralUtils.isNullOrZeroLenght(sTicket))
         {
-            ToastUtil.makeText(this, "请输入你的准考证号");
+            ToastUtil.makeText(this, "请输入你的动态口令");
             return;
         }
         
-        Intent intent = new Intent(this,PointResultActivity.class);
+        Intent intent = new Intent(this, PointResultActivity.class);
         intent.putExtra("sNum", sNum);
         intent.putExtra("sTicket", sTicket);
+        intent.putExtra("sCheckKeyA", sCheckKeyA);
+        intent.putExtra("sCheckKeyB", sCheckKeyB);
         startActivity(intent);
     }
-
+    
     @Override
     public void onClick(View v)
     {

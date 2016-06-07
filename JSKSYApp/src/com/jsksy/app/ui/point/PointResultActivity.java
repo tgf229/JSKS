@@ -53,6 +53,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     
     private ImageView KM4_img, KM5_img, addPic;
     private String sNum,sTicket;
+    private String sCheckKeyA, sCheckKeyB;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,6 +62,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         setContentView(R.layout.point_result);
         sNum = getIntent().getStringExtra("sNum");
         sTicket = getIntent().getStringExtra("sTicket");
+        sCheckKeyA = getIntent().getStringExtra("sCheckKeyA");
+        sCheckKeyB = getIntent().getStringExtra("sCheckKeyB");
         init();
         reqPoint();
     }
@@ -117,12 +120,12 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     private void reqPoint()
     {
         Map<String, String> param = new HashMap<String, String>();
-        param.put("sNum", sNum);
-        param.put("sTicket", sTicket);
         try
         {
             param.put("sNum", SecurityUtils.encode2Str(sNum));
-            param.put("sTicket", SecurityUtils.encode2Str(sTicket));
+            param.put("sCheck", SecurityUtils.encode2Str(sTicket));
+            param.put("sCheckKeyA", SecurityUtils.encode2Str(sCheckKeyA));
+            param.put("sCheckKeyB", SecurityUtils.encode2Str(sCheckKeyB));
         }
         catch (Exception e)
         {
