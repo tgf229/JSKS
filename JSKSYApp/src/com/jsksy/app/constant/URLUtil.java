@@ -14,9 +14,9 @@ public class URLUtil
     //小锟�锟斤拷
 //    public static final String SERVER = "http://172.16.1.3:8080/web-mobile/";
     //锟斤拷锟斤拷锟斤拷
-    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
+//    public static final String SERVER = "http://10.2.48.16:9080/web-mobile/";
     //锟斤拷锟�
-//  public static final String SERVER = "http://58.213.145.35/web-mobile/";
+  public static final String SERVER = "http://58.213.145.35/";
     
     public static final String Bus100101 = "Bus100101";
     public static final String Bus100201 = "Bus100201";

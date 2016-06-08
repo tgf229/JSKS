@@ -48,7 +48,7 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
     {
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("¹ºÂò");
+        title_name.setText("Ö¾Ô¸²Î¿¼");
         app_title_back.setOnClickListener(this);
         
         LinearLayout agree_layout = (LinearLayout)findViewById(R.id.agree_layout);
@@ -81,7 +81,7 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
             case R.id.btn:
                 if (isAgree)
                 {
-                    Intent intent = new Intent(this, WishPayActivity.class);
+                    Intent intent = new Intent(this, WishSearchActivity.class);
                     startActivity(intent);
                 }
                 else

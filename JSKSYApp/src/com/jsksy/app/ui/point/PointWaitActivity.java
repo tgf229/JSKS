@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.BaseActivity;
-import com.jsksy.app.ui.wish.WishSearchActivity;
+import com.jsksy.app.ui.wish.WishAgreementActivity;
 
 /**
  * <一句话功能简述>
@@ -62,7 +62,7 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
             {
                 if ("2".equals(waitType))
                 {
-                    Intent intent = new Intent(PointWaitActivity.this, WishSearchActivity.class);
+                    Intent intent = new Intent(PointWaitActivity.this, WishAgreementActivity.class);
                     startActivity(intent);
                 }
                 else
@@ -98,8 +98,8 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         waitType = getIntent().getStringExtra("waitType");
         
         //TODO 测试 要删除
-        cuStr = "20160426161201";
-        exStr = "20160426161202";
+//        cuStr = "20160426161201";
+//        exStr = "20160426161205";
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try

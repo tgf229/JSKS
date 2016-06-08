@@ -166,10 +166,8 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.btn:
-//                Intent intent = new Intent(this,WishAgreementActivity.class);
-//                startActivity(intent);
-                onSubmit();
-//                ToastUtil.makeText(this, "暂未开放此功能，请耐心等待或更新App版本");
+//                onSubmit();
+                ToastUtil.makeText(this, "暂未开放此功能，请耐心等待或更新App版本");
                 break;
             default:
                 break;
