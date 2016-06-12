@@ -158,7 +158,7 @@ export default class OfferResult extends React.Component{
 				console.log(error);
 			}else{
 				events.encrypt='simple';
-				netClientPost(this,BUS_400201,this.BUS_400201_CB,events);
+				netClientPostEncrypt(this,BUS_400201,this.BUS_400201_CB,events);
 			}
 		})
 	}

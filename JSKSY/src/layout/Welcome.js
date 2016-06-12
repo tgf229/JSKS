@@ -63,6 +63,7 @@ export default class Welcome extends React.Component{
 	        		this.props.homeObj.setState({
 						loadAD:false,
 					});
+					return;
 	        	}
 	            this.setToggleTimeout();
 	        },1000

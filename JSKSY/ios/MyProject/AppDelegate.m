@@ -52,11 +52,11 @@
    */
 //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
-  
+  //   curl http://localhost:8081/index.ios.bundle -o main.jsbundle
 //  #ifdef DEBUG
 //    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
 //  #else
-   // jsCodeLocation = [CodePush bundleURL];
+//    jsCodeLocation = [CodePush bundleURL];
 //  #endif
   
 //  [self.window makeKeyAndVisible];

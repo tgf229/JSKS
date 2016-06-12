@@ -62,7 +62,9 @@ export default class PointResult extends React.Component{
 	BUS_200201_REQ(){
 		var dict = {
 			sNum : this.props.sNum,
-			sTicket : this.props.sTicket,
+			sCheck : this.props.sTicket,
+			sCheckKeyA : this.props.sCheckA,
+			sCheckKeyB : this.props.sCheckB,
 		};
 		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
 			if (error) {

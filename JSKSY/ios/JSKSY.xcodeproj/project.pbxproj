@@ -924,7 +924,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymdq.jsksy;
 				PRODUCT_NAME = JSKSY;
-				PROVISIONING_PROFILE = "d6682eab-b0d4-47e2-80b3-68655b52a206";
+				PROVISIONING_PROFILE = "ba24fc9f-d3a2-48e1-af66-5f4d0828d135";
 			};
 			name = Debug;
 		};
@@ -951,7 +951,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ymdq.jsksy;
 				PRODUCT_NAME = JSKSY;
-				PROVISIONING_PROFILE = "d6682eab-b0d4-47e2-80b3-68655b52a206";
+				PROVISIONING_PROFILE = "ba24fc9f-d3a2-48e1-af66-5f4d0828d135";
 			};
 			name = Release;
 		};

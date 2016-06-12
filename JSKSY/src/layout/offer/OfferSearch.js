@@ -97,14 +97,14 @@ export default class OfferSearch extends React.Component{
 
 	scrollViewTo(e){
 		let target = e.nativeEvent.target;
-　　　　 let scrollLength = 220;
+　　　　 let scrollLength = 250;
 　　　　 this.refs.scroll.scrollTo(scrollLength);
 	}
 
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white',}}>
-			<App_Title title={'录取查询'} navigator={this.props.navigator}/>
+			<App_Title title={'录取结果'} navigator={this.props.navigator}/>
 			<ScrollView
 				ref='scroll'
 				keyboardShouldPersistTaps={true}
@@ -119,8 +119,8 @@ export default class OfferSearch extends React.Component{
 				  	<Image
 				  		style={{alignSelf:'center'}}
 				    	source={require('image!offer_tongzhi')} />
-				    <Text style={{color:'#666666',fontSize:15,marginTop:34}}>
-				    	志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在您被录取后的第一时间将录取结果推送至您的手机。
+				    <Text style={{color:'#666666',fontSize:15,marginTop:34,lineHeight:22}}>
+				    	志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。
 				    </Text>
 				  
 				  	<TextInput

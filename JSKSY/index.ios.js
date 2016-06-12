@@ -38,7 +38,7 @@ class MyProject extends React.Component{
 				<Navigator
 					initialRoute={{ component: Home, }}
 			        configureScene={(route) => {
-			            return Navigator.SceneConfigs.HorizontalSwipeJump;
+			            return Navigator.SceneConfigs.PushFromRight;
 			        }}
 			        renderScene={(route, navigator) => {
 			            let Component = route.component;

@@ -25,11 +25,18 @@ function trim(str){ //删除左右两端的空格
 	return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 
+var POINT_CHECK_NUM = ["A","B","C","D","E","F","G","H"];
+var POINT_CHECK_POINT = ["1","2","3","4","5","6","7","8"];
+
 var cuTime;
 var exTime;
 export default class PointSearch extends React.Component{
 	constructor(props){
 		super(props);
+		this.checkA_Num = POINT_CHECK_NUM[Math.floor((Math.random()*8))];
+		this.checkA_Point = POINT_CHECK_POINT[Math.floor((Math.random()*8))];
+		this.checkB_Num = POINT_CHECK_NUM[Math.floor((Math.random()*8))];
+		this.checkB_Point = POINT_CHECK_POINT[Math.floor((Math.random()*8))];
 		this.state={
 			sNumStr:'',
 			sTicketStr:'',
@@ -50,9 +57,6 @@ export default class PointSearch extends React.Component{
 				isOpen = true;
 			}
 
-			//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-			// isOpen = true;
-			
 			object.setState({
 				isLoaded:true,
 				isPointSearchOpen:isOpen,
@@ -96,7 +100,7 @@ export default class PointSearch extends React.Component{
 		if (tick === '') {
 			AlertIOS.alert(
 				'温馨提示',
-				'请输入你的准考证号',
+				'请输入你的动态口令',
 			);
 			return;
 		}
@@ -105,6 +109,8 @@ export default class PointSearch extends React.Component{
 			params:{
 				sNum:num,
 				sTicket:tick,
+				sCheckA:this.checkA_Num+this.checkA_Point,
+				sCheckB:this.checkB_Num+this.checkB_Point,
 			}
 		});
 	}
@@ -130,17 +136,32 @@ export default class PointSearch extends React.Component{
 								enablesReturnKeyAutomatically={true}
 								placeholder='请输入你的考生号'
 							/>
-							<TextInput
-								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21}}
-								clearButtonMode='while-editing'
-								keyboardType='numeric'
-								maxLength={20}
-								value={this.state.sTicketStr}
-								onChangeText={e=>this.onTicketChangeText(e)}
-								onSubmitEditing={()=>this.onSubmit()}
-								enablesReturnKeyAutomatically={true}
-								placeholder='请输入你的准考证号'
-							/>
+
+							<View 
+								style={{marginTop:21,flexDirection:'row',height:50}}>
+								<TextInput
+									style={{flex:1,borderWidth:1,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'}}
+									clearButtonMode='while-editing'
+									keyboardType='numeric'
+									maxLength={6}
+									value={this.state.sTicketStr}
+									onChangeText={e=>this.onTicketChangeText(e)}
+									onSubmitEditing={()=>this.onSubmit()}
+									enablesReturnKeyAutomatically={true}
+									placeholder='请输入动态口令'
+									/>
+								<View
+									style={{backgroundColor:'#F3F3F3',width:100,marginLeft:20,justifyContent:'center',alignItems:'center'}}>
+									<Text
+										style={{fontSize:18,color:'#666666'}}>{this.checkA_Num+this.checkA_Point} : {this.checkB_Num+this.checkB_Point}</Text>
+								</View>
+							</View>
+
+							<Text
+								style={{marginTop:12,fontSize:12,color:'#d0021b'}}>
+								请填写动态口令卡上如上所示坐标位置的两组三位数字
+							</Text>
+							
 							<TouchableHighlight
 								style={{marginTop:30,justifyContent:'center',alignItems:'center',
 									backgroundColor:'#ff902d',height:45,borderRadius:3}}
@@ -150,7 +171,7 @@ export default class PointSearch extends React.Component{
 							</TouchableHighlight>
 						</ScrollView>
 					:
-					<PointWait cuTime={cuTime} exTime={exTime} searchObj={this}/>)
+					<PointWait cuTime={cuTime} exTime={exTime} content={'距离江苏省高考成绩发布还有'} searchObj={this}/>)
 
 				:
 				<ActivityIndicatorIOS style={{marginTop:Dimensions.get('window').height/2-65}}/>

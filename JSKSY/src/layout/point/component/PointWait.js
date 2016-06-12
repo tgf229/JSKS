@@ -50,11 +50,11 @@ export default class PointWait extends React.Component{
 	constructor(props){
 		super(props);
 
+		currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
+		examTime = formatStrToDate(this.props.exTime);
 		//测试用＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 		currentTime = '2016/04/26 11:36:01';
-		examTime = '2016/04/26 11:36:04';
-		// currentTime = dateCon(formatStrToDate(this.props.cuTime),1);
-		// examTime = formatStrToDate(this.props.exTime);
+		examTime = '2016/04/26 11:36:03';
 		
 		this.state={
 			day:'--',
@@ -110,7 +110,7 @@ export default class PointWait extends React.Component{
 		return(
 			<View style={{flex:1,alignItems:'center',backgroundColor:'white'}}>
 				<Text style={{fontSize:18,color:'#999999',marginTop:158}}>
-					距离江苏省高考成绩发布还有
+					{this.props.content}
 				</Text>
 				<View style={{flexDirection:'row',marginTop:33,alignItems:'center'}}>
 					<Image

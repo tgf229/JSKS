@@ -167,7 +167,7 @@ export default class WishList extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white',}}>
-				<App_Title title={'志愿参考'} navigator={this.props.navigator} rightShow={true} rightText={'筛选'} obj={this}/>
+				<App_Title title={'录取资料'} navigator={this.props.navigator} rightShow={true} rightText={'筛选'} obj={this}/>
 				<GiftedListView
 						style={{backgroundColor:'#eeeeee',}}
 						dataSource={this.state.dataSource}

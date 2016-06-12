@@ -110,7 +110,7 @@
  * @return 会话秘钥明文
  */
 + (void)tripleDESWithAppkey:(NSString*)baseKey {
-    sessionKey = [self tripleDES:baseKey tripleKey:@"201412250933001234567890" encryptOrDecrypt:kCCDecrypt];
+    sessionKey = [self tripleDES:baseKey tripleKey:@"2016051616090012345678tm" encryptOrDecrypt:kCCDecrypt];
 }
 
 @end

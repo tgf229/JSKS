@@ -17,11 +17,10 @@ import React, {
 import Banner from './Banner';
 
 import PointSearch from '../../point/PointSearch';
-import WishSearch from '../../wish/WishSearch';
+import WishAgreement from '../../wish/WishAgreement';
 import OfferSearch from '../../offer/OfferSearch';
 import SetActivity from '../../set/SetActivity';
 
-import WishList from '../../wish/WishList';
 
 export default class Header extends React.Component{
 	constructor(props){
@@ -50,7 +49,7 @@ export default class Header extends React.Component{
 			case 2:
 				if(navigator) {
 			            navigator.push({
-			                component: WishList,
+			                component: WishAgreement,
 			            })
 			        }
 				break;
@@ -98,7 +97,7 @@ export default class Header extends React.Component{
 								<Image
 								  style={{alignSelf:'center'}}
 								  source={require('image!home_icon_query')} />
-								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>志愿参考</Text>
+								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取资料</Text>
 							</View>
 						</TouchableHighlight>
 						<TouchableHighlight
@@ -109,7 +108,7 @@ export default class Header extends React.Component{
 								<Image
 								  style={{alignSelf:'center'}}
 								  source={require('image!home_icon_volunteer')} />
-								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取查询</Text>
+								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取结果</Text>
 							</View>
 						</TouchableHighlight>
 						<TouchableHighlight
@@ -127,7 +126,7 @@ export default class Header extends React.Component{
 					<View style={{backgroundColor:'#ffffff',marginTop:12,height:30,flexDirection:'row',paddingLeft:10,paddingRight:10}}>
 						<View style={{justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
 							<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
-							<Text style={{marginLeft:13,marginRight:13,fontSize:12,color:'#999999'}}>今日考试资讯</Text>
+							<Text style={{marginLeft:13,marginRight:13,fontSize:12,color:'#999999'}}>今日高考资讯</Text>
 							<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
 						</View>
 					</View>
