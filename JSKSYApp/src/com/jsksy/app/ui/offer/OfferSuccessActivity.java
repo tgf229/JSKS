@@ -47,7 +47,7 @@ public class OfferSuccessActivity extends BaseActivity implements OnClickListene
     {
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("录取查询");
+        title_name.setText("录取结果");
         app_title_back.setOnClickListener(this);
         
         TextView name_txt = (TextView)findViewById(R.id.name_txt);

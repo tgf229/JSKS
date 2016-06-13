@@ -68,7 +68,7 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
     {
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("志愿参考");
+        title_name.setText("录取资料");
         app_title_back.setOnClickListener(this);
         
         num = (EditText)findViewById(R.id.num);

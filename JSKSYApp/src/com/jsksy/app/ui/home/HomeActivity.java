@@ -48,10 +48,8 @@ import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
-import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.set.SetActivity;
-import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.DialogUtil;
 import com.jsksy.app.util.DownApkUtil;
 import com.jsksy.app.util.GeneralUtils;
@@ -481,30 +479,32 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                 }
                 else
                 {
-                    if ("2".equals(waitType))
-                    {
-                        Intent intentPoint = new Intent(this, WishSearchActivity.class);
-                        startActivity(intentPoint);
-                    }
-                    else
-                    {
-                        Intent intentPoint = new Intent(this, PointSearchActivity.class);
-                        startActivity(intentPoint);
-                    }
+                    ToastUtil.makeText(this, "«Î«Û ß∞‹£¨«Î…‘∫Û‘Ÿ ‘");
+//                    if ("2".equals(waitType))
+//                    {
+//                        Intent intentPoint = new Intent(this, WishSearchActivity.class);
+//                        startActivity(intentPoint);
+//                    }
+//                    else
+//                    {
+//                        Intent intentPoint = new Intent(this, PointSearchActivity.class);
+//                        startActivity(intentPoint);
+//                    }
                 }
             }
             else
             {
-                if ("2".equals(waitType))
-                {
-                    Intent intentPoint = new Intent(this, WishSearchActivity.class);
-                    startActivity(intentPoint);
-                }
-                else
-                {
-                    Intent intentPoint = new Intent(this, PointSearchActivity.class);
-                    startActivity(intentPoint);
-                }
+                ToastUtil.makeText(this, "Õ¯¬Á“Ï≥££¨«ÎºÏ≤Èƒ˙µƒÕ¯¬Á…Ë÷√");
+//                if ("2".equals(waitType))
+//                {
+//                    Intent intentPoint = new Intent(this, WishSearchActivity.class);
+//                    startActivity(intentPoint);
+//                }
+//                else
+//                {
+//                    Intent intentPoint = new Intent(this, PointSearchActivity.class);
+//                    startActivity(intentPoint);
+//                }
             }
         }
         else if (ob instanceof UpdateVersionResponse)

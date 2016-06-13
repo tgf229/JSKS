@@ -31,7 +31,7 @@
                 android:textSize="15sp"
                 android:lineSpacingExtra="5dp"
                 android:textColor="@color/color_666666"
-                android:text="志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在您被录取后的第一时间将录取结果推送至您的手机。"/>
+                android:text="志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。"/>
 
             <EditText
                 android:id="@+id/num"

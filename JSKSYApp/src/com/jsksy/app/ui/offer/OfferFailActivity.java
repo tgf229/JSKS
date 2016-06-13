@@ -65,7 +65,7 @@ public class OfferFailActivity extends BaseActivity implements OnClickListener
         dailog = new NetLoadingDailog(this);
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("录取查询");
+        title_name.setText("录取结果");
         app_title_back.setOnClickListener(this);
         
         LinearLayout title_call_layout = (LinearLayout)findViewById(R.id.title_call_layout);

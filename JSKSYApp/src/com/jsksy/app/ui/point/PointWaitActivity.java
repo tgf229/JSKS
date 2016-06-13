@@ -99,7 +99,7 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         
         //TODO 测试 要删除
 //        cuStr = "20160426161201";
-//        exStr = "20160426161205";
+//        exStr = "20160426161203";
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try
@@ -122,8 +122,8 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         TextView name_txt = (TextView)findViewById(R.id.name_txt);
         if ("2".equals(waitType))
         {
-            title_name.setText("志愿参考");
-            name_txt.setText("距离志愿参考服务开放还有");
+            title_name.setText("录取资料");
+            name_txt.setText("距离录取资料服务开放还有");
         }else
         {
             title_name.setText("高考查分");

@@ -90,7 +90,6 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
         images.add("guide_one");
         images.add("guide_two");
         images.add("guide_three");
-        images.add("guide_four");
         RelativeLayout rl = (RelativeLayout)findViewById(R.id.circlepager_rl);
         LinearLayout welcome_layout = (LinearLayout)findViewById(R.id.welcome_layout);
         welcome_layout.setVisibility(View.GONE);

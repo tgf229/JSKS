@@ -81,7 +81,7 @@
             android:textColor="@color/color_999999"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="江苏华胜天成教育科技有限公司版权所有"/>
+            android:text="江苏华胜天成教育科技有限公司技术支持"/>
         
     </RelativeLayout>
 </LinearLayout>

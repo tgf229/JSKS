@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import com.jsksy.app.R;
 import com.jsksy.app.ui.home.HomeActivity;
-import com.jsksy.app.util.NetLoadingDailog;
 
 public class WebviewActivity extends Activity
 {
@@ -32,12 +31,7 @@ public class WebviewActivity extends Activity
     private TextView tvTitle;
     
     private WebView web;
-    
-    /**
-     * 网络请求等待框
-     */
-    private NetLoadingDailog dailog;
-    
+
     private String url;
     
     private Handler mHandler = new Handler();
@@ -82,8 +76,6 @@ public class WebviewActivity extends Activity
     
     private void init()
     {
-        dailog = new NetLoadingDailog(this);
-        dailog.loading();
         url = getIntent().getStringExtra("wev_view_url");
         tvTitle.setText("加载中...");
         web = (WebView)findViewById(R.id.webview_helper_web);
@@ -116,20 +108,17 @@ public class WebviewActivity extends Activity
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
             {
-                dailog.dismissDialog();
                 super.onReceivedError(view, errorCode, description, failingUrl);
             }
             
             public void onPageStarted(WebView view, String url, Bitmap favicon)
             {
                 super.onPageStarted(view, url, favicon);
-                dailog.dismissDialog();
             }
             
             public void onPageFinished(WebView view, String url)
             {
                 super.onPageFinished(view, url);
-                dailog.dismissDialog();
             }
         });
         
@@ -224,6 +213,10 @@ public class WebviewActivity extends Activity
         {
             super.onReceivedTitle(view, title);
             tvTitle.setText(title);
+            if ("找不到网页".equals(title))
+            {
+                tvTitle.setText("请检查您的网络");
+            }
         };
     }
     

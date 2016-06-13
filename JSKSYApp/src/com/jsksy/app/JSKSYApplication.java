@@ -72,7 +72,7 @@ public class JSKSYApplication extends Application
                 .threadPoolSize(4)
                 .tasksProcessingOrder(QueueProcessingType.FIFO)
                 .denyCacheImageMultipleSizesInMemory()
-                .memoryCache(new LruMemoryCache(4 * 1024 * 1024))
+                .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
                 .discCacheSize(50 * 1024 * 1024)
                 .denyCacheImageMultipleSizesInMemory()
                 .discCacheFileNameGenerator(new Md5FileNameGenerator())

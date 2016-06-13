@@ -3,7 +3,7 @@
     android:id="@+id/btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/guide_four"
+    android:background="@drawable/guide_three"
     android:gravity="center_horizontal"
     android:paddingBottom="50dp"
     android:orientation="vertical" >

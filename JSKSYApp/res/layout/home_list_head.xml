@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="志愿参考"
+                android:text="录取资料"
                 android:textColor="@color/color_444444"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="录取查询"
+                android:text="录取结果"
                 android:textColor="@color/color_444444"
                 android:textSize="12sp" />
         </LinearLayout>

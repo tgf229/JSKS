@@ -48,7 +48,7 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
     {
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
-        title_name.setText("志愿参考");
+        title_name.setText("录取资料");
         app_title_back.setOnClickListener(this);
         
         LinearLayout agree_layout = (LinearLayout)findViewById(R.id.agree_layout);
@@ -86,7 +86,7 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
                 }
                 else
                 {
-                    ToastUtil.makeText(this, "请阅读并勾选志愿辅助服务购买规则与条款");
+                    ToastUtil.makeText(this, "请阅读并勾选志愿辅助服务规则与条款");
                 }
                 break;
             default:

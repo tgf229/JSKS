@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/btn_click"
-                android:text="购买"
+                android:text="下一步"
                 android:textColor="@color/color_ffffff"
                 android:textSize="16sp" />
         </LinearLayout>
