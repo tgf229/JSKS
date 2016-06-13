@@ -57,6 +57,26 @@ export default class PointResult extends React.Component{
 				}
 			}	
 		})
+
+//===========
+		// console.log('BUS_200201_CB = '+response);
+		// 		var json = JSON.parse(response._bodyText);
+		// 		if (json.retcode === '000000') {
+		// 			data = json;
+		// 			object.setState({
+		// 				isLoaded:true,
+		// 				errorLoading:false,
+		// 			});
+		// 		}else{
+		// 			var error='请求失败，请稍后再试';
+		// 			if (json.retinfo) {
+		// 				error = json.retinfo;
+		// 			}
+		// 			object.setState({
+		// 				errorLoading:false,
+		// 				errorTips:error,
+		// 			});
+		// 		}
 	}
 
 	BUS_200201_REQ(){
@@ -74,6 +94,9 @@ export default class PointResult extends React.Component{
 				netClientPostEncrypt(this,BUS_200201,this.BUS_200201_CB,events);
 			}
 		})  
+//===========
+		// dict.encrypt='none';
+		// 		netClientPostEncrypt(this,BUS_200201,this.BUS_200201_CB,dict);
 	}
 
 	componentDidMount() {

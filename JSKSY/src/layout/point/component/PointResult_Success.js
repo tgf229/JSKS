@@ -12,10 +12,12 @@ import React, {
   Dimensions,
   Text,
   TouchableHighlight,
+  ListView,
   View
 } from 'react-native';
 
 import WishSearch from '../../wish/WishSearch';
+import Web from '../../webview/Web';
 
 var totalTitle; 
 var totalPoint;
@@ -36,8 +38,9 @@ var isSingle; //是单项true（1 2 3 4）  还是双向false（type 5 6 7 8）
 export default class PointResult_Success extends React.Component{
 	constructor(props){
 		super(props);
+		var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state={
-
+			dataSource: ds.cloneWithRows(this.props.data.doc),
 		}
 
 		chineseTitle='语文';
@@ -127,10 +130,37 @@ export default class PointResult_Success extends React.Component{
 		}
 	}
 
-	onAdClick(){
+	onWishClick(){
 		this.props.navigator.push({
 			component: WishSearch,
 		});
+	}
+
+	onAdClick(adUrl){
+		this.props.navigator.push({
+			component:Web,
+			params:{
+				url:adUrl,
+			},
+		});
+	}
+
+	//渲染cell
+	renderRow(rowData,sectionID,rowID){
+		return(
+			<View style={{backgroundColor:'#eeeeee',paddingLeft:12,
+					paddingRight:12}}>
+					<TouchableHighlight
+						onPress={e=> this.onAdClick(rowData.aUrl)}
+						underlayColor='#fcfcfc'>
+						<Image 
+							style={{width:Dimensions.get('window').width-24,
+									height:(Dimensions.get('window').width-24)/3.5,
+									marginBottom:15}}
+								source={{uri:rowData.imageUrl}} />
+					</TouchableHighlight>
+			</View>
+		)
 	}
 
 	render(){
@@ -310,7 +340,7 @@ export default class PointResult_Success extends React.Component{
 				<View style={{backgroundColor:'#eeeeee',paddingLeft:12,
 					paddingRight:12}}>
 					<TouchableHighlight
-						onPress={()=>this.onAdClick(1)}
+						onPress={()=>this.onWishClick()}
 						underlayColor='#fcfcfc'>
 						<Image 
 							style={{width:Dimensions.get('window').width-24,
@@ -319,6 +349,10 @@ export default class PointResult_Success extends React.Component{
 								source={require('image!point_ad')} />
 					</TouchableHighlight>
 				</View>
+
+				<ListView
+				  dataSource={this.state.dataSource}
+				  renderRow={(rowData) => this.renderRow(rowData)} />
 
 			</View>
 		)

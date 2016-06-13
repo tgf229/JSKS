@@ -39,12 +39,6 @@ export default class Header extends React.Component{
 			                component: PointSearch,
 			            })
 			        }
-				// this.props.homeObj.props.navigator.push({
-				// 	title:'高考查分',
-				// 	leftButtonIcon:require('image!back_btn'),
-				// 	onLeftButtonPress: () => this.props.homeObj.props.navigator.pop(),
-				// 	component:PointWait,
-				// });
 				break;
 			case 2:
 				if(navigator) {

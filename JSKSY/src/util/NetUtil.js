@@ -13,8 +13,8 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
 // const URL_ADDR = "http://58.213.145.35/";
-// const URL_ADDR = "http://10.2.16.140:18011/web-mobile/";
-const URL_ADDR = "http://192.168.1.101:8888/web-mobile/";
+const URL_ADDR = "http://10.2.16.139:18012/";
+// const URL_ADDR = "http://192.168.1.102:8888/web-mobile/";
 // const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 
 export const BUS_100101 = "Bus100101";
