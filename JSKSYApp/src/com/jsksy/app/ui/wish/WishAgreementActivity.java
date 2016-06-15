@@ -33,9 +33,6 @@ import com.jsksy.app.util.ToastUtil;
  */
 public class WishAgreementActivity extends BaseActivity implements OnClickListener
 {
-    private boolean isAgree = false;
-    private ImageView agree_image;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,13 +48,10 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
         title_name.setText("录取资料");
         app_title_back.setOnClickListener(this);
         
-        LinearLayout agree_layout = (LinearLayout)findViewById(R.id.agree_layout);
-        agree_image = (ImageView)findViewById(R.id.agree_image);
         Button btn = (Button)findViewById(R.id.btn);
-        agree_layout.setOnClickListener(this);
         btn.setOnClickListener(this);
     }
-
+    
     @Override
     public void onClick(View v)
     {
@@ -66,28 +60,9 @@ public class WishAgreementActivity extends BaseActivity implements OnClickListen
             case R.id.app_title_back:
                 finish();
                 break;
-            case R.id.agree_layout:
-                if (isAgree)
-                {
-                    agree_image.setImageResource(R.drawable.wish_checkbox_none);
-                    isAgree = false;
-                }
-                else
-                {
-                    agree_image.setImageResource(R.drawable.wish_checkbox_press);
-                    isAgree = true;
-                }
-              break;
             case R.id.btn:
-                if (isAgree)
-                {
-                    Intent intent = new Intent(this, WishSearchActivity.class);
-                    startActivity(intent);
-                }
-                else
-                {
-                    ToastUtil.makeText(this, "请阅读并勾选志愿辅助服务规则与条款");
-                }
+                Intent intent = new Intent(this, WishSearchActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

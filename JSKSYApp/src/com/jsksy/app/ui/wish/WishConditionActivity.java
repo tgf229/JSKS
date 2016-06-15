@@ -40,17 +40,24 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
     private boolean isJBW = false; //是否985
     
     private String batchId;
+    
     private String provId;
+    
     private String schoolId;
+    
     private String majorId;
     
     private String batchVal;
+    
     private String provVal;
+    
     private String schoolVal;
+    
     private String majorVal;
     
     private ImageView eyy_img, jbw_img;
-    private TextView batch_val,prov_val,school_val,major_val;
+    
+    private TextView batch_val, prov_val, school_val, major_val;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -79,7 +86,7 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
         app_title_back.setOnClickListener(this);
         
         TextView submit_btn = (TextView)findViewById(R.id.submit_btn);
-        
+        TextView reset_btn = (TextView)findViewById(R.id.reset_btn);
         
         LinearLayout eyy_layout = (LinearLayout)findViewById(R.id.eyy_layout);
         LinearLayout jbw_layout = (LinearLayout)findViewById(R.id.jbw_layout);
@@ -117,7 +124,6 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
             jbw_img.setImageResource(R.drawable.switch_off);
         }
         
-        
         eyy_layout.setOnClickListener(this);
         jbw_layout.setOnClickListener(this);
         batch_layout.setOnClickListener(this);
@@ -125,6 +131,7 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
         school_layout.setOnClickListener(this);
         major_layout.setOnClickListener(this);
         submit_btn.setOnClickListener(this);
+        reset_btn.setOnClickListener(this);
     }
     
     @Override
@@ -201,6 +208,24 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
                 intent.putExtra("isJBW", isJBW);
                 setResult(1001, intent);
                 finish();
+                break;
+            case R.id.reset_btn:
+                batchId = "2";
+                batchVal = "本科一批";
+                provId = "";
+                provVal = "全国";
+                schoolId = "";
+                schoolVal = "";
+                majorId = "";
+                majorVal = "";
+                isEYY = false; //是否211
+                isJBW = false; //是否985
+                batch_val.setText(batchVal);
+                prov_val.setText(provVal);
+                school_val.setText(schoolVal);
+                major_val.setText(majorVal);
+                eyy_img.setImageResource(R.drawable.switch_off);
+                jbw_img.setImageResource(R.drawable.switch_off);
                 break;
             default:
                 break;

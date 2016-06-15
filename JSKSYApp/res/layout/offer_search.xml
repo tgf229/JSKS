@@ -9,29 +9,39 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="20dp" >
-            
-            <ImageView 
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/offer_tongzhi"/>
-            
-            <TextView 
+                android:src="@drawable/offer_tongzhi" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="34dp"
-                android:textSize="15sp"
                 android:lineSpacingExtra="5dp"
+                android:text="志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。"
                 android:textColor="@color/color_666666"
-                android:text="志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。"/>
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
+                android:text="PS：本服务将于2016-6-25日正式启用。"
+                android:textColor="@color/color_d0021b"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/num"
@@ -39,8 +49,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/text_input"
-                android:inputType="number"
                 android:hint="请输入你的考生号"
+                android:inputType="number"
                 android:maxLength="20"
                 android:paddingLeft="20dp"
                 android:textColor="@color/color_999999"
@@ -52,8 +62,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="19dp"
                 android:background="@drawable/text_input"
-                android:inputType="number"
                 android:hint="请输入你的准考证号"
+                android:inputType="number"
                 android:maxLength="20"
                 android:paddingLeft="20dp"
                 android:textColor="@color/color_999999"
@@ -68,7 +78,6 @@
                 android:text="预约通知"
                 android:textColor="@color/color_ffffff"
                 android:textSize="16sp" />
-
         </LinearLayout>
     </ScrollView>
 

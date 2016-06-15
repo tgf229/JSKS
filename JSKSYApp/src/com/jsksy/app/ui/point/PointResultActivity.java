@@ -10,10 +10,13 @@
 package com.jsksy.app.ui.point;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -21,15 +24,19 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
+import com.jsksy.app.bean.point.PointAd;
 import com.jsksy.app.bean.point.PointResponse;
 import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.WebviewActivity;
 import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.SecurityUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * <一句话功能简述>
@@ -42,17 +49,19 @@ import com.jsksy.app.util.SecurityUtils;
  */
 public class PointResultActivity extends BaseActivity implements OnClickListener
 {
-    private LinearLayout load_layout, content_layout, KM_layout, rank_layout, 
-            single_layout, double_layout,double_saadd_layout;
+    private LinearLayout load_layout, content_layout, KM_layout, rank_layout, single_layout, double_layout,
+        double_saadd_layout;
     
     private ProgressBar load_progress;
     
     private TextView load_txt, sName, totalTitle, totalPoint, totalName, chineseTitle, chinesePoint, mathTitle,
         mathPoint, englishPoint, KM4_level, KM4_name, KM5_level, KM5_name, poAdd, addTitle, addPoint, SAPoint,
-        DOUBLETitle, DOUBLEPoint,saAdd;
+        DOUBLETitle, DOUBLEPoint, saAdd;
     
     private ImageView KM4_img, KM5_img, addPic;
-    private String sNum,sTicket;
+    
+    private String sNum, sTicket;
+    
     private String sCheckKeyA, sCheckKeyB;
     
     @Override
@@ -153,6 +162,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                     content_layout.setVisibility(View.VISIBLE);
                     load_layout.setVisibility(View.GONE);
                     showPoint(resp);
+                    showAd(resp.getDoc());
+                    
                 }
                 else
                 {
@@ -174,7 +185,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     
     private void showPoint(PointResponse obj)
     {
-        sName.setText("姓名：" + obj.getsName() + "    考生号："+sNum);
+        sName.setText("姓名：" + obj.getsName() + "    考生号：" + sNum);
         totalName.setText(obj.getTotalName() + obj.getTotalLevel() + "名");
         chinesePoint.setText(obj.getChinese() + "分");
         mathPoint.setText(obj.getMath() + "分");
@@ -247,6 +258,29 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             mathTitle.setText("数学+附加分");
             mathPoint.setText(obj.getMath() + "分+" + obj.getMaAdd() + "分");
             saAdd.setText(obj.getSaAdd());
+        }
+    }
+    
+    private void showAd(List<PointAd> adList)
+    {
+        for (final PointAd ad : adList)
+        {
+            LinearLayout advLayout = (LinearLayout)LayoutInflater.from(this).inflate(R.layout.point_adv_item, null);
+            ImageView point_ad_img = (ImageView)advLayout.findViewById(R.id.point_ad_img);
+            ImageLoader.getInstance().displayImage(ad.getImageUrl(),
+                point_ad_img,
+                JSKSYApplication.setAllDisplayImageOptions(this, "default_pic", "default_pic", "default_pic"));
+            point_ad_img.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(PointResultActivity.this, WebviewActivity.class);
+                    intent.putExtra("wev_view_url", ad.getaUrl());
+                    PointResultActivity.this.startActivity(intent);
+                }
+            });
+            content_layout.addView(advLayout);
         }
     }
     

@@ -32,6 +32,7 @@ import com.jsksy.app.sharepref.SharePref;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.offer.OfferFailActivity;
 import com.jsksy.app.ui.offer.OfferSuccessActivity;
+import com.jsksy.app.ui.point.PointResultActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
 import com.jsksy.app.util.SecurityUtils;
@@ -83,9 +84,6 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
         sNum = num.getText().toString().trim();
         sTicket = ticket.getText().toString().trim();
         
-        sNum = "15320102000029";
-        sTicket="1501020002322";
-        
         if (GeneralUtils.isNullOrZeroLenght(sNum))
         {
             ToastUtil.makeText(this, "请输入你的考生号");
@@ -97,64 +95,10 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
             return;
         }
         
-        reqWish();
-    }
-    private void reqWish()
-    {
-        dailog.loading();
-        Map<String, String> param = new HashMap<String, String>();
-        try
-        {
-            param.put("sNum", SecurityUtils.encode2Str(sNum));
-            param.put("sTicket", SecurityUtils.encode2Str(sTicket));
-            param.put("isJbw", SecurityUtils.encode2Str("0"));
-            param.put("isEyy", SecurityUtils.encode2Str("0"));
-            param.put("batch", SecurityUtils.encode2Str("1"));
-//            param.put("province", SecurityUtils.encode2Str(province));
-//            param.put("type", SecurityUtils.encode2Str(type));
-//            param.put("major", SecurityUtils.encode2Str(major));
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        
-        ConnectService.instance().connectServiceReturnResponse(this,
-            param,
-            this,
-            WishResponse.class,
-            URLUtil.Bus300101,
-            Constants.ENCRYPT_SIMPLE);
-    }
-    
-    @Override
-    public void netBack(Object ob)
-    {
-        super.netBack(ob);
-        dailog.dismissDialog();
-        if (ob instanceof WishResponse)
-        {
-            WishResponse resp = (WishResponse)ob;
-            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
-            {
-                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
-                {
-//                    Intent intent = new Intent(this, OfferSuccessActivity.class);
-//                    intent.putExtra("sNum", sNum);
-//                    intent.putExtra("offerResponse", resp);
-//                    startActivity(intent);
-//                    finish();
-                }
-                else
-                {
-                    ToastUtil.makeText(this, resp.getRetinfo());
-                }
-            }
-            else
-            {
-                ToastUtil.showError(this);
-            }
-        }
+        Intent intent = new Intent(this, WishListActivity.class);
+        intent.putExtra("sNum", sNum);
+        intent.putExtra("sTicket", sTicket);
+        startActivity(intent);
     }
 
     @Override
@@ -166,8 +110,8 @@ public class WishSearchActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.btn:
-//                onSubmit();
-                ToastUtil.makeText(this, "暂未开放此功能，请耐心等待或更新App版本");
+                onSubmit();
+//                ToastUtil.makeText(this, "暂未开放此功能，请耐心等待或更新App版本");
                 break;
             default:
                 break;

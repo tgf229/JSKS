@@ -3,20 +3,19 @@ package com.jsksy.app.ui.wish.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
-import com.jsksy.app.bean.home.NewsDoc;
 import com.jsksy.app.bean.wish.WishDoc;
 import com.jsksy.app.callback.UICallBack;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.jsksy.app.constant.URLUtil;
+import com.jsksy.app.ui.WebviewActivity;
 
 public class WishListAdapter extends BaseAdapter
 {
@@ -25,12 +24,14 @@ public class WishListAdapter extends BaseAdapter
     private List<WishDoc> mList;
     
     private UICallBack callBack;
+    private String sNum;
     
-    public WishListAdapter(Context context, List<WishDoc> mList, UICallBack callBack)
+    public WishListAdapter(Context context, List<WishDoc> mList, UICallBack callBack,String num)
     {
         this.context = context;
         this.mList = mList;
         this.callBack = callBack;
+        this.sNum = num;
     }
     
     @Override
@@ -81,9 +82,9 @@ public class WishListAdapter extends BaseAdapter
             @Override
             public void onClick(View v)
             {
-//                Intent intent = new Intent(context, ActiveDetailActivity.class);
-//                intent.putExtra("id", entity.getActivity_id());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, WebviewActivity.class);
+                intent.putExtra("wev_view_url", URLUtil.SERVER+URLUtil.Bus300201+"?code="+entity.getCode()+"&sNum="+sNum);
+                context.startActivity(intent);
             }
         });
         return convertView;

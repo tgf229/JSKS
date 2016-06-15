@@ -71,7 +71,6 @@
                     android:id="@+id/school_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="工科院校"
                     android:textColor="@color/color_85add7"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -91,12 +90,12 @@
                     android:id="@+id/major_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="心里学类"
                     android:textColor="@color/color_85add7"
                     android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/eyy_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
@@ -115,6 +114,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/jbw_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_margin="4dp"
@@ -127,8 +127,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="985"
                     android:textColor="@color/color_85add7"
+                    android:text="985"
                     android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>

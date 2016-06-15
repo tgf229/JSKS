@@ -78,6 +78,16 @@ public class WishConditionListActivity extends BaseActivity implements OnClickLi
             adapter.addSection(Constants.MAJOR_DATA.DATA1.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA1.getInfo(), this, choise, type));
             adapter.addSection(Constants.MAJOR_DATA.DATA2.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA2.getInfo(), this, choise, type));
             adapter.addSection(Constants.MAJOR_DATA.DATA3.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA3.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA4.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA4.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA5.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA5.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA6.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA6.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA7.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA7.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA8.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA8.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA9.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA9.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA10.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA10.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA11.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA11.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA12.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA12.getInfo(), this, choise, type));
+            adapter.addSection(Constants.MAJOR_DATA.DATA13.getCode(), new WishConditionAdapter(this, Constants.MAJOR_DATA.DATA13.getInfo(), this, choise, type));
             cListView.setAdapter(adapter);
         }
         else

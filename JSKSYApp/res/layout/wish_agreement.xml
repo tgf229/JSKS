@@ -24,61 +24,41 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/wish_agreement_tips" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+             <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="20dp"
                 android:lineSpacingExtra="5dp"
-                android:text="本服务会结合考生本年高考分数及全省位次、往年高考录取数据、本年度各院校招生计划，并按照如院校省份、专业、推荐策略等附加条件推荐出适合您的院校及专业。"
-                android:textColor="@color/color_666666"
-                android:textSize="15sp" />
+		        android:textSize="15sp"
+		        android:textColor="@color/color_888888"
+		        android:text="        录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。"/>
             
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout 
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="PS：本服务只针对进入第一阶段位次的文科及理科考生开放"
-                android:textColor="@color/color_d0021b"
-                android:textSize="12sp" />
+                android:orientation="horizontal">
+                <TextView 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="12sp"
+			        android:lineSpacingExtra="5dp"
+			        android:textColor="@color/color_d0021b"
+			        android:text="PS："/>
+                <TextView 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:lineSpacingExtra="5dp"
+			        android:textColor="@color/color_d0021b"
+			        android:textSize="12sp"
+			        android:text="本服务只针对进入文理科第一阶段位次的考生开放；\n院校数据仅包含文理科本一及本二批次院校；\n本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。"/>
+            </LinearLayout>
             
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5px"
                 android:layout_marginTop="25dp"
                 android:background="@color/color_d5d5d5"/>
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:id="@+id/agree_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
-                    <ImageView
-                        android:id="@+id/agree_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/wish_checkbox_none"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/color_888888"
-                        android:layout_marginLeft="8dp"
-                        android:text="我同意"/>
-                </LinearLayout>
-                <TextView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="8dp"
-                    android:text="志愿辅助服务规则与条款"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_4a90e2"/>
-            </LinearLayout>
             
             <Button
                 android:id="@+id/btn"

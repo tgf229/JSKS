@@ -98,8 +98,8 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         waitType = getIntent().getStringExtra("waitType");
         
         //TODO 测试 要删除
-//        cuStr = "20160426161201";
-//        exStr = "20160426161203";
+        cuStr = "20160426161201";
+        exStr = "20160426161203";
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         try
@@ -120,14 +120,18 @@ public class PointWaitActivity extends BaseActivity implements OnClickListener
         LinearLayout app_title_back = (LinearLayout)findViewById(R.id.app_title_back);
         TextView title_name = (TextView)findViewById(R.id.title_name);
         TextView name_txt = (TextView)findViewById(R.id.name_txt);
+        LinearLayout wish_tips = (LinearLayout)findViewById(R.id.wish_tips);
+        
         if ("2".equals(waitType))
         {
             title_name.setText("录取资料");
             name_txt.setText("距离录取资料服务开放还有");
+            wish_tips.setVisibility(View.VISIBLE);
         }else
         {
             title_name.setText("高考查分");
             name_txt.setText("距离江苏省高考成绩发布还有");
+            wish_tips.setVisibility(View.GONE);
         }
         
         app_title_back.setOnClickListener(this);

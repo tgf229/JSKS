@@ -9,6 +9,8 @@
  */
 package com.jsksy.app.bean.point;
 
+import java.util.List;
+
 import com.jsksy.app.bean.BaseResponse;
 
 /**
@@ -41,7 +43,16 @@ public class PointResponse extends BaseResponse
     private String totalName;
     private String totalLevel;
     private String sName;
+    private List<PointAd> doc;
     
+    public List<PointAd> getDoc()
+    {
+        return doc;
+    }
+    public void setDoc(List<PointAd> doc)
+    {
+        this.doc = doc;
+    }
     public String getType()
     {
         return type;

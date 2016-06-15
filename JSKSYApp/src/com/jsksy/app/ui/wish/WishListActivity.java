@@ -10,6 +10,8 @@
 package com.jsksy.app.ui.wish;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,13 +21,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
-import com.jsksy.app.bean.home.NewsResponse;
 import com.jsksy.app.bean.wish.WishDoc;
+import com.jsksy.app.bean.wish.WishResponse;
+import com.jsksy.app.constant.Constants;
+import com.jsksy.app.constant.URLUtil;
+import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.wish.adapter.WishListAdapter;
+import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.SecurityUtils;
 import com.jsksy.app.view.PullToRefreshView;
 import com.jsksy.app.view.PullToRefreshView.OnHeaderRefreshListener;
 
@@ -47,25 +55,46 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     private WishListAdapter wishListAdapter;
     
     private View headView;
+
+    private LinearLayout load_layout,title_call_layout,school_layout,major_layout,eyy_layout,jbw_layout;
     
-    private String batchId = "1";
-    private String batchVal =  "本科一批";
+    private ProgressBar load_progress;
+    
+    private TextView load_txt,batch_val,prov_val,school_val,major_val;
+    
+    private com.jsksy.app.view.PullToRefreshView home_main_pull_refresh_view;
+    
+    private String batchId = "2";
+    
+    private String batchVal = "本科一批";
+    
     private String provId = "";
+    
     private String provVal = "全国";
+    
     private String schoolId = "";
+    
     private String schoolVal = "";
+    
     private String majorId = "";
+    
     private String majorVal = "";
+    
     private boolean isEYY = false; //是否211
+    
     private boolean isJBW = false; //是否985
+    
+    private String sNum, sTicket;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wish_list);
+        sNum = getIntent().getStringExtra("sNum");
+        sTicket = getIntent().getStringExtra("sTicket");
         init();
-        reqList();
+        reqWish();
     }
     
     private void init()
@@ -78,48 +107,76 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         title_name.setText("录取资料");
         app_title_back.setOnClickListener(this);
         
+        title_call_layout = (LinearLayout)findViewById(R.id.title_call_layout);
+        TextView title_btn_call = (TextView)findViewById(R.id.title_btn_call);
+        title_btn_call.setText("筛选");
+        title_call_layout.setVisibility(View.INVISIBLE);
+        title_call_layout.setOnClickListener(this);
+        
+        load_layout = (LinearLayout)findViewById(R.id.load_layout);
+        load_progress = (ProgressBar)findViewById(R.id.load_progress);
+        load_txt = (TextView)findViewById(R.id.load_txt);
+        
+        home_main_pull_refresh_view = (PullToRefreshView)findViewById(R.id.home_main_pull_refresh_view);
+        
         //head渲染
         headView =
             ((LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.wish_list_head, null);
         LinearLayout condition_layout = (LinearLayout)headView.findViewById(R.id.condition_layout);
         condition_layout.setOnClickListener(this);
         
+        batch_val = (TextView)headView.findViewById(R.id.batch_val);
+        prov_val = (TextView)headView.findViewById(R.id.prov_val);
+        school_layout = (LinearLayout)headView.findViewById(R.id.school_layout);
+        school_val = (TextView)headView.findViewById(R.id.school_val);
+        major_layout = (LinearLayout)headView.findViewById(R.id.major_layout);
+        major_val = (TextView)headView.findViewById(R.id.major_val);
+        eyy_layout = (LinearLayout)headView.findViewById(R.id.eyy_layout);
+        jbw_layout = (LinearLayout)headView.findViewById(R.id.jbw_layout);
+        
+        
         //List渲染
         ListView wishListView = (ListView)findViewById(R.id.fresh_news_listview);
         wishListView.addHeaderView(headView);
         wishList = new ArrayList<WishDoc>();
-        wishListAdapter = new WishListAdapter(this, wishList, this);
+        wishListAdapter = new WishListAdapter(this, wishList, this,sNum);
         wishListView.setAdapter(wishListAdapter);
     }
     
-    private void reqList()
+    private void reqWish()
     {
-        //测试
-        WishDoc doc = new WishDoc();
-        doc.setCode("1101");
-        doc.setName("南京大学");
-        doc.setBatch("本科一批");
-        doc.setNum("159");
+        Map<String, String> param = new HashMap<String, String>();
+        try
+        {
+            param.put("sNum", SecurityUtils.encode2Str(sNum));
+            param.put("sTicket", SecurityUtils.encode2Str(sTicket));
+            param.put("isJbw", SecurityUtils.encode2Str(isJBW ? "1" : ""));
+            param.put("isEyy", SecurityUtils.encode2Str(isEYY ? "1" : ""));
+            param.put("batch", SecurityUtils.encode2Str(batchId));
+            param.put("province", SecurityUtils.encode2Str(provId));
+            param.put("type", SecurityUtils.encode2Str(schoolId));
+            param.put("major", SecurityUtils.encode2Str(majorId));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         
-        WishDoc doc1 = new WishDoc();
-        doc1.setCode("1102");
-        doc1.setName("南京航空航天大学");
-        doc1.setBatch("本科一批");
-        doc1.setNum("168");
-        wishList.add(doc);
-        wishList.add(doc1);
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            this,
+            WishResponse.class,
+            URLUtil.Bus300101,
+            Constants.ENCRYPT_SIMPLE);
+    }
+    
+    private void showList(ArrayList<WishDoc> docList)
+    {
+        for (WishDoc d : docList)
+        {
+            wishList.add(d);
+        }
         wishListAdapter.notifyDataSetChanged();
-        //        Map<String, String> param = new HashMap<String, String>();
-        //        param.put("cId", "1");
-        //        param.put("uId", "1");
-        //        param.put("page", "1");
-        //        param.put("num", "10");
-        //        ConnectService.instance().connectServiceReturnResponse(this,
-        //            param,
-        //            WishListActivity.this,
-        //            NewsResponse.class,
-        //            URLUtil.Bus302301,
-        //            Constants.ENCRYPT_NONE);
     }
     
     @Override
@@ -127,17 +184,45 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     {
         super.netBack(ob);
         mPullToRefreshView.onHeaderRefreshComplete();
-        if (ob instanceof NewsResponse)
+        if (ob instanceof WishResponse)
         {
-            //            WishResponse resp = (WishResponse)ob;
-            //            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
-            //            {
-            //                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
-            //                {
-            //                    wishList.addAll(resp.getDoc());
-            //                    wishListAdapter.notifyDataSetChanged();
-            //                }
-            //            }
+            WishResponse resp = (WishResponse)ob;
+            if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
+                {
+                    title_call_layout.setVisibility(View.VISIBLE);
+                    if (resp.getDoc().size()>0)
+                    {
+                        home_main_pull_refresh_view.setVisibility(View.VISIBLE);
+                        load_layout.setVisibility(View.GONE);
+                        showList(resp.getDoc());
+                    }
+                    else
+                    {
+                        home_main_pull_refresh_view.setVisibility(View.GONE);
+                        load_layout.setVisibility(View.VISIBLE);
+                        load_progress.setVisibility(View.GONE);
+                        load_txt.setText("未查询到数据哦，点右上角筛选再试试吧");
+                    }
+                }
+                else
+                {
+                    home_main_pull_refresh_view.setVisibility(View.GONE);
+                    load_layout.setVisibility(View.VISIBLE);
+                    load_progress.setVisibility(View.GONE);
+                    load_txt.setText(resp.getRetinfo());
+                    title_call_layout.setVisibility(View.INVISIBLE);
+                }
+            }
+            else
+            {
+                home_main_pull_refresh_view.setVisibility(View.GONE);
+                load_layout.setVisibility(View.VISIBLE);
+                load_progress.setVisibility(View.GONE);
+                load_txt.setText(Constants.ERROR_MESSAGE);
+                title_call_layout.setVisibility(View.INVISIBLE);
+            }
         }
     }
     
@@ -145,7 +230,7 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     public void onHeaderRefresh(PullToRefreshView view)
     {
         wishList.clear();
-        reqList();
+        reqWish();
     }
     
     @Override
@@ -157,22 +242,30 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
                 finish();
                 break;
             case R.id.condition_layout:
-                Intent intent = new Intent(this, WishConditionActivity.class);
-                intent.putExtra("batchId", batchId);
-                intent.putExtra("batchVal", batchVal);
-                intent.putExtra("provId", provId);
-                intent.putExtra("provVal", provVal);
-                intent.putExtra("schoolId", schoolId);
-                intent.putExtra("schoolVal", schoolVal);
-                intent.putExtra("majorId", majorId);
-                intent.putExtra("majorVal", majorVal);
-                intent.putExtra("isEYY", isEYY);
-                intent.putExtra("isJBW", isJBW);
-                startActivityForResult(intent, 1001);
+                conditionClick();
+                break;
+            case R.id.title_call_layout:
+                conditionClick();
                 break;
             default:
                 break;
         }
+    }
+    
+    private void conditionClick()
+    {
+        Intent intent = new Intent(this, WishConditionActivity.class);
+        intent.putExtra("batchId", batchId);
+        intent.putExtra("batchVal", batchVal);
+        intent.putExtra("provId", provId);
+        intent.putExtra("provVal", provVal);
+        intent.putExtra("schoolId", schoolId);
+        intent.putExtra("schoolVal", schoolVal);
+        intent.putExtra("majorId", majorId);
+        intent.putExtra("majorVal", majorVal);
+        intent.putExtra("isEYY", isEYY);
+        intent.putExtra("isJBW", isJBW);
+        startActivityForResult(intent, 1001);
     }
     
     @Override
@@ -192,6 +285,45 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
                 majorVal = data.getStringExtra("majorVal");
                 isEYY = data.getBooleanExtra("isEYY", false);
                 isJBW = data.getBooleanExtra("isJBW", false);
+                
+                batch_val.setText(batchVal);
+                prov_val.setText(provVal);
+                if (GeneralUtils.isNullOrZeroLenght(schoolId))
+                {
+                    school_layout.setVisibility(View.GONE);
+                }else
+                {
+                    school_layout.setVisibility(View.VISIBLE);
+                    school_val.setText(schoolVal);
+                }
+                if (GeneralUtils.isNullOrZeroLenght(majorId))
+                {
+                    major_layout.setVisibility(View.GONE);
+                }else
+                {
+                    major_layout.setVisibility(View.VISIBLE);
+                    major_val.setText(majorVal);
+                }
+                if (isEYY)
+                {
+                    eyy_layout.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    eyy_layout.setVisibility(View.GONE);
+                }
+                if (isJBW)
+                {
+                    jbw_layout.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    jbw_layout.setVisibility(View.GONE);
+                }
+                
+                
+                wishList.clear();
+                reqWish();
                 break;
             default:
                 break;

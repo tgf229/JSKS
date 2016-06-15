@@ -49,17 +49,9 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/btn_click"
-                android:text="下一步"
+                android:text="查询"
                 android:textColor="@color/color_ffffff"
                 android:textSize="16sp" />
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="PS:已购买过该项服务的考生，可在验证后再次查询"
-                android:textSize="12sp"
-                android:textColor="@color/color_999999"/>
 
         </LinearLayout>
     </ScrollView>

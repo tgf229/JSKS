@@ -225,6 +225,7 @@
         android:paddingRight="26dp">
         
         <TextView
+            android:id="@+id/reset_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="39dp"
