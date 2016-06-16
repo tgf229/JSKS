@@ -21,8 +21,8 @@ import WishFilter_Section_List from './component/WishFilter_Section_List';
 import App_Title from '../common/App_Title';
 
 var BATCH_DATA = ['本科一批','本科二批','取消'];
-var TYPE_DATA = [{id:'',name:'全部'},{id:'01',name:'综合院校'},{id:'02',name:'工科院校'},{id:'03',name:'农业院校'}];
-var PROVINCE_DATA = [{id:'',name:'全国'},{id:'320000',name:'江苏省'},{id:'110000',name:'北京市'}];
+var TYPE_DATA = [{id:'',name:'全部'},{id:'01',name:'综合院校'},{id:'02',name:'工科院校'},{id:'03',name:'农业院校'},{id:'04',name:'林业院校'},{id:'05',name:'医药院校'},{id:'06',name:'师范院校'},{id:'07',name:'语言院校'},{id:'08',name:'财经院校'},{id:'09',name:'政法院校'},{id:'10',name:'体育院校'},{id:'11',name:'艺术院校'},{id:'12',name:'民族院校'},{id:'13',name:'军事院校'}];
+var PROVINCE_DATA = [{id:'',name:'全国'},{id:'320000',name:'江苏省'},{id:'110000',name:'北京市'},{id:'120000',name:'天津市'},{id:'130000',name:'河北省'},{id:'140000',name:'山西省'},{id:'150000',name:'内蒙古自治区'},{id:'210000',name:'辽宁省'},{id:'220000',name:'吉林省'},{id:'230000',name:'黑龙江省'},{id:'310000',name:'上海市'},{id:'330000',name:'浙江省'},{id:'340000',name:'安徽省'},{id:'350000',name:'福建省'},{id:'360000',name:'江西省'},{id:'370000',name:'山东省'},{id:'410000',name:'河南省'},{id:'420000',name:'湖北省'},{id:'430000',name:'湖南省'},{id:'440000',name:'广东省'},{id:'450000',name:'广西壮族自治区'},{id:'460000',name:'海南省'},{id:'500000',name:'重庆市'},{id:'510000',name:'四川省'},{id:'520000',name:'贵州省'},{id:'530000',name:'云南省'},{id:'540000',name:'西藏自治区'},{id:'610000',name:'陕西省'},{id:'620000',name:'甘肃省'},{id:'630000',name:'青海省'},{id:'640000',name:'宁夏回族自治区'},{id:'650000',name:'新疆维吾尔自治区'},{id:'710000',name:'台湾省'},{id:'810000',name:'香港特别行政区'},{id:'820000',name:'澳门特别行政区'}];
 
 export default class WishFilter extends React.Component{
 	constructor(props){
@@ -48,7 +48,7 @@ export default class WishFilter extends React.Component{
 	onReset(){
 		this.setState({
 			batch:'本科一批',
-			batchVal:'1',
+			batchVal:'2',
 
 			provId:'',
 			provVal:'全国',
@@ -72,7 +72,7 @@ export default class WishFilter extends React.Component{
 	    },
 	    (buttonIndex) => {
 	    	if (buttonIndex !== 2) {
-	    		this.setState({ batch: BATCH_DATA[buttonIndex], batchVal: buttonIndex+1});
+	    		this.setState({ batch: BATCH_DATA[buttonIndex], batchVal: buttonIndex+2+''});
 	    	}
 	    });
 	}
@@ -141,6 +141,7 @@ export default class WishFilter extends React.Component{
 			eyy:this.state.eyy,
 			jbw:this.state.jbw,
 		});
+		this.props.filterObj.BUS_300101_REQ();;
 		this.props.navigator.pop();
 	}
 

@@ -56,6 +56,8 @@ export default class PointResult_Success extends React.Component{
 			chineseTitle = '语文＋附加分';
 			addTitle = '文理类奖励分';
 			addPoint = this.props.data.cmAdd;
+			this.zf1 = this.props.data.chTotal;
+			this.zf2 = null;
 		}
 		//理科
 		else if(this.props.data.type === '2'){
@@ -64,6 +66,8 @@ export default class PointResult_Success extends React.Component{
 			mathTitle = '数学＋附加分';
 			addTitle = '文理类奖励分';
 			addPoint = this.props.data.cmAdd;
+			this.zf1 = this.props.data.maTotal;
+			this.zf2 = null;
 		}
 		//艺术  体育
 		else if(this.props.data.type === '3' || this.props.data.type === '4'){
@@ -73,6 +77,8 @@ export default class PointResult_Success extends React.Component{
 			addPoint = this.props.data.saAdd;
 			addPic = <Image source={require('image!point_icon_B_add')} />;
 			isKMshow = false;
+			this.zf1 = this.props.data.saTotal;
+			this.zf2 = null;
 		}
 		//艺术兼文 体育兼文
 		else if(this.props.data.type === '5' || this.props.data.type === '7' ){
@@ -80,6 +86,8 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '文科类总分';
 			totalPoint = this.props.data.chTotal;
 			chineseTitle = '语文＋附加分';
+			this.zf1 = this.props.data.chTotal;
+			this.zf2 = this.props.data.saTotal;
 		}
 		//艺术兼理 体育兼理
 		else if(this.props.data.type === '6' || this.props.data.type === '8' ){
@@ -87,6 +95,8 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '理科类总分';
 			totalPoint = this.props.data.maTotal;
 			mathTitle = '数学＋附加分';
+			this.zf1 = this.props.data.maTotal;
+			this.zf2 = this.props.data.saTotal;
 		}
 
 		if (this.props.data.KM4Name === '历史') {
@@ -140,7 +150,7 @@ export default class PointResult_Success extends React.Component{
 		this.props.navigator.push({
 			component:Web,
 			params:{
-				url:adUrl,
+				url:adUrl+'?n='+this.props.data.sName+'&k='+this.props.data.type+'&zf1='+this.zf1+'&zf2='+this.zf2,
 			},
 		});
 	}
@@ -329,12 +339,13 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				}
 
-				<Text style={{textAlign:'center',marginTop:30,marginBottom:20,fontSize:8,color:'#666666'}}>数据来源 BY 江苏省教育考试院</Text>
+				<Text style={{marginLeft:10,marginRight:10,marginTop:10,fontSize:8,color:'#666666'}}>注：本次公布的考生位次为达到文理科第一阶段填报志愿条件且选测科目等级在1B1C及以上考生在全省的总分排名。考生成绩以成绩通知单为准。</Text>
+				<Text style={{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}}>数据来源 BY 江苏省教育考试院</Text>
 
 				<View style={{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,
 					paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
-					<Text style={{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}}>广告</Text>
+					<Text style={{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}}>推广</Text>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
 				</View>
 				<View style={{backgroundColor:'#eeeeee',paddingLeft:12,

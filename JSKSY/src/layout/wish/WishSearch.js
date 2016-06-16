@@ -20,26 +20,56 @@ import React, {
 import WishList from './WishList';
 import App_Title from '../common/App_Title';
 
+function trim(str){ //删除左右两端的空格
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
 export default class WishSearch extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			searchString:'',
+			sNumStr:'',
+			sTicketStr:'',
 		}
 	}
 
-	onChangeText(e){
-		// this.setState({searchString:e});
+	onNumChangeText(e){
+		this.setState({sNumStr:e});
+	}
+
+	onTicketChangeText(e){
+		this.setState({sTicketStr:e});
 	}
 
 	onSubmit(){
-		AlertIOS.alert(
-			'温馨提示',
-			'暂未开放，请耐心等待...',
-		);
-		// this.props.navigator.push({
-			// component:WishList
-		// });
+		// AlertIOS.alert(
+		// 	'温馨提示',
+		// 	'暂未开放此功能，请耐心等待或更新App版本',
+		// );
+
+		var num = trim(this.state.sNumStr);
+		var tick = trim(this.state.sTicketStr);
+		if (num === '') {
+			AlertIOS.alert(
+				'温馨提示',
+				'请输入你的考生号',
+			);
+			return;
+		}
+		if (tick === '') {
+			AlertIOS.alert(
+				'温馨提示',
+				'请输入你的准考证号',
+			);
+			return;
+		}
+		this.props.navigator.push({
+			component:WishList,
+			params:{
+				sNum:num,
+				sTicket:tick,
+			}
+		});
 	}
 
 	render(){
@@ -52,8 +82,10 @@ export default class WishSearch extends React.Component{
 						  	<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'}}
 								clearButtonMode='while-editing'
+								keyboardType='numeric'
+								maxLength={20}
 								value={this.state.searchString}
-								onChangeText={e=>this.onChangeText(e)}
+								onChangeText={e=>this.onNumChangeText(e)}
 								onSubmitEditing={()=>this.onSubmit()}
 								enablesReturnKeyAutomatically={true}
 								placeholder='请输入你的考生号'
@@ -61,8 +93,10 @@ export default class WishSearch extends React.Component{
 							<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21}}
 								clearButtonMode='while-editing'
+								keyboardType='numeric'
+								maxLength={20}
 								value={this.state.searchString}
-								onChangeText={e=>this.onChangeText(e)}
+								onChangeText={e=>this.onTicketChangeText(e)}
 								onSubmitEditing={()=>this.onSubmit()}
 								enablesReturnKeyAutomatically={true}
 								placeholder='请输入你的准考证号'
@@ -72,9 +106,8 @@ export default class WishSearch extends React.Component{
 									backgroundColor:'#ff902d',height:45,borderRadius:3}}
 								onPress={()=>this.onSubmit()}
 								underlayColor='#fcfcfc'>
-								<Text style={{fontSize:16,color:'white'}}>下一步</Text>
+								<Text style={{fontSize:16,color:'white'}}>查询</Text>
 							</TouchableHighlight>
-							<Text style={{marginTop:18,fontSize:12,color:'#999999'}}>PS: 已购买过该项服务的考生，可在验证后再次查询</Text>
 
 						</ScrollView>
 						

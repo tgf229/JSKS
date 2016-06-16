@@ -59569,7 +59569,7 @@ var params={
 encrypt:'none',
 type:'2',
 model:model,
-version:'1.0.0',
+version:'1.0.4',
 imei:uuid};
 
 (0,_NetUtil.netClientPost)(this,_NetUtil.BUS_100101,this.BUS_100101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
@@ -59720,12 +59720,6 @@ case 1:
 if(navigator){
 navigator.push({
 component:_PointSearch2.default});}
-
-
-
-
-
-
 
 
 break;
@@ -60492,6 +60486,8 @@ urlForQueryAndPage=urlForQueryAndPage;exports.
 
 
 
+
+
 netClient=netClient;exports.
 
 
@@ -60519,7 +60515,7 @@ netClientPostEncrypt=netClientPostEncrypt;exports.
 
 
 
-netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://58.213.145.35/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_100401=exports.BUS_100401="Bus100401";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPostEncrypt(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return busCB(object,response);}).catch(function(error){return console.log('error='+error);});}function netClientPost(object,busName,busCB,params){
+netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://58.213.145.35/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_100401=exports.BUS_100401="Bus100401";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_300101=exports.BUS_300101="Bus300101";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPostEncrypt(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return busCB(object,response);}).catch(function(error){return console.log('error='+error);});}function netClientPost(object,busName,busCB,params){
 var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');
 fetch(URL_ADDR+busName,{
 method:'POST',
@@ -60635,7 +60631,7 @@ var styles=_reactNative.StyleSheet.create({});
 });
 __d('image!back_btn',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/back_btn.imageset/back_btn@2x.png","uri":"back_btn","width":13,"height":21,"deprecated":true};
 });
-__d('image!banner_default',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/banner_default.imageset/banner_default@2x.png","uri":"banner_default","width":375,"height":175,"deprecated":true};
+__d('image!banner_default',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/banner_default.imageset/banner_default@2x.jpg","uri":"banner_default","width":375,"height":175,"deprecated":true};
 });
 __d('MyProject/src/layout/point/PointSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _PointResult=require('MyProject/src/layout/point/PointResult.js');var _PointResult2=babelHelpers.interopRequireDefault(_PointResult);var _PointWait=require('MyProject/src/layout/point/component/PointWait.js');var _PointWait2=babelHelpers.interopRequireDefault(_PointWait);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _NetUtil=require('MyProject/src/util/NetUtil.js');
 
@@ -60747,7 +60743,9 @@ this.props.navigator.push({
 component:_PointResult2.default,
 params:{
 sNum:num,
-sTicket:tick}});}},{key:'render',value:function render()
+sTicket:tick,
+sCheckA:this.checkA_Num+this.checkA_Point,
+sCheckB:this.checkB_Num+this.checkB_Point}});}},{key:'render',value:function render()
 
 
 
@@ -60886,10 +60884,32 @@ errorTips:error});}}});}},{key:'BUS_200201_REQ',value:function BUS_200201_REQ()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {var _this2=this;
 var dict={
 sNum:this.props.sNum,
-sTicket:this.props.sTicket};
+sCheck:this.props.sTicket,
+sCheckKeyA:this.props.sCheckA,
+sCheckKeyB:this.props.sCheckB};
 
 NativeBridge.NATIVE_getEncryptData(dict,function(error,events){
 if(error){
@@ -60897,6 +60917,9 @@ console.log(error);}else
 {
 events.encrypt='simple';
 (0,_NetUtil.netClientPostEncrypt)(_this2,_NetUtil.BUS_200201,_this2.BUS_200201_CB,events);}});}},{key:'componentDidMount',value:function componentDidMount()
+
+
+
 
 
 
@@ -60943,7 +60966,9 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:
 var styles=_reactNative.StyleSheet.create({
 contentContainer:{}});
 });
-__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);
+__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _Web=require('MyProject/src/layout/webview/Web.js');var _Web2=babelHelpers.interopRequireDefault(_Web);
+
+
 
 
 
@@ -60981,8 +61006,9 @@ var isSingle;var
 PointResult_Success=function(_React$Component){babelHelpers.inherits(PointResult_Success,_React$Component);
 function PointResult_Success(props){babelHelpers.classCallCheck(this,PointResult_Success);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointResult_Success).call(this,
 props));
-_this.state={};
-
+var ds=new _reactNative.ListView.DataSource({rowHasChanged:function(r1,r2){return r1!==r2;}});
+_this.state={
+dataSource:ds.cloneWithRows(_this.props.data.doc)};
 
 
 chineseTitle='语文';
@@ -61068,17 +61094,44 @@ KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('i
 if(_this.props.data.KM5Name==='物理'){
 KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_wuli')});}else 
 {
-KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_A_add')});}return _this;}babelHelpers.createClass(PointResult_Success,[{key:'onAdClick',value:function onAdClick()
+KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_A_add')});}return _this;}babelHelpers.createClass(PointResult_Success,[{key:'onWishClick',value:function onWishClick()
 
 
 
 {
 this.props.navigator.push({
-component:_WishSearch2.default});}},{key:'render',value:function render()
+component:_WishSearch2.default});}},{key:'onAdClick',value:function onAdClick(
 
 
 
-{var _this2=this;
+adUrl){
+this.props.navigator.push({
+component:_Web2.default,
+params:{
+url:adUrl}});}},{key:'renderRow',value:function renderRow(
+
+
+
+
+
+rowData,sectionID,rowID){var _this2=this;
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#eeeeee',paddingLeft:12,
+paddingRight:12}},
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+onPress:function(e){return _this2.onAdClick(rowData.aUrl);},
+underlayColor:'#fcfcfc'},
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{width:_reactNative.Dimensions.get('window').width-24,
+height:(_reactNative.Dimensions.get('window').width-24)/3.5,
+marginBottom:15},
+source:{uri:rowData.imageUrl}}))));}},{key:'render',value:function render()
+
+
+
+
+
+{var _this3=this;
 
 return (
 _reactNative2.default.createElement(_reactNative.View,null,
@@ -61255,15 +61308,19 @@ _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#eeeeee',paddingLeft:12,
 paddingRight:12}},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-onPress:function(){return _this2.onAdClick(1);},
+onPress:function(){return _this3.onWishClick();},
 underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{width:_reactNative.Dimensions.get('window').width-24,
 height:(_reactNative.Dimensions.get('window').width-24)/3.5,
 marginBottom:15},
-source:require('image!point_ad')})))));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
+source:require('image!point_ad')}))),
 
 
+
+_reactNative2.default.createElement(_reactNative.ListView,{
+dataSource:this.state.dataSource,
+renderRow:function(rowData){return _this3.renderRow(rowData);}})));}}]);return PointResult_Success;}(_reactNative2.default.Component);exports.default=PointResult_Success;
 
 
 
@@ -61272,7 +61329,7 @@ source:require('image!point_ad')})))));}}]);return PointResult_Success;}(_reactN
 
 var styles=_reactNative.StyleSheet.create({});
 });
-__d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var 
+__d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
 
 
 
@@ -61292,24 +61349,54 @@ __d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, 
 
 
 
+
+
+function trim(str){
+return str.replace(/(^\s*)|(\s*$)/g,"");}var 
 
 
 WishSearch=function(_React$Component){babelHelpers.inherits(WishSearch,_React$Component);
 function WishSearch(props){babelHelpers.classCallCheck(this,WishSearch);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishSearch).call(this,
 props));
 _this.state={
-searchString:''};return _this;}babelHelpers.createClass(WishSearch,[{key:'onChangeText',value:function onChangeText(
+sNumStr:'',
+sTicketStr:''};return _this;}babelHelpers.createClass(WishSearch,[{key:'onNumChangeText',value:function onNumChangeText(
 
 
 
-e){}},{key:'onSubmit',value:function onSubmit()
+e){
+this.setState({sNumStr:e});}},{key:'onTicketChangeText',value:function onTicketChangeText(
 
+
+e){
+this.setState({sTicketStr:e});}},{key:'onSubmit',value:function onSubmit()
 
 
 {
 _reactNative.AlertIOS.alert(
 '温馨提示',
-'暂未开放，请耐心等待...');}},{key:'render',value:function render()
+'暂未开放此功能，请耐心等待或更新App版本');}},{key:'render',value:function render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -61326,8 +61413,10 @@ contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.TextInput,{
 style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'},
 clearButtonMode:'while-editing',
+keyboardType:'numeric',
+maxLength:20,
 value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
+onChangeText:function(e){return _this2.onNumChangeText(e);},
 onSubmitEditing:function(){return _this2.onSubmit();},
 enablesReturnKeyAutomatically:true,
 placeholder:'请输入你的考生号'}),
@@ -61335,8 +61424,10 @@ placeholder:'请输入你的考生号'}),
 _reactNative2.default.createElement(_reactNative.TextInput,{
 style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:21},
 clearButtonMode:'while-editing',
+keyboardType:'numeric',
+maxLength:20,
 value:this.state.searchString,
-onChangeText:function(e){return _this2.onChangeText(e);},
+onChangeText:function(e){return _this2.onTicketChangeText(e);},
 onSubmitEditing:function(){return _this2.onSubmit();},
 enablesReturnKeyAutomatically:true,
 placeholder:'请输入你的准考证号'}),
@@ -61346,9 +61437,8 @@ style:{marginTop:30,justifyContent:'center',alignItems:'center',
 backgroundColor:'#ff902d',height:45,borderRadius:3},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步')),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'查询')))));}}]);return WishSearch;}(_reactNative2.default.Component);exports.default=WishSearch;
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:18,fontSize:12,color:'#999999'}},'PS: 已购买过该项服务的考生，可在验证后再次查询'))));}}]);return WishSearch;}(_reactNative2.default.Component);exports.default=WishSearch;
 
 
 
@@ -61384,10 +61474,14 @@ __d('MyProject/src/layout/wish/WishList.js',function(global, require, module, ex
 
 
 
-var listData=[{id:'1101',name:'南京大学',batch:'本科一批',num:'158'},
-{id:'1102',name:'南京航空航天大学',batch:'本一',num:'28'},
-{id:'1103',name:'南京信息工程大学',batch:'本科二批',num:'371'}];
 
+var NativeBridge=require('react-native/Libraries/react-native/react-native.js').NativeModules.NativeBridge;
+
+
+
+
+
+var listData=[];
 var ds;var 
 
 WishList=function(_React$Component){babelHelpers.inherits(WishList,_React$Component);
@@ -61398,7 +61492,7 @@ _this.state={
 dataSource:ds.cloneWithRows(listData),
 
 batch:'本科一批',
-batchVal:'1',
+batchVal:'2',
 
 provId:'',
 provVal:'全国',
@@ -61410,9 +61504,69 @@ marjorId:'',
 marjorVal:'请选择',
 
 eyy:false,
-jbw:false};return _this;}babelHelpers.createClass(WishList,[{key:'renderRow',value:function renderRow(
+jbw:false,
+
+isLoaded:false,
+errorLoading:true,
+errorTips:'正在拼命查询中，请稍候...'};return _this;}babelHelpers.createClass(WishList,[{key:'BUS_300101_CB',value:function BUS_300101_CB(
 
 
+
+
+
+object,response){
+
+NativeBridge.NATIVE_getDecryptData(response._bodyText,function(error,events){
+if(error){
+console.log(error);}else 
+{
+console.log('BUS_300101_CB = '+events);
+var json=JSON.parse(events);
+if(json.retcode==='000000'){
+listData=listData.concat(json.doc);
+object.setState({
+dataSource:ds.cloneWithRows(listData),
+isLoaded:true,
+errorLoading:false});}else 
+
+{
+var _error='请求失败，请稍后再试';
+if(json.retinfo){
+_error=json.retinfo;}
+
+object.setState({
+errorLoading:false,
+errorTips:_error});}}});}},{key:'BUS_300101_REQ',value:function BUS_300101_REQ()
+
+
+
+
+
+
+
+{var _this2=this;
+var dict={
+sNum:this.props.sNum,
+sCheck:this.props.sTicket,
+isJbw:this.state.jbw?'1':'',
+isEyy:this.state.eyy?'1':'',
+batch:this.state.batchVal,
+province:this.state.provId,
+type:this.state.typeId,
+major:this.state.marjorId};
+
+NativeBridge.NATIVE_getEncryptData(dict,function(error,events){
+if(error){
+console.log(error);}else 
+{
+events.encrypt='simple';
+(0,_NetUtil.netClientPostEncrypt)(_this2,_NetUtil.BUS_300101,_this2.BUS_300101_CB,events);}});}},{key:'componentDidMount',value:function componentDidMount()
+
+
+
+
+{
+this.BUS_300101_REQ();}},{key:'renderRow',value:function renderRow(
 
 
 
@@ -61422,12 +61576,12 @@ _reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10,marg
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'white',marginTop:12,height:114,
 paddingTop:8,paddingLeft:14,paddingRight:14,flexDirection:'row'}},
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:5,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,fontSize:12,color:'#8dadce'}},'院校代号',rowData.id),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#555555'}},rowData.name)),
+_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,fontSize:12,color:'#8dadce'}},'院校代号',rowData.code),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#555555'}},rowData.batch)),
 
 _reactNative2.default.createElement(_reactNative.View,{style:{width:0.5,height:59,backgroundColor:'#d5d5d5',marginTop:31}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:3,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,right:1,fontSize:12,color:'#8dadce'}},rowData.batch),
+_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,right:1,fontSize:12,color:'#8dadce'}},rowData.name),
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'#4a4a4a'}},rowData.num),
 _reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:9,fontSize:12,color:'#ff902d'}},'计划数'))),
 
@@ -61445,6 +61599,9 @@ source:require('image!arrow_blue')}))));}},{key:'_onFetch',value:function _onFet
 
 
 {var page=arguments.length<=0||arguments[0]===undefined?1:arguments[0];var callback=arguments[1];var options=arguments[2];
+
+listData=[];
+this.BUS_300101_REQ();
 
 var rows={};
 callback(rows);}},{key:'onFilter',value:function onFilter()
@@ -61467,14 +61624,14 @@ jbw:this.state.jbw}});}},{key:'renderHeader',value:function renderHeader()
 
 
 
-{var _this2=this;
+{var _this3=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'white'}},
 _reactNative2.default.createElement(_reactNative.ScrollView,{horizontal:true,
 contentContainerStyle:{backgroundColor:'white'},
 showsHorizontalScrollIndicator:false},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-onPress:function(){return _this2.onFilter();},
+onPress:function(){return _this3.onFilter();},
 underlayColor:'white'},
 _reactNative2.default.createElement(_reactNative.View,{style:{height:45,padding:6,alignItems:'center',flexDirection:'row',flex:1}},
 _reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
@@ -61524,19 +61681,26 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:
 
 
 
-
 {
 this.onFilter();}},{key:'render',value:function render()
 
 
-{var _this3=this;
+{var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:true,rightText:'筛选',obj:this}),
+
+this.state.isLoaded?
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:true,rightText:'筛选',obj:this}):
+
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:false,obj:this}),
+
+
+
+this.state.isLoaded?
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 style:{backgroundColor:'#eeeeee'},
 dataSource:this.state.dataSource,
-renderRow:function(rowData){return _this3.renderRow(rowData);},
+renderRow:function(rowData){return _this4.renderRow(rowData);},
 
 pageSize:10,
 
@@ -61546,7 +61710,26 @@ showsVerticalScrollIndicator:false,
 renderHeader:this.renderHeader.bind(this),
 
 onFetch:this._onFetch.bind(this),
-refreshable:true})));}}]);return WishList;}(_reactNative2.default.Component);exports.default=WishList;
+refreshable:true}):
+
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',marginTop:90}},
+_reactNative2.default.createElement(_reactNative.Image,{
+source:require('image!load_pic')}),
+
+this.state.errorLoading?
+
+_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{
+style:{marginTop:10},
+animating:true,
+color:'#808080',
+size:'small'}):
+
+null,
+
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:'#888888',marginTop:10}},this.state.errorTips))));}}]);return WishList;}(_reactNative2.default.Component);exports.default=WishList;
 
 
 
@@ -62003,7 +62186,7 @@ jbw:_this.props.jbw};return _this;}babelHelpers.createClass(WishFilter,[{key:'on
 {
 this.setState({
 batch:'本科一批',
-batchVal:'1',
+batchVal:'2',
 
 provId:'',
 provVal:'全国',
@@ -62027,7 +62210,7 @@ cancelButtonIndex:2},
 
 function(buttonIndex){
 if(buttonIndex!==2){
-_this2.setState({batch:BATCH_DATA[buttonIndex],batchVal:buttonIndex+1});}});}},{key:'showTypeList',value:function showTypeList(
+_this2.setState({batch:BATCH_DATA[buttonIndex],batchVal:buttonIndex+2});}});}},{key:'showTypeList',value:function showTypeList(
 
 
 
@@ -62096,6 +62279,7 @@ marjorVal:this.state.marjorVal,
 eyy:this.state.eyy,
 jbw:this.state.jbw});
 
+this.props.filterObj._onFetch();
 this.props.navigator.pop();}},{key:'render',value:function render()
 
 
@@ -62417,6 +62601,8 @@ __d('image!arrow_grey',function(global, require, module, exports) {  module.expo
 });
 __d('image!arrow_blue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/arrow_blue.imageset/arrow_blue@2x.png","uri":"arrow_blue","width":7,"height":11,"deprecated":true};
 });
+__d('image!load_pic',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/load_pic.imageset/load_pic@2x.png","uri":"load_pic","width":264,"height":214,"deprecated":true};
+});
 __d('image!point_icon_A_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_A_add.imageset/point_icon_A_add@2x.png","uri":"point_icon_A_add","width":45,"height":45,"deprecated":true};
 });
 __d('image!point_icon_B_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_B_add.imageset/point_icon_B_add@2x.png","uri":"point_icon_B_add","width":45,"height":45,"deprecated":true};
@@ -62453,9 +62639,8 @@ __d('image!point_icon_policy',function(global, require, module, exports) {  modu
 });
 __d('image!point_ad',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_ad.imageset/point_ad@2x.png","uri":"point_ad","width":350,"height":100,"deprecated":true};
 });
-__d('image!load_pic',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/load_pic.imageset/load_pic@2x.png","uri":"load_pic","width":264,"height":214,"deprecated":true};
-});
 __d('MyProject/src/layout/point/component/PointWait.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
+
 
 
 
@@ -62507,11 +62692,11 @@ PointWait=function(_React$Component){babelHelpers.inherits(PointWait,_React$Comp
 function PointWait(props){babelHelpers.classCallCheck(this,PointWait);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(PointWait).call(this,
 props));
 
-
-
-
 currentTime=dateCon(formatStrToDate(_this.props.cuTime),1);
 examTime=formatStrToDate(_this.props.exTime);
+
+
+
 
 _this.state={
 day:'--',
@@ -62565,11 +62750,12 @@ this.timer&&clearTimeout(this.timer);}},{key:'render',value:function render()
 
 {
 return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',backgroundColor:'white'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:18,color:'#999999',marginTop:158}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_reactNative.ScrollView,null,
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:18,color:'#999999',marginTop:158,textAlign:'center'}},
 this.props.content),
 
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:33,alignItems:'center'}},
+_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',marginTop:33,alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'},
 source:require('image!time_bg')},
@@ -62597,7 +62783,23 @@ source:require('image!time_point')}),
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{justifyContent:'center',alignItems:'center',backgroundColor:'transparent'},
 source:require('image!time_bg')},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:35,color:'#ff902d'}},this.state.second)))));}}]);return PointWait;}(_reactNative2.default.Component);exports.default=PointWait;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:35,color:'#ff902d'}},this.state.second))),
+
+
+
+
+this.props.flag==='1'?
+_reactNative2.default.createElement(_reactNative.View,null,
+_reactNative2.default.createElement(_reactNative.Text,{style:{paddingLeft:20,paddingRight:20,marginTop:20,fontSize:15,color:'#666666',lineHeight:22}},'    录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。'),
+
+_reactNative2.default.createElement(_reactNative.View,{
+style:{flexDirection:'row',marginTop:10,paddingLeft:20,paddingRight:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{width:35,fontSize:13,color:'#d0021b',lineHeight:23}},'PS：'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}},'本服务只针对进入文理科第一阶段位次的考生开放；','\n','院校数据仅包含文理科本一及本二批次院校；','\n','本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。'))):
+
+
+
+null)));}}]);return PointWait;}(_reactNative2.default.Component);exports.default=PointWait;
 
 
 
@@ -62642,27 +62844,15 @@ WishAgreement=function(_React$Component){babelHelpers.inherits(WishAgreement,_Re
 function WishAgreement(props){babelHelpers.classCallCheck(this,WishAgreement);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishAgreement).call(this,
 props));
 _this.state={
-isChoise:false,
 isLoaded:false,
 isPointSearchOpen:false};return _this;}babelHelpers.createClass(WishAgreement,[{key:'onSubmit',value:function onSubmit()
 
 
 
 {
-if(!this.state.isChoise){
-_reactNative.AlertIOS.alert(
-'温馨提示',
-'请阅读并勾选志愿辅助服务规则与条款');
-
-return;}
-
 this.props.navigator.replace({
-component:_WishSearch2.default});}},{key:'onChoise',value:function onChoise()
+component:_WishSearch2.default});}},{key:'BUS_200101_CB',value:function BUS_200101_CB(
 
-
-
-{
-this.setState({isChoise:!this.state.isChoise});}},{key:'BUS_200101_CB',value:function BUS_200101_CB(
 
 
 
@@ -62712,38 +62902,27 @@ contentContainerStyle:styles.contentContainer},
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{alignSelf:'center'},
 source:require('image!will_agreement_tips')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}},'本服务会结合考生本年高考分数及全省位次， 往年高考录取数据，本年度各院校招生计划，并按照如院校省份，专业，推荐策略等附加条件推荐出适合您的院校及专业。'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}},'    录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。'),
 
-
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:20,fontSize:13,color:'#d0021b'}},'PS：本服务只针对进入第一阶段位次的文科及理科考生开放'),
-_reactNative2.default.createElement(_reactNative.View,{style:{marginTop:22,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width-20}}),
-
-_reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row',alignItems:'center'}},
-_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-onPress:function(){return _this2.onChoise();},
-underlayColor:'#ffffff'},
-_reactNative2.default.createElement(_reactNative.View,{style:{paddingTop:24,paddingLeft:10,paddingBottom:24,flexDirection:'row',alignItems:'center'}},
-_reactNative2.default.createElement(_reactNative.Image,{
-source:this.state.isChoise?require('image!will_checkbox_press'):require('image!will_checkbox_none')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginLeft:10,fontSize:14,color:'#888888'}},'我同意'))),
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{paddingTop:24,paddingBottom:24}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginLeft:10,fontSize:14,color:'#4a90e2'}},'志愿辅助服务规则与条款'))),
-
+_reactNative2.default.createElement(_reactNative.View,{
+style:{flexDirection:'row',marginTop:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{width:35,fontSize:13,color:'#d0021b',lineHeight:23}},'PS：'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}},'本服务只针对进入文理科第一阶段位次的考生开放；','\n','院校数据仅包含文理科本一及本二批次院校；','\n','本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。')),
 
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{justifyContent:'center',alignItems:'center',
-backgroundColor:'#ff902d',height:45,borderRadius:3},
+backgroundColor:'#ff902d',height:45,borderRadius:3,marginTop:22},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步'))):
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步')),
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{height:50}})):
 
 
 
-
-_reactNative2.default.createElement(_PointWait2.default,{cuTime:cuTime,exTime:exTime,content:'距离录取资料服务开放还有',searchObj:this}):
+_reactNative2.default.createElement(_PointWait2.default,{cuTime:cuTime,exTime:exTime,content:'距离录取资料服务开放还有',flag:'1',searchObj:this}):
 
 _reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginTop:_reactNative.Dimensions.get('window').height/2-65}})));}}]);return WishAgreement;}(_reactNative2.default.Component);exports.default=WishAgreement;
 
@@ -62759,10 +62938,6 @@ paddingLeft:20,
 paddingRight:20}});
 });
 __d('image!will_agreement_tips',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_agreement_tips.imageset/will_agreement_tips@2x.png","uri":"will_agreement_tips","width":208,"height":155,"deprecated":true};
-});
-__d('image!will_checkbox_press',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_checkbox_press.imageset/will_checkbox_press@2x.png","uri":"will_checkbox_press","width":20,"height":20,"deprecated":true};
-});
-__d('image!will_checkbox_none',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_checkbox_none.imageset/will_checkbox_none@2x.png","uri":"will_checkbox_none","width":20,"height":20,"deprecated":true};
 });
 __d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _Global=require('MyProject/src/util/Global.js');
 
@@ -62863,7 +63038,7 @@ alias:aliasVal}});}},{key:'scrollViewTo',value:function scrollViewTo(
 
 e){
 var target=e.nativeEvent.target;
-var scrollLength=250;
+var scrollLength=275;
 this.refs.scroll.scrollTo(scrollLength);}},{key:'render',value:function render()
 
 
@@ -62888,6 +63063,8 @@ source:require('image!offer_tongzhi')}),
 _reactNative2.default.createElement(_reactNative.Text,{style:{color:'#666666',fontSize:15,marginTop:34,lineHeight:22}},'志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。'),
 
 
+
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:10,fontSize:13,color:'#d0021b',lineHeight:23}},'PS：本服务将于2016-6-25日正式启用'),
 
 _reactNative2.default.createElement(_reactNative.TextInput,{
 style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:20},
@@ -62924,9 +63101,10 @@ style:{marginTop:30,justifyContent:'center',alignItems:'center',
 backgroundColor:'#ff902d',height:45,borderRadius:3},
 onPress:function(){return _this2.onSubmit();},
 underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'预约通知'))))));}}]);return OfferSearch;}(_reactNative2.default.Component);exports.default=OfferSearch;
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'预约通知'))),
 
 
+_reactNative2.default.createElement(_reactNative.View,{style:{height:50}}))));}}]);return OfferSearch;}(_reactNative2.default.Component);exports.default=OfferSearch;
 
 
 
@@ -63323,8 +63501,7 @@ style:{alignSelf:'center'},
 source:require('image!set_icon')}),
 
 _reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'江苏高考'),
-
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本P1.0.3-P-V1'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本P1.0.4-P-V1'),
 _reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送')),
@@ -63605,13 +63782,13 @@ height:_reactNative.Dimensions.get('window').height}});
 });
 __d('image!guide1',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide1.imageset/guide1@2x.png","uri":"guide1","width":375,"height":667,"deprecated":true};
 });
-__d('image!guide2',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide2.imageset/guide2@3x.png","uri":"guide2","width":360,"height":640,"deprecated":true};
+__d('image!guide2',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide2.imageset/guide2@2x.png","uri":"guide2","width":375,"height":667,"deprecated":true};
 });
-__d('image!guide3',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide3.imageset/guide3@3x.png","uri":"guide3","width":360,"height":640,"deprecated":true};
+__d('image!guide3',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/guide3.imageset/guide3@2x.png","uri":"guide3","width":375,"height":667,"deprecated":true};
 });
 __d('image!loading_skip',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_skip.imageset/loading_skip@2x.png","uri":"loading_skip","width":55,"height":28,"deprecated":true};
 });
-__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":380,"height":64,"deprecated":true};
+__d('image!loading_logo',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/loading_logo.imageset/loading_logo@2x.png","uri":"loading_logo","width":260,"height":43,"deprecated":true};
 });
 __d('react-native-code-push/CodePush.js',function(global, require, module, exports) {  var _acquisitionSdk=require("code-push/script/acquisition-sdk.js");var _AlertAdapter=require("react-native-code-push/AlertAdapter.js");var _requestFetchAdapter=require("react-native-code-push/request-fetch-adapter.js");var _requestFetchAdapter2=babelHelpers.interopRequireDefault(_requestFetchAdapter);var _reactNative=require("react-native/Libraries/react-native/react-native.js");
 

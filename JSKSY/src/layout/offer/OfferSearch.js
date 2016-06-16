@@ -97,7 +97,7 @@ export default class OfferSearch extends React.Component{
 
 	scrollViewTo(e){
 		let target = e.nativeEvent.target;
-　　　　 let scrollLength = 250;
+　　　　 let scrollLength = 275;
 　　　　 this.refs.scroll.scrollTo(scrollLength);
 	}
 
@@ -123,6 +123,8 @@ export default class OfferSearch extends React.Component{
 				    	志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。
 				    </Text>
 				  
+				  	<Text style={{marginTop:10,fontSize:13,color:'#d0021b',lineHeight:23}}>PS：本服务将于2016-6-25日正式启用</Text>
+
 				  	<TextInput
 						style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:20}}
 						clearButtonMode='while-editing'
@@ -161,6 +163,7 @@ export default class OfferSearch extends React.Component{
 						<Text style={{fontSize:16,color:'white'}}>预约通知</Text>
 					</TouchableHighlight>
 				</View>
+				<View style={{height:50}}/>
 			</ScrollView>
 			</View>
 		)
