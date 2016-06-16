@@ -51,6 +51,7 @@ int color color_8dadce 0x7f050024
 int color color_8dc3fa 0x7f050026
 int color color_999999 0x7f050019
 int color color_ae582e 0x7f05001e
+int color color_b1b1b1 0x7f05002b
 int color color_d0021b 0x7f05002a
 int color color_d5d5d5 0x7f050018
 int color color_d8ebff 0x7f050021
@@ -77,8 +78,8 @@ int color vpi__bright_foreground_holo_dark 0x7f050002
 int color vpi__bright_foreground_holo_light 0x7f050003
 int color vpi__bright_foreground_inverse_holo_dark 0x7f050006
 int color vpi__bright_foreground_inverse_holo_light 0x7f050007
-int color vpi__dark_theme 0x7f05002b
-int color vpi__light_theme 0x7f05002c
+int color vpi__dark_theme 0x7f05002c
+int color vpi__light_theme 0x7f05002d
 int dimen activity_horizontal_margin 0x7f08000d
 int dimen activity_vertical_margin 0x7f08000e
 int dimen default_circle_indicator_radius 0x7f080000

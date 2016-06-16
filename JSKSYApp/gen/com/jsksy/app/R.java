@@ -321,6 +321,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int color_8dc3fa=0x7f050026;
         public static final int color_999999=0x7f050019;
         public static final int color_ae582e=0x7f05001e;
+        public static final int color_b1b1b1=0x7f05002b;
         public static final int color_d0021b=0x7f05002a;
         public static final int color_d5d5d5=0x7f050018;
         public static final int color_d8ebff=0x7f050021;
@@ -347,8 +348,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int vpi__bright_foreground_holo_light=0x7f050003;
         public static final int vpi__bright_foreground_inverse_holo_dark=0x7f050006;
         public static final int vpi__bright_foreground_inverse_holo_light=0x7f050007;
-        public static final int vpi__dark_theme=0x7f05002b;
-        public static final int vpi__light_theme=0x7f05002c;
+        public static final int vpi__dark_theme=0x7f05002c;
+        public static final int vpi__light_theme=0x7f05002d;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 

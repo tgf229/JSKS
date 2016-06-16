@@ -64,6 +64,9 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     
     private String sCheckKeyA, sCheckKeyB;
     
+    private String zf1 = null;
+    private String zf2 = null;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -162,7 +165,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                     content_layout.setVisibility(View.VISIBLE);
                     load_layout.setVisibility(View.GONE);
                     showPoint(resp);
-                    showAd(resp.getDoc());
+                    showAd(resp);
                     
                 }
                 else
@@ -214,6 +217,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             totalPoint.setText(obj.getChTotal());
             chineseTitle.setText("语文+附加分");
             chinesePoint.setText(obj.getChinese() + "分+" + obj.getChAdd() + "分");
+            zf1=obj.getChTotal();
         }
         //理
         else if ("2".equals(obj.getType()))
@@ -222,6 +226,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             totalPoint.setText(obj.getMaTotal());
             mathTitle.setText("数学+附加分");
             mathPoint.setText(obj.getMath() + "分+" + obj.getMaAdd() + "分");
+            zf1=obj.getMaTotal();
         }
         //艺术       体育
         else if ("3".equals(obj.getType()) || "4".equals(obj.getType()))
@@ -232,6 +237,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             addPoint.setText(obj.getSaAdd() + "分");
             addPic.setImageResource(R.drawable.point_icon_b_add);
             KM_layout.setVisibility(View.GONE);
+            zf1=obj.getSaTotal();
         }
         //艺术兼文       体育兼文
         else if ("5".equals(obj.getType()) || "7".equals(obj.getType()))
@@ -245,6 +251,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             chineseTitle.setText("语文+附加分");
             chinesePoint.setText(obj.getChinese() + "分+" + obj.getChAdd() + "分");
             saAdd.setText(obj.getSaAdd());
+            zf1=obj.getChTotal();
+            zf2=obj.getSaTotal();
         }
         //艺术兼理       体育兼理
         else if ("6".equals(obj.getType()) || "8".equals(obj.getType()))
@@ -258,11 +266,15 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             mathTitle.setText("数学+附加分");
             mathPoint.setText(obj.getMath() + "分+" + obj.getMaAdd() + "分");
             saAdd.setText(obj.getSaAdd());
+            zf1=obj.getMaTotal();
+            zf2=obj.getSaTotal();
         }
     }
     
-    private void showAd(List<PointAd> adList)
+    private void showAd(final PointResponse resp)
     {
+        List<PointAd> adList = resp.getDoc();
+        
         for (final PointAd ad : adList)
         {
             LinearLayout advLayout = (LinearLayout)LayoutInflater.from(this).inflate(R.layout.point_adv_item, null);
@@ -276,7 +288,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                 public void onClick(View v)
                 {
                     Intent intent = new Intent(PointResultActivity.this, WebviewActivity.class);
-                    intent.putExtra("wev_view_url", ad.getaUrl());
+                    intent.putExtra("wev_view_url", ad.getaUrl()+"?n="+resp.getsName()+"&k="+resp.getType()+"&zf1="+zf1+"&zf2="+zf2);
                     PointResultActivity.this.startActivity(intent);
                 }
             });

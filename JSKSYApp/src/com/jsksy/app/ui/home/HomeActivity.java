@@ -48,8 +48,10 @@ import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
+import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.set.SetActivity;
+import com.jsksy.app.ui.wish.WishAgreementActivity;
 import com.jsksy.app.util.DialogUtil;
 import com.jsksy.app.util.DownApkUtil;
 import com.jsksy.app.util.GeneralUtils;
@@ -464,47 +466,79 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         {
             dailog.dismissDialog();
             PointTimeResponse ptrest = (PointTimeResponse)ob;
+            
+            //TODO ≤‚ ‘”√ ¥˝…æ≥˝
+            ptrest.setCuTime("20160616000000");
+            ptrest.setExTime("20160614000004");
+            ptrest.setWsTime("20160615000007");
+            
             if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
             {
                 if (Constants.SUCESS_CODE.equals(ptrest.getRetcode()))
                 {
-                    if (Double.parseDouble(ptrest.getExTime()) > Double.parseDouble(ptrest.getCuTime()))
+                    if ("1".equals(waitType))
                     {
-                        Intent intentPoint = new Intent(this, PointWaitActivity.class);
-                        intentPoint.putExtra("cuTime", ptrest.getCuTime());
-                        intentPoint.putExtra("exTime", ptrest.getExTime());
-                        intentPoint.putExtra("waitType", waitType);
-                        startActivity(intentPoint);
+                        if (Double.parseDouble(ptrest.getExTime()) > Double.parseDouble(ptrest.getCuTime()))
+                        {
+                            Intent intentPoint = new Intent(this, PointWaitActivity.class);
+                            intentPoint.putExtra("cuTime", ptrest.getCuTime());
+                            intentPoint.putExtra("exTime", ptrest.getExTime());
+                            intentPoint.putExtra("wsTime", ptrest.getWsTime());
+                            intentPoint.putExtra("waitType", waitType);
+                            startActivity(intentPoint);
+                        }
+                        else
+                        {
+                            Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                            startActivity(intentPoint);
+                        }
+                    }
+                    else if("2".equals(waitType))
+                    {
+                        if (Double.parseDouble(ptrest.getWsTime()) > Double.parseDouble(ptrest.getCuTime()))
+                        {
+                            Intent intentPoint = new Intent(this, PointWaitActivity.class);
+                            intentPoint.putExtra("cuTime", ptrest.getCuTime());
+                            intentPoint.putExtra("exTime", ptrest.getExTime());
+                            intentPoint.putExtra("wsTime", ptrest.getWsTime());
+                            intentPoint.putExtra("waitType", waitType);
+                            startActivity(intentPoint);
+                        }
+                        else
+                        {
+                            Intent intentPoint = new Intent(this, WishAgreementActivity.class);
+                            startActivity(intentPoint);
+                        }
                     }
                 }
                 else
                 {
-                    ToastUtil.makeText(this, "«Î«Û ß∞‹£¨«Î…‘∫Û‘Ÿ ‘");
-//                    if ("2".equals(waitType))
-//                    {
-//                        Intent intentPoint = new Intent(this, WishSearchActivity.class);
-//                        startActivity(intentPoint);
-//                    }
-//                    else
-//                    {
-//                        Intent intentPoint = new Intent(this, PointSearchActivity.class);
-//                        startActivity(intentPoint);
-//                    }
+                    ToastUtil.makeText(this, ptrest.getRetinfo());
+                    //                    if ("2".equals(waitType))
+                    //                    {
+                    //                        Intent intentPoint = new Intent(this, WishSearchActivity.class);
+                    //                        startActivity(intentPoint);
+                    //                    }
+                    //                    else
+                    //                    {
+                    //                        Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                    //                        startActivity(intentPoint);
+                    //                    }
                 }
             }
             else
             {
                 ToastUtil.makeText(this, "Õ¯¬Á“Ï≥££¨«ÎºÏ≤Èƒ˙µƒÕ¯¬Á…Ë÷√");
-//                if ("2".equals(waitType))
-//                {
-//                    Intent intentPoint = new Intent(this, WishSearchActivity.class);
-//                    startActivity(intentPoint);
-//                }
-//                else
-//                {
-//                    Intent intentPoint = new Intent(this, PointSearchActivity.class);
-//                    startActivity(intentPoint);
-//                }
+                //                if ("2".equals(waitType))
+                //                {
+                //                    Intent intentPoint = new Intent(this, WishSearchActivity.class);
+                //                    startActivity(intentPoint);
+                //                }
+                //                else
+                //                {
+                //                    Intent intentPoint = new Intent(this, PointSearchActivity.class);
+                //                    startActivity(intentPoint);
+                //                }
             }
         }
         else if (ob instanceof UpdateVersionResponse)
