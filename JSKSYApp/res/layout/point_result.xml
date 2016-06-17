@@ -480,15 +480,15 @@
 		                </LinearLayout>
 		            </LinearLayout>
 		            
-	            <TextView 
+	            <TextView
+	                android:id="@+id/tip_content" 
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:layout_marginTop="20dp"
-	                android:layout_marginLeft="10dp"
-	                android:layout_marginRight="10dp"
+	                android:layout_marginLeft="30dp"
+	                android:layout_marginRight="30dp"
 	                android:textColor="@color/color_666666"
-	                android:textSize="9sp"
-	                android:text="注：本次公布的考生位次为达到文理科第一阶段填报志愿条件且选测科目等级在1B1C及以上考生在全省的总分排名。考生成绩以成绩通知单为准。"/>
+	                android:textSize="9sp"/>
 		            
 	           	<RelativeLayout 
 	           	    android:layout_width="match_parent"

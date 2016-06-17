@@ -56,7 +56,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     
     private TextView load_txt, sName, totalTitle, totalPoint, totalName, chineseTitle, chinesePoint, mathTitle,
         mathPoint, englishPoint, KM4_level, KM4_name, KM5_level, KM5_name, poAdd, addTitle, addPoint, SAPoint,
-        DOUBLETitle, DOUBLEPoint, saAdd;
+        DOUBLETitle, DOUBLEPoint, saAdd,tip_content;
     
     private ImageView KM4_img, KM5_img, addPic;
     
@@ -124,6 +124,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         
         double_saadd_layout = (LinearLayout)findViewById(R.id.double_saadd_layout);
         saAdd = (TextView)findViewById(R.id.saAdd);
+        
+        tip_content = (TextView)findViewById(R.id.tip_content);
         
         LinearLayout wish_pic_layout = (LinearLayout)findViewById(R.id.wish_pic_layout);
         wish_pic_layout.setOnClickListener(this);
@@ -193,6 +195,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         chinesePoint.setText(obj.getChinese() + "分");
         mathPoint.setText(obj.getMath() + "分");
         englishPoint.setText(obj.getEnglish() + "分");
+        tip_content.setText(obj.getTipContent()+"考生成绩以成绩通知单为准。");
         
         //KM4 KM5图片过滤
         filterImg(obj);

@@ -43,8 +43,17 @@ public class PointResponse extends BaseResponse
     private String totalName;
     private String totalLevel;
     private String sName;
+    private String tipContent;
     private List<PointAd> doc;
     
+    public String getTipContent()
+    {
+        return tipContent;
+    }
+    public void setTipContent(String tipContent)
+    {
+        this.tipContent = tipContent;
+    }
     public List<PointAd> getDoc()
     {
         return doc;
