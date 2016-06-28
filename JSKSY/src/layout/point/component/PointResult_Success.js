@@ -16,7 +16,7 @@ import React, {
   View
 } from 'react-native';
 
-import WishSearch from '../../wish/WishSearch';
+import WishAgreement from '../../wish/WishAgreement';
 import Web from '../../webview/Web';
 
 var totalTitle; 
@@ -54,6 +54,7 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '文科类总分';
 			totalPoint = this.props.data.chTotal;
 			chineseTitle = '语文＋附加分';
+			this.chAddShow = true; 
 			addTitle = '文理类奖励分';
 			addPoint = this.props.data.cmAdd;
 			this.zf1 = this.props.data.chTotal;
@@ -64,6 +65,7 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '理科类总分';
 			totalPoint = this.props.data.maTotal;
 			mathTitle = '数学＋附加分';
+			this.maAddShow = true; 
 			addTitle = '文理类奖励分';
 			addPoint = this.props.data.cmAdd;
 			this.zf1 = this.props.data.maTotal;
@@ -86,6 +88,7 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '文科类总分';
 			totalPoint = this.props.data.chTotal;
 			chineseTitle = '语文＋附加分';
+			this.chAddShow = true; 
 			this.zf1 = this.props.data.chTotal;
 			this.zf2 = this.props.data.saTotal;
 		}
@@ -95,6 +98,7 @@ export default class PointResult_Success extends React.Component{
 			totalTitle = '理科类总分';
 			totalPoint = this.props.data.maTotal;
 			mathTitle = '数学＋附加分';
+			this.maAddShow = true; 
 			this.zf1 = this.props.data.maTotal;
 			this.zf2 = this.props.data.saTotal;
 		}
@@ -142,7 +146,7 @@ export default class PointResult_Success extends React.Component{
 
 	onWishClick(){
 		this.props.navigator.push({
-			component: WishSearch,
+			component: WishAgreement,
 		});
 	}
 
@@ -233,7 +237,7 @@ export default class PointResult_Success extends React.Component{
 					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
 						<Text style={{fontSize:17,color:'#333333',fontWeight:'bold'}}>{this.props.data.chinese}<Text style={{fontSize:9}}>分</Text>
 							{
-								this.props.data.chAdd ? <Text>+{this.props.data.chAdd}<Text style={{fontSize:9}}>分</Text></Text>
+								this.chAddShow ? <Text>+{this.props.data.chAdd}<Text style={{fontSize:9}}>分</Text></Text>
 													:
 													null
 							}
@@ -247,7 +251,7 @@ export default class PointResult_Success extends React.Component{
 					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
 						<Text style={{fontSize:17,color:'#333333',fontWeight:'bold'}}>{this.props.data.math}<Text style={{fontSize:9}}>分</Text>
 							{
-								this.props.data.maAdd ? <Text>+{this.props.data.maAdd}<Text style={{fontSize:9}}>分</Text></Text>
+								this.maAddShow ? <Text>+{this.props.data.maAdd}<Text style={{fontSize:9}}>分</Text></Text>
 													:
 													null
 							}
@@ -339,7 +343,7 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				}
 
-				<Text style={{marginLeft:10,marginRight:10,marginTop:10,fontSize:8,color:'#666666'}}>注：本次公布的考生位次为达到文理科第一阶段填报志愿条件且选测科目等级在1B1C及以上考生在全省的总分排名。考生成绩以成绩通知单为准。</Text>
+				<Text style={{marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}}>{this.props.data.tipContent}考生成绩以成绩通知单为准。</Text>
 				<Text style={{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}}>数据来源 BY 江苏省教育考试院</Text>
 
 				<View style={{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,

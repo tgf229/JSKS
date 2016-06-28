@@ -12,10 +12,10 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	var queryString = Object.keys(data).map(key=> key+'='+encodeURIComponent(data[key])).join('&');
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
-const URL_ADDR = "http://58.213.145.35/";
-// export const URL_ADDR = "http://10.2.48.9:8092/";
-// const URL_ADDR = "http://192.168.1.102:8888/web-mobile/";
-// const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
+// export const URL_ADDR = "http://58.213.145.35/";
+export const URL_ADDR = "http://10.2.48.9:8092/";
+// export const URL_ADDR = "http://192.168.1.104:8888/web-mobile/";
+// export const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 
 export const BUS_100101 = "Bus100101";
 export const BUS_100201 = "Bus100201";

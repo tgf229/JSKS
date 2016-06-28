@@ -59569,7 +59569,7 @@ var params={
 encrypt:'none',
 type:'2',
 model:model,
-version:'1.0.4',
+version:'1.1.0',
 imei:uuid};
 
 (0,_NetUtil.netClientPost)(this,_NetUtil.BUS_100101,this.BUS_100101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
@@ -60488,6 +60488,7 @@ urlForQueryAndPage=urlForQueryAndPage;exports.
 
 
 
+
 netClient=netClient;exports.
 
 
@@ -60515,7 +60516,7 @@ netClientPostEncrypt=netClientPostEncrypt;exports.
 
 
 
-netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR="http://58.213.145.35/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_100401=exports.BUS_100401="Bus100401";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_300101=exports.BUS_300101="Bus300101";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPostEncrypt(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return busCB(object,response);}).catch(function(error){return console.log('error='+error);});}function netClientPost(object,busName,busCB,params){
+netClientPost=netClientPost;function urlForQueryAndPage(key,value,pageNum){var data={country:'uk',pretty:'1',encoding:'json',listing_type:'buy',action:'search_listings',page:pageNum};data[key]=value;var queryString=Object.keys(data).map(function(key){return key+'='+encodeURIComponent(data[key]);}).join('&');return 'http://api.nestoria.co.uk/api?'+queryString;}var URL_ADDR=exports.URL_ADDR="http://58.213.145.35/";var BUS_100101=exports.BUS_100101="Bus100101";var BUS_100201=exports.BUS_100201="Bus100201";var BUS_100301=exports.BUS_100301="Bus100301";var BUS_100401=exports.BUS_100401="Bus100401";var BUS_200101=exports.BUS_200101="Bus200101";var BUS_200201=exports.BUS_200201="Bus200201";var BUS_300101=exports.BUS_300101="Bus300101";var BUS_300201=exports.BUS_300201="Bus300201";var BUS_400101=exports.BUS_400101="Bus400101";var BUS_400201=exports.BUS_400201="Bus400201";function netClient(object,query){fetch(query).then(function(response){return response.json();}).then(function(json){return object.busCB(json);}).catch(function(error){return object.setState({});});}function netClientPostEncrypt(object,busName,busCB,params){var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');fetch(URL_ADDR+busName,{method:'POST',body:data}).then(function(response){return busCB(object,response);}).catch(function(error){return console.log('error='+error);});}function netClientPost(object,busName,busCB,params){
 var data=Object.keys(params).map(function(key){return key+'='+encodeURIComponent(params[key]);}).join('&');
 fetch(URL_ADDR+busName,{
 method:'POST',
@@ -60966,7 +60967,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:20,color:
 var styles=_reactNative.StyleSheet.create({
 contentContainer:{}});
 });
-__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _Web=require('MyProject/src/layout/webview/Web.js');var _Web2=babelHelpers.interopRequireDefault(_Web);
+__d('MyProject/src/layout/point/component/PointResult_Success.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishAgreement=require('MyProject/src/layout/wish/WishAgreement.js');var _WishAgreement2=babelHelpers.interopRequireDefault(_WishAgreement);var _Web=require('MyProject/src/layout/webview/Web.js');var _Web2=babelHelpers.interopRequireDefault(_Web);
 
 
 
@@ -61022,16 +61023,22 @@ if(_this.props.data.type==='1'){
 totalTitle='文科类总分';
 totalPoint=_this.props.data.chTotal;
 chineseTitle='语文＋附加分';
+_this.chAddShow=true;
 addTitle='文理类奖励分';
-addPoint=_this.props.data.cmAdd;}else 
+addPoint=_this.props.data.cmAdd;
+_this.zf1=_this.props.data.chTotal;
+_this.zf2=null;}else 
 
 
 if(_this.props.data.type==='2'){
 totalTitle='理科类总分';
 totalPoint=_this.props.data.maTotal;
 mathTitle='数学＋附加分';
+_this.maAddShow=true;
 addTitle='文理类奖励分';
-addPoint=_this.props.data.cmAdd;}else 
+addPoint=_this.props.data.cmAdd;
+_this.zf1=_this.props.data.maTotal;
+_this.zf2=null;}else 
 
 
 if(_this.props.data.type==='3'||_this.props.data.type==='4'){
@@ -61040,21 +61047,29 @@ totalPoint=_this.props.data.saTotal;
 addTitle='体艺类奖励分';
 addPoint=_this.props.data.saAdd;
 addPic=_reactNative2.default.createElement(_reactNative.Image,{source:require('image!point_icon_B_add')});
-isKMshow=false;}else 
+isKMshow=false;
+_this.zf1=_this.props.data.saTotal;
+_this.zf2=null;}else 
 
 
 if(_this.props.data.type==='5'||_this.props.data.type==='7'){
 isSingle=false;
 totalTitle='文科类总分';
 totalPoint=_this.props.data.chTotal;
-chineseTitle='语文＋附加分';}else 
+chineseTitle='语文＋附加分';
+_this.chAddShow=true;
+_this.zf1=_this.props.data.chTotal;
+_this.zf2=_this.props.data.saTotal;}else 
 
 
 if(_this.props.data.type==='6'||_this.props.data.type==='8'){
 isSingle=false;
 totalTitle='理科类总分';
 totalPoint=_this.props.data.maTotal;
-mathTitle='数学＋附加分';}
+mathTitle='数学＋附加分';
+_this.maAddShow=true;
+_this.zf1=_this.props.data.maTotal;
+_this.zf2=_this.props.data.saTotal;}
 
 
 if(_this.props.data.KM4Name==='历史'){
@@ -61100,7 +61115,7 @@ KM5Pic=_reactNative2.default.createElement(_reactNative.Image,{source:require('i
 
 {
 this.props.navigator.push({
-component:_WishSearch2.default});}},{key:'onAdClick',value:function onAdClick(
+component:_WishAgreement2.default});}},{key:'onAdClick',value:function onAdClick(
 
 
 
@@ -61108,7 +61123,7 @@ adUrl){
 this.props.navigator.push({
 component:_Web2.default,
 params:{
-url:adUrl}});}},{key:'renderRow',value:function renderRow(
+url:adUrl+'?n='+this.props.data.sName+'&k='+this.props.data.type+'&zf1='+this.zf1+'&zf2='+this.zf2}});}},{key:'renderRow',value:function renderRow(
 
 
 
@@ -61191,7 +61206,7 @@ _reactNative2.default.createElement(_reactNative.View,{style:{flexDirection:'row
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.chinese,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),
 
-this.props.data.chAdd?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.chAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
+this.chAddShow?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.chAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
 
 null),
 
@@ -61205,7 +61220,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWe
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#333333',fontWeight:'bold'}},this.props.data.math,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分'),
 
-this.props.data.maAdd?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.maAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
+this.maAddShow?_reactNative2.default.createElement(_reactNative.Text,null,'+',this.props.data.maAdd,_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:9}},'分')):
 
 null),
 
@@ -61297,12 +61312,13 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:11,fontWe
 
 
 
-_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginTop:30,marginBottom:20,fontSize:8,color:'#666666'}},'数据来源 BY 江苏省教育考试院'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}},this.props.data.tipContent,'考生成绩以成绩通知单为准。'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}},'数据来源 BY 江苏省教育考试院'),
 
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,
 paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}},
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',flex:1,height:0.5}}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}},'广告'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}},'推广'),
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#d5d5d5',flex:1,height:0.5}})),
 
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'#eeeeee',paddingLeft:12,
@@ -61328,6 +61344,130 @@ renderRow:function(rowData){return _this3.renderRow(rowData);}})));}}]);return P
 
 
 var styles=_reactNative.StyleSheet.create({});
+});
+__d('MyProject/src/layout/wish/WishAgreement.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _PointWait=require('MyProject/src/layout/point/component/PointWait.js');var _PointWait2=babelHelpers.interopRequireDefault(_PointWait);var _NetUtil=require('MyProject/src/util/NetUtil.js');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var cuTime;
+var exTime;var 
+WishAgreement=function(_React$Component){babelHelpers.inherits(WishAgreement,_React$Component);
+function WishAgreement(props){babelHelpers.classCallCheck(this,WishAgreement);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishAgreement).call(this,
+props));
+_this.state={
+isLoaded:false,
+isPointSearchOpen:false};return _this;}babelHelpers.createClass(WishAgreement,[{key:'onSubmit',value:function onSubmit()
+
+
+
+{
+this.props.navigator.replace({
+component:_WishSearch2.default});}},{key:'BUS_200101_CB',value:function BUS_200101_CB(
+
+
+
+
+object,json){
+console.log('BUS_200101_CB = '+json);
+if(json.retcode==='000000'){
+var isOpen=false;
+cuTime=json.cuTime;
+exTime=json.wsTime;
+
+if(json.wsTime<=json.cuTime){
+isOpen=true;}
+
+
+object.setState({
+isLoaded:true,
+isPointSearchOpen:isOpen});}else 
+
+
+{}}},{key:'BUS_200101_REQ',value:function BUS_200101_REQ()
+
+
+
+
+
+{
+var params={
+encrypt:'none'};
+
+(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_200101,this.BUS_200101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
+
+
+{
+this.BUS_200101_REQ();}},{key:'render',value:function render()
+
+
+{var _this2=this;
+return (
+_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator}),
+
+this.state.isLoaded?
+this.state.isPointSearchOpen?
+_reactNative2.default.createElement(_reactNative.ScrollView,{
+contentContainerStyle:styles.contentContainer},
+
+_reactNative2.default.createElement(_reactNative.Image,{
+style:{alignSelf:'center'},
+source:require('image!will_agreement_tips')}),
+_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}},'    录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。'),
+
+_reactNative2.default.createElement(_reactNative.View,{
+style:{flexDirection:'row',marginTop:20}},
+_reactNative2.default.createElement(_reactNative.Text,{style:{width:35,fontSize:13,color:'#d0021b',lineHeight:23}},'PS：'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}},'本服务只针对进入文理科第一阶段位次的考生开放；','\n','院校数据仅包含文理科本一及本二批次院校；','\n','本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。')),
+
+
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+style:{justifyContent:'center',alignItems:'center',
+backgroundColor:'#ff902d',height:45,borderRadius:3,marginTop:22},
+onPress:function(){return _this2.onSubmit();},
+underlayColor:'#fcfcfc'},
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步')),
+
+
+_reactNative2.default.createElement(_reactNative.View,{style:{height:50}})):
+
+
+
+_reactNative2.default.createElement(_PointWait2.default,{cuTime:cuTime,exTime:exTime,content:'距离录取资料服务开放还有',flag:'1',searchObj:this}):
+
+_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginTop:_reactNative.Dimensions.get('window').height/2-65}})));}}]);return WishAgreement;}(_reactNative2.default.Component);exports.default=WishAgreement;
+
+
+
+
+
+
+var styles=_reactNative.StyleSheet.create({
+contentContainer:{
+paddingTop:45,
+paddingLeft:20,
+paddingRight:20}});
 });
 __d('MyProject/src/layout/wish/WishSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _WishList=require('MyProject/src/layout/wish/WishList.js');var _WishList2=babelHelpers.interopRequireDefault(_WishList);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
 
@@ -61373,32 +61513,32 @@ this.setState({sTicketStr:e});}},{key:'onSubmit',value:function onSubmit()
 
 
 {
+
+
+
+
+
+var num=trim(this.state.sNumStr);
+var tick=trim(this.state.sTicketStr);
+if(num===''){
 _reactNative.AlertIOS.alert(
 '温馨提示',
-'暂未开放此功能，请耐心等待或更新App版本');}},{key:'render',value:function render()
+'请输入你的考生号');
 
+return;}
 
+if(tick===''){
+_reactNative.AlertIOS.alert(
+'温馨提示',
+'请输入你的准考证号');
 
+return;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+this.props.navigator.push({
+component:_WishList2.default,
+params:{
+sNum:num,
+sTicket:tick}});}},{key:'render',value:function render()
 
 
 
@@ -61453,7 +61593,8 @@ paddingTop:54,
 paddingLeft:20,
 paddingRight:20}});
 });
-__d('MyProject/src/layout/wish/WishList.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _WishFilter=require('MyProject/src/layout/wish/WishFilter.js');var _WishFilter2=babelHelpers.interopRequireDefault(_WishFilter);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);
+__d('MyProject/src/layout/wish/WishList.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _reactNativeGiftedListview=require('react-native-gifted-listview/GiftedListView.js');var _reactNativeGiftedListview2=babelHelpers.interopRequireDefault(_reactNativeGiftedListview);var _NetUtil=require('MyProject/src/util/NetUtil.js');var _WishFilter=require('MyProject/src/layout/wish/WishFilter.js');var _WishFilter2=babelHelpers.interopRequireDefault(_WishFilter);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _Web=require('MyProject/src/layout/webview/Web.js');var _Web2=babelHelpers.interopRequireDefault(_Web);
+
 
 
 
@@ -61488,6 +61629,7 @@ WishList=function(_React$Component){babelHelpers.inherits(WishList,_React$Compon
 function WishList(props){babelHelpers.classCallCheck(this,WishList);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishList).call(this,
 props));
 ds=new _reactNative.ListView.DataSource({rowHasChanged:function(r1,r2){return r1!==r2;}});
+_this.isFirst=true;
 _this.state={
 dataSource:ds.cloneWithRows(listData),
 
@@ -61523,11 +61665,22 @@ console.log(error);}else
 console.log('BUS_300101_CB = '+events);
 var json=JSON.parse(events);
 if(json.retcode==='000000'){
+if(json.doc.length>0){
 listData=listData.concat(json.doc);
 object.setState({
 dataSource:ds.cloneWithRows(listData),
 isLoaded:true,
 errorLoading:false});}else 
+
+
+{
+object.setState({
+dataSource:ds.cloneWithRows(listData),
+isLoaded:false,
+errorLoading:false,
+errorTips:'未查询到数据哦，点右上角筛选按钮再试试吧'});}}else 
+
+
 
 {
 var _error='请求失败，请稍后再试';
@@ -61545,9 +61698,10 @@ errorTips:_error});}}});}},{key:'BUS_300101_REQ',value:function BUS_300101_REQ()
 
 
 {var _this2=this;
+listData=[];
 var dict={
 sNum:this.props.sNum,
-sCheck:this.props.sTicket,
+sTicket:this.props.sTicket,
 isJbw:this.state.jbw?'1':'',
 isEyy:this.state.eyy?'1':'',
 batch:this.state.batchVal,
@@ -61566,31 +61720,47 @@ events.encrypt='simple';
 
 
 {
-this.BUS_300101_REQ();}},{key:'renderRow',value:function renderRow(
+this.BUS_300101_REQ();}},{key:'rowClick',value:function rowClick(
+
+
+code){
+var aUrl=_NetUtil.URL_ADDR+_NetUtil.BUS_300201+'?code='+code+'&sNum='+this.props.sNum+'&pcdm='+this.state.batchVal;
+this.props.navigator.push({
+component:_Web2.default,
+params:{
+url:aUrl}});}},{key:'renderRow',value:function renderRow(
 
 
 
-rowData,sectionID,rowID){
+
+
+
+rowData,sectionID,rowID){var _this3=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:10,marginRight:10}},
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'white',marginTop:12,height:114,
 paddingTop:8,paddingLeft:14,paddingRight:14,flexDirection:'row'}},
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:5,alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,fontSize:12,color:'#8dadce'}},'院校代号',rowData.code),
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#555555'}},rowData.batch)),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:17,color:'#555555'}},rowData.name)),
 
 _reactNative2.default.createElement(_reactNative.View,{style:{width:0.5,height:59,backgroundColor:'#d5d5d5',marginTop:31}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:3,alignItems:'center',justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,right:1,fontSize:12,color:'#8dadce'}},rowData.name),
+_reactNative2.default.createElement(_reactNative.Text,{style:{position:'absolute',top:1,right:1,fontSize:12,color:'#8dadce'}},rowData.batch),
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'#4a4a4a'}},rowData.num),
 _reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:9,fontSize:12,color:'#ff902d'}},'计划数'))),
 
 
+_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
+onPress:function(e){return _this3.rowClick(rowData.code);},
+underlayColor:'#fcfcfc'},
 _reactNative2.default.createElement(_reactNative.View,{style:{height:38,backgroundColor:'f3f9ff',paddingLeft:14,paddingRight:14,justifyContent:'center'}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'#779cc3'}},'历年学院录取分数线/历年专业录取分数线/招生计划'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:12,color:'#779cc3'}},'往年院校录取情况/往年专业录取情况/2016年招生计划'),
 _reactNative2.default.createElement(_reactNative.Image,{
 style:{position:'absolute',right:14,top:13},
-source:require('image!arrow_blue')}))));}},{key:'_onFetch',value:function _onFetch()
+source:require('image!arrow_blue')})))));}},{key:'_onFetch',value:function _onFetch()
+
+
 
 
 
@@ -61600,8 +61770,11 @@ source:require('image!arrow_blue')}))));}},{key:'_onFetch',value:function _onFet
 
 {var page=arguments.length<=0||arguments[0]===undefined?1:arguments[0];var callback=arguments[1];var options=arguments[2];
 
-listData=[];
-this.BUS_300101_REQ();
+if(!this.isFirst){
+this.BUS_300101_REQ();}
+
+
+this.isFirst=false;
 
 var rows={};
 callback(rows);}},{key:'onFilter',value:function onFilter()
@@ -61624,14 +61797,14 @@ jbw:this.state.jbw}});}},{key:'renderHeader',value:function renderHeader()
 
 
 
-{var _this3=this;
+{var _this4=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{backgroundColor:'white'}},
 _reactNative2.default.createElement(_reactNative.ScrollView,{horizontal:true,
 contentContainerStyle:{backgroundColor:'white'},
 showsHorizontalScrollIndicator:false},
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-onPress:function(){return _this3.onFilter();},
+onPress:function(){return _this4.onFilter();},
 underlayColor:'white'},
 _reactNative2.default.createElement(_reactNative.View,{style:{height:45,padding:6,alignItems:'center',flexDirection:'row',flex:1}},
 _reactNative2.default.createElement(_reactNative.View,{style:{marginLeft:4,marginRight:4,backgroundColor:'#f3f9ff',borderRadius:2,
@@ -61685,14 +61858,14 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:13,color:
 this.onFilter();}},{key:'render',value:function render()
 
 
-{var _this4=this;
+{var _this5=this;
 return (
 _reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
 
-this.state.isLoaded?
-_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:true,rightText:'筛选',obj:this}):
+this.state.errorLoading?
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:false,obj:this}):
 
-_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:false,obj:this}),
+_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator,rightShow:true,rightText:'筛选',obj:this}),
 
 
 
@@ -61700,7 +61873,7 @@ this.state.isLoaded?
 _reactNative2.default.createElement(_reactNativeGiftedListview2.default,{
 style:{backgroundColor:'#eeeeee'},
 dataSource:this.state.dataSource,
-renderRow:function(rowData){return _this4.renderRow(rowData);},
+renderRow:function(rowData){return _this5.renderRow(rowData);},
 
 pageSize:10,
 
@@ -62159,8 +62332,8 @@ __d('MyProject/src/layout/wish/WishFilter.js',function(global, require, module, 
 
 
 var BATCH_DATA=['本科一批','本科二批','取消'];
-var TYPE_DATA=[{id:'',name:'全部'},{id:'01',name:'综合院校'},{id:'02',name:'工科院校'},{id:'03',name:'农业院校'}];
-var PROVINCE_DATA=[{id:'',name:'全国'},{id:'320000',name:'江苏省'},{id:'110000',name:'北京市'}];var 
+var TYPE_DATA=[{id:'',name:'全部'},{id:'01',name:'综合院校'},{id:'02',name:'工科院校'},{id:'03',name:'农业院校'},{id:'04',name:'林业院校'},{id:'05',name:'医药院校'},{id:'06',name:'师范院校'},{id:'07',name:'语言院校'},{id:'08',name:'财经院校'},{id:'09',name:'政法院校'},{id:'10',name:'体育院校'},{id:'11',name:'艺术院校'},{id:'12',name:'民族院校'},{id:'13',name:'军事院校'}];
+var PROVINCE_DATA=[{id:'',name:'全国'},{id:'320000',name:'江苏省'},{id:'110000',name:'北京市'},{id:'120000',name:'天津市'},{id:'130000',name:'河北省'},{id:'140000',name:'山西省'},{id:'150000',name:'内蒙古自治区'},{id:'210000',name:'辽宁省'},{id:'220000',name:'吉林省'},{id:'230000',name:'黑龙江省'},{id:'310000',name:'上海市'},{id:'330000',name:'浙江省'},{id:'340000',name:'安徽省'},{id:'350000',name:'福建省'},{id:'360000',name:'江西省'},{id:'370000',name:'山东省'},{id:'410000',name:'河南省'},{id:'420000',name:'湖北省'},{id:'430000',name:'湖南省'},{id:'440000',name:'广东省'},{id:'450000',name:'广西壮族自治区'},{id:'460000',name:'海南省'},{id:'500000',name:'重庆市'},{id:'510000',name:'四川省'},{id:'520000',name:'贵州省'},{id:'530000',name:'云南省'},{id:'540000',name:'西藏自治区'},{id:'610000',name:'陕西省'},{id:'620000',name:'甘肃省'},{id:'630000',name:'青海省'},{id:'640000',name:'宁夏回族自治区'},{id:'650000',name:'新疆维吾尔自治区'},{id:'710000',name:'台湾省'},{id:'810000',name:'香港特别行政区'},{id:'820000',name:'澳门特别行政区'}];var 
 
 WishFilter=function(_React$Component){babelHelpers.inherits(WishFilter,_React$Component);
 function WishFilter(props){babelHelpers.classCallCheck(this,WishFilter);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishFilter).call(this,
@@ -62210,7 +62383,7 @@ cancelButtonIndex:2},
 
 function(buttonIndex){
 if(buttonIndex!==2){
-_this2.setState({batch:BATCH_DATA[buttonIndex],batchVal:buttonIndex+2});}});}},{key:'showTypeList',value:function showTypeList(
+_this2.setState({batch:BATCH_DATA[buttonIndex],batchVal:buttonIndex+2+''});}});}},{key:'showTypeList',value:function showTypeList(
 
 
 
@@ -62279,7 +62452,7 @@ marjorVal:this.state.marjorVal,
 eyy:this.state.eyy,
 jbw:this.state.jbw});
 
-this.props.filterObj._onFetch();
+this.props.filterObj.BUS_300101_REQ();;
 this.props.navigator.pop();}},{key:'render',value:function render()
 
 
@@ -62496,13 +62669,33 @@ var MAJOR_DATA=[{id:'0015',name:'文科试验班类'},{id:'00201',name:'经济�
 {id:'00300',name:'法学试验班'},{id:'0060',name:'工科试验班类'},{id:'0070',name:'理科试验班类'},
 {id:'0080',name:'医学试验班类'},{id:'2009',name:'预科班'},{id:'5009',name:'预科班'},
 {id:'0101',name:'哲学类'},{id:'0201',name:'经济学类'},{id:'0202',name:'财政学类'},
-{id:'0203',name:'经济学类'},{id:'0204',name:'经济与贸易类'}];
+{id:'0203',name:'经济学类'},{id:'0204',name:'经济与贸易类'},
+{id:'0301',name:'法学类'},{id:'0302',name:'政治学类'},{id:'0303',name:'社会学类'},{id:'0304',name:'民族学类'},{id:'0305',name:'马克思主义理论类'},{id:'0306',name:'公安学类'},
+{id:'0401',name:'教育学类'},{id:'0402',name:'体育学类'},
+{id:'0501',name:'中国语言文学类'},{id:'0502',name:'外国语言文学类'},{id:'0503',name:'新闻传播学类'},
+{id:'0601',name:'历史学类'},
+{id:'0701',name:'数学类'},{id:'0702',name:'物理学类'},{id:'0703',name:'化学类'},{id:'0704',name:'天文学类'},{id:'0705',name:'地理科学类'},{id:'0706',name:'大气科学类'},{id:'0707',name:'海洋科学类'},{id:'0708',name:'地球物理学类'},{id:'0709',name:'地质学类'},{id:'0710',name:'生物科学类'},{id:'0711',name:'心理学类'},{id:'0712',name:'统计学类'},
+{id:'0801',name:'力学类'},{id:'0802',name:'机械类'},{id:'0803',name:'仪器类'},{id:'0804',name:'材料类'},{id:'0805',name:'能源动力类'},{id:'0806',name:'电气类'},{id:'0807',name:'电子信息类'},{id:'0808',name:'自动化类'},{id:'0809',name:'计算机类'},{id:'0810',name:'土木类'},{id:'0811',name:'水利类'},{id:'0812',name:'测绘类'},{id:'0813',name:'化工与制药类'},{id:'0814',name:'地质类'},{id:'0815',name:'矿业类'},{id:'0816',name:'纺织类'},{id:'0817',name:'轻工类'},{id:'0818',name:'交通运输类'},{id:'0819',name:'海洋工程类'},{id:'0820',name:'航空航天类'},{id:'0821',name:'兵器类'},{id:'0822',name:'核工程类'},{id:'0823',name:'农业工程类'},{id:'0824',name:'林业工程类'},{id:'0825',name:'环境科学与工程类'},{id:'0826',name:'生物医学工程类'},{id:'0827',name:'食品科学与工程类'},{id:'0828',name:'建筑类'},{id:'0829',name:'安全科学与工程类'},{id:'0830',name:'生物工程类'},{id:'0831',name:'公安技术类'},
+{id:'0901',name:'植物生产类'},{id:'0902',name:'自然保护与环境生态类'},{id:'0903',name:'动物生产类'},{id:'0904',name:'动物医学类'},{id:'0905',name:'林学类'},{id:'0906',name:'水产类'},{id:'0907',name:'草学类'},
+{id:'1001',name:'基础医学类'},{id:'1002',name:'临床医学类'},{id:'1003',name:'口腔医学类'},{id:'1004',name:'公共卫生与预防医学类'},{id:'1005',name:'中医学类'},{id:'1006',name:'中西医结合类'},{id:'1007',name:'药学类'},{id:'1008',name:'中药学类'},{id:'1009',name:'法医学类'},{id:'1010',name:'医学技术类'},{id:'1011',name:'护理学类'},
+{id:'1201',name:'管理科学与工程类'},{id:'1202',name:'工商管理类'},{id:'1203',name:'农业经济管理类'},{id:'1204',name:'公共管理类'},{id:'1205',name:'图书情报与档案管理类'},{id:'1206',name:'物流管理与工程类'},{id:'1207',name:'工业工程类'},{id:'1208',name:'电子商务类'},{id:'1209',name:'旅游管理类'},
+{id:'1301',name:'艺术学理论类'},{id:'1302',name:'音乐与舞蹈学类'},{id:'1303',name:'戏剧与影视学类'},{id:'1304',name:'美术学类'},{id:'1305',name:'设计学类'}];
 
-var sectionIDs=['实验班','哲学','经济学'];
+var sectionIDs=['实验班','哲学','经济学','法学','教育学','文学','历史学','理学','工学','农学','医学','管理学','艺术学'];
 var rowIDs=[];
 rowIDs[0]=['0015','00201','00201_1','00300','0060','0070','0080','2009','5009'];
 rowIDs[1]=['0101'];
 rowIDs[2]=['0201','0202','0203','0204'];
+rowIDs[3]=['0301','0302','0303','0304','0305','0306'];
+rowIDs[4]=['0401','0402'];
+rowIDs[5]=['0501','0502','0503'];
+rowIDs[6]=['0601'];
+rowIDs[7]=['0701','0702','0703','0704','0705','0706','0707','0708','0709','0710','0711','0712'];
+rowIDs[8]=['0801','0802','0803','0804','0805','0806','0807','0808','0809','0810','0811','0812','0813','0814','0815','0816','0817','0818','0819','0820','0821','0822','0823','0824','0825','0826','0827','0828','0829','0830','0831'];
+rowIDs[9]=['0901','0902','0903','0904','0905','0906','0907'];
+rowIDs[10]=['1001','1002','1003','1004','1005','1006','1007','1008','1010','0710','1011'];
+rowIDs[11]=['1201','1202','1203','1204','1205','1206','1207','1208','1209'];
+rowIDs[12]=['1301','1302','1303','1304','1305'];
 
 var listData={};
 MAJOR_DATA.map(function(item){
@@ -62602,42 +62795,6 @@ __d('image!arrow_grey',function(global, require, module, exports) {  module.expo
 __d('image!arrow_blue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/arrow_blue.imageset/arrow_blue@2x.png","uri":"arrow_blue","width":7,"height":11,"deprecated":true};
 });
 __d('image!load_pic',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/load_pic.imageset/load_pic@2x.png","uri":"load_pic","width":264,"height":214,"deprecated":true};
-});
-__d('image!point_icon_A_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_A_add.imageset/point_icon_A_add@2x.png","uri":"point_icon_A_add","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_B_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_B_add.imageset/point_icon_B_add@2x.png","uri":"point_icon_B_add","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_lishi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_lishi.imageset/point_icon_lishi@2x.png","uri":"point_icon_lishi","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_zhengzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_zhengzhi.imageset/point_icon_zhengzhi@2x.png","uri":"point_icon_zhengzhi","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_dili',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_dili.imageset/point_icon_dili@2x.png","uri":"point_icon_dili","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_huaxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_huaxue.imageset/point_icon_huaxue@2x.png","uri":"point_icon_huaxue","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_shengwu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shengwu.imageset/point_icon_shengwu@2x.png","uri":"point_icon_shengwu","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_wuli',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_wuli.imageset/point_icon_wuli@2x.png","uri":"point_icon_wuli","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_result_top',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_top.imageset/point_result_top@2x.png","uri":"point_result_top","width":360,"height":219.5,"deprecated":true};
-});
-__d('image!point_result_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_bg.imageset/point_result_bg@2x.png","uri":"point_result_bg","width":360,"height":274,"deprecated":true};
-});
-__d('image!point_result_total_big',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_big.imageset/point_result_total_big@2x.png","uri":"point_result_total_big","width":110,"height":121,"deprecated":true};
-});
-__d('image!point_result_total_small',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_small.imageset/point_result_total_small@2x.png","uri":"point_result_total_small","width":97.5,"height":107.5,"deprecated":true};
-});
-__d('image!point_result_rank',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_rank.imageset/point_result_rank@2x.png","uri":"point_result_rank","width":262,"height":54.5,"deprecated":true};
-});
-__d('image!point_icon_yuwen',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yuwen.imageset/point_icon_yuwen@2x.png","uri":"point_icon_yuwen","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_shuxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shuxue.imageset/point_icon_shuxue@2x.png","uri":"point_icon_shuxue","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_yingyu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yingyu.imageset/point_icon_yingyu@2x.png","uri":"point_icon_yingyu","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_icon_policy',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_policy.imageset/point_icon_policy@2x.png","uri":"point_icon_policy","width":45,"height":45,"deprecated":true};
-});
-__d('image!point_ad',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_ad.imageset/point_ad@2x.png","uri":"point_ad","width":350,"height":100,"deprecated":true};
 });
 __d('MyProject/src/layout/point/component/PointWait.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);
 
@@ -62813,131 +62970,43 @@ __d('image!time_bg',function(global, require, module, exports) {  module.exports
 });
 __d('image!time_point',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/time_point.imageset/time_point@2x.png","uri":"time_point","width":4,"height":24,"deprecated":true};
 });
-__d('MyProject/src/layout/wish/WishAgreement.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _WishSearch=require('MyProject/src/layout/wish/WishSearch.js');var _WishSearch2=babelHelpers.interopRequireDefault(_WishSearch);var _PointWait=require('MyProject/src/layout/point/component/PointWait.js');var _PointWait2=babelHelpers.interopRequireDefault(_PointWait);var _NetUtil=require('MyProject/src/util/NetUtil.js');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var cuTime;
-var exTime;var 
-WishAgreement=function(_React$Component){babelHelpers.inherits(WishAgreement,_React$Component);
-function WishAgreement(props){babelHelpers.classCallCheck(this,WishAgreement);var _this=babelHelpers.possibleConstructorReturn(this,Object.getPrototypeOf(WishAgreement).call(this,
-props));
-_this.state={
-isLoaded:false,
-isPointSearchOpen:false};return _this;}babelHelpers.createClass(WishAgreement,[{key:'onSubmit',value:function onSubmit()
-
-
-
-{
-this.props.navigator.replace({
-component:_WishSearch2.default});}},{key:'BUS_200101_CB',value:function BUS_200101_CB(
-
-
-
-
-object,json){
-console.log('BUS_200101_CB = '+json);
-if(json.retcode==='000000'){
-var isOpen=false;
-cuTime=json.cuTime;
-exTime=json.exTime;
-
-if(json.exTime<=json.cuTime){
-isOpen=true;}
-
-
-object.setState({
-isLoaded:true,
-isPointSearchOpen:isOpen});}else 
-
-
-{}}},{key:'BUS_200101_REQ',value:function BUS_200101_REQ()
-
-
-
-
-
-{
-var params={
-encrypt:'none'};
-
-(0,_NetUtil.netClientPost)(this,_NetUtil.BUS_200101,this.BUS_200101_CB,params);}},{key:'componentDidMount',value:function componentDidMount()
-
-
-{
-this.BUS_200101_REQ();}},{key:'render',value:function render()
-
-
-{var _this2=this;
-return (
-_reactNative2.default.createElement(_reactNative.View,{style:{flex:1,backgroundColor:'white'}},
-_reactNative2.default.createElement(_App_Title2.default,{title:'录取资料',navigator:this.props.navigator}),
-
-this.state.isLoaded?
-this.state.isPointSearchOpen?
-_reactNative2.default.createElement(_reactNative.ScrollView,{
-contentContainerStyle:styles.contentContainer},
-
-_reactNative2.default.createElement(_reactNative.Image,{
-style:{alignSelf:'center'},
-source:require('image!will_agreement_tips')}),
-_reactNative2.default.createElement(_reactNative.Text,{style:{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}},'    录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。'),
-
-_reactNative2.default.createElement(_reactNative.View,{
-style:{flexDirection:'row',marginTop:20}},
-_reactNative2.default.createElement(_reactNative.Text,{style:{width:35,fontSize:13,color:'#d0021b',lineHeight:23}},'PS：'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}},'本服务只针对进入文理科第一阶段位次的考生开放；','\n','院校数据仅包含文理科本一及本二批次院校；','\n','本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。')),
-
-
-_reactNative2.default.createElement(_reactNative.TouchableHighlight,{
-style:{justifyContent:'center',alignItems:'center',
-backgroundColor:'#ff902d',height:45,borderRadius:3,marginTop:22},
-onPress:function(){return _this2.onSubmit();},
-underlayColor:'#fcfcfc'},
-_reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:16,color:'white'}},'下一步')),
-
-
-_reactNative2.default.createElement(_reactNative.View,{style:{height:50}})):
-
-
-
-_reactNative2.default.createElement(_PointWait2.default,{cuTime:cuTime,exTime:exTime,content:'距离录取资料服务开放还有',flag:'1',searchObj:this}):
-
-_reactNative2.default.createElement(_reactNative.ActivityIndicatorIOS,{style:{marginTop:_reactNative.Dimensions.get('window').height/2-65}})));}}]);return WishAgreement;}(_reactNative2.default.Component);exports.default=WishAgreement;
-
-
-
-
-
-
-var styles=_reactNative.StyleSheet.create({
-contentContainer:{
-paddingTop:45,
-paddingLeft:20,
-paddingRight:20}});
-});
 __d('image!will_agreement_tips',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/will_agreement_tips.imageset/will_agreement_tips@2x.png","uri":"will_agreement_tips","width":208,"height":155,"deprecated":true};
+});
+__d('image!point_icon_A_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_A_add.imageset/point_icon_A_add@2x.png","uri":"point_icon_A_add","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_B_add',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_B_add.imageset/point_icon_B_add@2x.png","uri":"point_icon_B_add","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_lishi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_lishi.imageset/point_icon_lishi@2x.png","uri":"point_icon_lishi","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_zhengzhi',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_zhengzhi.imageset/point_icon_zhengzhi@2x.png","uri":"point_icon_zhengzhi","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_dili',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_dili.imageset/point_icon_dili@2x.png","uri":"point_icon_dili","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_huaxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_huaxue.imageset/point_icon_huaxue@2x.png","uri":"point_icon_huaxue","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_shengwu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shengwu.imageset/point_icon_shengwu@2x.png","uri":"point_icon_shengwu","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_wuli',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_wuli.imageset/point_icon_wuli@2x.png","uri":"point_icon_wuli","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_result_top',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_top.imageset/point_result_top@2x.png","uri":"point_result_top","width":360,"height":219.5,"deprecated":true};
+});
+__d('image!point_result_bg',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_bg.imageset/point_result_bg@2x.png","uri":"point_result_bg","width":360,"height":274,"deprecated":true};
+});
+__d('image!point_result_total_big',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_big.imageset/point_result_total_big@2x.png","uri":"point_result_total_big","width":110,"height":121,"deprecated":true};
+});
+__d('image!point_result_total_small',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_total_small.imageset/point_result_total_small@2x.png","uri":"point_result_total_small","width":97.5,"height":107.5,"deprecated":true};
+});
+__d('image!point_result_rank',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_result_rank.imageset/point_result_rank@2x.png","uri":"point_result_rank","width":262,"height":54.5,"deprecated":true};
+});
+__d('image!point_icon_yuwen',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yuwen.imageset/point_icon_yuwen@2x.png","uri":"point_icon_yuwen","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_shuxue',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_shuxue.imageset/point_icon_shuxue@2x.png","uri":"point_icon_shuxue","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_yingyu',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_yingyu.imageset/point_icon_yingyu@2x.png","uri":"point_icon_yingyu","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_icon_policy',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_icon_policy.imageset/point_icon_policy@2x.png","uri":"point_icon_policy","width":45,"height":45,"deprecated":true};
+});
+__d('image!point_ad',function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"path":"/Users/tugaofeng/tgf/work/JSKS/JSKSY/ios/MyProject/Images.xcassets/point_ad.imageset/point_ad@2x.png","uri":"point_ad","width":350,"height":100,"deprecated":true};
 });
 __d('MyProject/src/layout/offer/OfferSearch.js',function(global, require, module, exports) {  'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _reactNative=require('react-native/Libraries/react-native/react-native.js');var _reactNative2=babelHelpers.interopRequireDefault(_reactNative);var _OfferResult=require('MyProject/src/layout/offer/OfferResult.js');var _OfferResult2=babelHelpers.interopRequireDefault(_OfferResult);var _App_Title=require('MyProject/src/layout/common/App_Title.js');var _App_Title2=babelHelpers.interopRequireDefault(_App_Title);var _Global=require('MyProject/src/util/Global.js');
 
@@ -63079,7 +63148,7 @@ placeholder:'请输入你的考生号',
 
 ref:'sNumInput',
 onFocus:this.scrollViewTo.bind(this),
-onEndEditing:function(){_this2.refs.scroll.scrollTo(220);}}),
+onEndEditing:function(){_this2.refs.scroll.scrollTo(275);}}),
 
 _reactNative2.default.createElement(_reactNative.TextInput,{
 style:{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:19},
@@ -63094,7 +63163,7 @@ placeholder:'请输入你的准考证号',
 
 ref:'sTicketInput',
 onFocus:this.scrollViewTo.bind(this),
-onEndEditing:function(){_this2.refs.scroll.scrollTo(220);}}),
+onEndEditing:function(){_this2.refs.scroll.scrollTo(275);}}),
 
 _reactNative2.default.createElement(_reactNative.TouchableHighlight,{
 style:{marginTop:30,justifyContent:'center',alignItems:'center',
@@ -63501,7 +63570,7 @@ style:{alignSelf:'center'},
 source:require('image!set_icon')}),
 
 _reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}},'江苏高考'),
-_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本P1.0.4-P-V1'),
+_reactNative2.default.createElement(_reactNative.Text,{style:{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}},'当前版本P1.1.0-P-V2'),
 _reactNative2.default.createElement(_reactNative.View,{style:{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:_reactNative.Dimensions.get('window').width}}),
 _reactNative2.default.createElement(_reactNative.View,{style:{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}},
 _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:15,color:'#666666'}},'消息推送')),
@@ -63701,7 +63770,7 @@ _reactNative2.default.createElement(_reactNative.Text,{style:{fontSize:14,color:
 
 _reactNative2.default.createElement(_reactNative.View,{style:{height:100,backgroundColor:'white',alignItems:'center',justifyContent:'center'}},
 _reactNative2.default.createElement(_reactNative.Image,{
-style:{height:44,width:264},
+style:{height:44,width:270},
 source:require('image!loading_logo')})))));}}]);return Welcome;}(_reactNative2.default.Component);exports.default=Welcome;
 
 

@@ -1,42 +1,58 @@
 # JSKS
-考试院
 
-4-11 ios UI布局：主页 
-4-12 ios UI布局：查分
-4-13 ios UI布局：录取查询
-4-14 ios UI布局：志愿推荐
-4-15 ios UI布局：志愿推荐
+###-开发小结
+---
+本次开发第一次正式使用RN，所以只开发了iOS版本，Android还是使用原生代码进行编写。
+版本管理：Git
+开发工具：Sublime Text3 + Xcode7
+使用组件：
+－热更新使用 react-native-code-push
+－Banner使用 react-native-swiper
+－列表上拉下拉使用 react-native-gifted-listview
+－UUID  react-native-device-uuid
+未使用redux，也暂时没有移植Android版本，后续跟进。
 
-4-18 android UI布局：首页 查分 录取查询
-4-19 android UI布局：志愿推荐
-4-20 ios UI遗漏补全
-4-21 ios UI遗漏补全 查看支付文档
-4-22 ios&android rn-NavigatorIOS因不灵活，无法单页面定制title内容而迁移为Navigator  ios热更新测试(还是无法更新图片)
 
-4-25 接口调测：初始化，轮播
-4-26 接口调测：首页列表，查分时间基准
-4-27 接口调测：查分
-4-28 调休
-4-29 接口调测：查分，录取查询
 
-5-2  全国放假
-5-3  接口调测：录取查询，取消录取
-5-4  android UI布局：设置   android推送
-5-5  ios  UI布局：设置   百度统计
-5-6  调休
+###-过程记录
+---
+4-11 ios UI布局：主页<br>
+4-12 ios UI布局：查分<br>
+4-13 ios UI布局：录取查询<br>
+4-14 ios UI布局：志愿推荐<br>
+4-15 ios UI布局：志愿推荐<br>
 
-5-9  appstore证书，ios推送，ios Loading页
-5-10 ios Loading页  android Loading页  接口更新设计
-5-11 ios 引导页  Appstore预发布准备
-5-12 android 引导页
-5-13 ios Appstore发布 android 欢迎广告
+4-18 android UI布局：首页 查分 录取查询<br>
+4-19 android UI布局：志愿推荐<br>
+4-20 ios UI遗漏补全<br>
+4-21 ios UI遗漏补全 查看支付文档<br>
+4-22 ios&android rn-NavigatorIOS因不灵活，无法单页面定制title内容而迁移为Navigator  ios热更新测试(还是无法更新图片)<br>
 
-5-16 ios 欢迎广告  加解密方案 
+4-25 接口调测：初始化，轮播<br>
+4-26 接口调测：首页列表，查分时间基准<br>
+4-27 接口调测：查分<br>
+4-28 调休<br>
+4-29 接口调测：查分，录取查询<br>
 
-5-30 android 细节调整 加解密
-5-31 ios发布1.0.2 调测现网查分数据正确性 android自动更新 android发布1.0.0
+5-2  全国放假<br>
+5-3  接口调测：录取查询，取消录取<br>
+5-4  android UI布局：设置   android推送<br>
+5-5  ios  UI布局：设置   百度统计<br>
+5-6  调休<br>
 
-6-12 接口调测：口令查分
-6-13 接口调测：查分广告
-6-15 接口调测：志愿
-6-16 细节调整
+5-9  appstore证书，ios推送，ios Loading页<br>
+5-10 ios Loading页  android Loading页  接口更新设计<br>
+5-11 ios 引导页  Appstore预发布准备<br>
+5-12 android 引导页<br>
+5-13 ios Appstore发布 android 欢迎广告<br>
+
+5-16 ios 欢迎广告  加解密方案 <br>
+
+5-30 android 细节调整 加解密<br>
+5-31 ios发布1.0.2 调测现网查分数据正确性 android自动更新 android发布1.0.0<br>
+
+6-12 接口调测：口令查分<br>
+6-13 接口调测：查分广告<br>
+6-15 接口调测：志愿<br>
+6-16 细节调整<br>
+6-17 发布<br>

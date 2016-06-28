@@ -129,10 +129,11 @@ export default class WishList extends React.Component{
 	}
 
 	rowClick(code){
+		let aUrl = URL_ADDR+BUS_300201+'?code='+code+'&sNum='+this.props.sNum+'&pcdm='+this.state.batchVal;
 		this.props.navigator.push({
 			component:Web,
 			params:{
-				url:URL_ADDR+BUS_300201+'?code='+code+'&sNum='+this.props.sNum,
+				url:aUrl,
 			},
 		});
 		
@@ -141,9 +142,6 @@ export default class WishList extends React.Component{
 	//渲染cell
 	renderRow(rowData,sectionID,rowID){
 		return(
-			<TouchableHighlight
-				onPress={e=>this.rowClick(rowData.code)}
-				underlayColor='#fcfcfc'>
 			<View style={{marginLeft:10,marginRight:10,}}>
 				<View style={{backgroundColor:'white',marginTop:12,height:114,
 					paddingTop:8,paddingLeft:14,paddingRight:14,flexDirection:'row'}}>
@@ -158,15 +156,19 @@ export default class WishList extends React.Component{
 						<Text style={{marginTop:9,fontSize:12,color:'#ff902d'}}>计划数</Text>
 					</View>
 				</View>
-				<View style={{height:38,backgroundColor:'f3f9ff',paddingLeft:14,paddingRight:14,justifyContent:'center'}}>
-					<Text style={{fontSize:12,color:'#779cc3'}}>历年学院录取分数线/历年专业录取分数线/招生计划</Text>
-					<Image
-						style={{position:'absolute',right:14,top:13}}
-						source={require('image!arrow_blue')} />
-					
-				</View>
+				<TouchableHighlight
+				onPress={e=>this.rowClick(rowData.code)}
+				underlayColor='#fcfcfc'>
+					<View style={{height:38,backgroundColor:'f3f9ff',paddingLeft:14,paddingRight:14,justifyContent:'center'}}>
+						<Text style={{fontSize:12,color:'#779cc3'}}>往年院校录取情况/往年专业录取情况/2016年招生计划</Text>
+						<Image
+							style={{position:'absolute',right:14,top:13}}
+							source={require('image!arrow_blue')} />
+						
+					</View>
+				</TouchableHighlight>
 			</View>
-			</TouchableHighlight>
+			
 		)
 	}
 

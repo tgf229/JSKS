@@ -138,7 +138,7 @@ export default class OfferSearch extends React.Component{
 
 						ref = 'sNumInput'
 　　　　　　　　　　    	onFocus={this.scrollViewTo.bind(this)}
-　　　　　　　　　　  		onEndEditing={()=>{this.refs.scroll.scrollTo(220)}}
+　　　　　　　　　　  		onEndEditing={()=>{this.refs.scroll.scrollTo(275)}}
 						/>
 					<TextInput
 						style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999',marginTop:19}}
@@ -153,7 +153,7 @@ export default class OfferSearch extends React.Component{
 
 						ref = 'sTicketInput'
 　　　　　　　　　　 		onFocus={this.scrollViewTo.bind(this)}
-　　　　　　　　　　 		onEndEditing={()=>{this.refs.scroll.scrollTo(220)}}
+　　　　　　　　　　 		onEndEditing={()=>{this.refs.scroll.scrollTo(275)}}
 						/>
 					<TouchableHighlight
 						style={{marginTop:30,justifyContent:'center',alignItems:'center',
