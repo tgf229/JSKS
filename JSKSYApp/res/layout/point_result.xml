@@ -539,9 +539,9 @@
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:background="@color/color_eeeeee"
-	                android:paddingLeft="11dp"
-	                android:paddingRight="11dp"
-	                android:paddingBottom="15dp"
+	                android:paddingLeft="14dp"
+	                android:paddingRight="14dp"
+	                android:paddingBottom="5dp"
 	                >
 		                <ImageView 
 		                    android:layout_width="match_parent"

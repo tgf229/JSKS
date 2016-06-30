@@ -97,6 +97,11 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         reqWish();
     }
     
+    public String getBatchId()
+    {
+        return this.batchId;
+    }
+    
     private void init()
     {
         mPullToRefreshView = (PullToRefreshView)findViewById(R.id.home_main_pull_refresh_view);
@@ -139,7 +144,7 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         ListView wishListView = (ListView)findViewById(R.id.fresh_news_listview);
         wishListView.addHeaderView(headView);
         wishList = new ArrayList<WishDoc>();
-        wishListAdapter = new WishListAdapter(this, wishList, this,sNum);
+        wishListAdapter = new WishListAdapter(this, wishList, this,sNum,batchId);
         wishListView.setAdapter(wishListAdapter);
     }
     

@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/color_eeeeee"
-    android:paddingLeft="11dp"
+    android:paddingLeft="14dp"
+    android:paddingRight="14dp"
     android:paddingBottom="5dp"
-    android:paddingRight="11dp" >
-
-    <ImageView
+    >
+    <com.jsksy.app.view.MyImageView2
         android:id="@+id/point_ad_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/default_pic" />
+        android:src="@drawable/default_pic"
+        android:scaleType="fitXY" />
 
 </LinearLayout>

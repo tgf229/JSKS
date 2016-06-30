@@ -468,9 +468,9 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             PointTimeResponse ptrest = (PointTimeResponse)ob;
             
             //TODO ≤‚ ‘”√ ¥˝…æ≥˝
-            ptrest.setCuTime("20160616000000");
-            ptrest.setExTime("20160614000004");
-            ptrest.setWsTime("20160615000007");
+//            ptrest.setCuTime("20160616000000");
+//            ptrest.setExTime("20160615000003");
+//            ptrest.setWsTime("20160615000005");
             
             if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
             {
