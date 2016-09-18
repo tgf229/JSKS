@@ -210,8 +210,8 @@ public class WishConditionActivity extends BaseActivity implements OnClickListen
                 finish();
                 break;
             case R.id.reset_btn:
-                batchId = "2";
-                batchVal = "本科一批";
+                batchId = "4";
+                batchVal = "本科三批";
                 provId = "";
                 provVal = "全国";
                 schoolId = "";

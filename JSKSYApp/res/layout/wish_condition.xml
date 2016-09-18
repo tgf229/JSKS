@@ -136,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:textColor="@color/color_666666"
-                    android:text="开设专业"/>
+                    android:text="开设专业(目前仅支持本科专业)"/>
                 <TextView
                     android:id="@+id/major_val"
                     android:layout_width="0dp"

@@ -51,7 +51,7 @@
 			        android:lineSpacingExtra="5dp"
 			        android:textColor="@color/color_d0021b"
 			        android:textSize="12sp"
-			        android:text="本服务只针对进入文理科第一阶段位次的考生开放；\n院校数据仅包含文理科本一及本二批次院校；\n本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。"/>
+			        android:text="本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。"/>
             </LinearLayout>
             
             <View

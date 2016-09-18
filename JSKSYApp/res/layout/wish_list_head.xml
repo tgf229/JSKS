@@ -32,7 +32,7 @@
                     android:id="@+id/batch_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="本科一批"
+                    android:text="本科三批"
                     android:textColor="@color/color_85add7"
                     android:textSize="13sp" />
             </LinearLayout>

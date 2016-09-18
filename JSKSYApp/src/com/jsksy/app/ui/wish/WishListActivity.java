@@ -64,9 +64,9 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     
     private com.jsksy.app.view.PullToRefreshView home_main_pull_refresh_view;
     
-    private String batchId = "2";
+    private String batchId = "4";
     
-    private String batchVal = "云親匯答";
+    private String batchVal = "云親眉答";
     
     private String provId = "";
     
