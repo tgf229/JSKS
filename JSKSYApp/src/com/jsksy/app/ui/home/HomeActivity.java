@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -45,6 +46,7 @@ import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.gk.GKHomeActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
@@ -52,6 +54,7 @@ import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.set.SetActivity;
 import com.jsksy.app.ui.wish.WishAgreementActivity;
+import com.jsksy.app.ui.zz.ZZPointSearchActivity;
 import com.jsksy.app.util.DialogUtil;
 import com.jsksy.app.util.DownApkUtil;
 import com.jsksy.app.util.GeneralUtils;
@@ -210,6 +213,13 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         TextView title_name = (TextView)findViewById(R.id.title_name);
         title_name.setText(getString(R.string.app_name));
         
+        //title”“≤‡…Ë÷√∞¥≈•
+        LinearLayout title_call_layout = (LinearLayout)findViewById(R.id.title_call_layout);
+        TextView title_btn_call = (TextView)findViewById(R.id.title_btn_call);
+        title_btn_call.setBackgroundResource(R.drawable.setting);
+        title_call_layout.setVisibility(View.VISIBLE);
+        title_call_layout.setOnClickListener(this);
+        
         //head‰÷»æ
         headView =
             ((LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.home_list_head, null);
@@ -224,14 +234,16 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         banner_indicator.setViewPager(banner_Pager);
         handler.sendEmptyMessageDelayed(0, SKIP_TIME);
         
-        LinearLayout point_layout = (LinearLayout)headView.findViewById(R.id.point_layout);
-        LinearLayout wish_layout = (LinearLayout)headView.findViewById(R.id.wish_layout);
-        LinearLayout offer_layout = (LinearLayout)headView.findViewById(R.id.offer_layout);
-        LinearLayout set_layout = (LinearLayout)headView.findViewById(R.id.set_layout);
-        point_layout.setOnClickListener(this);
-        wish_layout.setOnClickListener(this);
-        offer_layout.setOnClickListener(this);
-        set_layout.setOnClickListener(this);
+        ImageView gk_img = (ImageView)headView.findViewById(R.id.gk_img);
+        ImageView wish_img = (ImageView)headView.findViewById(R.id.wish_img);
+        ImageView offer_img = (ImageView)headView.findViewById(R.id.offer_img);
+        ImageView point_img = (ImageView)headView.findViewById(R.id.point_img);
+        ImageView zz_img = (ImageView)headView.findViewById(R.id.zz_img);
+        gk_img.setOnClickListener(this);
+        wish_img.setOnClickListener(this);
+        offer_img.setOnClickListener(this);
+        point_img.setOnClickListener(this);
+        zz_img.setOnClickListener(this);
         
         //footer‰÷»æ
         loadingFooterView =
@@ -601,21 +613,29 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     {
         switch (v.getId())
         {
-            case R.id.point_layout:
+            case R.id.gk_img:
+                Intent intentGK = new Intent(this, GKHomeActivity.class);
+                startActivity(intentGK);
+                break;
+            case R.id.point_img:
                 dailog = new NetLoadingDailog(this);
                 dailog.loading();
                 reqPointTime("1");
                 break;
-            case R.id.offer_layout:
+            case R.id.offer_img:
                 Intent intentOffer = new Intent(this, OfferSearchActivity.class);
                 startActivity(intentOffer);
                 break;
-            case R.id.wish_layout:
+            case R.id.wish_img:
                 dailog = new NetLoadingDailog(this);
                 dailog.loading();
                 reqPointTime("2");
                 break;
-            case R.id.set_layout:
+            case R.id.zz_img:
+                Intent intentZZ = new Intent(this, ZZPointSearchActivity.class);
+                startActivity(intentZZ);
+                break;
+            case R.id.title_call_layout:
                 Intent intentSet = new Intent(this, SetActivity.class);
                 startActivity(intentSet);
                 break;

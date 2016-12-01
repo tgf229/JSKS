@@ -90,6 +90,14 @@
          <activity 
             android:name=".ui.WebviewActivity"/>
          
+         <activity 
+            android:name=".ui.gk.GKHomeActivity"/>
+         
+          <activity 
+            android:name=".ui.zz.ZZPointSearchActivity"/>
+          <activity 
+            android:name=".ui.zz.ZZPointResultActivity"/>
+         
          
          
         <!-- Required SDK 核心功能-->

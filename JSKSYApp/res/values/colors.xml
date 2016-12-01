@@ -28,5 +28,7 @@
     <color name="color_000000">#000000</color>
      <color name="color_d0021b">#d0021b</color>
       <color name="color_b1b1b1">#b1b1b1</color>
+      <color name="color_7bbcff">#7bbcff</color>
+        <color name="color_afd6ff">#afd6ff</color>
 
 </resources>
