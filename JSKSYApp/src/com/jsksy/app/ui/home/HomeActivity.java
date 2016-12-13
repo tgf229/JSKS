@@ -82,7 +82,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private MyImageView default_img;
     
-    private View headView, loadingFooterView;
+    private View headView;
     
     private ArrayList<NewsDoc> freshNewsList;
     
@@ -94,17 +94,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private CirclePageIndicator banner_indicator;
     
-    private RelativeLayout endTips;
-    
-    private LinearLayout loadingMore;
-    
-    private boolean anyMore = true;
-    
     private boolean isRefreshing = false;
-    
-    private int page = 1;
-    
-    private int pageNum = 10;
     
     private NetLoadingDailog dailog;
     
@@ -245,41 +235,41 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         point_img.setOnClickListener(this);
         zz_img.setOnClickListener(this);
         
-        //footer‰÷»æ
-        loadingFooterView =
-            ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.loading, null);
-        endTips = (RelativeLayout)loadingFooterView.findViewById(R.id.end_tips);
-        loadingMore = (LinearLayout)loadingFooterView.findViewById(R.id.loading_more);
-        loadingMore.setVisibility(View.GONE);
+        //        //footer‰÷»æ
+        //        loadingFooterView =
+        //            ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.loading, null);
+        //        endTips = (RelativeLayout)loadingFooterView.findViewById(R.id.end_tips);
+        //        loadingMore = (LinearLayout)loadingFooterView.findViewById(R.id.loading_more);
+        //        loadingMore.setVisibility(View.GONE);
         
         //List‰÷»æ
         ListView freshNewsListView = (ListView)findViewById(R.id.fresh_news_listview);
         freshNewsListView.addHeaderView(headView);
-        freshNewsListView.addFooterView(loadingFooterView);
+        //        freshNewsListView.addFooterView(loadingFooterView);
         freshNewsList = new ArrayList<NewsDoc>();
         freshNewsAdapter = new FreshNewsAdapter(this, freshNewsList, this);
         freshNewsListView.setAdapter(freshNewsAdapter);
-        freshNewsListView.setOnScrollListener(new OnScrollListener()
-        {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState)
-            {
-                if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && anyMore && !isRefreshing
-                    && view.getLastVisiblePosition() == view.getCount() - 1)
-                {
-                    loadingMore.setVisibility(View.VISIBLE);
-                    isRefreshing = true;
-                    page++;
-                    reqList();
-                }
-            }
-            
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
-            {
-                
-            }
-        });
+        //        freshNewsListView.setOnScrollListener(new OnScrollListener()
+        //        {
+        //            @Override
+        //            public void onScrollStateChanged(AbsListView view, int scrollState)
+        //            {
+        //                if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && anyMore && !isRefreshing
+        //                    && view.getLastVisiblePosition() == view.getCount() - 1)
+        //                {
+        //                    loadingMore.setVisibility(View.VISIBLE);
+        //                    isRefreshing = true;
+        //                    page++;
+        //                    reqList();
+        //                }
+        //            }
+        //            
+        //            @Override
+        //            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+        //            {
+        //                
+        //            }
+        //        });
     }
     
     /**
@@ -323,13 +313,11 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private void reqList()
     {
         Map<String, String> param = new HashMap<String, String>();
-        param.put("page", String.valueOf(page));
-        param.put("num", String.valueOf(pageNum));
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             HomeActivity.this,
             NewsResponse.class,
-            URLUtil.Bus100301,
+            URLUtil.Bus100501,
             Constants.ENCRYPT_NONE);
     }
     
@@ -380,33 +368,23 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         if (ob instanceof NewsResponse)
         {
             isRefreshing = false;
-            loadingMore.setVisibility(View.GONE);
+            //            loadingMore.setVisibility(View.GONE);
             
             NewsResponse resp = (NewsResponse)ob;
             if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
             {
                 if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
                 {
-                    if (page == 1)
-                    {
-                        freshNewsList.clear();
-                    }
-                    if (resp.getDoc().size() < pageNum)
-                    {
-                        anyMore = false;
-                        endTips.setVisibility(View.VISIBLE);
-                    }
+                    freshNewsList.clear();
                     freshNewsList.addAll(resp.getDoc());
                     freshNewsAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    anyMore = false;
                 }
             }
             else
             {
-                anyMore = false;
             }
         }
         else if (ob instanceof BannerResponse)
@@ -480,9 +458,9 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             PointTimeResponse ptrest = (PointTimeResponse)ob;
             
             //TODO ≤‚ ‘”√ ¥˝…æ≥˝
-//            ptrest.setCuTime("20160616000000");
-//            ptrest.setExTime("20160615000003");
-//            ptrest.setWsTime("20160615000005");
+            //            ptrest.setCuTime("20160616000000");
+            //            ptrest.setExTime("20160615000003");
+            //            ptrest.setWsTime("20160615000005");
             
             if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
             {
@@ -505,7 +483,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                             startActivity(intentPoint);
                         }
                     }
-                    else if("2".equals(waitType))
+                    else if ("2".equals(waitType))
                     {
                         if (Double.parseDouble(ptrest.getWsTime()) > Double.parseDouble(ptrest.getCuTime()))
                         {
@@ -600,10 +578,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     @Override
     public void onHeaderRefresh(PullToRefreshView view)
     {
-        page = 1;
         freshNewsList.clear();
-        endTips.setVisibility(View.GONE);
-        anyMore = true;
         reqBanner();
         reqList();
     }

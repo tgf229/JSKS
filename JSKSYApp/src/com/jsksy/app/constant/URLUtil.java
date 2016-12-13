@@ -11,17 +11,18 @@ package com.jsksy.app.constant;
  */
 public class URLUtil
 {
-    //小锟�锟斤拷
-//    public static final String SERVER = "http://192.168.1.123:8888/web-mobile/";
-    //锟斤拷锟斤拷锟斤拷
-//    public static final String SERVER = "http://10.2.16.139:18011/";
-    //锟斤拷锟�
-  public static final String SERVER = "http://58.213.145.35/";
+    //朱世伟
+//    public static final String SERVER = "http://192.168.0.104:8888/web-mobile/";
+    //生产域名
+    public static final String SERVER = "http://app.jseea.cn/";
+    //生产IP
+//  public static final String SERVER = "http://58.213.145.35/";
     
     public static final String Bus100101 = "Bus100101";
     public static final String Bus100201 = "Bus100201";
     public static final String Bus100301 = "Bus100301";
     public static final String Bus100401 = "Bus100401";
+    public static final String Bus100501 = "Bus100501";
     
     public static final String Bus200101 = "Bus200101";
     public static final String Bus200201 = "Bus200201";
@@ -33,4 +34,6 @@ public class URLUtil
     public static final String Bus400201 = "Bus400201";
     
     public static final String Bus500101 = "Bus500101";
+    
+    public static final String Bus600101 = "Bus600101";
 }
