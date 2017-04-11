@@ -34,8 +34,8 @@ export default class SetActivity extends React.Component{
 				  		style={{alignSelf:'center'}}
 				  		source={require('image!set_icon')}
 				  		/>
-					<Text style={{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}}>江苏高考</Text>
-					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本P1.1.0-P-V2</Text>
+					<Text style={{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}}>江苏招考</Text>
+					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本P2.0.0-P-V1</Text>
 					<View style={{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width}}></View>
 					<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}}>
 						<Text style={{fontSize:15,color:'#666666'}}>消息推送</Text>
@@ -44,7 +44,7 @@ export default class SetActivity extends React.Component{
 					<View style={{backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width,marginLeft:10}}></View>
 					<View style={{height:68,justifyContent:'center',padding:20}}>
 						<Text style={{fontSize:14,color:'#999999'}}>
-							如果要开启或者关闭“江苏高考”接收消息通知，请在iPhone的”设置－通知“中找到“江苏高考”进行更改
+							如果要开启或者关闭“江苏招考”接收消息通知，请在iPhone的”设置－通知“中找到“江苏招考”进行更改
 						</Text>
 					</View>
 				</ScrollView>

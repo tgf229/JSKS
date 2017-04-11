@@ -13,6 +13,8 @@ import React, {
   Text,
   View
 } from 'react-native';
+import SetActivity from '../set/SetActivity';
+
 
 export default class App_Title extends React.Component{
 	constructor(props){
@@ -28,6 +30,12 @@ export default class App_Title extends React.Component{
 
 	onRightClick(obj){
 		obj.onRightNavCilck();
+	}
+
+	onSetClick(){
+	    this.props.navigator.push({
+			component: SetActivity,
+		})
 	}
 
 	render(){
@@ -54,6 +62,14 @@ export default class App_Title extends React.Component{
 							onPress={e=>this.onRightClick(this.props.obj)}
 							underlayColor='#67aef7'>
 							<Text style={{fontSize:14,color:'white'}}>{this.props.rightText}</Text>
+						</TouchableHighlight>
+						:
+					this.props.setShow?
+						<TouchableHighlight
+							style={{position:'absolute',right:5,paddingRight:10,top:1,paddingLeft:20,paddingTop:8,paddingBottom:10}}
+							onPress={e=>this.onSetClick()}
+							underlayColor='#67aef7'>
+							<Image source={require('image!setting')}/>
 						</TouchableHighlight>
 						:
 						<View/>

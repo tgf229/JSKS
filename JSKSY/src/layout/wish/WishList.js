@@ -188,7 +188,9 @@ export default class WishList extends React.Component{
     onFilter(){
     	this.props.navigator.push({
     		component:WishFilter,
-    		params:{filterObj:this,batch:this.state.batch,
+    		params:{
+    			filterObj:this,
+    			batch:this.state.batch,
     			batchVal:this.state.batchVal,
     			provId:this.state.provId,
     			provVal:this.state.provVal,

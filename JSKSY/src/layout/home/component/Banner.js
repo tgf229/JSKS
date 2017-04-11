@@ -25,7 +25,7 @@ export default class Banner extends React.Component{
 	}
 
 	onBannerClick(item){
-		this.props.homeObj.props.navigator.push({
+		this.props.navigator.push({
 			component:Web,
 			params:{
 				url:item.aUrl,
@@ -39,7 +39,10 @@ export default class Banner extends React.Component{
 			if (json.doc.length !== 0) {
 				listData=listData.concat(json.doc);
 				object.setState({
-					data: listData,
+					// data: listData,
+					data:[{"imageUrl":"http://58.213.145.36:8081/imgs/edu/images/99/6d/d0/70a17cbf-acab-431e-8cf1-3b0e7065cf5f.jpg","aId":"140","name":"江苏教育考试院官方高清版","aUrl":"http://58.213.145.36:8081/imgs/edu/html/da/2016ml.html"},
+			{"imageUrl":"http://58.213.145.36:8081/imgs/edu/images/99/6d/d0/70a17cbf-acab-431e-8cf1-3b0e7065cf5f.jpg","aId":"140","name":"江苏教育考试院官方高清版","aUrl":"http://58.213.145.36:8081/imgs/edu/html/da/2016ml.html"}
+			],
 					isDataLoaded:true,
 				});
 				console.log('成功='+listData);

@@ -12,8 +12,10 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	var queryString = Object.keys(data).map(key=> key+'='+encodeURIComponent(data[key])).join('&');
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
+
+export const URL_ADDR = "https://app.jseea.cn/";
 // export const URL_ADDR = "http://58.213.145.35/";
-export const URL_ADDR = "http://10.2.48.9:8092/";
+// export const URL_ADDR = "http://192.168.0.104:8888/web-mobile/";
 // export const URL_ADDR = "http://192.168.1.104:8888/web-mobile/";
 // export const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 
@@ -21,6 +23,7 @@ export const BUS_100101 = "Bus100101";
 export const BUS_100201 = "Bus100201";
 export const BUS_100301 = "Bus100301";
 export const BUS_100401 = "Bus100401";
+export const BUS_100501 = "Bus100501";
 
 export const BUS_200101 = "Bus200101";
 export const BUS_200201 = "Bus200201";
@@ -30,6 +33,10 @@ export const BUS_300201 = "Bus300201";
 
 export const BUS_400101 = "Bus400101";
 export const BUS_400201 = "Bus400201";
+
+export const BUS_600101 = "Bus600101";
+
+export const BUS_700101 = "Bus700101";
 
 //执行请求
 export function netClient(object,query) {
@@ -65,7 +72,10 @@ export function netClientPost(object,busName,busCB,params) {
 					method:'POST',
 					body: data
 			})
-			.then(response => response.json())
+			.then(response => {
+				console.log(response);
+				return response.json();
+			})
 			.then(json => busCB(object,json))
 			.catch(error => 
 				console.log('error='+error)
@@ -73,4 +83,15 @@ export function netClientPost(object,busName,busCB,params) {
 					//isLoading:false,
 				// })
 			);
-}  
+} 
+
+export function netClientTest(object,busName,busCB,params){
+	var data = Object.keys(params).map(key=> key+'='+encodeURIComponent(params[key])).join('&');
+	fetch("http://192.168.0.107/bus700101")
+	.then(response => {
+		return response.json();
+	})
+	.then(json => busCB(object,json))
+	.catch(error => console.log('error='+error));
+
+}
