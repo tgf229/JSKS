@@ -10,11 +10,16 @@ import React, {
   Navigator,
   StyleSheet,
   StatusBarIOS,
+  Dimensions,
   View
 } from 'react-native';
 import Home from './src/layout/home/Home';
 import Welcome from './src/layout/Welcome';
 import codePush from "react-native-code-push";
+
+//全局定义当前手机宽度
+global.windowWidth = Dimensions.get('window').width;
+global.currentActivity;
 
 var device_uuid='';
 var device_model='';

@@ -7,11 +7,13 @@ import {
 	View,
 	PixelRatio,
 	Text,
+	TouchableOpacity,
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700101,netClientTest} from '../../util/NetUtil';
+import {BUS_700101,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title from '../common/App_Title';
+import University_Detail from './University_Detail';
 
 export default class University_List extends Component{
 
@@ -21,18 +23,23 @@ export default class University_List extends Component{
 		this.listData = [];
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
+	  		flag_success : true,
 	  	};
 	}
 
 	//列表请求回调
 	_BUS_700101_CB(object,json){
+		console.log(json);
 		if (json.retcode === '000000') {
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
-				dataSource:object.ds.cloneWithRows(object.listData)
+				dataSource:object.ds.cloneWithRows(object.listData),
+				flag_success:true
 			})
 		}else{
-			//TODO
+			object.setState({
+				flag_success:false
+			})
 		}
 	}
 
@@ -54,12 +61,20 @@ export default class University_List extends Component{
 		callback(rows);
     }
 
+    _rowClick = ()=>{
+    	this.props.navigator.push({
+    		component:University_Detail,
+    	});
+    };
+
 	_renderRow(rowData,sectionID,rowID){
 		return(
 			<View>
+				<TouchableOpacity 
+					onPress={this._rowClick}>
 				<View style={{flexDirection:'row',padding:15}}>
 					<Image 
-						style={{width:PixelRatio.get()*120/4,height:PixelRatio.get()*120/4}}
+						style={{width:120/4*PixelRatio.get(),height:120/4*PixelRatio.get()}}
 						source={{uri:rowData.logo}}
 						/>
 					<View style={{marginLeft:15,marginTop:5}}>
@@ -96,6 +111,7 @@ export default class University_List extends Component{
 						</View>
 					</View>
 				</View>
+				</TouchableOpacity>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 			</View>
 		)
@@ -103,14 +119,24 @@ export default class University_List extends Component{
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white'}}>
 				<App_Title navigator={this.props.navigator}/>
-				<GiftedListView
-					dataSource={this.state.dataSource}
-					renderRow={(rowData)=>this._renderRow(rowData)}
+				{
+					this.state.flag_success
+					?
+					<GiftedListView
+						dataSource={this.state.dataSource}
+						renderRow={(rowData)=>this._renderRow(rowData)}
 
-					onFetch={this._onFetch.bind(this)}
-				/>
+						onFetch={this._onFetch.bind(this)}
+					/>
+					:
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Image
+					  		source={require('image!load_pic')} />
+					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>{ERROR_TIPS}</Text>
+					</View>
+				}
 			</View>
 		);
 	}
@@ -127,5 +153,4 @@ const styles = StyleSheet.create({
 		color:'#9ba0b0',
 		fontSize:10
 	}
-
 })

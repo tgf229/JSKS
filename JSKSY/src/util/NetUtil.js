@@ -37,6 +37,9 @@ export const BUS_400201 = "Bus400201";
 export const BUS_600101 = "Bus600101";
 
 export const BUS_700101 = "Bus700101";
+export const BUS_700201 = "Bus700201";
+export const REQ_TIPS = "正在拼命查询中，请稍候...";
+export const ERROR_TIPS = "请求失败，请检查网络...";
 
 //执行请求
 export function netClient(object,query) {
@@ -87,11 +90,11 @@ export function netClientPost(object,busName,busCB,params) {
 
 export function netClientTest(object,busName,busCB,params){
 	var data = Object.keys(params).map(key=> key+'='+encodeURIComponent(params[key])).join('&');
-	fetch("http://192.168.0.107/bus700101")
+	fetch("http://192.168.0.107/jszk/bus700101")
 	.then(response => {
 		return response.json();
 	})
 	.then(json => busCB(object,json))
-	.catch(error => console.log('error='+error));
+	.catch(error => busCB(object,'error'));
 
 }
