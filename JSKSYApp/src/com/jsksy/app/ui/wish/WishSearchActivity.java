@@ -9,9 +9,6 @@
  */
 package com.jsksy.app.ui.wish;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,19 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jsksy.app.R;
-import com.jsksy.app.bean.wish.WishResponse;
-import com.jsksy.app.constant.Constants;
-import com.jsksy.app.constant.Global;
-import com.jsksy.app.constant.URLUtil;
-import com.jsksy.app.network.ConnectService;
-import com.jsksy.app.sharepref.SharePref;
 import com.jsksy.app.ui.BaseActivity;
-import com.jsksy.app.ui.offer.OfferFailActivity;
-import com.jsksy.app.ui.offer.OfferSuccessActivity;
-import com.jsksy.app.ui.point.PointResultActivity;
 import com.jsksy.app.util.GeneralUtils;
 import com.jsksy.app.util.NetLoadingDailog;
-import com.jsksy.app.util.SecurityUtils;
 import com.jsksy.app.util.ToastUtil;
 
 /**

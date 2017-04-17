@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -45,6 +46,7 @@ import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
+import com.jsksy.app.ui.gk.GKHomeActivity;
 import com.jsksy.app.ui.home.adapter.BannerAdapter;
 import com.jsksy.app.ui.home.adapter.FreshNewsAdapter;
 import com.jsksy.app.ui.offer.OfferSearchActivity;
@@ -52,6 +54,7 @@ import com.jsksy.app.ui.point.PointSearchActivity;
 import com.jsksy.app.ui.point.PointWaitActivity;
 import com.jsksy.app.ui.set.SetActivity;
 import com.jsksy.app.ui.wish.WishAgreementActivity;
+import com.jsksy.app.ui.zz.ZZPointSearchActivity;
 import com.jsksy.app.util.DialogUtil;
 import com.jsksy.app.util.DownApkUtil;
 import com.jsksy.app.util.GeneralUtils;
@@ -79,7 +82,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private MyImageView default_img;
     
-    private View headView, loadingFooterView;
+    private View headView;
     
     private ArrayList<NewsDoc> freshNewsList;
     
@@ -91,17 +94,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     
     private CirclePageIndicator banner_indicator;
     
-    private RelativeLayout endTips;
-    
-    private LinearLayout loadingMore;
-    
-    private boolean anyMore = true;
-    
     private boolean isRefreshing = false;
-    
-    private int page = 1;
-    
-    private int pageNum = 10;
     
     private NetLoadingDailog dailog;
     
@@ -210,6 +203,13 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         TextView title_name = (TextView)findViewById(R.id.title_name);
         title_name.setText(getString(R.string.app_name));
         
+        //title”“≤‡…Ë÷√∞¥≈•
+        LinearLayout title_call_layout = (LinearLayout)findViewById(R.id.title_call_layout);
+        TextView title_btn_call = (TextView)findViewById(R.id.title_btn_call);
+        title_btn_call.setBackgroundResource(R.drawable.setting);
+        title_call_layout.setVisibility(View.VISIBLE);
+        title_call_layout.setOnClickListener(this);
+        
         //head‰÷»æ
         headView =
             ((LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.home_list_head, null);
@@ -224,50 +224,52 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         banner_indicator.setViewPager(banner_Pager);
         handler.sendEmptyMessageDelayed(0, SKIP_TIME);
         
-        LinearLayout point_layout = (LinearLayout)headView.findViewById(R.id.point_layout);
-        LinearLayout wish_layout = (LinearLayout)headView.findViewById(R.id.wish_layout);
-        LinearLayout offer_layout = (LinearLayout)headView.findViewById(R.id.offer_layout);
-        LinearLayout set_layout = (LinearLayout)headView.findViewById(R.id.set_layout);
-        point_layout.setOnClickListener(this);
-        wish_layout.setOnClickListener(this);
-        offer_layout.setOnClickListener(this);
-        set_layout.setOnClickListener(this);
+        ImageView gk_img = (ImageView)headView.findViewById(R.id.gk_img);
+        ImageView wish_img = (ImageView)headView.findViewById(R.id.wish_img);
+        ImageView offer_img = (ImageView)headView.findViewById(R.id.offer_img);
+        ImageView point_img = (ImageView)headView.findViewById(R.id.point_img);
+        ImageView zz_img = (ImageView)headView.findViewById(R.id.zz_img);
+        gk_img.setOnClickListener(this);
+        wish_img.setOnClickListener(this);
+        offer_img.setOnClickListener(this);
+        point_img.setOnClickListener(this);
+        zz_img.setOnClickListener(this);
         
-        //footer‰÷»æ
-        loadingFooterView =
-            ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.loading, null);
-        endTips = (RelativeLayout)loadingFooterView.findViewById(R.id.end_tips);
-        loadingMore = (LinearLayout)loadingFooterView.findViewById(R.id.loading_more);
-        loadingMore.setVisibility(View.GONE);
+        //        //footer‰÷»æ
+        //        loadingFooterView =
+        //            ((LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.loading, null);
+        //        endTips = (RelativeLayout)loadingFooterView.findViewById(R.id.end_tips);
+        //        loadingMore = (LinearLayout)loadingFooterView.findViewById(R.id.loading_more);
+        //        loadingMore.setVisibility(View.GONE);
         
         //List‰÷»æ
         ListView freshNewsListView = (ListView)findViewById(R.id.fresh_news_listview);
         freshNewsListView.addHeaderView(headView);
-        freshNewsListView.addFooterView(loadingFooterView);
+        //        freshNewsListView.addFooterView(loadingFooterView);
         freshNewsList = new ArrayList<NewsDoc>();
         freshNewsAdapter = new FreshNewsAdapter(this, freshNewsList, this);
         freshNewsListView.setAdapter(freshNewsAdapter);
-        freshNewsListView.setOnScrollListener(new OnScrollListener()
-        {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState)
-            {
-                if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && anyMore && !isRefreshing
-                    && view.getLastVisiblePosition() == view.getCount() - 1)
-                {
-                    loadingMore.setVisibility(View.VISIBLE);
-                    isRefreshing = true;
-                    page++;
-                    reqList();
-                }
-            }
-            
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
-            {
-                
-            }
-        });
+        //        freshNewsListView.setOnScrollListener(new OnScrollListener()
+        //        {
+        //            @Override
+        //            public void onScrollStateChanged(AbsListView view, int scrollState)
+        //            {
+        //                if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && anyMore && !isRefreshing
+        //                    && view.getLastVisiblePosition() == view.getCount() - 1)
+        //                {
+        //                    loadingMore.setVisibility(View.VISIBLE);
+        //                    isRefreshing = true;
+        //                    page++;
+        //                    reqList();
+        //                }
+        //            }
+        //            
+        //            @Override
+        //            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+        //            {
+        //                
+        //            }
+        //        });
     }
     
     /**
@@ -311,13 +313,11 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     private void reqList()
     {
         Map<String, String> param = new HashMap<String, String>();
-        param.put("page", String.valueOf(page));
-        param.put("num", String.valueOf(pageNum));
         ConnectService.instance().connectServiceReturnResponse(this,
             param,
             HomeActivity.this,
             NewsResponse.class,
-            URLUtil.Bus100301,
+            URLUtil.Bus100501,
             Constants.ENCRYPT_NONE);
     }
     
@@ -368,33 +368,23 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
         if (ob instanceof NewsResponse)
         {
             isRefreshing = false;
-            loadingMore.setVisibility(View.GONE);
+            //            loadingMore.setVisibility(View.GONE);
             
             NewsResponse resp = (NewsResponse)ob;
             if (GeneralUtils.isNotNullOrZeroLenght(resp.getRetcode()))
             {
                 if (Constants.SUCESS_CODE.equals(resp.getRetcode()))
                 {
-                    if (page == 1)
-                    {
-                        freshNewsList.clear();
-                    }
-                    if (resp.getDoc().size() < pageNum)
-                    {
-                        anyMore = false;
-                        endTips.setVisibility(View.VISIBLE);
-                    }
+                    freshNewsList.clear();
                     freshNewsList.addAll(resp.getDoc());
                     freshNewsAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    anyMore = false;
                 }
             }
             else
             {
-                anyMore = false;
             }
         }
         else if (ob instanceof BannerResponse)
@@ -468,9 +458,9 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
             PointTimeResponse ptrest = (PointTimeResponse)ob;
             
             //TODO ≤‚ ‘”√ ¥˝…æ≥˝
-            ptrest.setCuTime("20160616000000");
-            ptrest.setExTime("20160614000004");
-            ptrest.setWsTime("20160615000007");
+            //            ptrest.setCuTime("20160616000000");
+            //            ptrest.setExTime("20160615000003");
+            //            ptrest.setWsTime("20160615000005");
             
             if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
             {
@@ -493,7 +483,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
                             startActivity(intentPoint);
                         }
                     }
-                    else if("2".equals(waitType))
+                    else if ("2".equals(waitType))
                     {
                         if (Double.parseDouble(ptrest.getWsTime()) > Double.parseDouble(ptrest.getCuTime()))
                         {
@@ -588,10 +578,7 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     @Override
     public void onHeaderRefresh(PullToRefreshView view)
     {
-        page = 1;
         freshNewsList.clear();
-        endTips.setVisibility(View.GONE);
-        anyMore = true;
         reqBanner();
         reqList();
     }
@@ -601,21 +588,29 @@ public class HomeActivity extends BaseActivity implements OnHeaderRefreshListene
     {
         switch (v.getId())
         {
-            case R.id.point_layout:
+            case R.id.gk_img:
+                Intent intentGK = new Intent(this, GKHomeActivity.class);
+                startActivity(intentGK);
+                break;
+            case R.id.point_img:
                 dailog = new NetLoadingDailog(this);
                 dailog.loading();
                 reqPointTime("1");
                 break;
-            case R.id.offer_layout:
+            case R.id.offer_img:
                 Intent intentOffer = new Intent(this, OfferSearchActivity.class);
                 startActivity(intentOffer);
                 break;
-            case R.id.wish_layout:
+            case R.id.wish_img:
                 dailog = new NetLoadingDailog(this);
                 dailog.loading();
                 reqPointTime("2");
                 break;
-            case R.id.set_layout:
+            case R.id.zz_img:
+                Intent intentZZ = new Intent(this, ZZPointSearchActivity.class);
+                startActivity(intentZZ);
+                break;
+            case R.id.title_call_layout:
                 Intent intentSet = new Intent(this, SetActivity.class);
                 startActivity(intentSet);
                 break;

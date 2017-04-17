@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jsksy.app"
     android:versionCode="1"
-    android:versionName="1.0.5" >
+    android:versionName="2.0.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -89,6 +89,14 @@
             android:name=".ui.set.SetActivity"/>
          <activity 
             android:name=".ui.WebviewActivity"/>
+         
+         <activity 
+            android:name=".ui.gk.GKHomeActivity"/>
+         
+          <activity 
+            android:name=".ui.zz.ZZPointSearchActivity"/>
+          <activity 
+            android:name=".ui.zz.ZZPointResultActivity"/>
          
          
          

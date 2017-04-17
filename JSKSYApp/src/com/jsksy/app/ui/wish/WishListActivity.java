@@ -64,9 +64,9 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
     
     private com.jsksy.app.view.PullToRefreshView home_main_pull_refresh_view;
     
-    private String batchId = "2";
+    private String batchId = "4";
     
-    private String batchVal = "云親匯答";
+    private String batchVal = "云親眉答";
     
     private String provId = "";
     
@@ -95,6 +95,11 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         sTicket = getIntent().getStringExtra("sTicket");
         init();
         reqWish();
+    }
+    
+    public String getBatchId()
+    {
+        return this.batchId;
     }
     
     private void init()
@@ -139,7 +144,7 @@ public class WishListActivity extends BaseActivity implements OnHeaderRefreshLis
         ListView wishListView = (ListView)findViewById(R.id.fresh_news_listview);
         wishListView.addHeaderView(headView);
         wishList = new ArrayList<WishDoc>();
-        wishListAdapter = new WishListAdapter(this, wishList, this,sNum);
+        wishListAdapter = new WishListAdapter(this, wishList, this,sNum,batchId);
         wishListView.setAdapter(wishListAdapter);
     }
     

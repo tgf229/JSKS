@@ -95,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="历年学院录取分数线/历年专业录取分数线/招生计划"
+            android:text="往年院校录取情况/往年专业录取情况/2016年招生计划"
             android:textColor="@color/color_779cc3"
             android:textSize="12sp" />
         <ImageView 

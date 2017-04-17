@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/color_eeeeee"
+    android:background="@color/color_ffffff"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -37,109 +37,82 @@
             app:strokeWidth="0dp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <LinearLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_ffffff"
-        android:orientation="horizontal"
-        android:layout_marginTop="12dp"
-        android:paddingBottom="12dp"
-        android:paddingTop="12dp" >
-
-        <LinearLayout
-            android:id="@+id/point_layout"
-            android:layout_width="0dp"
+        android:orientation="vertical"
+        android:padding="7dp">
+        <com.jsksy.app.view.HomeLinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="horizontal" >
+	        <ImageView
+	            android:id="@+id/gk_img"
+	            android:layout_width="0dp"
+	            android:layout_weight="2"
+	            android:layout_height="match_parent"
+	            android:scaleType="fitXY"
+	            android:src="@drawable/gaokao_right"/>
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_weight="3"
+	            android:layout_marginLeft="1dp"
+	            android:orientation="vertical"
+	            android:layout_height="match_parent">
+	            <LinearLayout 
+	                android:layout_width="match_parent"
+	                android:layout_height="0dp"
+	                android:layout_weight="1"
+	                android:orientation="horizontal">
+	                 <ImageView
+	                    android:id="@+id/wish_img"
+			            android:layout_width="0dp"
+			            android:layout_weight="1"
+			            android:scaleType="fitXY"
+			            android:layout_height="match_parent"
+			            android:src="@drawable/gaokao_ziliao"/>
+	                 <ImageView
+	                    android:id="@+id/offer_img"
+			            android:layout_width="0dp"
+			            android:layout_weight="1"
+			            android:scaleType="fitXY"
+			            android:layout_marginLeft="1dp"
+			            android:layout_height="match_parent"
+			            android:src="@drawable/gaokao_jieguo"/>
+	            </LinearLayout>
+	           <ImageView
+	               	android:id="@+id/point_img"
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_marginTop="1dp"
+			        android:scaleType="fitXY"
+			        android:layout_height="0dp"
+			        android:src="@drawable/gaokao_check"/>
+	        </LinearLayout>
+	    </com.jsksy.app.view.HomeLinearLayout>
+	    
+        <ImageView 
+            android:id="@+id/zz_img"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/home_icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="高考查分"
-                android:textColor="@color/color_444444"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/wish_layout"
-            android:layout_width="0dp"
+            android:layout_marginTop="7dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/zhongzhi"/>
+        <ImageView 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/home_icon_query" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="录取资料"
-                android:textColor="@color/color_444444"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/offer_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/home_icon_volunteer" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="录取结果"
-                android:textColor="@color/color_444444"
-                android:textSize="12sp" />
-        </LinearLayout>
-        
-        <LinearLayout
-            android:id="@+id/set_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/home_icon_set" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置"
-                android:textColor="@color/color_444444"
-                android:textSize="12sp" />
-        </LinearLayout>
+            android:layout_marginTop="7dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/gongneng"/>
+    
     </LinearLayout>
+    
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@color/color_ffffff"
-        android:layout_marginTop="12dp"
+        android:background="@color/color_eeeeee"
+        android:layout_marginTop="3dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -156,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="13dp"
-            android:text="今日高考资讯"
+            android:text="招考要闻"
             android:textColor="@color/color_666666"
             android:textSize="13sp" />
 

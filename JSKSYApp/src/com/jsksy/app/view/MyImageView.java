@@ -18,7 +18,7 @@ public class MyImageView extends ImageView
     {
         // TODO Auto-generated method stub
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int width=getResources().getDisplayMetrics().widthPixels;
+        int width=getResources().getDisplayMetrics().widthPixels-2;
         int height=width * 7 / 15;
         setMeasuredDimension(width, height);
     }

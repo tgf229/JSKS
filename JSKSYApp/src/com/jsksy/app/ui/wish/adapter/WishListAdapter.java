@@ -16,22 +16,25 @@ import com.jsksy.app.bean.wish.WishDoc;
 import com.jsksy.app.callback.UICallBack;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.ui.WebviewActivity;
+import com.jsksy.app.ui.wish.WishListActivity;
 
 public class WishListAdapter extends BaseAdapter
 {
-    private Context context;
+    private WishListActivity context;
     
     private List<WishDoc> mList;
     
     private UICallBack callBack;
     private String sNum;
+    private String batchId;
     
-    public WishListAdapter(Context context, List<WishDoc> mList, UICallBack callBack,String num)
+    public WishListAdapter(WishListActivity context, List<WishDoc> mList, UICallBack callBack,String num, String batch)
     {
         this.context = context;
         this.mList = mList;
         this.callBack = callBack;
         this.sNum = num;
+        this.batchId = batch;
     }
     
     @Override
@@ -83,7 +86,7 @@ public class WishListAdapter extends BaseAdapter
             public void onClick(View v)
             {
                 Intent intent = new Intent(context, WebviewActivity.class);
-                intent.putExtra("wev_view_url", URLUtil.SERVER+URLUtil.Bus300201+"?code="+entity.getCode()+"&sNum="+sNum);
+                intent.putExtra("wev_view_url", URLUtil.SERVER+URLUtil.Bus300201+"?code="+entity.getCode()+"&sNum="+sNum+"&pcdm="+context.getBatchId());
                 context.startActivity(intent);
             }
         });

@@ -28,14 +28,19 @@ import com.jsksy.app.JSKSYApplication;
 import com.jsksy.app.R;
 import com.jsksy.app.bean.point.PointAd;
 import com.jsksy.app.bean.point.PointResponse;
+import com.jsksy.app.bean.point.PointTimeResponse;
 import com.jsksy.app.constant.Constants;
 import com.jsksy.app.constant.URLUtil;
 import com.jsksy.app.network.ConnectService;
 import com.jsksy.app.ui.BaseActivity;
 import com.jsksy.app.ui.WebviewActivity;
+import com.jsksy.app.ui.home.HomeActivity;
+import com.jsksy.app.ui.wish.WishAgreementActivity;
 import com.jsksy.app.ui.wish.WishSearchActivity;
 import com.jsksy.app.util.GeneralUtils;
+import com.jsksy.app.util.NetLoadingDailog;
 import com.jsksy.app.util.SecurityUtils;
+import com.jsksy.app.util.ToastUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -56,7 +61,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     
     private TextView load_txt, sName, totalTitle, totalPoint, totalName, chineseTitle, chinesePoint, mathTitle,
         mathPoint, englishPoint, KM4_level, KM4_name, KM5_level, KM5_name, poAdd, addTitle, addPoint, SAPoint,
-        DOUBLETitle, DOUBLEPoint, saAdd,tip_content;
+        DOUBLETitle, DOUBLEPoint, saAdd, tip_content;
     
     private ImageView KM4_img, KM5_img, addPic;
     
@@ -65,7 +70,10 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
     private String sCheckKeyA, sCheckKeyB;
     
     private String zf1 = null;
+    
     private String zf2 = null;
+    
+    private NetLoadingDailog dailog;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -186,6 +194,40 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                 load_txt.setText(Constants.ERROR_MESSAGE);
             }
         }
+        else if (ob instanceof PointTimeResponse)
+        {
+            dailog.dismissDialog();
+            PointTimeResponse ptrest = (PointTimeResponse)ob;
+            
+            if (GeneralUtils.isNotNullOrZeroLenght(ptrest.getRetcode()))
+            {
+                if (Constants.SUCESS_CODE.equals(ptrest.getRetcode()))
+                {
+                    if (Double.parseDouble(ptrest.getWsTime()) > Double.parseDouble(ptrest.getCuTime()))
+                    {
+                        Intent intentPoint = new Intent(this, PointWaitActivity.class);
+                        intentPoint.putExtra("cuTime", ptrest.getCuTime());
+                        intentPoint.putExtra("exTime", ptrest.getExTime());
+                        intentPoint.putExtra("wsTime", ptrest.getWsTime());
+                        intentPoint.putExtra("waitType", "2");
+                        startActivity(intentPoint);
+                    }
+                    else
+                    {
+                        Intent intentPoint = new Intent(this, WishAgreementActivity.class);
+                        startActivity(intentPoint);
+                    }
+                }
+                else
+                {
+                    ToastUtil.makeText(this, ptrest.getRetinfo());
+                }
+            }
+            else
+            {
+                ToastUtil.makeText(this, "网络异常，请检查您的网络设置");
+            }
+        }
     }
     
     private void showPoint(PointResponse obj)
@@ -195,7 +237,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         chinesePoint.setText(obj.getChinese() + "分");
         mathPoint.setText(obj.getMath() + "分");
         englishPoint.setText(obj.getEnglish() + "分");
-        tip_content.setText(obj.getTipContent()+"考生成绩以成绩通知单为准。");
+        tip_content.setText(obj.getTipContent() + "考生成绩以成绩通知单为准。");
         
         //KM4 KM5图片过滤
         filterImg(obj);
@@ -220,7 +262,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             totalPoint.setText(obj.getChTotal());
             chineseTitle.setText("语文+附加分");
             chinesePoint.setText(obj.getChinese() + "分+" + obj.getChAdd() + "分");
-            zf1=obj.getChTotal();
+            zf1 = obj.getChTotal();
         }
         //理
         else if ("2".equals(obj.getType()))
@@ -229,7 +271,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             totalPoint.setText(obj.getMaTotal());
             mathTitle.setText("数学+附加分");
             mathPoint.setText(obj.getMath() + "分+" + obj.getMaAdd() + "分");
-            zf1=obj.getMaTotal();
+            zf1 = obj.getMaTotal();
         }
         //艺术       体育
         else if ("3".equals(obj.getType()) || "4".equals(obj.getType()))
@@ -240,7 +282,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             addPoint.setText(obj.getSaAdd() + "分");
             addPic.setImageResource(R.drawable.point_icon_b_add);
             KM_layout.setVisibility(View.GONE);
-            zf1=obj.getSaTotal();
+            zf1 = obj.getSaTotal();
         }
         //艺术兼文       体育兼文
         else if ("5".equals(obj.getType()) || "7".equals(obj.getType()))
@@ -254,8 +296,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             chineseTitle.setText("语文+附加分");
             chinesePoint.setText(obj.getChinese() + "分+" + obj.getChAdd() + "分");
             saAdd.setText(obj.getSaAdd());
-            zf1=obj.getChTotal();
-            zf2=obj.getSaTotal();
+            zf1 = obj.getChTotal();
+            zf2 = obj.getSaTotal();
         }
         //艺术兼理       体育兼理
         else if ("6".equals(obj.getType()) || "8".equals(obj.getType()))
@@ -269,8 +311,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
             mathTitle.setText("数学+附加分");
             mathPoint.setText(obj.getMath() + "分+" + obj.getMaAdd() + "分");
             saAdd.setText(obj.getSaAdd());
-            zf1=obj.getMaTotal();
-            zf2=obj.getSaTotal();
+            zf1 = obj.getMaTotal();
+            zf2 = obj.getSaTotal();
         }
     }
     
@@ -291,7 +333,8 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                 public void onClick(View v)
                 {
                     Intent intent = new Intent(PointResultActivity.this, WebviewActivity.class);
-                    intent.putExtra("wev_view_url", ad.getaUrl()+"?n="+resp.getsName()+"&k="+resp.getType()+"&zf1="+zf1+"&zf2="+zf2);
+                    intent.putExtra("wev_view_url", ad.getaUrl() + "?n=" + resp.getsName() + "&k=" + resp.getType()
+                        + "&zf1=" + zf1 + "&zf2=" + zf2);
                     PointResultActivity.this.startActivity(intent);
                 }
             });
@@ -352,6 +395,24 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
         }
     }
     
+    /**
+     * <访问时间校准接口>
+     * <功能详细描述>
+     * @see [类、类#方法、类#成员]
+     */
+    private void reqPointTime()
+    {
+        dailog = new NetLoadingDailog(this);
+        dailog.loading();
+        Map<String, String> param = new HashMap<String, String>();
+        ConnectService.instance().connectServiceReturnResponse(this,
+            param,
+            PointResultActivity.this,
+            PointTimeResponse.class,
+            URLUtil.Bus200101,
+            Constants.ENCRYPT_NONE);
+    }
+    
     @Override
     public void onClick(View v)
     {
@@ -361,8 +422,7 @@ public class PointResultActivity extends BaseActivity implements OnClickListener
                 finish();
                 break;
             case R.id.wish_pic_layout:
-                Intent intentWish = new Intent(this, WishSearchActivity.class);
-                startActivity(intentWish);
+                reqPointTime();
             default:
                 break;
         }
