@@ -11,6 +11,7 @@ import {
 	Text,
 	Image} from 'react-native';
 
+import Swiper from 'react-native-swiper'
 import GiftedListView from 'react-native-gifted-listview';
 import {BUS_700101,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import University_Detail_One from './University_Detail_One';
@@ -52,36 +53,48 @@ export default class University_Detail extends Component{
    		this._tabLineAnimateListener(this.tabLineScroll[0]);
    }
 
+   componentWillUpdate(nextProps, nextState) {
+   		this.refs.swiper.scrollTo(1);
+   }
+
 	_onClick(flag){
+		console.log('onClick= '+syncClick)
 		if(syncClick){
 			switch(flag){
 			case 0:
-				
-				if (currentTab !== 0) {
+				if (currentTab == 1) {
 					syncClick = false;
-					this.refs.scroll.scrollTo({x: 0, y: 0, animated: true});
+					this.refs.swiper.scrollTo(-1);
+				}else if(currentTab == 2){
+					syncClick = false;
+					this.refs.swiper.scrollTo(1);
 				}
 				break;
 			case 1:
-				if (currentTab !== 1) {
+				if (currentTab == 0) {
 					syncClick = false;
-					this.refs.scroll.scrollTo({x: global.windowWidth, y: 0, animated: true});
+					this.refs.swiper.scrollTo(1);
+				}else if(currentTab == 2){
+					syncClick = false;
+					this.refs.swiper.scrollTo(-1);
 				}
 				break;
 			case 2:
-			if (currentTab !== 2) {
+			if (currentTab == 0) {
 					syncClick = false;
-					this.refs.scroll.scrollTo({x: global.windowWidth*2, y: 0, animated: true});
+					this.refs.swiper.scrollTo(-1);
+				}else if(currentTab == 1){
+					syncClick = false;
+					this.refs.swiper.scrollTo(1);
 				}
 				break;
 			}
 		}
 	}
 
-	//Scroll回调的滑动函数
+	//Swiper回调的滑动函数
 	_onMomentumScrollEnd(e, state, context) {
-		//此处的e.nativeEvent.contentOffset.x会得到一个非整小数，如不Math则操作过快的情况下报错
-		currentTab =  Math.round(e.nativeEvent.contentOffset.x/global.windowWidth);
+		currentTab = state.index;
 		syncClick = true;
 		global.currentActivity._tabLineAnimateListener(global.currentActivity.tabLineScroll[currentTab]);
 	  }
@@ -143,20 +156,16 @@ export default class University_Detail extends Component{
 					}}/>
 				</View>
 				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
-				<ScrollView 
-					ref="scroll"
+				<Swiper
+					ref="swiper"
+					showsPagination={false}
+					height={this.state.contentHeight}
 					onMomentumScrollEnd ={this._onMomentumScrollEnd}
-					style={{flex:1}}
-					horizontal={true}
-					bounces={false}
-					pagingEnabled={true}
-					showsHorizontalScrollIndicator={false}
 					>
 					<University_Detail_One/>
 					<University_Detail_Two navigator={this.props.navigator}/>
-					<University_Detail_Three navigator={this.props.navigator}/>
-
-				</ScrollView>
+					<University_Detail_Three/>
+				</Swiper>
 			</ScrollView>
 		);
 	}
@@ -173,4 +182,67 @@ const styles = StyleSheet.create({
 		color:'white',
 		fontSize:10
 	}
+})
+
+
+
+
+
+'use strict';
+import React,{Component} from 'react';
+import {
+	AppRegistry,
+	StyleSheet,
+	View,
+	ScrollView,
+	TouchableOpacity,
+	PixelRatio,
+	ProgressViewIOS,
+	Text,
+	Image} from 'react-native';
+
+import University_Detail_One from './University_Detail_One';
+import University_Detail_Two from './University_Detail_Two';
+import University_Detail_Three from './University_Detail_Three';
+export default class Test extends Component{
+
+	constructor(props) {
+	  	super(props);
+	  	this.state = {
+	  	};
+	}
+
+	componentDidMount() {
+		this.refs.scroll.scrollTo({x: global.windowWidth*2, y: 0, animated: true})
+	}
+
+	_onMomentumScrollEnd(e, state, context) {
+		console.log(e.nativeEvent.contentOffset.x);
+		console.log(global.windowWidth)
+
+	  }
+
+
+	render(){
+		return(
+			<ScrollView 
+				ref="scroll"
+				onMomentumScrollEnd ={this._onMomentumScrollEnd}
+				style={{flex:1}}
+				horizontal={true}
+				bounces={false}
+				pagingEnabled={true}
+				showsHorizontalScrollIndicator={false}
+				>
+				<University_Detail_One/>
+					<University_Detail_Two navigator={this.props.navigator}/>
+					<University_Detail_Three/>
+
+			</ScrollView>
+		);
+	}
+}
+
+const styles = StyleSheet.create({
+
 })

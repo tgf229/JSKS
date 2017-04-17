@@ -25,7 +25,7 @@ export default class University_Detail_One extends Component{
 		const a = 50;
 		const b = 50;
 		return(
-			<View>
+			<View style={{width:global.windowWidth}}>
 				<View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingTop:18,paddingBottom:18,paddingLeft:30,paddingRight:30}}>
 					<View style={{alignItems:'center'}}>
 						<Image source={require('image!icon_boy')}/>
@@ -45,14 +45,16 @@ export default class University_Detail_One extends Component{
 					</View>
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
-				<View style={{padding:15,flexDirection:'row'}}>
+				<View style={{padding:15,flexDirection:'row',alignItems:'center'}}>
 					<View style={{flex:1}}>
 						<Text style={{color:'#777777',fontSize:12,fontWeight:'bold'}}>类型：财经院校</Text>
 						<Text style={{color:'#777777',fontSize:12,fontWeight:'bold',marginTop:6}}>电话：400802820</Text>
 						<Text ref="test" style={{color:'#777777',fontSize:12,fontWeight:'bold',marginTop:6}}>地址：南京市汉口路22号南京大学学生工作处</Text>
 					</View>
 					<View style={{width:64,alignItems:'flex-end'}}>
-						<Image source={require('image!btn_call')}/>
+						<Image 
+							style={{width:PixelRatio.get()*80/4,height:PixelRatio.get()*80/4}}
+							source={require('image!btn_call')}/>
 					</View>
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
