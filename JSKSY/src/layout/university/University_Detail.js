@@ -12,7 +12,7 @@ import {
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700101,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700201,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import University_Detail_One from './University_Detail_One';
 import University_Detail_Two from './University_Detail_Two';
 import University_Detail_Three from './University_Detail_Three';
@@ -25,8 +25,6 @@ export default class University_Detail extends Component{
 
 	constructor(props) {
 	  	super(props);
-	  	//赋值当前activity
-	  	global.currentActivity = this;
 	  	//TAB栏宽度
 	  	this.tabWidth = global.windowWidth/3;
 	  	//Tab栏下的滑块宽度
@@ -38,6 +36,7 @@ export default class University_Detail extends Component{
 	  	this.state = {
 	  		tabLineAnimate: new Animated.Value(-this.tabLineWidth),
 	  		contentHeight:1000,   //Fragemnt1的内容体高度，需要根据数据动态计算
+	  		detail:{}
 	  	};
 	}
 
@@ -48,15 +47,35 @@ export default class University_Detail extends Component{
 	     ).start(); 
    };
 
+   	//详情请求回调
+	_BUS_700201_CB(object,json){
+		console.log(json);
+		if (json.retcode === '000000') {
+			object.setState({
+				detail:json.detail
+			})
+		}else{
+
+		}
+	}
+
+	//详情请求
+	_BUS_700201_REQ(){
+		var params={
+			encrypt:'none'
+		}
+		netClientTest(this,BUS_700201,this._BUS_700201_CB,params);
+	}
+
    componentDidMount() {
    		this._tabLineAnimateListener(this.tabLineScroll[0]);
+   		this._BUS_700201_REQ();
    }
 
 	_onClick(flag){
 		if(syncClick){
 			switch(flag){
 			case 0:
-				
 				if (currentTab !== 0) {
 					syncClick = false;
 					this.refs.scroll.scrollTo({x: 0, y: 0, animated: true});
@@ -83,7 +102,7 @@ export default class University_Detail extends Component{
 		//此处的e.nativeEvent.contentOffset.x会得到一个非整小数，如不Math则操作过快的情况下报错
 		currentTab =  Math.round(e.nativeEvent.contentOffset.x/global.windowWidth);
 		syncClick = true;
-		global.currentActivity._tabLineAnimateListener(global.currentActivity.tabLineScroll[currentTab]);
+		this._tabLineAnimateListener(this.tabLineScroll[currentTab]);
 	  }
 
 	_onBackPressed(){
@@ -92,10 +111,10 @@ export default class University_Detail extends Component{
 
 	render(){
 		return(
-			<ScrollView>
+			<ScrollView style={{backgroundColor:'white'}}>
 				<Image 
 					style={{width:global.windowWidth, height:global.windowWidth*3/5,backgroundColor:'#d5d5d5'}}
-					source={{uri:'http://192.168.0.107/jszk/fdpic.png'}}
+					source={{uri:this.state.detail.pic}}
 					>
 					<TouchableOpacity
 						onPress={()=>this._onBackPressed()}>
@@ -103,17 +122,32 @@ export default class University_Detail extends Component{
 							style={{position:'absolute',left:10,top:30}}
 							source={require('image!school_btn_back')}/>
 					</TouchableOpacity>
-					<View style={{position:'absolute',bottom:0,backgroundColor:'rgba(0, 0, 0, 0.4)',width:global.windowWidth,height:70,flexDirection:'row',alignItems:'center'}}>
-						<Image 
-							style={{width:50,height:50,borderRadius:25,backgroundColor:'#d5d5d5',marginLeft:11,marginRight:13}}
-							source={{uri:'http://192.168.0.107/jszk/fdlogo.png'}}
-							/>
+					<View style={{position:'absolute',bottom:0,backgroundColor:'rgba(0, 0, 0, 0.4)',width:global.windowWidth,height:80,flexDirection:'row',alignItems:'center'}}>
+						<View
+							style={{width:60,height:60,borderRadius:30,backgroundColor:'white',marginLeft:11,marginRight:13,alignItems:'center',justifyContent:'center'}}>
+							<Image 
+								style={{width:40,height:40,backgroundColor:'#d5d5d5',}}
+								source={{uri:this.state.detail.logo}}
+								/>
+						</View>
 						<View>
-							<Text style={{fontSize:15,color:'white'}}>南京大学</Text>
+							<Text style={{fontSize:15,color:'white'}}>{this.state.detail.name}</Text>
 							<View style={{flexDirection:'row',marginTop:10}}>
-								<Text style={styles.tipsText}>排名123</Text>
-								<Text style={styles.tipsText}>211</Text>
-								<Text style={styles.tipsText}>985</Text>
+								{/*<Text style={styles.tipsText}>排名123</Text>*/}
+								{
+									this.state.detail.isEyy == '1'
+									?
+									<Text style={styles.tipsText}>211</Text>
+									:
+									null
+								}
+								{
+									this.state.detail.isJbw == '1'
+									?
+									<Text style={styles.tipsText}>985</Text>
+									:
+									null
+								}
 						</View>
 						</View>
 					</View>
@@ -145,15 +179,15 @@ export default class University_Detail extends Component{
 				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
 				<ScrollView 
 					ref="scroll"
-					onMomentumScrollEnd ={this._onMomentumScrollEnd}
+					onMomentumScrollEnd ={this._onMomentumScrollEnd.bind(this)}
 					style={{flex:1}}
 					horizontal={true}
 					bounces={false}
 					pagingEnabled={true}
 					showsHorizontalScrollIndicator={false}
 					>
-					<University_Detail_One/>
-					<University_Detail_Two navigator={this.props.navigator}/>
+					<University_Detail_One detail={this.state.detail}/>
+					<University_Detail_Two navigator={this.props.navigator} detail={this.state.detail}/>
 					<University_Detail_Three navigator={this.props.navigator}/>
 
 				</ScrollView>

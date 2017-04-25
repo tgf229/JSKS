@@ -124,6 +124,10 @@ export default class WishList extends React.Component{
 		})
 	}
 
+	FILTER_REQ(){
+		this.BUS_300101_REQ();
+	}
+
 	componentDidMount() {
 		this.BUS_300101_REQ();
 	}

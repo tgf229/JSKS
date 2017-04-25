@@ -12,8 +12,9 @@ import {
 
 import GiftedListView from 'react-native-gifted-listview';
 import {BUS_700101,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
-import App_Title from '../common/App_Title';
+import App_Title_Search from '../common/App_Title_Search';
 import University_Detail from './University_Detail';
+import WishFilter from '../wish/WishFilter';
 
 export default class University_List extends Component{
 
@@ -24,6 +25,21 @@ export default class University_List extends Component{
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
+
+	  		batch:'请选择',
+			batchVal:'',
+
+			provId:'',
+			provVal:'全国',
+
+			typeId:'',
+			typeVal:'请选择',
+
+			marjorId:'',
+			marjorVal:'请选择',
+
+			eyy:false,
+			jbw:false,
 	  	};
 	}
 
@@ -67,6 +83,38 @@ export default class University_List extends Component{
     	});
     };
 
+    _onFilter(){
+    	this.props.navigator.push({
+    		component:WishFilter,
+    		params:{
+    			filterObj:this,
+    			batch:this.state.batch,
+    			batchVal:this.state.batchVal,
+    			provId:this.state.provId,
+    			provVal:this.state.provVal,
+    			typeId:this.state.typeId,
+    			typeVal:this.state.typeVal,
+    			marjorId:this.state.marjorId,
+    			marjorVal:this.state.marjorVal,
+    			eyy:this.state.eyy,
+    			jbw:this.state.jbw}
+    	});
+    }
+
+    FILTER_REQ(uName){
+    	console.log("uName= "+uName);
+    	console.log("batch= "+this.state.batch);
+    	console.log("batchVal= "+this.state.batchVal);
+    	console.log("provId= "+this.state.provId);
+    	console.log("provVal= "+this.state.provVal);
+    	console.log("typeId= "+this.state.typeId);
+    	console.log("typeVal= "+this.state.typeVal);
+    	console.log("marjorId= "+this.state.marjorId);
+    	console.log("marjorVal= "+this.state.marjorVal);
+    	console.log("eyy= "+this.state.eyy);
+    	console.log("jbw= "+this.state.jbw);
+	}
+
 	_renderRow(rowData,sectionID,rowID){
 		return(
 			<View>
@@ -87,13 +135,13 @@ export default class University_List extends Component{
 								:
 								null
 							}
-							{
+							{/*
 								rowData.rank
 								?
 								<Text style={styles.tipsText}>排名{rowData.rank}</Text>
 								:
 								null
-							}
+							*/}
 							{
 								rowData.isEyy === '1'
 								?
@@ -120,14 +168,39 @@ export default class University_List extends Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-				<App_Title navigator={this.props.navigator}/>
+				<App_Title_Search navigator={this.props.navigator} cbObj={this}/>
+				<TouchableOpacity
+					activeOpacity={1}
+					onPress={this._onFilter.bind(this)}>
+				<View style={{height:44,flexDirection:'row'}}>
+					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+						<Text>地区</Text>
+						<Image style={{marginLeft:5}} source={this.state.provId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+					</View>
+					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+						<Text>批次</Text>
+						<Image style={{marginLeft:5}} source={this.state.batchVal?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+					</View>
+					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+						<Text>特色</Text>
+						<Image style={{marginLeft:5}} source={(this.state.eyy||this.state.jbw)?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+					</View>
+					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+						<Text>专业</Text>
+						<Image style={{marginLeft:5}} source={this.state.marjorId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+					</View>
+					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+						<Text>类别</Text>
+						<Image style={{marginLeft:5}} source={this.state.typeId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+					</View>
+				</View>
+				</TouchableOpacity>
 				{
 					this.state.flag_success
 					?
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData)=>this._renderRow(rowData)}
-
 						onFetch={this._onFetch.bind(this)}
 					/>
 					:

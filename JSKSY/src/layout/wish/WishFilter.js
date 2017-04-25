@@ -47,8 +47,8 @@ export default class WishFilter extends React.Component{
 
 	onReset(){
 		this.setState({
-			batch:'本科一批',
-			batchVal:'2',
+			batch:'请选择',
+			batchVal:'',
 
 			provId:'',
 			provVal:'全国',
@@ -141,7 +141,7 @@ export default class WishFilter extends React.Component{
 			eyy:this.state.eyy,
 			jbw:this.state.jbw,
 		});
-		this.props.filterObj.BUS_300101_REQ();;
+		this.props.filterObj.FILTER_REQ();
 		this.props.navigator.pop();
 	}
 
