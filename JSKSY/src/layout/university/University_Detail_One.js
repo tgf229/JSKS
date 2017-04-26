@@ -22,6 +22,7 @@ export default class University_Detail_One extends Component{
 	}
 
 	render(){
+		console.log('render1')
 		const detail = this.props.detail;
 		const boy = parseInt(detail.maleRatio);
 		const girl = parseInt(detail.femaleRatio);

@@ -117,9 +117,10 @@ export default class University_Detail extends Component{
 					source={{uri:this.state.detail.pic}}
 					>
 					<TouchableOpacity
+						style={{position:'absolute',left:20,top:40}}
 						onPress={()=>this._onBackPressed()}>
 						<Image
-							style={{position:'absolute',left:10,top:30}}
+							style={{width:35,height:35}}
 							source={require('image!school_btn_back')}/>
 					</TouchableOpacity>
 					<View style={{position:'absolute',bottom:0,backgroundColor:'rgba(0, 0, 0, 0.4)',width:global.windowWidth,height:80,flexDirection:'row',alignItems:'center'}}>

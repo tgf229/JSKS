@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ActivityIndicatorIOS,
   Platform
 } from 'react-native';
 
@@ -15,14 +14,28 @@ export default class University_Chart extends Component {
 
   constructor(props) {
       super(props);
+      var years = [];
+      var hScores = [];
+      var lScores = [];
+      var chartData = this.props.chartData;
+      for(var i=0; i<chartData.length; i++){
+        years.push(chartData[i].year);
+        hScores.push(chartData[i].hScore);
+        lScores.push(chartData[i].lScore);
+      }
+      years.reverse();
+      hScores.reverse();
+      lScores.reverse();
       this.state = {
-        lScore:[200, 210, 220, 230],
-        hScore: [300, 240, 200, 330],
-        isLoaded:true
+        year:years,
+        lScore:lScores,
+        hScore: hScores,
       }
   }
 
   render() {
+    console.log('render Chart');
+
     const option = {
           //点击某一个点的数据的时候，显示出悬浮窗
           tooltip : {
@@ -34,7 +47,7 @@ export default class University_Chart extends Component {
                   boundaryGap:true,
                   type : 'category',
                   // name : '时间',
-                  data : ['2013年','2014年','2015年','2016年']
+                  data : this.state.year
               }
           ],
           yAxis : [
@@ -62,13 +75,7 @@ export default class University_Chart extends Component {
         };
   return (
     	<View style={styles.container}>
-    		{
-    			this.state.isLoaded
-    			?
 				<Echarts option={option} height={300} width={global.windowWidth}/>
-				:
-				<ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />
-    		}
       	</View>
     );
   }

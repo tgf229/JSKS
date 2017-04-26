@@ -25,35 +25,35 @@ export default class University_Detail_Point extends Component{
 	  	};
 	}
 
-	//列表请求回调
-	_BUS_700301_CB(object,json){
-		console.log(json);
-		if (json.retcode === '000000') {
-			object.listData = object.listData.concat(json.doc);
-			object.setState({
-				dataSource:object.ds.cloneWithRows(object.listData),
-				flag_success:true
-			})
-		}else{
-			object.setState({
-				flag_success:false
-			})
-		}
-	}
+	// //列表请求回调
+	// _BUS_700301_CB(object,json){
+	// 	console.log(json);
+	// 	if (json.retcode === '000000') {
+	// 		object.listData = object.listData.concat(json.doc);
+	// 		object.setState({
+	// 			dataSource:object.ds.cloneWithRows(object.listData),
+	// 			flag_success:true
+	// 		})
+	// 	}else{
+	// 		object.setState({
+	// 			flag_success:false
+	// 		})
+	// 	}
+	// }
 
-	//列表请求
-	_BUS_700301_REQ(){
-		var params={
-			encrypt:'none'
-		}
-		netClientTest(this,BUS_700301,this._BUS_700301_CB,params);
-	}
+	// //列表请求
+	// _BUS_700301_REQ(){
+	// 	var params={
+	// 		encrypt:'none'
+	// 	}
+	// 	netClientTest(this,BUS_700301,this._BUS_700301_CB,params);
+	// }
 
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
   		this.listData = [];
 
-  		this._BUS_700301_REQ();
+  		// this._BUS_700301_REQ();
 
 		var rows={};
 		callback(rows);

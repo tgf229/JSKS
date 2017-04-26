@@ -10,12 +10,34 @@ import {
 	Image} from 'react-native';
 
 import University_Detail_Enroll from './University_Detail_Enroll';
+import {BUS_700501,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 export default class University_Detail_Three extends Component{
 
 	constructor(props) {
 	  	super(props);
 	  	this.state = {
+	  		detail:{}
 	  	};
+	}
+
+	//列表请求回调
+	_BUS_700501_CB(object,json){
+		console.log(json);
+		if (json.retcode === '000000') {
+			object.setState({
+				detail:json.detail
+			})
+		}else{
+
+		}
+	}
+
+	//请求
+	_BUS_700501_REQ(){
+		var params={
+			encrypt:'none'
+		}
+		netClientTest(this,BUS_700501,this._BUS_700501_CB,params);
 	}
 
 	_rowClick = ()=>{
@@ -24,16 +46,23 @@ export default class University_Detail_Three extends Component{
 		})
 	};
 
+	componentDidMount() {
+		this._BUS_700501_REQ();
+	}
+
 	render(){
+		console.log('render3')
+		const detail = this.state.detail
 		return(
 			<View style={{width:global.windowWidth}}>
 				<View style={{padding:15}}>
-					<Text style={{position:'absolute',right:15,color:'#444444',fontSize:12,fontWeight:'bold'}}>学院代号 110101</Text>
-					<Text style={{marginBottom:4,color:'#444444',fontSize:15,fontWeight:'bold'}}>南京大学</Text>
-					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>选测科目等级要求：AA</Text>
-					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>联系电话：4001928404</Text>
-					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>联系网址：www.jseea.cn</Text>
-					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>学院地址：南京市西撒多撒大所大所大所大所大所多南京市西撒多撒大所大所大所大所大所多南京市西撒多撒大所大所大所大所大所多南京市西撒多撒大所大所大所大所大所多</Text>
+					<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+						<Text style={{flex:1,marginBottom:4,color:'#444444',fontSize:15,fontWeight:'bold'}}>{detail.name}</Text>
+						<Text style={{marginBottom:4,color:'#444444',fontSize:12,fontWeight:'bold'}}>学院代号 {detail.code}</Text>
+					</View>
+					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>联系电话：{detail.tel}</Text>
+					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>联系网址：{detail.web}</Text>
+					<Text style={{color:'#777777',fontSize:12,marginTop:6}}>学院地址：{detail.address}</Text>
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 

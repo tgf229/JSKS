@@ -82,7 +82,7 @@ export default class University_Detail_Major_Point extends Component{
 										<View style={{width:1,backgroundColor:'#d5d5d5'}}/>
 										<View style={{flex:2,marginLeft:15,justifyContent:'space-between'}}>
 											<Text style={{fontSize:14,color:'#999999'}}>最高分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.hScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.hBatch}</Text></Text>
-											<Text style={{fontSize:14,color:'#999999'}}>最低分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lScore}</Text></Text>
+											<Text style={{fontSize:14,color:'#999999'}}>最低分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lBatch}</Text></Text>
 										</View>
 									</View>
 									<View style={{marginTop:15,backgroundColor:'#f3f9ff',height:22,flexDirection:'row',justifyContent:'space-around',alignItems:'center',borderRadius:4}}>
@@ -103,7 +103,7 @@ export default class University_Detail_Major_Point extends Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-				<App_Title navigator={this.props.navigator}/>
+				<App_Title title={'专业录取分数线'} navigator={this.props.navigator}/>
 				{
 					this.state.flag_success
 					?

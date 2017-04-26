@@ -174,23 +174,23 @@ export default class University_List extends Component{
 					onPress={this._onFilter.bind(this)}>
 				<View style={{height:44,flexDirection:'row'}}>
 					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text>地区</Text>
+						<Text style={{fontSize:13,color:'#888888'}}>地区</Text>
 						<Image style={{marginLeft:5}} source={this.state.provId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
 					</View>
 					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text>批次</Text>
+						<Text style={{fontSize:13,color:'#888888'}}>批次</Text>
 						<Image style={{marginLeft:5}} source={this.state.batchVal?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
 					</View>
 					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text>特色</Text>
+						<Text style={{fontSize:13,color:'#888888'}}>特色</Text>
 						<Image style={{marginLeft:5}} source={(this.state.eyy||this.state.jbw)?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
 					</View>
 					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text>专业</Text>
+						<Text style={{fontSize:13,color:'#888888'}}>专业</Text>
 						<Image style={{marginLeft:5}} source={this.state.marjorId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
 					</View>
 					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text>类别</Text>
+						<Text style={{fontSize:13,color:'#888888'}}>类别</Text>
 						<Image style={{marginLeft:5}} source={this.state.typeId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
 					</View>
 				</View>

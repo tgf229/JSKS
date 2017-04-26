@@ -6,26 +6,71 @@ import {
 	View,
 	ScrollView,
 	TouchableOpacity,
+	ActivityIndicatorIOS,
 	Text,
 	Image} from 'react-native';
 
-import University_Detail_Point from './University_Detail_Point';
 import University_Detail_Major_Point from './University_Detail_Major_Point';
+import {BUS_700301,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import University_Chart from './University_Chart';
 
 export default class University_Detail_Two extends Component{
 
 	constructor(props) {
 	  	super(props);
+	  	this.isFirstIn = true;
 	  	this.state = {
+	  		currentClazzIndex:0,
+	  		currentBatchIndex:0,
+	  		chartData:[]
 	  	};
 	}
 
-	_pointClick= ()=>{
-		this.props.navigator.push({
-			component:University_Detail_Point
+	//详情请求回调
+	_BUS_700301_CB(object,json){
+		console.log(json)
+		if (json.retcode === '000000') {
+			object.setState({
+				chartData:json.doc
+			})
+		}else{
+
+		}
+	}
+
+	//详情请求
+	_BUS_700301_REQ(){
+		var params={
+			encrypt:'none'
+		}
+		netClientTest(this,BUS_700301,this._BUS_700301_CB,params);
+	}
+
+	_firstInChartSearch(){
+		//定时器， 3秒后查询图表数据
+		this.timer = setTimeout(
+	        ()=>{
+	            this._BUS_700301_REQ();
+	        },3000
+	    )
+	}
+
+	_clazzClick(index){
+		this.setState({
+			currentClazzIndex:index,
+			currentBatchIndex:0,
+			chartData:[]
 		})
-	};
+		this._BUS_700301_REQ();
+	}
+
+	_batchClick(index){
+		this.setState({
+			currentBatchIndex:index,
+			chartData:[]
+		})
+		this._BUS_700301_REQ();
+	}
 
 	_rowClick= ()=>{
 		this.props.navigator.push({
@@ -33,9 +78,21 @@ export default class University_Detail_Two extends Component{
 		})
 	};
 
+	componentWillUnmount() {
+	  this.timer && clearTimeout(this.timer);
+	}
+
 	render(){
+		console.log('render2')
 		const detail = this.props.detail;
-		const clazzDoc = this.props.detail.clazzDoc?this.props.detail.clazzDoc:[];
+		this.clazzDoc = detail.clazzDoc?detail.clazzDoc:[];
+		this.batchDoc = detail.clazzDoc?detail.clazzDoc[this.state.currentClazzIndex].batchDoc:[];
+		if (this.clazzDoc.length > 0 && this.batchDoc.length >0 && this.isFirstIn) {
+			console.log("render2 isFirstIn")
+			this._firstInChartSearch(); //如果第一次进来，且详情接口已经返回数据且数据不为空，则查询图表数据。
+			this.isFirstIn=false;
+		}
+		var that = this;
 		return(
 			<View style={{width:global.windowWidth}}>
 				{/*第一部分*/}
@@ -45,18 +102,21 @@ export default class University_Detail_Two extends Component{
 				</View>
 				<View style={{backgroundColor:'#f1f7fc',flexDirection:'row',flexWrap:'wrap'}}>
 					{
-						clazzDoc.map(function(item,index){
-							if (index == 0) {
+						this.clazzDoc.map(function(item,index){
+							if (that.state.currentClazzIndex == index) {
 								return(
-									<View style={{width:50,height:25,borderRadius:20,backgroundColor:'#4990e2',marginLeft:15,marginTop:8,marginBottom:8,justifyContent:'center',alignItems:'center'}}>
+									<View
+										style={{width:50,height:25,borderRadius:20,backgroundColor:'#4990e2',marginLeft:15,marginTop:8,marginBottom:8,justifyContent:'center',alignItems:'center'}}>
 										<Text style={{fontSize:10,color:'white'}}>{item.name}</Text>
 									</View>
 								)
 							}else{
 								return(
-									<View style={{width:50,height:25,borderRadius:20,borderWidth:1,borderColor:'#4990e2',marginLeft:15,marginTop:8,marginBottom:8,justifyContent:'center',alignItems:'center'}}>
+									<TouchableOpacity
+										onPress={()=>{that._clazzClick(index)}}
+										style={{width:50,height:25,borderRadius:20,borderWidth:1,borderColor:'#4990e2',marginLeft:15,marginTop:8,marginBottom:8,justifyContent:'center',alignItems:'center'}}>
 										<Text style={{fontSize:10,color:'#4990e2'}}>{item.name}</Text>
-									</View>
+									</TouchableOpacity>
 								)
 							}
 						})
@@ -64,19 +124,47 @@ export default class University_Detail_Two extends Component{
 					
 				</View>
 				<View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingTop:12}}>
-					<View style={{marginLeft:10,marginRight:10,flexDirection:'row',}}>
-						<Image source={require('image!inputbox_press')}/>
-						<Text style={{fontSize:11,color:'#444444',marginLeft:5}}>本科一批</Text>
-					</View>
+					{
+						this.batchDoc.map(function(item,index) {
+							if (that.state.currentBatchIndex == index) {
+								return(
+									<View
+										style={{paddingLeft:10,paddingRight:10,flexDirection:'row',}}>
+										<Image source={require('image!inputbox_press')}/>
+										<Text style={{fontSize:11,color:'#444444',marginLeft:5}}>{item.name}</Text>
+									</View>
+								)
+							}else{
+								return(
+									<TouchableOpacity 
+										onPress={()=>{that._batchClick(index)}}
+										style={{paddingLeft:10,paddingRight:10,flexDirection:'row',}}>
+										<Image source={require('image!inputbox_blank')}/>
+										<Text style={{fontSize:11,color:'#444444',marginLeft:5}}>{item.name}</Text>
+									</TouchableOpacity>
+								)
+							}
+						})
+					}
 				</View>
 				{/*图表*/}
-				<University_Chart/>
-				<View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:12}}>
-					<View style={{width:5,height:5,backgroundColor:'#8ededc'}}/>
-					<Text style={{fontSize:9,color:'#999999',marginLeft:7,marginRight:10}}>历年录取最高分</Text>
-					<View style={{width:5,height:5,backgroundColor:'#fc7655',marginLeft:10}}/>
-					<Text style={{fontSize:9,color:'#999999',marginLeft:7}}>历年录取最低分</Text>
-				</View>
+				{
+					this.state.chartData.length>0
+					?
+					<View>
+						<University_Chart chartData={this.state.chartData}/>
+						<View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:12}}>
+							<View style={{width:5,height:5,backgroundColor:'#8ededc'}}/>
+							<Text style={{fontSize:9,color:'#999999',marginLeft:7,marginRight:10}}>历年录取最高分</Text>
+							<View style={{width:5,height:5,backgroundColor:'#fc7655',marginLeft:10}}/>
+							<Text style={{fontSize:9,color:'#999999',marginLeft:7}}>历年录取最低分</Text>
+						</View>
+					</View>
+					:
+					<ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />
+				}
+
+				
 
 				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
 			{/*第二部分*/}
@@ -87,7 +175,7 @@ export default class University_Detail_Two extends Component{
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 
 					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
-					onPress={this._pointClick}>
+					onPress={this._rowClick}>
 					<Text style={{fontSize:14,color:'#444444'}}>2016年各专业录取分数线</Text>
 					<Image source={require('image!arrow_grey')}/>
 				</TouchableOpacity>

@@ -5,6 +5,7 @@ import {
 	StyleSheet,
 	ListView,
 	View,
+	SectionList,
 	PixelRatio,
 	Text,
 	Image} from 'react-native';
@@ -21,7 +22,6 @@ export default class University_Detail_Enroll extends Component{
 		this.listData = [];
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
-	  		schoolData:{},
 	  		flag_success : true,
 	  	};
 	}
@@ -33,7 +33,6 @@ export default class University_Detail_Enroll extends Component{
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
 				dataSource:object.ds.cloneWithRows(object.listData),
-				schoolData:json,
 				flag_success:true
 			})
 		}else{
@@ -64,17 +63,37 @@ export default class University_Detail_Enroll extends Component{
 
 	_renderRow(rowData,sectionID,rowID){
 		return(
-			<View style={{padding:15}}>
-				<View style={{flexDirection:'row'}}>
-					<Text style={{flex:1,fontSize:14,color:'#4a4a4a'}}>{rowData.name}</Text>
-					<Text style={{fontSize:12,color:'#4a4a4a'}}>专业代号{rowData.code}</Text>
+			<View>
+				<View style={{height:44,alignItems:'center',justifyContent:'center'}}>
+					<Text style={{fontSize:13,color:'#444444'}}>{rowData.clazz}{rowData.batch}</Text>
+					<Text style={{fontSize:11,color:'#444444'}}>选测科目等级要求： {rowData.doc[0].rank}</Text>
 				</View>
-				<View style={{flexDirection:'row',justifyContent:'space-around',marginTop:10}}>
-					<Text style={{fontSize:14,color:'#999999'}}>计划数：<Text style={{color:'#bdadce'}}>{rowData.num}人</Text></Text>
-					<Text style={{fontSize:14,color:'#999999'}}>学制：<Text style={{color:'#bdadce'}}>{rowData.year}年</Text></Text>
-					<Text style={{fontSize:14,color:'#999999'}}>学费：<Text style={{color:'#bdadce'}}>{rowData.cost}元</Text></Text>
-				</View>
-				<View style={{height:0.5,backgroundColor:'#d5d5d5',marginTop:15}}/>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				{
+					rowData.doc.map(function(item,index){
+						return(
+							<View>
+								<View style={{flexDirection:'row',alignItems:'center',paddingTop:10,paddingBottom:10}}>
+									<View style={{flex:4,justifyContent:'center'}}>
+										<Text style={{fontSize:14,color:'#444444',marginLeft:10,}}>{item.name}</Text>
+										<Text style={{fontSize:10,color:'#666666',marginTop:4,marginLeft:10,}}>专业代号 {item.code}</Text>
+									</View>
+									<View style={{flex:1,alignItems:'center',minHeight:'300px'}}>
+										<Text style={{fontSize:12,color:'#444444'}}>{item.num}人</Text>
+									</View>
+									<View style={{flex:1,alignItems:'center'}}>
+										<Text style={{fontSize:12,color:'#444444'}}>{item.year}</Text>
+									</View>
+									<View style={{flex:1,alignItems:'center'}}>
+										<Text style={{fontSize:12,color:'#444444'}}>{item.cost}</Text>
+									</View>
+								</View>
+								<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+							</View>
+						)
+					})
+				}
+				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
 			</View>
 		)
 	}
@@ -82,22 +101,25 @@ export default class University_Detail_Enroll extends Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-				<App_Title navigator={this.props.navigator}/>
-				<Image 
-					style={{width:global.windowWidth,height:global.windowWidth/2,backgroundColor:'transparent'}}
-					source={require('image!detail_bg_cloud')}>
-					<View style={{height:40,paddingLeft:20,paddingRight:20,flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-						<Text style={{fontSize:15,color:'white'}}>{this.state.schoolData.name}</Text>
-						<Text style={{fontSize:12,color:'white'}}>院校代号 {this.state.schoolData.code}</Text>
+				<App_Title title={'招生计划'} navigator={this.props.navigator}/>
+				<View style={{flexDirection:'row',height:30,backgroundColor:'#fafafa'}}>
+					<View style={{flex:4,alignItems:'center',justifyContent:'center'}}>
+						<Text style={{fontSize:11,color:'#999999'}}>专业</Text>
 					</View>
-					<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10,marginRight:10}}/>
-					<View style={{paddingLeft:20,paddingRight:20,paddingTop:12}}>
-						<Text style={{fontSize:12,color:'white'}}>选测科目等级要求：{this.state.schoolData.rank}</Text>
-						<Text style={{fontSize:12,color:'white',marginTop:6}}>联系电话：{this.state.schoolData.tel}</Text>
-						<Text style={{fontSize:12,color:'white',marginTop:6}}>联系网址：{this.state.schoolData.web}</Text>
-						<Text style={{fontSize:12,color:'white',marginTop:6}}>学院地址：{this.state.schoolData.address}</Text>
+					<View style={{width:0.5,backgroundColor:'#d5d5d5'}}/>
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Text style={{fontSize:11,color:'#999999'}}>计划数</Text>
 					</View>
-				</Image>
+					<View style={{width:0.5,backgroundColor:'#d5d5d5'}}/>
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Text style={{fontSize:11,color:'#999999'}}>学制</Text>
+					</View>
+					<View style={{width:0.5,backgroundColor:'#d5d5d5'}}/>
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Text style={{fontSize:11,color:'#999999'}}>学费</Text>
+					</View>
+				</View>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				{
 					this.state.flag_success
 					?

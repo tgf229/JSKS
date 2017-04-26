@@ -163,7 +163,7 @@ export default class WishFilter extends React.Component{
 				  	</View>
 				  	</TouchableHighlight>
 
-					<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:15}}/>
+					<View style={{height:1,backgroundColor:'#d5d5d5',marginLeft:15}}/>
 					<TouchableHighlight
 				  	  onPress={()=>this.showTypeList(2)}
 				  	  underlayColor='white'>
@@ -176,7 +176,7 @@ export default class WishFilter extends React.Component{
 					  	</View>
 				  	</TouchableHighlight>
 				  	
-				  	<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:15}}/>
+				  	<View style={{height:1,backgroundColor:'#d5d5d5',marginLeft:15}}/>
 				  	<TouchableHighlight
 				  	  onPress={()=>this.showTypeList(1)}
 				  	  underlayColor='white'>
@@ -189,7 +189,7 @@ export default class WishFilter extends React.Component{
 					  	</View>
 				  	</TouchableHighlight>
 
-				  	<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:15}}/>
+				  	<View style={{height:1,backgroundColor:'#d5d5d5',marginLeft:15}}/>
 				  	<TouchableHighlight
 				  	  onPress={()=>this.showTypeList(3)}
 				  	  underlayColor='white'>
@@ -202,7 +202,7 @@ export default class WishFilter extends React.Component{
 					  	</View>
 				  	</TouchableHighlight>
 
-				  	<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:15}}/>
+				  	<View style={{height:1,backgroundColor:'#d5d5d5',marginLeft:15}}/>
 				  	<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20,backgroundColor:'white'}}>
 				  		<Text style={{fontSize:15,color:'#666666'}}>211</Text>
 				  		<Switch onTintColor='#ff902d'style={{position:'absolute',top:12,right:20}}
@@ -211,7 +211,7 @@ export default class WishFilter extends React.Component{
 				  		/>
 				  	</View>
 
-				  	<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:15}}/>
+				  	<View style={{height:1,backgroundColor:'#d5d5d5',marginLeft:15}}/>
 				  	<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20,backgroundColor:'white'}}>
 				  		<Text style={{fontSize:15,color:'#666666'}}>985</Text>
 				  		<Switch onTintColor='#ff902d'style={{position:'absolute',top:12,right:20}}
