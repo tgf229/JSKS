@@ -10,49 +10,28 @@ import {
 	Image} from 'react-native';
 
 import University_Detail_Enroll from './University_Detail_Enroll';
-import {BUS_700501,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {YEAR_2017,YEAR_2016,YEAR_2015,YEAR_2014,YEAR_2013,BUS_700501,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 export default class University_Detail_Three extends Component{
 
 	constructor(props) {
 	  	super(props);
 	  	this.state = {
-	  		detail:{}
+
 	  	};
 	}
 
-	//列表请求回调
-	_BUS_700501_CB(object,json){
-		console.log(json);
-		if (json.retcode === '000000') {
-			object.setState({
-				detail:json.detail
-			})
-		}else{
-
-		}
-	}
-
-	//请求
-	_BUS_700501_REQ(){
-		var params={
-			encrypt:'none'
-		}
-		netClientTest(this,BUS_700501,this._BUS_700501_CB,params);
-	}
-
-	_rowClick = ()=>{
+	_rowClick(index){
 		this.props.navigator.push({
-			component:University_Detail_Enroll
+			component:University_Detail_Enroll,
+			params:{
+				year:index,
+				code:this.props.detail.code
+			}
 		})
 	};
 
-	componentDidMount() {
-		this._BUS_700501_REQ();
-	}
-
 	render(){
-		console.log('render3')
-		const detail = this.state.detail
+		const detail = this.props.detail
 		return(
 			<View style={{width:global.windowWidth}}>
 				<View style={{padding:15}}>
@@ -67,15 +46,38 @@ export default class University_Detail_Three extends Component{
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 
 					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}
-					onPress={this._rowClick}>
-					<Text style={{fontSize:14,color:'#444444'}}>2016年招生计划</Text>
+					onPress={()=>this._rowClick(YEAR_2017)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2017}年招生计划</Text>
 					<Image source={require('image!arrow_grey')}/>
 				</TouchableOpacity>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
-				<View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}>
-					<Text style={{fontSize:14,color:'#444444'}}>2015年招生计划</Text>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2016)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2016}年招生计划</Text>
 					<Image source={require('image!arrow_grey')}/>
-				</View>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2015)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2015}年招生计划</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2014)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2014}年招生计划</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2013)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2013}年招生计划</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 
 			</View>

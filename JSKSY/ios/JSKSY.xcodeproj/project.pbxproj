@@ -13,40 +13,40 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* MyProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyProjectTests.m */; };
-		0C1F6D4D1CDB2A7500097697 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D4C1CDB2A7500097697 /* libBaiduMobStat.a */; settings = {ASSET_TAGS = (); }; };
+		0C1F6D4D1CDB2A7500097697 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D4C1CDB2A7500097697 /* libBaiduMobStat.a */; };
 		0C1F6D5B1CDB2C0600097697 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5A1CDB2C0600097697 /* JavaScriptCore.framework */; };
 		0C1F6D5D1CDB2C1A00097697 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5C1CDB2C1A00097697 /* Security.framework */; };
 		0C1F6D5F1CDB2C9200097697 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D5E1CDB2C9200097697 /* libstdc++.tbd */; };
 		0C1F6D611CDB2C9B00097697 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D601CDB2C9B00097697 /* CoreLocation.framework */; };
 		0C1F6D631CDB2CB200097697 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D621CDB2CB200097697 /* SystemConfiguration.framework */; };
 		0C1F6D651CDB2CC100097697 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F6D641CDB2CC100097697 /* CoreTelephony.framework */; };
-		0C4D912E1CE9B67600DEF9F0 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D912A1CE9B67600DEF9F0 /* DES3Util.m */; settings = {ASSET_TAGS = (); }; };
-		0C4D912F1CE9B67600DEF9F0 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D912C1CE9B67600DEF9F0 /* GTMBase64.m */; settings = {ASSET_TAGS = (); }; };
-		0C789C581CE066F100FECB79 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C561CE066F100FECB79 /* jpush-ios-2.1.6.a */; settings = {ASSET_TAGS = (); }; };
+		0C4D912E1CE9B67600DEF9F0 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D912A1CE9B67600DEF9F0 /* DES3Util.m */; };
+		0C4D912F1CE9B67600DEF9F0 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D912C1CE9B67600DEF9F0 /* GTMBase64.m */; };
+		0C789C581CE066F100FECB79 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C561CE066F100FECB79 /* jpush-ios-2.1.6.a */; };
 		0C789C5A1CE0678600FECB79 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C591CE0678600FECB79 /* CFNetwork.framework */; };
 		0C789C5C1CE067A700FECB79 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C5B1CE067A700FECB79 /* CoreFoundation.framework */; };
 		0C789C5E1CE067CE00FECB79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C5D1CE067CE00FECB79 /* CoreGraphics.framework */; };
 		0C789C601CE067D700FECB79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C5F1CE067D700FECB79 /* Foundation.framework */; };
 		0C789C621CE067E000FECB79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C789C611CE067E000FECB79 /* UIKit.framework */; };
-		0C789C641CE0690300FECB79 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C789C631CE0690300FECB79 /* PushConfig.plist */; settings = {ASSET_TAGS = (); }; };
-		0C789CAE1CE08A1400FECB79 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C8E1CE08A1400FECB79 /* MKAnnotationView+WebCache.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CAF1CE08A1400FECB79 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C901CE08A1400FECB79 /* NSData+ImageContentType.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB01CE08A1400FECB79 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C921CE08A1400FECB79 /* SDImageCache.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB11CE08A1400FECB79 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C941CE08A1400FECB79 /* SDWebImageCompat.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB21CE08A1400FECB79 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C961CE08A1400FECB79 /* SDWebImageDecoder.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB31CE08A1400FECB79 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C981CE08A1400FECB79 /* SDWebImageDownloader.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB41CE08A1400FECB79 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9A1CE08A1400FECB79 /* SDWebImageDownloaderOperation.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB51CE08A1400FECB79 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9C1CE08A1400FECB79 /* SDWebImageManager.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB61CE08A1400FECB79 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9F1CE08A1400FECB79 /* SDWebImagePrefetcher.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB71CE08A1400FECB79 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA11CE08A1400FECB79 /* UIButton+WebCache.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB81CE08A1400FECB79 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA31CE08A1400FECB79 /* UIImage+GIF.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CB91CE08A1400FECB79 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA51CE08A1400FECB79 /* UIImage+MultiFormat.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CBA1CE08A1400FECB79 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA71CE08A1400FECB79 /* UIImage+WebP.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CBB1CE08A1400FECB79 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA91CE08A1400FECB79 /* UIImageView+HighlightedWebCache.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CBC1CE08A1400FECB79 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CAB1CE08A1400FECB79 /* UIImageView+WebCache.m */; settings = {ASSET_TAGS = (); }; };
-		0C789CBD1CE08A1400FECB79 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CAD1CE08A1400FECB79 /* UIView+WebCacheOperation.m */; settings = {ASSET_TAGS = (); }; };
+		0C789C641CE0690300FECB79 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C789C631CE0690300FECB79 /* PushConfig.plist */; };
+		0C789CAE1CE08A1400FECB79 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C8E1CE08A1400FECB79 /* MKAnnotationView+WebCache.m */; };
+		0C789CAF1CE08A1400FECB79 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C901CE08A1400FECB79 /* NSData+ImageContentType.m */; };
+		0C789CB01CE08A1400FECB79 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C921CE08A1400FECB79 /* SDImageCache.m */; };
+		0C789CB11CE08A1400FECB79 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C941CE08A1400FECB79 /* SDWebImageCompat.m */; };
+		0C789CB21CE08A1400FECB79 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C961CE08A1400FECB79 /* SDWebImageDecoder.m */; };
+		0C789CB31CE08A1400FECB79 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C981CE08A1400FECB79 /* SDWebImageDownloader.m */; };
+		0C789CB41CE08A1400FECB79 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9A1CE08A1400FECB79 /* SDWebImageDownloaderOperation.m */; };
+		0C789CB51CE08A1400FECB79 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9C1CE08A1400FECB79 /* SDWebImageManager.m */; };
+		0C789CB61CE08A1400FECB79 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789C9F1CE08A1400FECB79 /* SDWebImagePrefetcher.m */; };
+		0C789CB71CE08A1400FECB79 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA11CE08A1400FECB79 /* UIButton+WebCache.m */; };
+		0C789CB81CE08A1400FECB79 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA31CE08A1400FECB79 /* UIImage+GIF.m */; };
+		0C789CB91CE08A1400FECB79 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA51CE08A1400FECB79 /* UIImage+MultiFormat.m */; };
+		0C789CBA1CE08A1400FECB79 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA71CE08A1400FECB79 /* UIImage+WebP.m */; };
+		0C789CBB1CE08A1400FECB79 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CA91CE08A1400FECB79 /* UIImageView+HighlightedWebCache.m */; };
+		0C789CBC1CE08A1400FECB79 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CAB1CE08A1400FECB79 /* UIImageView+WebCache.m */; };
+		0C789CBD1CE08A1400FECB79 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C789CAD1CE08A1400FECB79 /* UIView+WebCacheOperation.m */; };
 		0CCD75CA1CCDB35B00435F14 /* libRCTDeviceUUID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCD75B61CCDB2B900435F14 /* libRCTDeviceUUID.a */; };
-		0CCD75EB1CCE0A8300435F14 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD75EA1CCE0A8300435F14 /* NativeBridge.m */; settings = {ASSET_TAGS = (); }; };
+		0CCD75EB1CCE0A8300435F14 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD75EA1CCE0A8300435F14 /* NativeBridge.m */; };
 		0CE1844E1CAA65D50093D251 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE1844D1CAA65D50093D251 /* libz.tbd */; };
 		0CE184CF1CAA68ED0093D251 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE184CE1CAA68E60093D251 /* libCodePush.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -605,6 +605,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = EN75GSEXH4;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "JSKSY" */;
@@ -905,6 +908,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu TEAMSUN Educational Technology Co.,Ltd. (EN75GSEXH4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu TEAMSUN Educational Technology Co.,Ltd. (EN75GSEXH4)";
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = EN75GSEXH4;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -921,7 +925,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamsun.jsksy;
 				PRODUCT_NAME = JSKSY;
-				PROVISIONING_PROFILE = "405d9ba8-6677-42b5-9980-a38a31dc7a9f";
+				PROVISIONING_PROFILE = "212cd111-8fe3-40df-a1fb-a64e7589e5e2";
+				PROVISIONING_PROFILE_SPECIFIER = TEAMSUN_JSKSY_ADHOC;
 			};
 			name = Debug;
 		};
@@ -932,6 +937,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu TEAMSUN Educational Technology Co.,Ltd. (EN75GSEXH4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu TEAMSUN Educational Technology Co.,Ltd. (EN75GSEXH4)";
+				DEVELOPMENT_TEAM = EN75GSEXH4;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -948,7 +954,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamsun.jsksy;
 				PRODUCT_NAME = JSKSY;
-				PROVISIONING_PROFILE = "405d9ba8-6677-42b5-9980-a38a31dc7a9f";
+				PROVISIONING_PROFILE = "212cd111-8fe3-40df-a1fb-a64e7589e5e2";
+				PROVISIONING_PROFILE_SPECIFIER = TEAMSUN_JSKSY_ADHOC;
 			};
 			name = Release;
 		};

@@ -62,7 +62,7 @@ export default class App_Title extends React.Component{
 							returnKeyType={'search'}
 							onChangeText={this._onNameChangeText}
 							onSubmitEditing={this._onSubmit}
-							enablesReturnKeyAutomatically={true}
+							enablesReturnKeyAutomatically={false}
 							placeholder='搜索学校'
 							/>
 					</View>				

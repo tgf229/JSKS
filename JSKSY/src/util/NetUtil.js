@@ -13,9 +13,9 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
 
-export const URL_ADDR = "https://app.jseea.cn/";
+// export const URL_ADDR = "https://app.jseea.cn/";
 // export const URL_ADDR = "http://58.213.145.35/";
-// export const URL_ADDR = "http://192.168.0.104:8888/web-mobile/";
+export const URL_ADDR = "http://192.168.0.102:8888/";
 // export const URL_ADDR = "http://192.168.1.104:8888/web-mobile/";
 // export const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 
@@ -42,7 +42,13 @@ export const BUS_700301 = "Bus700301";
 export const BUS_700401 = "Bus700401";
 export const BUS_700501 = "Bus700501";
 export const REQ_TIPS = "正在拼命查询中，请稍候...";
-export const ERROR_TIPS = "请求失败，请检查网络...";
+export const ERROR_TIPS = "未查询到任何信息...";
+
+export const YEAR_2017 = '2016';  // ============测试用  要改================
+export const YEAR_2016 = '2016';
+export const YEAR_2015 = '2015';
+export const YEAR_2014 = '2014';
+export const YEAR_2013 = '2013';
 
 //执行请求
 export function netClient(object,query) {
@@ -98,6 +104,6 @@ export function netClientTest(object,busName,busCB,params){
 		return response.json();
 	})
 	.then(json => busCB(object,json))
-	.catch(error => busCB(object,'error'));
+	.catch(error => busCB(object,error));
 
 }

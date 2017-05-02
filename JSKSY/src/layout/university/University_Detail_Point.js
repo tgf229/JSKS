@@ -10,7 +10,7 @@ import {
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700301,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700301,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title from '../common/App_Title';
 
 export default class University_Detail_Point extends Component{

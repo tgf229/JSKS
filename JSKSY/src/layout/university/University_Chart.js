@@ -23,18 +23,18 @@ export default class University_Chart extends Component {
         hScores.push(chartData[i].hScore);
         lScores.push(chartData[i].lScore);
       }
-      years.reverse();
-      hScores.reverse();
-      lScores.reverse();
+
       this.state = {
         year:years,
         lScore:lScores,
         hScore: hScores,
+        maxY:Math.max.apply(null,hScores)+10,
+        minY:Math.min.apply(null,lScores)-10
       }
   }
 
   render() {
-    console.log('render Chart');
+    console.log('render Chart'+this.state.maxY);
 
     const option = {
           //点击某一个点的数据的时候，显示出悬浮窗
@@ -53,6 +53,8 @@ export default class University_Chart extends Component {
           yAxis : [
               {
                   type : 'value',
+                  min: this.state.minY,
+                  max: this.state.maxY
                   // name : '销量(kg)'
               }
           ],

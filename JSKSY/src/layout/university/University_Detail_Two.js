@@ -11,7 +11,7 @@ import {
 	Image} from 'react-native';
 
 import University_Detail_Major_Point from './University_Detail_Major_Point';
-import {BUS_700301,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700301,netClientPost,ERROR_TIPS,REQ_TIPS,YEAR_2017,YEAR_2016,YEAR_2015,YEAR_2014,YEAR_2013} from '../../util/NetUtil';
 import University_Chart from './University_Chart';
 
 export default class University_Detail_Two extends Component{
@@ -28,7 +28,6 @@ export default class University_Detail_Two extends Component{
 
 	//详情请求回调
 	_BUS_700301_CB(object,json){
-		console.log(json)
 		if (json.retcode === '000000') {
 			object.setState({
 				chartData:json.doc
@@ -41,9 +40,12 @@ export default class University_Detail_Two extends Component{
 	//详情请求
 	_BUS_700301_REQ(){
 		var params={
-			encrypt:'none'
+			encrypt:'none',
+			code:this.props.detail.code,
+			clazz:this.props.detail.clazzDoc[this.state.currentClazzIndex].code,
+			batch:this.props.detail.clazzDoc[this.state.currentClazzIndex].batchDoc[this.state.currentBatchIndex].code
 		}
-		netClientTest(this,BUS_700301,this._BUS_700301_CB,params);
+		netClientPost(this,BUS_700301,this._BUS_700301_CB,params);
 	}
 
 	_firstInChartSearch(){
@@ -72,23 +74,25 @@ export default class University_Detail_Two extends Component{
 		this._BUS_700301_REQ();
 	}
 
-	_rowClick= ()=>{
+	_rowClick(index){
 		this.props.navigator.push({
-			component:University_Detail_Major_Point
+			component:University_Detail_Major_Point,
+			params:{
+				year:index,
+				code:this.props.detail.code
+			}
 		})
-	};
+	}
 
 	componentWillUnmount() {
 	  this.timer && clearTimeout(this.timer);
 	}
 
 	render(){
-		console.log('render2')
 		const detail = this.props.detail;
 		this.clazzDoc = detail.clazzDoc?detail.clazzDoc:[];
 		this.batchDoc = detail.clazzDoc?detail.clazzDoc[this.state.currentClazzIndex].batchDoc:[];
 		if (this.clazzDoc.length > 0 && this.batchDoc.length >0 && this.isFirstIn) {
-			console.log("render2 isFirstIn")
 			this._firstInChartSearch(); //如果第一次进来，且详情接口已经返回数据且数据不为空，则查询图表数据。
 			this.isFirstIn=false;
 		}
@@ -164,8 +168,6 @@ export default class University_Detail_Two extends Component{
 					<ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />
 				}
 
-				
-
 				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
 			{/*第二部分*/}
 				<View style={{flexDirection:'row',height:35,paddingLeft:15,alignItems:'center'}}>
@@ -175,15 +177,36 @@ export default class University_Detail_Two extends Component{
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 
 					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
-					onPress={this._rowClick}>
-					<Text style={{fontSize:14,color:'#444444'}}>2016年各专业录取分数线</Text>
+					onPress={()=>this._rowClick(YEAR_2017)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2017}年各专业录取分数线</Text>
 					<Image source={require('image!arrow_grey')}/>
 				</TouchableOpacity>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 
 					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
-					onPress={this._rowClick}>
-					<Text style={{fontSize:14,color:'#444444'}}>2015年各专业录取分数线</Text>
+					onPress={()=>this._rowClick(YEAR_2016)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2016}年各专业录取分数线</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2015)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2015}年各专业录取分数线</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2014)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2014}年各专业录取分数线</Text>
+					<Image source={require('image!arrow_grey')}/>
+				</TouchableOpacity>
+				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+				<TouchableOpacity 
+					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
+					onPress={()=>this._rowClick(YEAR_2013)}>
+					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2013}年各专业录取分数线</Text>
 					<Image source={require('image!arrow_grey')}/>
 				</TouchableOpacity>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>

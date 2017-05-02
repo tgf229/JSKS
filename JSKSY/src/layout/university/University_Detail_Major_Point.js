@@ -6,11 +6,12 @@ import {
 	ListView,
 	View,
 	PixelRatio,
+	ActivityIndicatorIOS,
 	Text,
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700401,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700401,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title from '../common/App_Title';
 
 export default class University_Detail_Major_Point extends Component{
@@ -19,6 +20,8 @@ export default class University_Detail_Major_Point extends Component{
 	  	super(props);
 		this.ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 != r2});
 		this.listData = [];
+		this.hasMore = false;
+		this.PAGE_NUM = 1;
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
@@ -27,8 +30,17 @@ export default class University_Detail_Major_Point extends Component{
 
 	//列表请求回调
 	_BUS_700401_CB(object,json){
-		console.log(json);
 		if (json.retcode === '000000') {
+			if (json.doc.length >= 10) {
+				object.hasMore = true;
+			}else if(json.doc.length == 0){
+				object.setState({
+					flag_success:false
+				})
+				return;
+			}else{
+				object.hasMore = false;
+			}
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
 				dataSource:object.ds.cloneWithRows(object.listData),
@@ -44,13 +56,18 @@ export default class University_Detail_Major_Point extends Component{
 	//列表请求
 	_BUS_700401_REQ(){
 		var params={
-			encrypt:'none'
+			encrypt:'none',
+			code:this.props.code,
+			year:this.props.year,
+			page:this.PAGE_NUM,
+			num:'10'
 		}
-		netClientTest(this,BUS_700401,this._BUS_700401_CB,params);
+		netClientPost(this,BUS_700401,this._BUS_700401_CB,params);
 	}
 
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
+  		this.PAGE_NUM = 1;
   		this.listData = [];
 
   		this._BUS_700401_REQ();
@@ -58,6 +75,21 @@ export default class University_Detail_Major_Point extends Component{
 		var rows={};
 		callback(rows);
     }
+
+    //列表底部loading
+	_renderFooter= ()=> {
+		if (this.hasMore) {
+			return <ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />;
+		}
+	};
+
+	//加载更多
+    onEndReached() {
+	 	if (this.hasMore) {
+	 		this.PAGE_NUM = this.PAGE_NUM+1;
+	 		this._BUS_700401_REQ();
+	 	}
+	}
 
 
 	_renderRow(rowData,sectionID,rowID){
@@ -87,8 +119,8 @@ export default class University_Detail_Major_Point extends Component{
 									</View>
 									<View style={{marginTop:15,backgroundColor:'#f3f9ff',height:22,flexDirection:'row',justifyContent:'space-around',alignItems:'center',borderRadius:4}}>
 										<Text style={{fontSize:12,color:'#8dadce'}}>平行志愿人数：{item.pNum}</Text>
-										<Text style={{fontSize:12,color:'#8dadce'}}>平行志愿人数：{item.sNum}</Text>
-										<Text style={{fontSize:12,color:'#8dadce'}}>平行志愿人数：{item.oNum}</Text>
+										<Text style={{fontSize:12,color:'#8dadce'}}>征求志愿人数：{item.sNum}</Text>
+										<Text style={{fontSize:12,color:'#8dadce'}}>服从志愿人数：{item.oNum}</Text>
 									</View>
 								</View>
 							</View>
@@ -112,6 +144,15 @@ export default class University_Detail_Major_Point extends Component{
 						renderRow={(rowData)=>this._renderRow(rowData)}
 
 						onFetch={this._onFetch.bind(this)}
+
+						pageSize={10}
+						automaticallyAdjustContentInsets={false}
+		        		showsVerticalScrollIndicator={true}
+						onEndReachedThreshold={10}
+						scrollsToTop={true}
+
+		        		onEndReached={()=>this.onEndReached()}
+						renderFooter={this._renderFooter}
 					/>
 					:
 					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>

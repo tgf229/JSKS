@@ -11,7 +11,7 @@ import {
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700501,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700501,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title from '../common/App_Title';
 
 export default class University_Detail_Enroll extends Component{
@@ -28,7 +28,6 @@ export default class University_Detail_Enroll extends Component{
 
 	//列表请求回调
 	_BUS_700501_CB(object,json){
-		console.log(json);
 		if (json.retcode === '000000') {
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
@@ -45,9 +44,11 @@ export default class University_Detail_Enroll extends Component{
 	//列表请求
 	_BUS_700501_REQ(){
 		var params={
-			encrypt:'none'
+			encrypt:'none',
+			code:this.props.code,
+			year:this.props.year
 		}
-		netClientTest(this,BUS_700501,this._BUS_700501_CB,params);
+		netClientPost(this,BUS_700501,this._BUS_700501_CB,params);
 	}
 
 	//列表请求数据 或下拉刷新
@@ -101,7 +102,7 @@ export default class University_Detail_Enroll extends Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-				<App_Title title={'招生计划'} navigator={this.props.navigator}/>
+				<App_Title title={this.props.year+'招生计划'} navigator={this.props.navigator}/>
 				<View style={{flexDirection:'row',height:30,backgroundColor:'#fafafa'}}>
 					<View style={{flex:4,alignItems:'center',justifyContent:'center'}}>
 						<Text style={{fontSize:11,color:'#999999'}}>专业</Text>

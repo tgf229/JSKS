@@ -12,7 +12,7 @@ import {
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700201,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700201,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import University_Detail_One from './University_Detail_One';
 import University_Detail_Two from './University_Detail_Two';
 import University_Detail_Three from './University_Detail_Three';
@@ -49,11 +49,10 @@ export default class University_Detail extends Component{
 
    	//详情请求回调
 	_BUS_700201_CB(object,json){
-		console.log(json);
 		if (json.retcode === '000000') {
 			object.setState({
 				detail:json.detail
-			})
+			});
 		}else{
 
 		}
@@ -62,9 +61,10 @@ export default class University_Detail extends Component{
 	//详情请求
 	_BUS_700201_REQ(){
 		var params={
-			encrypt:'none'
+			encrypt:'none',
+			uCode:this.props.uCode
 		}
-		netClientTest(this,BUS_700201,this._BUS_700201_CB,params);
+		netClientPost(this,BUS_700201,this._BUS_700201_CB,params);
 	}
 
    componentDidMount() {
@@ -134,7 +134,14 @@ export default class University_Detail extends Component{
 						<View>
 							<Text style={{fontSize:15,color:'white'}}>{this.state.detail.name}</Text>
 							<View style={{flexDirection:'row',marginTop:10}}>
-								{/*<Text style={styles.tipsText}>排名123</Text>*/}
+								{
+									this.state.detail.type
+									?
+									<Text style={styles.tipsText}>{this.state.detail.type}</Text>
+									:
+									null
+								}
+								
 								{
 									this.state.detail.isEyy == '1'
 									?
@@ -189,7 +196,7 @@ export default class University_Detail extends Component{
 					>
 					<University_Detail_One detail={this.state.detail}/>
 					<University_Detail_Two navigator={this.props.navigator} detail={this.state.detail}/>
-					<University_Detail_Three navigator={this.props.navigator}/>
+					<University_Detail_Three navigator={this.props.navigator} detail={this.state.detail}/>
 
 				</ScrollView>
 			</ScrollView>

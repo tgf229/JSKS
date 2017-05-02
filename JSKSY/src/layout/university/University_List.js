@@ -7,11 +7,12 @@ import {
 	View,
 	PixelRatio,
 	Text,
+	ActivityIndicatorIOS,
 	TouchableOpacity,
 	Image} from 'react-native';
 
 import GiftedListView from 'react-native-gifted-listview';
-import {BUS_700101,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
+import {BUS_700101,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title_Search from '../common/App_Title_Search';
 import University_Detail from './University_Detail';
 import WishFilter from '../wish/WishFilter';
@@ -22,6 +23,8 @@ export default class University_List extends Component{
 	  	super(props);
 		this.ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 != r2});
 		this.listData = [];
+		this.hasMore = false;
+		this.PAGE_NUM = 1;
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
@@ -45,8 +48,17 @@ export default class University_List extends Component{
 
 	//列表请求回调
 	_BUS_700101_CB(object,json){
-		console.log(json);
 		if (json.retcode === '000000') {
+			if (json.doc.length >= 10) {
+				object.hasMore = true;
+			}else if(json.doc.length == 0){
+				object.setState({
+					flag_success:false
+				})
+				return;
+			}else{
+				object.hasMore = false;
+			}
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
 				dataSource:object.ds.cloneWithRows(object.listData),
@@ -60,15 +72,28 @@ export default class University_List extends Component{
 	}
 
 	//列表请求
-	_BUS_700101_REQ(){
+	_BUS_700101_REQ(uName){
+		
 		var params={
-			encrypt:'none'
+			encrypt:'none',
+			uName:uName?uName:'',
+			batch:this.state.batchVal,
+			province:this.state.provId,
+			type:this.state.typeId,
+			major:this.state.marjorId,
+			isJbw:this.state.jbw?'1':'',
+			isEyy:this.state.eyy?'1':'',
+			page:this.PAGE_NUM,
+			num:'10'
 		}
-		netClientTest(this,BUS_700101,this._BUS_700101_CB,params);
+		console.log(params);
+		console.log('页码= '+params.page);
+		netClientPost(this,BUS_700101,this._BUS_700101_CB,params);
 	}
 
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
+  		this.PAGE_NUM = 1;
   		this.listData = [];
 
   		this._BUS_700101_REQ();
@@ -77,11 +102,15 @@ export default class University_List extends Component{
 		callback(rows);
     }
 
-    _rowClick = ()=>{
-    	this.props.navigator.push({
-    		component:University_Detail,
-    	});
-    };
+    //行点击
+	_rowPressed(rowData){
+		this.props.navigator.push({
+			component:University_Detail,
+			params:{
+				uCode:rowData.code,
+			},
+		});
+	}
 
     _onFilter(){
     	this.props.navigator.push({
@@ -102,24 +131,46 @@ export default class University_List extends Component{
     }
 
     FILTER_REQ(uName){
-    	console.log("uName= "+uName);
-    	console.log("batch= "+this.state.batch);
-    	console.log("batchVal= "+this.state.batchVal);
-    	console.log("provId= "+this.state.provId);
-    	console.log("provVal= "+this.state.provVal);
-    	console.log("typeId= "+this.state.typeId);
-    	console.log("typeVal= "+this.state.typeVal);
-    	console.log("marjorId= "+this.state.marjorId);
-    	console.log("marjorVal= "+this.state.marjorVal);
-    	console.log("eyy= "+this.state.eyy);
-    	console.log("jbw= "+this.state.jbw);
+    	// console.log("uName= "+uName);
+    	// console.log("batch= "+this.state.batch);
+    	// console.log("batchVal= "+this.state.batchVal);
+    	// console.log("provId= "+this.state.provId);
+    	// console.log("provVal= "+this.state.provVal);
+    	// console.log("typeId= "+this.state.typeId);
+    	// console.log("typeVal= "+this.state.typeVal);
+    	// console.log("marjorId= "+this.state.marjorId);
+    	// console.log("marjorVal= "+this.state.marjorVal);
+    	// console.log("eyy= "+this.state.eyy);
+    	// console.log("jbw= "+this.state.jbw);
+
+    	this.PAGE_NUM = 1;
+  		this.listData = [];
+    	this._BUS_700101_REQ(uName);
+    	if (this.refs.list_view) {
+    		this.refs.list_view.refs.listview.scrollTo({x: 0, y: 0, animated: false});
+    	}
+	}
+
+	//列表底部loading
+	_renderFooter= ()=> {
+		if (this.hasMore) {
+			return <ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />;
+		}
+	};
+
+	//加载更多
+    onEndReached() {
+	 	if (this.hasMore) {
+	 		this.PAGE_NUM = this.PAGE_NUM+1;
+	 		this._BUS_700101_REQ();
+	 	}
 	}
 
 	_renderRow(rowData,sectionID,rowID){
 		return(
 			<View>
 				<TouchableOpacity 
-					onPress={this._rowClick}>
+					onPress={()=>this._rowPressed(rowData)}>
 				<View style={{flexDirection:'row',padding:15}}>
 					<Image 
 						style={{width:120/4*PixelRatio.get(),height:120/4*PixelRatio.get()}}
@@ -199,9 +250,19 @@ export default class University_List extends Component{
 					this.state.flag_success
 					?
 					<GiftedListView
+						ref='list_view'
 						dataSource={this.state.dataSource}
 						renderRow={(rowData)=>this._renderRow(rowData)}
 						onFetch={this._onFetch.bind(this)}
+
+						pageSize={10}
+						automaticallyAdjustContentInsets={false}
+		        		showsVerticalScrollIndicator={true}
+						onEndReachedThreshold={10}
+						scrollsToTop={true}
+
+		        		onEndReached={()=>this.onEndReached()}
+						renderFooter={this._renderFooter}
 					/>
 					:
 					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
