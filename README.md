@@ -2,14 +2,14 @@
 
 ###-开发小结
 ---
-本次开发第一次正式使用RN，所以只开发了iOS版本，Android还是使用原生代码进行编写。
-版本管理：Git
-开发工具：Sublime Text3 + Xcode7
-使用组件：
-－热更新使用 react-native-code-push
-－Banner使用 react-native-swiper
-－列表上拉下拉使用 react-native-gifted-listview
-－UUID  react-native-device-uuid
+本次开发第一次正式使用RN，所以只开发了iOS版本，Android还是使用原生代码进行编写。<br>
+版本管理：Git<br>
+开发工具：Sublime Text3 + Xcode7<br>
+使用组件：<br>
+－热更新使用 react-native-code-push<br>
+－Banner使用 react-native-swiper<br>
+－列表上拉下拉使用 react-native-gifted-listview<br>
+－UUID  react-native-device-uuid<br>
 未使用redux，也暂时没有移植Android版本，后续跟进。
 
 
@@ -58,7 +58,7 @@
 
 ###-过程记录v2.1.0
 ---
-4-11 本地apache服务搭建
+4-11 本地apache服务搭建<br>
 4-12 ios UI布局：列表<br>
 4-13 ios UI布局：筛选<br>
 4-14 ios UI布局：详情构建，自定义手势滑动swiper&anim<br>
