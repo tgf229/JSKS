@@ -8,6 +8,7 @@ import {
 	PixelRatio,
 	Text,
 	ActivityIndicatorIOS,
+	InteractionManager,
 	TouchableOpacity,
 	Image} from 'react-native';
 
@@ -25,9 +26,11 @@ export default class University_List extends Component{
 		this.listData = [];
 		this.hasMore = false;
 		this.PAGE_NUM = 1;
+		this.uName = '';
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
+	  		isFirstIn:true,
 
 	  		batch:'请选择',
 			batchVal:'',
@@ -44,6 +47,21 @@ export default class University_List extends Component{
 			eyy:false,
 			jbw:false,
 	  	};
+	}
+
+	componentDidMount() {
+		//定时器， 1秒后查询数据
+		this.timer = setTimeout(
+	        ()=>{
+	            this.setState({
+	            	isFirstIn:false,
+	            });
+	        },1000
+	    )
+	}
+
+	componentWillUnmount() {
+	  this.timer && clearTimeout(this.timer);
 	}
 
 	//列表请求回调
@@ -72,11 +90,11 @@ export default class University_List extends Component{
 	}
 
 	//列表请求
-	_BUS_700101_REQ(uName){
+	_BUS_700101_REQ(){
 		
 		var params={
 			encrypt:'none',
-			uName:uName?uName:'',
+			uName:this.uName?this.uName:'',
 			batch:this.state.batchVal,
 			province:this.state.provId,
 			type:this.state.typeId,
@@ -104,12 +122,14 @@ export default class University_List extends Component{
 
     //行点击
 	_rowPressed(rowData){
-		this.props.navigator.push({
-			component:University_Detail,
-			params:{
-				uCode:rowData.code,
-			},
-		});
+		// InteractionManager.runAfterInteractions(()=>{
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:rowData.code,
+				},
+			});
+		// })
 	}
 
     _onFilter(){
@@ -142,7 +162,11 @@ export default class University_List extends Component{
     	// console.log("marjorVal= "+this.state.marjorVal);
     	// console.log("eyy= "+this.state.eyy);
     	// console.log("jbw= "+this.state.jbw);
+    	if(uName == undefined){
 
+    	}else{
+    		this.uName = uName;
+    	}
     	this.PAGE_NUM = 1;
   		this.listData = [];
     	this._BUS_700101_REQ(uName);
@@ -247,7 +271,16 @@ export default class University_List extends Component{
 				</View>
 				</TouchableOpacity>
 				{
-					this.state.flag_success
+				this.state.isFirstIn
+				?
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Image
+					  		source={require('image!load_pic')} />
+					  	<ActivityIndicatorIOS />
+					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>正在加载...</Text>
+					</View>
+				:
+				(	this.state.flag_success
 					?
 					<GiftedListView
 						ref='list_view'
@@ -270,6 +303,7 @@ export default class University_List extends Component{
 					  		source={require('image!load_pic')} />
 					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>{ERROR_TIPS}</Text>
 					</View>
+				)
 				}
 			</View>
 		);

@@ -6,6 +6,7 @@ import {
 	ListView,
 	View,
 	SectionList,
+	ActivityIndicatorIOS,
 	PixelRatio,
 	Text,
 	Image} from 'react-native';
@@ -23,7 +24,23 @@ export default class University_Detail_Enroll extends Component{
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
+	  		isFirstIn:true,
 	  	};
+	}
+
+	componentDidMount() {
+		//定时器， 1秒后查询数据
+		this.timer = setTimeout(
+	        ()=>{
+	            this.setState({
+	            	isFirstIn:false,
+	            });
+	        },1000
+	    )
+	}
+
+	componentWillUnmount() {
+	  this.timer && clearTimeout(this.timer);
 	}
 
 	//列表请求回调
@@ -61,7 +78,6 @@ export default class University_Detail_Enroll extends Component{
 		callback(rows);
     }
 
-
 	_renderRow(rowData,sectionID,rowID){
 		return(
 			<View>
@@ -94,7 +110,7 @@ export default class University_Detail_Enroll extends Component{
 						)
 					})
 				}
-				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
+				<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
 			</View>
 		)
 	}
@@ -122,7 +138,16 @@ export default class University_Detail_Enroll extends Component{
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				{
-					this.state.flag_success
+				this.state.isFirstIn
+				?
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Image
+					  		source={require('image!load_pic')} />
+					  	<ActivityIndicatorIOS />
+					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>正在加载...</Text>
+					</View>
+				:
+				(	this.state.flag_success
 					?
 					<GiftedListView
 						dataSource={this.state.dataSource}
@@ -136,6 +161,7 @@ export default class University_Detail_Enroll extends Component{
 					  		source={require('image!load_pic')} />
 					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>{ERROR_TIPS}</Text>
 					</View>
+				)
 				}
 			</View>
 		);

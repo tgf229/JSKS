@@ -25,19 +25,36 @@ export default class University_Detail_Major_Point extends Component{
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,
+	  		isFirstIn:true,
 	  	};
+	}
+
+	componentDidMount() {
+		//定时器， 3秒后查询数据
+		this.timer = setTimeout(
+	        ()=>{
+	            this.setState({
+	            	isFirstIn:false,
+	            });
+	        },1000
+	    )
+	}
+
+	componentWillUnmount() {
+	  this.timer && clearTimeout(this.timer);
 	}
 
 	//列表请求回调
 	_BUS_700401_CB(object,json){
 		if (json.retcode === '000000') {
-			if (json.doc.length >= 10) {
-				object.hasMore = true;
-			}else if(json.doc.length == 0){
+			if(object.PAGE_NUM == 1 && json.doc.length == 0){
 				object.setState({
 					flag_success:false
 				})
 				return;
+			}
+			if (json.doc.length >= 10) {
+				object.hasMore = true;
 			}else{
 				object.hasMore = false;
 			}
@@ -67,13 +84,13 @@ export default class University_Detail_Major_Point extends Component{
 
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
-  		this.PAGE_NUM = 1;
-  		this.listData = [];
+  			this.PAGE_NUM = 1;
+	  		this.listData = [];
 
-  		this._BUS_700401_REQ();
+	  		this._BUS_700401_REQ();
 
-		var rows={};
-		callback(rows);
+			var rows={};
+			callback(rows);
     }
 
     //列表底部loading
@@ -90,7 +107,6 @@ export default class University_Detail_Major_Point extends Component{
 	 		this._BUS_700401_REQ();
 	 	}
 	}
-
 
 	_renderRow(rowData,sectionID,rowID){
 		return(
@@ -127,7 +143,7 @@ export default class University_Detail_Major_Point extends Component{
 						)
 					})
 				}
-				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
+				<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
 			</View>
 		)
 	}
@@ -137,7 +153,16 @@ export default class University_Detail_Major_Point extends Component{
 			<View style={{flex:1,backgroundColor:'white'}}>
 				<App_Title title={'专业录取分数线'} navigator={this.props.navigator}/>
 				{
-					this.state.flag_success
+				this.state.isFirstIn
+				?
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Image
+					  		source={require('image!load_pic')} />
+					  	<ActivityIndicatorIOS />
+					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>正在加载...</Text>
+					</View>
+				:
+				(	this.state.flag_success
 					?
 					<GiftedListView
 						dataSource={this.state.dataSource}
@@ -160,6 +185,7 @@ export default class University_Detail_Major_Point extends Component{
 					  		source={require('image!load_pic')} />
 					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>{ERROR_TIPS}</Text>
 					</View>
+				)
 				}
 			</View>
 		);

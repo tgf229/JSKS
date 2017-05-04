@@ -1,0 +1,44 @@
+<view class="container" >
+    <!-- 学生信息 -->
+    <view class="top-bg">
+        <view class="top-span-bg">
+            <text class="top-span-text">姓名</text>
+            <text class="top-span-text">{{dataInfo.sName}}</text>
+        </view>
+        <view class="top-line"></view>
+        <view class="top-span-bg">
+            <text class="top-span-text">考籍号</text>
+            <text class="top-span-text">{{dataInfo.sNum}}</text>
+        </view>
+        <view class="top-line"></view>
+        <view class="top-span-bg">
+            <text class="top-span-text">身份证号</text>
+            <text class="top-span-text">{{dataInfo.sIdCard}}</text>
+        </view>
+    </view>
+    <image class="top-image" src="/resources/images/zz/zz_cloud.png"></image>
+
+    <!-- 成绩信息 -->
+    <view class="list-bg">
+        <block wx:for="{{dataInfo.doc}}">
+            <view class="list-item" style="width:{{windowWidth/3}}px">
+
+                <view wx:if="{{item.cheatType}}" class="list-item-image" style="background-color:#c2c2c2">
+                    <text class="list-item-image-text-level" style="font-size:40rpx">{{item.cheatType==0?'违纪':(item.cheatType==1?'作弊':(item.cheatType==2?'违规':(item.cheatType==3?'其他':'N/G')))}}</text>
+                </view>
+                <view wx:else class="list-item-image" style="background-color:{{PIC_COLORS[index]}}">
+                    <block wx:if="{{item.KMLevel==='通过'||item.KMLevel==='不通过'}}" >
+                        <text class="list-item-image-text-level" style="font-size:30rpx">{{item.KMLevel}}</text>
+                    </block>
+                    <block wx:else>
+                        <text class="list-item-image-text-level">{{item.KMLevel}}</text>
+                        <text class="list-item-image-text-tips">等级</text>
+                    </block>
+                </view>
+                
+                <text class="list-item-text">{{item.KMName}}</text>
+            </view>
+        </block>
+
+    </view>
+</view>

@@ -184,7 +184,7 @@ export default class University_Detail extends Component{
 						   }]
 					}}/>
 				</View>
-				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
+				<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
 				<ScrollView 
 					ref="scroll"
 					onMomentumScrollEnd ={this._onMomentumScrollEnd.bind(this)}

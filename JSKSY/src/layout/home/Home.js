@@ -85,7 +85,7 @@ export default class Home extends React.Component{
 			encrypt:'none',
 			type:'2',
 			model:model,
-			version:'2.0.0',
+			version:'2.1.0',
 			imei:uuid,
 		}
 		netClientPost(this,BUS_100101,this.BUS_100101_CB,params);

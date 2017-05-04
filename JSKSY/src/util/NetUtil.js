@@ -44,7 +44,7 @@ export const BUS_700501 = "Bus700501";
 export const REQ_TIPS = "正在拼命查询中，请稍候...";
 export const ERROR_TIPS = "未查询到任何信息...";
 
-export const YEAR_2017 = '2016';  // ============测试用  要改================
+export const YEAR_2017 = '2017';  
 export const YEAR_2016 = '2016';
 export const YEAR_2015 = '2015';
 export const YEAR_2014 = '2014';

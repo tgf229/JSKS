@@ -7,6 +7,7 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	ActivityIndicatorIOS,
+	InteractionManager,
 	Text,
 	Image} from 'react-native';
 
@@ -75,13 +76,15 @@ export default class University_Detail_Two extends Component{
 	}
 
 	_rowClick(index){
-		this.props.navigator.push({
-			component:University_Detail_Major_Point,
-			params:{
-				year:index,
-				code:this.props.detail.code
-			}
-		})
+		// InteractionManager.runAfterInteractions(()=>{
+			this.props.navigator.push({
+				component:University_Detail_Major_Point,
+				params:{
+					year:index,
+					code:this.props.detail.code
+				},
+			});
+		// })
 	}
 
 	componentWillUnmount() {
@@ -168,7 +171,7 @@ export default class University_Detail_Two extends Component{
 					<ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />
 				}
 
-				<View style={{height:10,backgroundColor:'#d5d5d5'}}/>
+				<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
 			{/*第二部分*/}
 				<View style={{flexDirection:'row',height:35,paddingLeft:15,alignItems:'center'}}>
 					<View style={{width:5,height:5,backgroundColor:'#90cd22'}}/>

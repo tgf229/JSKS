@@ -1,0 +1,8 @@
+<view class="container">
+    <input class="input-text" style="margin-top:108rpx" maxlength="20" placeholder="请输入你的考籍号" type="number" bindinput="bindInputChange" data-flag="num"/>
+    <input class="input-text" style="margin-top:42rpx" maxlength="6" placeholder="请输入你的身份证号后6位" type="idcard" bindinput="bindInputChange" data-flag="tick"/>
+    <text class="tips">身份证字母不区分大小写</text>
+    <view class="btn-view" style="margin-top:60rpx" bindtap="onBtnClick">
+        <text class="btn-text">查询</text>
+    </view>
+</view>

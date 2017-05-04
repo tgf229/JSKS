@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container" >
+  <!--banner -->
+  <block wx:if="{{swiperShow}}">
+    <swiper indicator-dots="true" autoplay="true" bindchange="swiperChange">
+      <block wx:key="unique" wx:for="{{swiperData}}">
+        <swiper-item style="display:block;height:350rpx">
+          <image class="banner" src="{{item.imageUrl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="banner-text-view">
+      <text class="banner-text">{{swiperText}}</text>
+    </view>
+  </block>
+   <block wx:else>
+     <image class="banner" src="/resources/images/common/default_banner.png"></image>
+   </block>
+
+  <!-- ICON -->
+  <view class="icon-bg">
+    <view class="icon-gk-bg">
+      <image bindtap="onBtnClick" data-flag="gk_channel" class="icon-gk-bg-left-image" src="/resources/images/home/home_icon_gk_channel.png"></image>
+      <view class="icon-gk-bg-right">
+        <view class="icon-gk-bg-right-top">
+          <image bindtap="onBtnClick" data-flag="wish" class="icon-gk-bg-right-top-image" src="/resources/images/home/home_icon_wish.png"></image>
+          <image bindtap="onBtnClick" data-flag="offer" class="icon-gk-bg-right-top-image-two" src="/resources/images/home/home_icon_offer.png"></image>
+        </view>
+        <image bindtap="onBtnClick" data-flag="point" class="icon-gk-bg-right-bottom-image" src="/resources/images/home/home_icon_point.png"></image>
+      </view>
+    </view>
+    <image bindtap="onBtnClick" data-flag="zz" class="icon-zz-image" src="/resources/images/home/home_icon_zz.png"></image>
+    <image class="icon-zz-image" src="/resources/images/home/home_icon_more.png"></image>
+  </view>
+
+  
+  <!-- 招考要闻 tips-->
+  <view class="list-tips">
+    <view class="list-tips-line"></view>
+    <text class="list-tips-text">招考要闻</text>
+    <view class="list-tips-line"></view>
+  </view>
+  
+  <!-- 列表 -->
+    <block wx:key="unique" wx:for="{{listData}}">
+        <view class="list-item">
+          <text class="list-item-text">{{item.name}}</text>
+          <text class="list-item-time">发布于 {{item.time}}</text>
+        </view>
+      <view class="list-item-line"></view>
+    </block>
+</view>

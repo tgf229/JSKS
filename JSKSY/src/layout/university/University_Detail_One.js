@@ -11,8 +11,6 @@ import {
 	Text,
 	Image} from 'react-native';
 
-import {BUS_700201,netClientTest,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
-
 export default class University_Detail_One extends Component{
 
 	constructor(props) {

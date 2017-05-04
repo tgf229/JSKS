@@ -35,7 +35,7 @@ export default class SetActivity extends React.Component{
 				  		source={require('image!set_icon')}
 				  		/>
 					<Text style={{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}}>江苏招考</Text>
-					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本P2.0.0-P-V1</Text>
+					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本D2.1.0-S-V1</Text>
 					<View style={{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width}}></View>
 					<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}}>
 						<Text style={{fontSize:15,color:'#666666'}}>消息推送</Text>

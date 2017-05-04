@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<scroll-view class="container" style="height:{{windowHeight}}px" scroll-y="true" bindscrolltolower="lower" >
+
+  <view class="icon-bg">
+    <view class="icon-view"  bindtap="onBtnClick" data-flag="point">
+      <image class="icon-img" src="/resources/images/gk/gk_icon_check.png"></image>
+      <text class="icon-text">高考查分</text>
+    </view>
+    <view class="icon-view" bindtap="onBtnClick" data-flag="wish">
+      <image class="icon-img" src="/resources/images/gk/gk_icon_query.png"></image>
+      <text class="icon-text">录取资料</text>
+    </view>
+    <view class="icon-view" bindtap="onBtnClick" data-flag="offer">
+      <image class="icon-img" src="/resources/images/gk/gk_icon_volunteer.png"></image>
+      <text class="icon-text">录取结果</text>
+    </view>
+  </view>
+  <view class="split-line"></view>
+  <view class="list-tips">
+    <view class="list-tips-line"></view>
+    <text class="list-tips-text">今日高考资讯</text>
+    <view class="list-tips-line"></view>
+  </view>
+  
+    <block wx:key="unique" wx:for="{{listData}}">
+      <view class="list-item">
+        <image class="list-item-img" src="{{item.imageUrl}}"></image>
+        <view class="list-item-right">
+          <text class="list-item-right-text">{{item.name}}</text>
+          <text class="list-item-right-time">{{item.time}}</text>
+        </view>
+      </view>
+      <view class="list-item-line"></view>
+    </block>
+</scroll-view>

@@ -6,6 +6,7 @@ import {
 	View,
 	ScrollView,
 	TouchableOpacity,
+	InteractionManager,
 	Text,
 	Image} from 'react-native';
 
@@ -21,13 +22,15 @@ export default class University_Detail_Three extends Component{
 	}
 
 	_rowClick(index){
-		this.props.navigator.push({
-			component:University_Detail_Enroll,
-			params:{
-				year:index,
-				code:this.props.detail.code
-			}
-		})
+		// InteractionManager.runAfterInteractions(()=>{
+			this.props.navigator.push({
+				component:University_Detail_Enroll,
+				params:{
+					year:index,
+					code:this.props.detail.code
+				}
+			});
+		// })
 	};
 
 	render(){

@@ -13,8 +13,7 @@
 未使用redux，也暂时没有移植Android版本，后续跟进。
 
 
-
-###-过程记录
+###-过程记录v1.0.0
 ---
 4-11 ios UI布局：主页<br>
 4-12 ios UI布局：查分<br>
@@ -56,3 +55,29 @@
 6-15 接口调测：志愿<br>
 6-16 细节调整<br>
 6-17 发布<br>
+
+###-过程记录v2.1.0
+---
+4-11 本地apache服务搭建
+4-12 ios UI布局：列表<br>
+4-13 ios UI布局：筛选<br>
+4-14 ios UI布局：详情构建，自定义手势滑动swiper&anim<br>
+
+4-17 ios UI布局：详情3个tab<br>
+4-18 ios UI布局：图表native-echarts<br>
+4-19 ios UI布局：分数线List&招生计划List<br>
+4-20 ios 接口本地内测
+4-21 Android UI布局：列表+筛选<br>
+
+4-24 Android UI布局：详情Tablayout+FragmentViewPager<br>
+4-25 Android UI布局：分数线List&招生计划List<br>
+4-26 Android UI布局：图表helloCharts<br>
+4-27 Android UI布局：查缺补漏+MaterialDesign<br>
+4-28 Android 接口本地内测<br>
+
+5-2  ios 接口alpha测：All<br>
+5-3  ios 版本打包内测+性能调优(push卡顿->异步刷新&图表Component不触发非必要render)<br>
+
+
+
+

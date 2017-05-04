@@ -33,9 +33,11 @@ export default class University_Chart extends Component {
       }
   }
 
-  render() {
-    console.log('render Chart'+this.state.maxY);
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
 
+  render() {
     const option = {
           //点击某一个点的数据的时候，显示出悬浮窗
           tooltip : {
