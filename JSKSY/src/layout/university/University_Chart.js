@@ -68,12 +68,34 @@ export default class University_Chart extends Component {
                   name:'录取最低分',
                   //默认显
                   type:'line',
-                  data:this.state.lScore
+                  data:this.state.lScore,
+                  markPoint : {
+                      data : [
+                          {type : 'max', name: '最大值'},
+                          {type : 'min', name: '最小值'}
+                      ]
+                  },
+                  markLine : {
+                      data : [
+                          {type : 'average', name: '平均值'}
+                      ]
+                  }
               },
               {
                   name:'录取最高分',
                   type:'line',
-                  data:this.state.hScore
+                  data:this.state.hScore,
+                  markPoint : {
+                      data : [
+                          {type : 'max', name: '最大值'},
+                          {type : 'min', name: '最小值'}
+                      ]
+                  },
+                  markLine : {
+                      data : [
+                          {type : 'average', name: '平均值'}
+                      ]
+                  }
               }
           ]
         };

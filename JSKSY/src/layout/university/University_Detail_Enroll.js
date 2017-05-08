@@ -46,6 +46,12 @@ export default class University_Detail_Enroll extends Component{
 	//列表请求回调
 	_BUS_700501_CB(object,json){
 		if (json.retcode === '000000') {
+			if(json.doc.length == 0){
+				object.setState({
+					flag_success:false
+				})
+				return;
+			}
 			object.listData = object.listData.concat(json.doc);
 			object.setState({
 				dataSource:object.ds.cloneWithRows(object.listData),

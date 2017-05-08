@@ -29,10 +29,15 @@ RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
   callback(@[[NSNull null],model]);
 }
 
-//RN调原生方法并获取回调   设置JPUSH别名
+//RN调原生方法   设置JPUSH别名
 RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
 {
   [self jpushSetAlias:alias];
+}
+
+RCT_EXPORT_METHOD(NATIVE_callPhone:(NSString *)num)
+{
+  [self callPhone:num];
 }
 
 //RN调原生方法并获取回调   取加密信息
@@ -56,6 +61,12 @@ RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSen
 {
   NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCDecrypt];
   callback(@[[NSNull null],data]);
+}
+
+-(void)callPhone:(NSString *)num{
+  NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"tel:%@",num];
+//   NSLog(@"str======%@",str);
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
 //设置别名

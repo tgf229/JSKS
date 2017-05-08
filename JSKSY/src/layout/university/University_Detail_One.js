@@ -9,7 +9,10 @@ import {
 	PixelRatio,
 	ProgressViewIOS,
 	Text,
+	Linking,
 	Image} from 'react-native';
+
+	var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
 export default class University_Detail_One extends Component{
 
@@ -18,6 +21,10 @@ export default class University_Detail_One extends Component{
 	  	this.state = {
 	  	};
 	}
+
+	callPhone = ()=>{
+		NativeBridge.NATIVE_callPhone(this.props.detail.tel);
+	};
 
 	render(){
 		const detail = this.props.detail;
@@ -54,11 +61,13 @@ export default class University_Detail_One extends Component{
 						<Text style={{color:'#777777',fontSize:12,fontWeight:'bold',marginTop:6}}>电话：{tel}</Text>
 						<Text ref="test" style={{color:'#777777',fontSize:12,fontWeight:'bold',marginTop:6}}>地址：{address}</Text>
 					</View>
-					<View style={{width:64,alignItems:'flex-end'}}>
+					<TouchableOpacity 
+						onPress={this.callPhone}
+						style={{width:64,alignItems:'flex-end'}}>
 						<Image 
 							style={{width:PixelRatio.get()*80/4,height:PixelRatio.get()*80/4}}
 							source={require('image!btn_call')}/>
-					</View>
+					</TouchableOpacity>
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<Text ref="test" style={{margin:15,color:'#777777',fontSize:12,fontWeight:'bold'}}>

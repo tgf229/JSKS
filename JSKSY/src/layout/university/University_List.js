@@ -206,7 +206,7 @@ export default class University_List extends Component{
 							{
 								rowData.type
 								?
-								<Text style={styles.tipsText}>{rowData.type}</Text>
+								<Text style={[styles.tipsText,{fontSize:12}]}>{rowData.type}</Text>
 								:
 								null
 							}

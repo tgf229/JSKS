@@ -54,7 +54,7 @@ export default class University_Detail_Two extends Component{
 		this.timer = setTimeout(
 	        ()=>{
 	            this._BUS_700301_REQ();
-	        },3000
+	        },2000
 	    )
 	}
 

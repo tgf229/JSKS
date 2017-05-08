@@ -30,7 +30,7 @@ export default class University_Detail_Major_Point extends Component{
 	}
 
 	componentDidMount() {
-		//定时器， 3秒后查询数据
+		//定时器， 1秒后查询数据
 		this.timer = setTimeout(
 	        ()=>{
 	            this.setState({

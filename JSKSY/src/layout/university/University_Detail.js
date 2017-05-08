@@ -25,6 +25,8 @@ export default class University_Detail extends Component{
 
 	constructor(props) {
 	  	super(props);
+	  	//重置全局变量 currentTab
+	  	currentTab = 0;
 	  	//TAB栏宽度
 	  	this.tabWidth = global.windowWidth/3;
 	  	//Tab栏下的滑块宽度
@@ -137,7 +139,7 @@ export default class University_Detail extends Component{
 								{
 									this.state.detail.type
 									?
-									<Text style={styles.tipsText}>{this.state.detail.type}</Text>
+									<Text style={[styles.tipsText,{fontSize:12}]}>{this.state.detail.type}</Text>
 									:
 									null
 								}
