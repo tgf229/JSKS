@@ -145,7 +145,7 @@ export default class University_Detail_Two extends Component{
 								return(
 									<TouchableOpacity 
 										onPress={()=>{that._batchClick(index)}}
-										style={{paddingLeft:10,paddingRight:10,flexDirection:'row',}}>
+										style={{padding:10,flexDirection:'row'}}>
 										<Image source={require('image!inputbox_blank')}/>
 										<Text style={{fontSize:11,color:'#444444',marginLeft:5}}>{item.name}</Text>
 									</TouchableOpacity>

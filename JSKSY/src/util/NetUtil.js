@@ -13,9 +13,9 @@ export function urlForQueryAndPage(key,value,pageNum) {
 	return 'http://api.nestoria.co.uk/api?'+queryString;
 }
 
-// export const URL_ADDR = "https://app.jseea.cn/";
+export const URL_ADDR = "https://app.jseea.cn/";
 // export const URL_ADDR = "http://58.213.145.35/";
-export const URL_ADDR = "http://192.168.0.102:8888/";
+// export const URL_ADDR = "http://192.168.0.102:8888/";
 // export const URL_ADDR = "http://192.168.1.104:8888/web-mobile/";
 // export const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 

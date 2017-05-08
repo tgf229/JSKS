@@ -129,7 +129,7 @@ export default class University_Detail extends Component{
 						<View
 							style={{width:60,height:60,borderRadius:30,backgroundColor:'white',marginLeft:11,marginRight:13,alignItems:'center',justifyContent:'center'}}>
 							<Image 
-								style={{width:40,height:40,backgroundColor:'#d5d5d5',}}
+								style={{width:40,height:40,backgroundColor:'white',}}
 								source={{uri:this.state.detail.logo}}
 								/>
 						</View>
