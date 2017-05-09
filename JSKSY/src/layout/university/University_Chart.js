@@ -75,11 +75,11 @@ export default class University_Chart extends Component {
                           {type : 'min', name: '最小值'}
                       ]
                   },
-                  markLine : {
-                      data : [
-                          {type : 'average', name: '平均值'}
-                      ]
-                  }
+                  // markLine : {
+                  //     data : [
+                  //         {type : 'average', name: '平均值'}
+                  //     ]
+                  // }
               },
               {
                   name:'录取最高分',
@@ -91,11 +91,11 @@ export default class University_Chart extends Component {
                           {type : 'min', name: '最小值'}
                       ]
                   },
-                  markLine : {
-                      data : [
-                          {type : 'average', name: '平均值'}
-                      ]
-                  }
+                  // markLine : {
+                  //     data : [
+                  //         {type : 'average', name: '平均值'}
+                  //     ]
+                  // }
               }
           ]
         };

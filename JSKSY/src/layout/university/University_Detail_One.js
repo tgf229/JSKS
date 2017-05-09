@@ -23,7 +23,11 @@ export default class University_Detail_One extends Component{
 	}
 
 	callPhone = ()=>{
-		NativeBridge.NATIVE_callPhone(this.props.detail.tel);
+		const tels = this.props.detail.tel;
+		if (tels) {
+			var tel = tels.split(",");
+			NativeBridge.NATIVE_callPhone(tel[0]);
+		}
 	};
 
 	render(){
@@ -70,7 +74,7 @@ export default class University_Detail_One extends Component{
 					</TouchableOpacity>
 				</View>
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
-				<Text ref="test" style={{margin:15,color:'#777777',fontSize:12,fontWeight:'bold'}}>
+				<Text ref="test" style={{margin:15,color:'#777777',fontSize:12,fontWeight:'bold',lineHeight:18}}>
 					{introduce}
 				</Text>
 			</View>

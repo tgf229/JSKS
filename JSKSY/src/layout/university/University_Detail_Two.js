@@ -130,13 +130,13 @@ export default class University_Detail_Two extends Component{
 					}
 					
 				</View>
-				<View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingTop:12}}>
+				<View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',paddingTop:12,flexWrap:'wrap'}}>
 					{
 						this.batchDoc.map(function(item,index) {
 							if (that.state.currentBatchIndex == index) {
 								return(
 									<View
-										style={{paddingLeft:10,paddingRight:10,flexDirection:'row',}}>
+										style={{padding:10,flexDirection:'row',}}>
 										<Image source={require('image!inputbox_press')}/>
 										<Text style={{fontSize:11,color:'#444444',marginLeft:5}}>{item.name}</Text>
 									</View>

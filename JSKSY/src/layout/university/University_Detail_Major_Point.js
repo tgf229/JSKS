@@ -121,7 +121,7 @@ export default class University_Detail_Major_Point extends Component{
 							<View>
 								<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 								<View style={{padding:15}}>
-									<View style={{flexDirection:'row',height:50}}>
+									<View style={{flexDirection:'row',height:70}}>
 										<View style={{flex:1,justifyContent:'space-between'}}>
 											<Text style={{fontSize:12,color:'#4a4a4a'}}>{item.name}</Text>
 											<Text style={{fontSize:16,color:'#ff902d'}}>{item.num}</Text>
