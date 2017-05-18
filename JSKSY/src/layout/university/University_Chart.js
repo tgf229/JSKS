@@ -15,21 +15,27 @@ export default class University_Chart extends Component {
   constructor(props) {
       super(props);
       var years = [];
-      var hScores = [];
-      var lScores = [];
+      var hScoreLines = [];
+      var lScoreLines = [];
+      var lScorePoints = [];
+      var hScorePoints = [];
       var chartData = this.props.chartData;
       for(var i=0; i<chartData.length; i++){
         years.push(chartData[i].year);
-        hScores.push(chartData[i].hScore);
-        lScores.push(chartData[i].lScore);
+        hScoreLines.push(chartData[i].hScore);
+        lScoreLines.push(chartData[i].lScore);
+        hScorePoints.push({name: chartData[i].year+'年', value: chartData[i].hScore, xAxis: chartData[i].year, yAxis: chartData[i].hScore});
+        lScorePoints.push({name: chartData[i].year+'年', value: chartData[i].lScore, xAxis: chartData[i].year, yAxis: chartData[i].lScore});
       }
 
       this.state = {
         year:years,
-        lScore:lScores,
-        hScore: hScores,
-        maxY:Math.max.apply(null,hScores)+10,
-        minY:Math.min.apply(null,lScores)-10
+        lScoreLines:lScoreLines,
+        hScoreLines: hScoreLines,
+        lScorePoints:lScorePoints,
+        hScorePoints:hScorePoints,
+        maxY:Math.max.apply(null,hScoreLines)+10,
+        minY:Math.min.apply(null,lScoreLines)-10
       }
   }
 
@@ -68,12 +74,13 @@ export default class University_Chart extends Component {
                   name:'录取最低分',
                   //默认显
                   type:'line',
-                  data:this.state.lScore,
+                  data:this.state.lScoreLines,
                   markPoint : {
-                      data : [
-                          {type : 'max', name: '最大值'},
-                          {type : 'min', name: '最小值'}
-                      ]
+                    data:this.state.lScorePoints,
+                      // data : [
+                      //     {type : 'max', name: '最大值'},
+                      //     {type : 'min', name: '最小值'}
+                      // ]
                   },
                   // markLine : {
                   //     data : [
@@ -84,12 +91,9 @@ export default class University_Chart extends Component {
               {
                   name:'录取最高分',
                   type:'line',
-                  data:this.state.hScore,
+                  data:this.state.hScoreLines,
                   markPoint : {
-                      data : [
-                          {type : 'max', name: '最大值'},
-                          {type : 'min', name: '最小值'}
-                      ]
+                    data:this.state.hScorePoints,
                   },
                   // markLine : {
                   //     data : [

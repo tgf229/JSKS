@@ -12,12 +12,15 @@ import React, {
   PixelRatio,
   Navigator,
   TouchableHighlight,
+  TouchableOpacity,
   View
 } from 'react-native';
 
 import PointSearch from '../../point/PointSearch';
 import WishAgreement from '../../wish/WishAgreement';
 import OfferSearch from '../../offer/OfferSearch';
+import Banner from '../../home/component/Banner';
+import University_List from '../../university/University_List';
 
 
 export default class GK_Header extends React.Component{
@@ -29,28 +32,34 @@ export default class GK_Header extends React.Component{
 	}
 
 	onBtnClick(flag){
-		const { navigator } = this.props.homeObj.props;
 		switch(flag){
 			case 1:
-				if(navigator) {
-			            navigator.push({
-			                component: PointSearch,
-			            })
-			        }
+			    this.props.navigator.push({
+			            component: PointSearch,
+	            })
 				break;
 			case 2:
-				if(navigator) {
-			            navigator.push({
+				 this.props.navigator.push({
 			                component: WishAgreement,
-			            })
-			        }
+			        })
 				break;
 			case 3:
-				if(navigator) {
-			            navigator.push({
+				 this.props.navigator.push({
 			                component: OfferSearch,
 			            })
-			        }
+				break;
+			case 4:
+				 this.props.navigator.push({
+			                component: University_List,
+			            })
+				break;
+			case 5:
+				 this.props.navigator.push({
+			            component: University_List,
+			            params:{
+			            	channel:'1'
+			            }
+			        })
 				break;
 			default:
 				console.log('按钮=其他');
@@ -60,8 +69,9 @@ export default class GK_Header extends React.Component{
 
 	render(){
 		return(
-			<View style={{backgroundColor:'#eeeeee'}}>
-					<View style={{flexDirection:'row',backgroundColor:'#ffffff'}}>
+			<View style={{backgroundColor:'#f3f3f3'}}>
+					<Banner navigator={this.props.navigator} type={'1'}></Banner>
+					<View style={{flexDirection:'row',backgroundColor:'#ffffff',marginTop:10}}>
 						<TouchableHighlight
 								style={{flex:1,paddingTop:12,paddingBottom:12}}
 								onPress={()=>this.onBtnClick(1)}
@@ -95,7 +105,6 @@ export default class GK_Header extends React.Component{
 								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取结果</Text>
 							</View>
 						</TouchableHighlight>
-					{/* 
 						<TouchableHighlight
 								style={{flex:1,paddingTop:12,paddingBottom:12}}
 								onPress={()=>this.onBtnClick(4)}
@@ -103,19 +112,29 @@ export default class GK_Header extends React.Component{
 							<View>
 								<Image
 								  style={{alignSelf:'center'}}
-								  source={require('image!home_icon_set')} />
-								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>系统设置</Text>
+								  source={require('image!icon_yuanxiaoku')} />
+								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>院校库</Text>
 							</View>
 						</TouchableHighlight>
-					*/}
 					</View>
-					<View style={{backgroundColor:'#ffffff',marginTop:12,height:30,flexDirection:'row',paddingLeft:10,paddingRight:10}}>
-						<View style={{justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
-							<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
-							<Text style={{marginLeft:13,marginRight:13,fontSize:12,color:'#999999'}}>今日高考资讯</Text>
-							<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
-						</View>
+					{
+						global.init_gkAdSchool === '1'
+						?
+						<TouchableOpacity
+							onPress={()=>this.onBtnClick(5)}>
+							<Image 
+								style={{marginTop:11,marginLeft:11,marginRight:11,width:global.windowWidth-22}}
+								source={require('image!gk_school_icon')} />
+						</TouchableOpacity>
+						:
+						null
+					}
+					<View style={{height:33,flexDirection:'row',marginTop:11,paddingLeft:15,alignItems:'center',backgroundColor:'white'}}>
+						<Image 
+							source={require('image!icon_news')}/>
+						<Text style={{marginLeft:5,textSize:'12',color:'#444444'}}>高考资讯</Text>
 					</View>
+					<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 			</View>
 		)
 	}

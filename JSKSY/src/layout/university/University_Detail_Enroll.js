@@ -101,13 +101,13 @@ export default class University_Detail_Enroll extends Component{
 										<Text style={{fontSize:14,color:'#444444',marginLeft:10,}}>{item.name}</Text>
 										<Text style={{fontSize:10,color:'#666666',marginTop:4,marginLeft:10,}}>专业代号 {item.code}</Text>
 									</View>
-									<View style={{flex:1,alignItems:'center',minHeight:'300px'}}>
+									<View style={{flex:1,alignItems:'center',borderLeftWidth:0.5,borderColor:'#d5d5d5'}}>
 										<Text style={{fontSize:12,color:'#444444'}}>{item.num}人</Text>
 									</View>
-									<View style={{flex:1,alignItems:'center'}}>
+									<View style={{flex:1,alignItems:'center',borderLeftWidth:0.5,borderColor:'#d5d5d5'}}>
 										<Text style={{fontSize:12,color:'#444444'}}>{item.year}</Text>
 									</View>
-									<View style={{flex:1,alignItems:'center'}}>
+									<View style={{flex:1,alignItems:'center',borderLeftWidth:0.5,borderColor:'#d5d5d5'}}>
 										<Text style={{fontSize:12,color:'#444444'}}>{item.cost}</Text>
 									</View>
 								</View>

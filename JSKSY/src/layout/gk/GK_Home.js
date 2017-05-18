@@ -17,146 +17,180 @@ import React, {
   View
 } from 'react-native';
 import GK_Header from './component/GK_Header'
-import {BUS_100301 ,netClientPost} from '../../util/NetUtil';
+import {BUS_100501 ,netClientPost} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import Web from '../webview/Web';
+import University_Detail from '../university/University_Detail';
+import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
-var ds;
-var PAGE_NUM;
-var NUM = 10;
+// var ds;
+// var PAGE_NUM;
+// var NUM = 10;
 //列表数据集合
-var listData = [];
+// var listData = [];
 //是否加载完毕所有数据
-var hasMore;
+// var hasMore;
 
 export default class GK_Home extends React.Component{
 
 	constructor(props){
 		super(props);
-		ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-		PAGE_NUM = 1;
-		hasMore = false;
+		this.listData = [];
+		this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+		// PAGE_NUM = 1;
+		// hasMore = false;
 		this.state={
-			dataSource: ds.cloneWithRows(listData),
+			isFirstIn:true,
+			dataSource: this.ds.cloneWithRows(this.listData),
 		};
+	}
+
+	componentDidMount() {
+		//定时器， 1秒后查询数据
+		this.timer = setTimeout(
+	        ()=>{
+	            this.setState({
+	            	isFirstIn:false,
+	            });
+	        },1000
+	    )
+	}
+
+	componentWillUnmount() {
+	  this.timer && clearTimeout(this.timer);
 	}
 
 	//行点击
 	rowPressed(rowData){
-		this.props.navigator.push({
-			component:Web,
-			params:{
-				url:rowData.aUrl,
-			},
-		});
+		if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+			const dId = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:dId,
+				},
+			});
+		}else{
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:rowData.aUrl,
+				},
+			});
+		}
 	}
 
 	//渲染cell
 	renderRow(rowData,sectionID,rowID){
-		if (rowData.type === '2') {
-		return(
-			<TouchableHighlight
-				onPress={()=>this.rowPressed(rowData)}
-			    underlayColor='#fcfcfc'>
-			  	<View>
-			  		<View style={{flexDirection:'row',padding:14}}>
-			 			<Image
-				  			 style={{width:PixelRatio.get() * 130/4,height:PixelRatio.get() * 130/4}}
-				 			 source={{uri: rowData.imageUrl}} />
-				  			<View style={{height:PixelRatio.get() * 130/4,marginLeft:13,flex:1}}>
-				  				<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
-				  				<Text style={styles.time}>{rowData.time}</Text>
-				  			</View>
-		  			</View>
-			  		<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}></View>
-			  	</View>
-			</TouchableHighlight>
-			)
-		}else{
+		if (rowData.type === '1') {
 		return(
 			<TouchableHighlight
 				onPress={()=>this.rowPressed(rowData)}
 			    underlayColor='#fcfcfc'>
 			  	<View>
 			  		<View style={{padding:14}}>
-			  			<Text style={styles.title} numberOfLines={1}>{rowData.name}</Text>
 			 			<Image
-				  			 style={{marginTop:11 ,width:Dimensions.get('window').width-28, height:(Dimensions.get('window').width-28)*2/7}}
+				  			 style={{width:Dimensions.get('window').width-28, height:(Dimensions.get('window').width-28)*2/7}}
 				 			 source={{uri: rowData.imageUrl}} />
 		  			</View>
-			  		<View style={{height:0.5,backgroundColor:'#d5d5d5',marginLeft:10}}></View>
+			  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
+			  	</View>
+			</TouchableHighlight>
+			)
+		}else{
+		return(
+			<TouchableHighlight
+				onPress={()=>this.rowPressed(rowData)}
+			    underlayColor='#fcfcfc'>
+			  	<View>
+				  	<View style={{height:100,paddingTop:20,paddingBottom:20,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
+				  		<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
+				  		<Text style={styles.time}>发布于{rowData.time}</Text>
+				  	</View>
+			  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
 			  	</View>
 			</TouchableHighlight>
 			)
 		}
-		
 	}
 	
 	//头部界面
 	renderHeader(){
 		return(
-			<GK_Header homeObj={this}/>
+			<GK_Header navigator={this.props.navigator}/>
 		)
 	}
 
 	//列表底部loading
-	renderFooter() {
-		if (hasMore) {
-			return <ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />;
-		}
-	}
+	// renderFooter() {
+	// 	if (hasMore) {
+	// 		return <ActivityIndicatorIOS  style={{marginVertical: 30,marginBottom: 30}} />;
+	// 	}
+	// }
 
 	//列表接口回调
-	BUS_100301_CB(object,json){
+	BUS_100501_CB(object,json){
 		if (json.retcode === '000000') {
-			if (json.doc.length >= 10) {
-				hasMore = true;
-			}else{
-				hasMore = false;
-			}
-			listData = listData.concat(json.doc);
-			object.setState({dataSource:ds.cloneWithRows(listData)});
+			// if (json.doc.length >= 10) {
+			// 	hasMore = true;
+			// }else{
+			// 	hasMore = false;
+			// }
+			object.listData = object.listData.concat(json.doc);
+			object.setState({
+				dataSource:object.ds.cloneWithRows(object.listData)
+			});
 		}else{
 			console.log('Home BUS_100301_CB 失败');
 		}
 	}
 
 	//列表接口请求
-	BUS_100301_REQ(){
+	BUS_100501_REQ(){
 		var params = {
 			encrypt:'none',
-			page:PAGE_NUM,
-			num:NUM,
+			type:'1'
+			// page:PAGE_NUM,
+			// num:NUM,
 		}
-		netClientPost(this,BUS_100301,this.BUS_100301_CB,params);
+		netClientPost(this,BUS_100501,this.BUS_100501_CB,params);
 	}
 
 	//列表请求数据 或下拉刷新
   	_onFetch(page = 1, callback, options){
-  		PAGE_NUM = 1;
-  		listData = [];
+  		// PAGE_NUM = 1;
+  		this.listData = [];
 
-  		this.BUS_100301_REQ();
+  		this.BUS_100501_REQ();
 
 		var rows={};
 		callback(rows);
     }
 
     //加载更多
-    onEndReached() {
-	 	if (hasMore) {
-	 		PAGE_NUM = PAGE_NUM+1;
-			this.BUS_100301_REQ();
-	 	}
-	}
+ //    onEndReached() {
+	//  	if (hasMore) {
+	//  		PAGE_NUM = PAGE_NUM+1;
+	// 		this.BUS_100301_REQ();
+	//  	}
+	// }
 
 	render(){
 		return(
-			<View style={{flex:1}}>
+			<View style={{flex:1,backgroundColor:'white'}}>
 				<App_Title title={'高考频道'} navigator={this.props.navigator}/>
+				{this.state.isFirstIn
+				?
+					<View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+						<Image
+					  		source={require('image!load_pic')} />
+					  	<ActivityIndicatorIOS />
+					  	<Text style={{fontSize:20,color:'#888888',marginTop:10,marginBottom:80}}>正在加载...</Text>
+					</View>
+				:
 					<GiftedListView
 						dataSource={this.state.dataSource}
 						renderRow={(rowData) => this.renderRow(rowData)} 
@@ -166,15 +200,13 @@ export default class GK_Home extends React.Component{
 						automaticallyAdjustContentInsets={false}
 		        		showsVerticalScrollIndicator={false}
 
-		        		onEndReached={()=>this.onEndReached()}
 		        		renderHeader={this.renderHeader.bind(this)}
-		        		renderFooter={() => this.renderFooter()}
 						
 						onFetch={this._onFetch.bind(this)}
 			          	refreshable={true}           
 						style={{backgroundColor:'white'}}
 						/>
-				
+				}
 			</View>
 		)
 	}
@@ -184,14 +216,11 @@ const styles = StyleSheet.create({
 	time:{
 		fontSize:12,
 		color:'#999999',
-		position:'absolute',
-		left:1,
-		bottom:1,
-		height:13,
+		marginTop:12,
 	},
 	title:{
-		fontSize:16,
-		lineHeight:22,
+		fontSize:15,
+		lineHeight:20,
 		color:'#444444',
 	},
 });

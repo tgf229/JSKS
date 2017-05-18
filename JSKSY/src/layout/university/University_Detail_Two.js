@@ -180,13 +180,6 @@ export default class University_Detail_Two extends Component{
 				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 				<TouchableOpacity 
 					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
-					onPress={()=>this._rowClick(YEAR_2017)}>
-					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2017}年各专业录取分数线</Text>
-					<Image source={require('image!arrow_grey')}/>
-				</TouchableOpacity>
-				<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
-				<TouchableOpacity 
-					style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:28,paddingRight:15,height:44}}
 					onPress={()=>this._rowClick(YEAR_2016)}>
 					<Text style={{fontSize:14,color:'#444444'}}>{YEAR_2016}年各专业录取分数线</Text>
 					<Image source={require('image!arrow_grey')}/>

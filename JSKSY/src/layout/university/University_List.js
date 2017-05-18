@@ -15,6 +15,7 @@ import {
 import GiftedListView from 'react-native-gifted-listview';
 import {BUS_700101,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import App_Title_Search from '../common/App_Title_Search';
+import App_Title from '../common/App_Title';
 import University_Detail from './University_Detail';
 import WishFilter from '../wish/WishFilter';
 
@@ -94,6 +95,7 @@ export default class University_List extends Component{
 		
 		var params={
 			encrypt:'none',
+			channel:this.props.channel?this.props.channel:'',
 			uName:this.uName?this.uName:'',
 			batch:this.state.batchVal,
 			province:this.state.provId,
@@ -195,18 +197,19 @@ export default class University_List extends Component{
 			<View>
 				<TouchableOpacity 
 					onPress={()=>this._rowPressed(rowData)}>
-				<View style={{flexDirection:'row',padding:15}}>
+				<View style={{flexDirection:'row',padding:15,alignItems:'center'}}>
 					<Image 
-						style={{width:120/4*PixelRatio.get(),height:120/4*PixelRatio.get()}}
+						style={{width:90/4*PixelRatio.get(),height:90/4*PixelRatio.get()}}
 						source={{uri:rowData.logo}}
 						/>
-					<View style={{marginLeft:15,marginTop:5}}>
+					<View style={{marginLeft:20,padding:2}}>
 						<Text style={{fontSize:15,color:'#4a4a4a'}}>{rowData.name}</Text>
-						<View style={{flexDirection:'row',marginTop:15}}>
+						<View style={{flexDirection:'row',marginTop:10}}>
+							<Text style={styles.tipsText}>院校代号{rowData.code}</Text>
 							{
 								rowData.type
 								?
-								<Text style={[styles.tipsText,{fontSize:12}]}>{rowData.type}</Text>
+								<Text style={styles.tipsText_ch}>{rowData.type}</Text>
 								:
 								null
 							}
@@ -243,33 +246,41 @@ export default class University_List extends Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-				<App_Title_Search navigator={this.props.navigator} cbObj={this}/>
-				<TouchableOpacity
-					activeOpacity={1}
-					onPress={this._onFilter.bind(this)}>
-				<View style={{height:44,flexDirection:'row'}}>
-					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text style={{fontSize:13,color:'#888888'}}>地区</Text>
-						<Image style={{marginLeft:5}} source={this.state.provId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+				{this.props.channel == '1'
+					?
+					<App_Title title={'院校列表'} navigator={this.props.navigator}/>
+					:
+					<View>
+						<App_Title_Search navigator={this.props.navigator} cbObj={this}/>
+						<TouchableOpacity
+							activeOpacity={1}
+							onPress={this._onFilter.bind(this)}>
+						<View style={{height:44,flexDirection:'row'}}>
+							<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+								<Text style={{fontSize:13,color:'#888888'}}>地区</Text>
+								<Image style={{marginLeft:5}} source={this.state.provId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+							</View>
+							<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+								<Text style={{fontSize:13,color:'#888888'}}>批次</Text>
+								<Image style={{marginLeft:5}} source={this.state.batchVal?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+							</View>
+							<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+								<Text style={{fontSize:13,color:'#888888'}}>特色</Text>
+								<Image style={{marginLeft:5}} source={(this.state.eyy||this.state.jbw)?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+							</View>
+							<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+								<Text style={{fontSize:13,color:'#888888'}}>专业</Text>
+								<Image style={{marginLeft:5}} source={this.state.marjorId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+							</View>
+							<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+								<Text style={{fontSize:13,color:'#888888'}}>类别</Text>
+								<Image style={{marginLeft:5}} source={this.state.typeId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
+							</View>
+						</View>
+						<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+						</TouchableOpacity>
 					</View>
-					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text style={{fontSize:13,color:'#888888'}}>批次</Text>
-						<Image style={{marginLeft:5}} source={this.state.batchVal?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
-					</View>
-					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text style={{fontSize:13,color:'#888888'}}>特色</Text>
-						<Image style={{marginLeft:5}} source={(this.state.eyy||this.state.jbw)?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
-					</View>
-					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text style={{fontSize:13,color:'#888888'}}>专业</Text>
-						<Image style={{marginLeft:5}} source={this.state.marjorId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
-					</View>
-					<View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-						<Text style={{fontSize:13,color:'#888888'}}>类别</Text>
-						<Image style={{marginLeft:5}} source={this.state.typeId?require('image!school_triangle_orange'):require('image!school_triangle_grey')}/>
-					</View>
-				</View>
-				</TouchableOpacity>
+				}	
 				{
 				this.state.isFirstIn
 				?
@@ -315,6 +326,16 @@ const styles = StyleSheet.create({
 		marginRight:8,
 		paddingTop:3,
 		paddingBottom:3,
+		paddingLeft:6,
+		paddingRight:6,
+		backgroundColor:'#F0F0F0',
+		color:'#9ba0b0',
+		fontSize:10
+	},
+	tipsText_ch:{
+		marginRight:8,
+		paddingTop:4,
+		paddingBottom:3.5,
 		paddingLeft:6,
 		paddingRight:6,
 		backgroundColor:'#F0F0F0',

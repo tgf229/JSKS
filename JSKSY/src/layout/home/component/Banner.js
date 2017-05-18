@@ -12,8 +12,8 @@ import React, {
 import Swiper from 'react-native-swiper';
 import { netClientPost,BUS_100201} from '../../../util/NetUtil';
 import Web from '../../webview/Web';
-
-var listData = [];
+import University_Detail from '../../university/University_Detail';
+import {URL_SCHEMA_SCHOOL_DETAIL} from '../../../util/Global';
 
 export default class Banner extends React.Component{
 	constructor(props){
@@ -25,27 +25,32 @@ export default class Banner extends React.Component{
 	}
 
 	onBannerClick(item){
-		this.props.navigator.push({
-			component:Web,
-			params:{
-				url:item.aUrl,
-			},
-		});
+		if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+			const dId = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:dId,
+				},
+			});
+		}else{
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:item.aUrl,
+				},
+			});
+		}
 	}
 
 	//轮播通告回调
 	BUS_100201_CB(object,json){
 		if (json.retcode === '000000') {
 			if (json.doc.length !== 0) {
-				listData=listData.concat(json.doc);
 				object.setState({
-					// data: listData,
-					data:[{"imageUrl":"http://58.213.145.36:8081/imgs/edu/images/99/6d/d0/70a17cbf-acab-431e-8cf1-3b0e7065cf5f.jpg","aId":"140","name":"江苏教育考试院官方高清版","aUrl":"http://58.213.145.36:8081/imgs/edu/html/da/2016ml.html"},
-			{"imageUrl":"http://58.213.145.36:8081/imgs/edu/images/99/6d/d0/70a17cbf-acab-431e-8cf1-3b0e7065cf5f.jpg","aId":"140","name":"江苏教育考试院官方高清版","aUrl":"http://58.213.145.36:8081/imgs/edu/html/da/2016ml.html"}
-			],
+					data: json.doc,
 					isDataLoaded:true,
 				});
-				console.log('成功='+listData);
 			}
 		}else{
 			console.log('失败');
@@ -56,6 +61,7 @@ export default class Banner extends React.Component{
 	BUS_100201_REQ(){
 		var params = {
 			encrypt:'none',
+			type:this.props.type?this.props.type:'',
 		};
 		netClientPost(this,BUS_100201,this.BUS_100201_CB,params);
 	}
@@ -66,6 +72,7 @@ export default class Banner extends React.Component{
 
 	render(){
 		var bannerThis = this;
+		console.warn('banner render')
 		return(
 			<View>
 				{

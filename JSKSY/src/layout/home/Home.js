@@ -22,6 +22,8 @@ import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import DeviceUUID from "react-native-device-uuid";
 import Web from '../webview/Web';
+import University_Detail from '../university/University_Detail';
+import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -42,22 +44,48 @@ export default class Home extends React.Component{
 
 	//行点击
 	rowPressed(rowData){
-		this.props.navigator.push({
-			component:Web,
-			params:{
-				url:URL_ADDR+rowData.aUrl,
-			},
-		});
+		if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+			const dId = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:dId,
+				},
+			});
+		}else{
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:rowData.aUrl,
+				},
+			});
+		}
 	}
 
 	//渲染cell
 	renderRow(rowData,sectionID,rowID){
+		if (rowData.type === '1') {
 		return(
 			<TouchableHighlight
 				onPress={()=>this.rowPressed(rowData)}
 			    underlayColor='#fcfcfc'>
 			  	<View>
-				  	<View style={{height:100,paddingTop:22,paddingBottom:22,paddingLeft:16,paddingRight:16,flex:1,justifyContent:'center'}}>
+			  		<View style={{padding:14}}>
+			 			<Image
+				  			 style={{width:Dimensions.get('window').width-28, height:(Dimensions.get('window').width-28)*2/7}}
+				 			 source={{uri: rowData.imageUrl}} />
+		  			</View>
+			  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
+			  	</View>
+			</TouchableHighlight>
+			)
+		}else{
+		return(
+			<TouchableHighlight
+				onPress={()=>this.rowPressed(rowData)}
+			    underlayColor='#fcfcfc'>
+			  	<View>
+				  	<View style={{height:100,paddingTop:20,paddingBottom:20,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
 				  		<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
 				  		<Text style={styles.time}>发布于{rowData.time}</Text>
 				  	</View>
@@ -65,6 +93,7 @@ export default class Home extends React.Component{
 			  	</View>
 			</TouchableHighlight>
 			)
+		}
 	}
 	
 	//头部界面
@@ -76,7 +105,15 @@ export default class Home extends React.Component{
 
 	//初始化接口回调
 	BUS_100101_CB(object,json){
-		console.log('BUS_100101_CB成功');
+		if (json.retcode === '000000') {
+			if (json.conf) {
+				console.log('BUS_100101_CB成功');
+				global.init_gkAdSchool = json.conf.gkAdSchool?json.conf.gkAdSchool:''
+			}
+		}else{
+
+		}
+		
 	}
 
 	//初始化接口请求
@@ -85,7 +122,7 @@ export default class Home extends React.Component{
 			encrypt:'none',
 			type:'2',
 			model:model,
-			version:'2.1.0',
+			version:'2.2.0',
 			imei:uuid,
 		}
 		netClientPost(this,BUS_100101,this.BUS_100101_CB,params);
@@ -103,12 +140,23 @@ export default class Home extends React.Component{
 				}) 
 			});
 		if (this.props.adUrl) {
-			this.props.navigator.push({
-				component:Web,
-				params:{
-					url:this.props.adUrl,
-				},
-			});
+			const adUrl = this.props.adUrl;
+			if (adUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+				const dId = adUrl.substring(adUrl.lastIndexOf("/")+1);
+				this.props.navigator.push({
+					component:University_Detail,
+					params:{
+						uCode:dId,
+					},
+				});
+			}else{
+				this.props.navigator.push({
+					component:Web,
+					params:{
+						url:adUrl,
+					},
+				});
+			}
 		}
 	}
 
@@ -170,7 +218,7 @@ const styles = StyleSheet.create({
 		marginTop:12,
 	},
 	title:{
-		fontSize:16,
+		fontSize:15,
 		lineHeight:20,
 		color:'#444444',
 	},

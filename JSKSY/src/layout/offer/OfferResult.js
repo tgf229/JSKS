@@ -46,7 +46,7 @@ export default class OfferResult extends React.Component{
 	         await AsyncStorage.removeItem(STORAGE_KEY_STICKET);
 	         console.log('数据删除成功...');
 	         //调用原生 设置JPUSH别名
-	         NativeBridge.NATIVE_setAlias('');
+	         // NativeBridge.NATIVE_setAlias('');
 	      }catch(error){
 	         console.log('AsyncStorage错误'+error.message);
 	      }
@@ -59,7 +59,7 @@ export default class OfferResult extends React.Component{
 		    await AsyncStorage.setItem(STORAGE_KEY_STICKET,this.props.sTicket);
 		    console.log('保存到存储的数据成功');
 		    //调用原生 清除JPUSH别名
-			NativeBridge.NATIVE_setAlias(this.props.alias);
+			// NativeBridge.NATIVE_setAlias(this.props.alias);
 		    }catch(error){
 		        console.log('AsyncStorage错误'+error.message);
 		    }

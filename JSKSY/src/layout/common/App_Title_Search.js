@@ -49,23 +49,23 @@ export default class App_Title extends React.Component{
 						<Image 
 							source={require('image!back_btn')}/>
 					</TouchableHighlight>
-					<View style={{flex:1,height:34,marginRight:20,backgroundColor:'white',flexDirection:'row',alignItems:'center'}}>
-						<Image 
-							style={{marginLeft:15,marginRight:10}}
-							source={require('image!school_icon_search')}/>
-						<TextInput
-							style={{flex:1,color:'#c1c1c1',fontSize:14}}
-							clearButtonMode='while-editing'
-							maxLength={20}
-							autoCorrect={false}
-							value={this.state.uName}
-							returnKeyType={'search'}
-							onChangeText={this._onNameChangeText}
-							onSubmitEditing={this._onSubmit}
-							enablesReturnKeyAutomatically={false}
-							placeholder='搜索学校'
-							/>
-					</View>				
+						<View style={{flex:1,height:34,marginRight:20,backgroundColor:'white',flexDirection:'row',alignItems:'center'}}>
+							<Image 
+								style={{marginLeft:15,marginRight:10}}
+								source={require('image!school_icon_search')}/>
+							<TextInput
+								style={{flex:1,color:'#c1c1c1',fontSize:14}}
+								clearButtonMode='while-editing'
+								maxLength={20}
+								autoCorrect={false}
+								value={this.state.uName}
+								returnKeyType={'search'}
+								onChangeText={this._onNameChangeText}
+								onSubmitEditing={this._onSubmit}
+								enablesReturnKeyAutomatically={false}
+								placeholder='搜索学校'
+								/>
+						</View>	
 				</View>
 			</View>
 		)

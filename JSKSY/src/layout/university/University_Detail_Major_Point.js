@@ -121,16 +121,14 @@ export default class University_Detail_Major_Point extends Component{
 							<View>
 								<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 								<View style={{padding:15}}>
-									<View style={{flexDirection:'row',height:70}}>
-										<View style={{flex:1,justifyContent:'space-between'}}>
+									<View style={{flexDirection:'row'}}>
+										<View style={{flex:1,borderRightWidth:0.5,borderColor:'#d5d5d5',paddingRight:5}}>
 											<Text style={{fontSize:12,color:'#4a4a4a'}}>{item.name}</Text>
-											<Text style={{fontSize:16,color:'#ff902d'}}>{item.num}</Text>
-											<Text style={{fontSize:10,color:'#999999'}}>{item.year}年录取人数</Text>
+											<Text style={{marginTop:10,fontSize:16,color:'#ff902d'}}>{item.num}<Text style={{fontSize:10,color:'#999999'}}>  ({item.year}年录取人数)</Text></Text>
 										</View>
-										<View style={{width:1,backgroundColor:'#d5d5d5'}}/>
-										<View style={{flex:2,marginLeft:15,justifyContent:'space-between'}}>
+										<View style={{flex:2,marginLeft:15}}>
 											<Text style={{fontSize:14,color:'#999999'}}>最高分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.hScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.hBatch}</Text></Text>
-											<Text style={{fontSize:14,color:'#999999'}}>最低分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lBatch}</Text></Text>
+											<Text style={{marginTop:10,fontSize:14,color:'#999999'}}>最低分：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lScore}</Text>    名次：<Text style={{fontSize:14,color:'#8dadce'}}>{item.lBatch}</Text></Text>
 										</View>
 									</View>
 									<View style={{marginTop:15,backgroundColor:'#f3f9ff',height:22,flexDirection:'row',justifyContent:'space-around',alignItems:'center',borderRadius:4}}>

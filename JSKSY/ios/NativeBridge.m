@@ -12,7 +12,7 @@
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 
-#import "JPUSHService.h"
+//#import "JPUSHService.h"
 #import "DES3Util.h"
 
 #import <sys/utsname.h>
@@ -30,10 +30,10 @@ RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
 }
 
 //RN调原生方法   设置JPUSH别名
-RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
-{
-  [self jpushSetAlias:alias];
-}
+//RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
+//{
+//  [self jpushSetAlias:alias];
+//}
 
 RCT_EXPORT_METHOD(NATIVE_callPhone:(NSString *)num)
 {
@@ -51,11 +51,7 @@ RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSDictionary *)dict callback:(RCTRespon
   }
     callback(@[[NSNull null],dicts]);
 }
-//RCT_EXPORT_METHOD(NATIVE_getEncryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
-//{
-//  NSString *data = [DES3Util tripleDES:str encryptOrDecrypt:kCCEncrypt];
-//  callback(@[[NSNull null],data]);
-//}
+
 //RN调原生方法并获取回调   取解密密信息
 RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSenderBlock)callback)
 {
@@ -70,24 +66,24 @@ RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSen
 }
 
 //设置别名
--(void)jpushSetAlias:(NSString *)alias{
-  [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-}
+//-(void)jpushSetAlias:(NSString *)alias{
+//  [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+//}
 
 // 设置别名方法回调
-- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
-  if(iResCode == 0){
-    NSLog(@"设置别名成功");
-  }else{
-    NSLog(@"设置别名失败");
-  }
-}
+//- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
+//  if(iResCode == 0){
+//    NSLog(@"设置别名成功");
+//  }else{
+//    NSLog(@"设置别名失败");
+//  }
+//}
 
 // 清除别名
--(void)clearAliasForLoginUser
-{
-  [JPUSHService setAlias:@"" callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-}
+//-(void)clearAliasForLoginUser
+//{
+//  [JPUSHService setAlias:@"" callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+//}
 
 //获取手机model
 -(NSString*)deviceModelString

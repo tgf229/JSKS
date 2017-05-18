@@ -8,8 +8,6 @@
   "dependencies": {
     "native-echarts": "^0.3.0",
     "react-native": "^0.20.0",
-    "react-native-chart": "^0.1.4",
-    "react-native-code-push": "^1.10.0-beta",
     "react-native-device-uuid": "^1.2.0",
     "react-native-gifted-listview": "0.0.13",
     "react-native-scrollable-tab-view": "^0.7.4",
