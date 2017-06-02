@@ -12,15 +12,77 @@
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 
-//#import "JPUSHService.h"
+#import "JPUSHService.h"
 #import "DES3Util.h"
 
 #import <sys/utsname.h>
+
+
+
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
 
 @implementation NativeBridge
 
 //RCT_EXPORT_MODULE();
 RCT_EXPORT_MODULE();
+
+//*********************************************************
+//cb:(RCTResponseSenderBlock)callback
+RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSString *)url)
+{
+  //1、创建分享参数
+  NSArray* imageArray = @[[UIImage imageNamed:@"set_icon.png"]];
+  //（注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+  if (imageArray) {
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:content
+                                     images:imageArray
+                                        url:[NSURL URLWithString:url]
+                                      title:@"江苏招考"
+                                       type:SSDKContentTypeAuto];
+    //2、分享（可以弹出我们的分享菜单和编辑界面）
+   
+    [SSUIShareActionSheetStyle setShareActionSheetStyle:ShareActionSheetStyleSimple];
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                             items:nil
+                       shareParams:shareParams
+               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                 
+                 switch (state) {
+                   case SSDKResponseStateSuccess:
+                   {
+                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                         message:nil
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"确定"
+                                                               otherButtonTitles:nil];
+                     [alertView show];
+                     break;
+                   }
+                   case SSDKResponseStateFail:
+                   {
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                     message:[NSString stringWithFormat:@"%@",error]
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil, nil];
+                     [alert show];
+                     break;
+                   }
+                   default:
+                     break;
+                 }
+               }
+        ];
+    });
+  }
+//  callback(@[@"nothing"]);
+}
+//*********************************************************
 
 //RN调原生方法并获取回调   取手机model
 RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
@@ -30,10 +92,10 @@ RCT_EXPORT_METHOD(NATIVE_getDeviceModel:(RCTResponseSenderBlock)callback)
 }
 
 //RN调原生方法   设置JPUSH别名
-//RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
-//{
-//  [self jpushSetAlias:alias];
-//}
+RCT_EXPORT_METHOD(NATIVE_setAlias:(NSString *)alias)
+{
+  [self jpushSetAlias:alias];
+}
 
 RCT_EXPORT_METHOD(NATIVE_callPhone:(NSString *)num)
 {
@@ -66,24 +128,24 @@ RCT_EXPORT_METHOD(NATIVE_getDecryptData:(NSString *)str callback:(RCTResponseSen
 }
 
 //设置别名
-//-(void)jpushSetAlias:(NSString *)alias{
-//  [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-//}
+-(void)jpushSetAlias:(NSString *)alias{
+  [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+}
 
 // 设置别名方法回调
-//- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
-//  if(iResCode == 0){
-//    NSLog(@"设置别名成功");
-//  }else{
-//    NSLog(@"设置别名失败");
-//  }
-//}
+- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
+  if(iResCode == 0){
+    NSLog(@"设置别名成功");
+  }else{
+    NSLog(@"设置别名失败");
+  }
+}
 
 // 清除别名
-//-(void)clearAliasForLoginUser
-//{
-//  [JPUSHService setAlias:@"" callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-//}
+-(void)clearAliasForLoginUser
+{
+  [JPUSHService setAlias:@"" callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+}
 
 //获取手机model
 -(NSString*)deviceModelString

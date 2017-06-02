@@ -123,8 +123,8 @@ export default class GK_Header extends React.Component{
 						<TouchableOpacity
 							onPress={()=>this.onBtnClick(5)}>
 							<Image 
-								style={{marginTop:11,marginLeft:11,marginRight:11,width:global.windowWidth-22}}
-								source={require('image!gk_school_icon')} />
+								style={{marginTop:11,marginLeft:11,marginRight:11,width:global.windowWidth-22,height:(global.windowWidth-22)*2/7}}
+								source={{uri:'http://sdata.jseea.cn:8081/imgs/edu/university/yxfc.png'}} />
 						</TouchableOpacity>
 						:
 						null

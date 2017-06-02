@@ -1,24 +1,56 @@
 'use strict';
-import React, {
+import React,{Component} from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
-  Text,
   View,
   WebView,
-} from 'react-native';
-import App_Title from '../common/App_Title';
+  Text} from 'react-native';
+import App_Title_WebView from '../common/App_Title_WebView';
 
-// var DEFAULT_URL = 'http://mp.weixin.qq.com/s?__biz=MjM5NjAzNDgxNg==&mid=2650351268&idx=1&sn=92e58825af08c83f2a1bb98be2131519&scene=0#wechat_redirect';
+var NativeBridge = require('react-native').NativeModules.NativeBridge;
  
- export default class Web extends React.Component{
+ export default class Web extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      backButtonEnabled: false,
+      url:'',
+      title:'',
+    }
+  }
+
+  onLeftNavCilck(){
+    if (this.state.backButtonEnabled) {
+      this.refs.webview.goBack();
+    }else{
+      this.props.navigator.pop();
+    }
+  }
+
+  onRightNavCilck(){
+    NativeBridge.NATIVE_shareSDK(1,this.state.title,this.state.url);
+  }
+
+  onNavigationStateChange(navState) {
+    this.setState({
+      backButtonEnabled: navState.canGoBack,
+      url: navState.url,
+      title: navState.title,
+      // forwardButtonEnabled: navState.canGoForward,
+      // loading: navState.loading,
+      // scalesPageToFit: true
+    });
+  }
 
   render(){
       return (
         <View style={{flex:1,backgroundColor:'white',}}>
-          <App_Title title={'详情'} navigator={this.props.navigator}/>
+          <App_Title_WebView title={'详情'} navigator={this.props.navigator} obj={this}/>
           <WebView style={styles.webview_style} 
+            ref='webview'
             url={this.props.url}
+            onNavigationStateChange={this.onNavigationStateChange.bind(this)}
             automaticallyAdjustContentInsets={true}
             startInLoadingState={true}
             domStorageEnabled={true}

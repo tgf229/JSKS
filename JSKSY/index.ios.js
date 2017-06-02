@@ -24,6 +24,7 @@ global.init_gkAdSchool;
 
 var device_uuid='';
 var device_model='';
+
 class MyProject extends React.Component{
 	constructor(props){
 		super(props);

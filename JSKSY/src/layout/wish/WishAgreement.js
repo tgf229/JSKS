@@ -87,7 +87,7 @@ export default class WishAgreement extends React.Component{
 						 	<Image
 						 		style={{alignSelf:'center'}}
 						    	source={require('image!will_agreement_tips')} />
-							<Text style={{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}}>    录取资料查询服务结合考生当年高考成绩及全省位次、近两年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。结果按照2015年院校的最低录取分数排列，且最多展示20所。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。
+							<Text style={{marginTop:12,fontSize:15,color:'#666666',lineHeight:22}}>    录取资料查询服务结合考生当年高考成绩及全省位次、近四年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。本服务不仅是考生填报普通高校的参考资料。同时对家长、招考工作人员和中学教师也具有一定的参考价值。
 							</Text>
 							<View
 								style={{flexDirection:'row',marginTop:20}}>

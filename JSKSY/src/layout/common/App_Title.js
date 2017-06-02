@@ -15,7 +15,6 @@ import React, {
 } from 'react-native';
 import SetActivity from '../set/SetActivity';
 
-
 export default class App_Title extends React.Component{
 	constructor(props){
 		super(props);
@@ -24,7 +23,7 @@ export default class App_Title extends React.Component{
 		}
 	}
 
-	onLeftClick(){
+	onLeftClick(obj){
 		this.props.navigator.pop();
 	}
 
@@ -48,7 +47,7 @@ export default class App_Title extends React.Component{
 								:
 							<TouchableHighlight
 								style={{position:'absolute',left:10,paddingRight:60,paddingLeft:10,paddingTop:10,paddingBottom:10}}
-								onPress={()=>this.onLeftClick()}
+								onPress={()=>this.onLeftClick(this.props.obj)}
 								underlayColor='#67aef7'>
 								<Image 
 									source={require('image!back_btn')}/>

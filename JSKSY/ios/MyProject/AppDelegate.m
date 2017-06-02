@@ -12,12 +12,28 @@
 #import "RCTRootView.h"
 //#import "CodePush.h"
 //百度统计
-//#import "BaiduMobStat.h"
+#import "BaiduMobStat.h"
 //jpush
-//#import "JPUSHService.h"
+#import "JPUSHService.h"
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max 
+#import <UserNotifications/UserNotifications.h> 
+#endif
 //#import <AdSupport/ASIdentifierManager.h>
 
 //#import "UIImageView+WebCache.h"
+
+
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+//微信SDK头文件
+#import "WXApi.h"
+//新浪微博SDK头文件
+#import "WeiboSDK.h"
+//新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加"-ObjC"
+
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UIView *lunchView;
@@ -76,7 +92,8 @@
   
   
   //苹果拒审 测试 删除jpush和百度统计
-//  [self configBaiduMobStat];
+  [self configBaiduMobStat];
+  [self configShareSDK];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"MyProject"
@@ -95,22 +112,22 @@
   
   //苹果拒审 测试 删除jpush和百度统计
   //Required
-//  if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-//    //可以添加自定义categories
-//    [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
-//                                                      UIUserNotificationTypeSound |
-//                                                      UIUserNotificationTypeAlert)
-//                                          categories:nil];
-//  } else {
-//    //categories 必须为nil
-//    [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-//                                                      UIRemoteNotificationTypeSound |
-//                                                      UIRemoteNotificationTypeAlert)
-//                                          categories:nil];
-//  }
-//  //Required
-//  //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
-//  [JPUSHService setupWithOption:launchOptions];
+  if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+    //可以添加自定义categories
+    [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound |
+                                                      UIUserNotificationTypeAlert)
+                                          categories:nil];
+  } else {
+    //categories 必须为nil
+    [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                      UIRemoteNotificationTypeSound |
+                                                      UIRemoteNotificationTypeAlert)
+                                          categories:nil];
+  }
+  //Required
+  //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
+  [JPUSHService setupWithOption:launchOptions];
   
   return YES;
 }
@@ -125,40 +142,40 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
   
   /// Required - 注册 DeviceToken
     //苹果拒审 测试 删除jpush和百度统计
-//  [JPUSHService registerDeviceToken:deviceToken];
+  [JPUSHService registerDeviceToken:deviceToken];
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
   
   // Required,For systems with less than or equal to iOS6
     //苹果拒审 测试 删除jpush和百度统计
-//  [JPUSHService handleRemoteNotification:userInfo];
+  [JPUSHService handleRemoteNotification:userInfo];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
   
     //苹果拒审 测试 删除jpush和百度统计
-//  // IOS 7 Support Required
-//  [JPUSHService handleRemoteNotification:userInfo];
-//  completionHandler(UIBackgroundFetchResultNewData);
-//  
-//  // 接收推送过来的消息
-//  [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-//  [[UIApplication sharedApplication] cancelAllLocalNotifications];
-//  
-//  if (application.applicationState != UIApplicationStateActive){
-//    // 如果应用在不在前台，跳转到我的消息页面
-////    [self pushToMyMessageViewController];
-//  }
-//  else{
-//    // 应用在前台，弹出提示
-//    NSString* alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"您收到一条新消息"
-//                                                        message:alertValue
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"我知道了"
-//                                              otherButtonTitles:nil, nil];
-//    [alertView show];
-//  }
+  // IOS 7 Support Required
+  [JPUSHService handleRemoteNotification:userInfo];
+  completionHandler(UIBackgroundFetchResultNewData);
+  
+  // 接收推送过来的消息
+  [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+  [[UIApplication sharedApplication] cancelAllLocalNotifications];
+  
+  if (application.applicationState != UIApplicationStateActive){
+    // 如果应用在不在前台，跳转到我的消息页面
+//    [self pushToMyMessageViewController];
+  }
+  else{
+    // 应用在前台，弹出提示
+    NSString* alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"您收到一条新消息"
+                                                        message:alertValue
+                                                       delegate:self
+                                              cancelButtonTitle:@"我知道了"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+  }
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -175,17 +192,73 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 -(void)configBaiduMobStat
 {
 //  BaiduMobStat* statTracker = [BaiduMobStat defaultStat];
-//  statTracker.enableExceptionLog = YES;   // 是否允许截获并发送崩溃信息，请设置YES或者NO
-//  statTracker.channelId = @"AppStore";    // 设置您的app的发布渠道
-//  statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;// 根据开发者设定的时间间隔接口发送 也可以使用启动时发送策略
-//  statTracker.logSendInterval = 1;        // 为1时表示发送日志的时间间隔为1小时
-//  statTracker.logSendWifiOnly = YES;      // 是否仅在WIfi情况下发送日志数据
-//  // 设置应用进入后台再回到前台为同一次session的间隔时间[0~600s],超过600s则设为600s，默认为30s,测试时使用1S可以用来测试日志的发送。
-//  statTracker.sessionResumeInterval = 35;
-//  // 参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
-//  statTracker.shortAppVersion  = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-//  statTracker.enableDebugOn = YES;        // 打开sdk调试接口，会有log打印
-//  [statTracker startWithAppId:@"d094734473"];// 设置您在mtj网站上添加的app的appkey
+//  statTracker.shortAppVersion=
+//  [[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundstatTracker.enableDebugOn = YES;
+//  [statTracker startWithAppId:@"d094734473"];
+  
+  BaiduMobStat* statTracker = [BaiduMobStat defaultStat];
+  statTracker.enableExceptionLog = YES;   // 是否允许截获并发送崩溃信息，请设置YES或者NO
+  statTracker.channelId = @"AppStore";    // 设置您的app的发布渠道
+  statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;// 根据开发者设定的时间间隔接口发送 也可以使用启动时发送策略
+  statTracker.logSendInterval = 1;        // 为1时表示发送日志的时间间隔为1小时
+  statTracker.logSendWifiOnly = YES;      // 是否仅在WIfi情况下发送日志数据
+  // 设置应用进入后台再回到前台为同一次session的间隔时间[0~600s],超过600s则设为600s，默认为30s,测试时使用1S可以用来测试日志的发送。
+  statTracker.sessionResumeInterval = 35;
+  // 参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+  statTracker.shortAppVersion  = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+  statTracker.enableDebugOn = YES;        // 打开sdk调试接口，会有log打印
+  [statTracker startWithAppId:@"d094734473"];// 设置您在mtj网站上添加的app的appkey
+}
+
+-(void)configShareSDK{
+  [ShareSDK registerApp:@"1e45eb5ccc067"
+   
+        activePlatforms:@[
+                          @(SSDKPlatformTypeSinaWeibo),
+                          @(SSDKPlatformTypeWechat),
+                          @(SSDKPlatformTypeQQ)]
+               onImport:^(SSDKPlatformType platformType)
+   {
+     switch (platformType)
+     {
+       case SSDKPlatformTypeWechat:
+         [ShareSDKConnector connectWeChat:[WXApi class]];
+         break;
+       case SSDKPlatformTypeQQ:
+         [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+         break;
+       case SSDKPlatformTypeSinaWeibo:
+         [ShareSDKConnector connectWeibo:[WeiboSDK class]];
+         break;
+       default:
+         break;
+     }
+   }
+        onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
+   {
+     
+     switch (platformType)
+     {
+       case SSDKPlatformTypeSinaWeibo:
+         //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+         [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
+                                   appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                                 redirectUri:@"http://www.sharesdk.cn"
+                                    authType:SSDKAuthTypeBoth];
+         break;
+       case SSDKPlatformTypeWechat:
+         [appInfo SSDKSetupWeChatByAppId:@"wx4868b35061f87885"
+                               appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
+         break;
+       case SSDKPlatformTypeQQ:
+         [appInfo SSDKSetupQQByAppId:@"1106121987"
+                              appKey:@"DWOgfonwcvxMKgbk"
+                            authType:SSDKAuthTypeBoth];
+         break;
+       default:
+         break;
+     }
+   }];
 }
 
 @end

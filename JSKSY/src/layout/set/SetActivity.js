@@ -12,16 +12,34 @@ import React, {
   Dimensions,
   Image,
   Text,
+  AsyncStorage,
   View
 } from 'react-native';
 
+import { STORAGE_KEY_ALIAS} from '../../util/Global';
 import App_Title from '../common/App_Title';
 
 export default class SetActivity extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
+			aliasVal:''
 		}
+	}
+
+	 async _loadInitialState(){
+	       try{
+	           var val = await AsyncStorage.getItem(STORAGE_KEY_ALIAS);
+	           this.setState({
+	           		aliasVal:val
+	           })
+	       }catch(error){
+
+	       }
+	  }
+
+	componentDidMount() {
+		this._loadInitialState().done();
 	}
 
 	render(){
@@ -35,7 +53,7 @@ export default class SetActivity extends React.Component{
 				  		source={require('image!set_icon')}
 				  		/>
 					<Text style={{alignSelf:'center',fontSize:18,color:'#4a4a4a',marginTop:28}}>江苏招考</Text>
-					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本P2.2.0-P-V1</Text>
+					<Text style={{alignSelf:'center',fontSize:16,color:'#4a4a4a',marginTop:6}}>当前版本P2.2.1-{this.state.aliasVal}</Text>
 					<View style={{marginTop:48,backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width}}></View>
 					<View style={{height:55,flexDirection:'row',alignItems:'center',paddingLeft:20}}>
 						<Text style={{fontSize:15,color:'#666666'}}>消息推送</Text>
