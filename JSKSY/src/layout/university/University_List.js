@@ -70,7 +70,7 @@ export default class University_List extends Component{
 		if (json.retcode === '000000') {
 			if (json.doc.length >= 10) {
 				object.hasMore = true;
-			}else if(json.doc.length == 0){
+			}else if(json.doc.length == 0 && object.PAGE_NUM == 1){
 				object.setState({
 					flag_success:false
 				})

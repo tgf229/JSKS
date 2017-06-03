@@ -215,7 +215,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
    
         activePlatforms:@[
                           @(SSDKPlatformTypeSinaWeibo),
-                          @(SSDKPlatformTypeWechat),
+//                          @(SSDKPlatformTypeWechat),
+                          @(SSDKPlatformSubTypeWechatSession),
+                          @(SSDKPlatformSubTypeWechatTimeline),
                           @(SSDKPlatformTypeQQ)]
                onImport:^(SSDKPlatformType platformType)
    {
