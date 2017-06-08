@@ -243,14 +243,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
      {
        case SSDKPlatformTypeSinaWeibo:
          //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
-         [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
-                                   appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+         [appInfo SSDKSetupSinaWeiboByAppKey:@"3169343148"
+                                   appSecret:@"b617e9f87dd233eed97aaa1c83291854"
                                  redirectUri:@"http://www.sharesdk.cn"
                                     authType:SSDKAuthTypeBoth];
          break;
        case SSDKPlatformTypeWechat:
-         [appInfo SSDKSetupWeChatByAppId:@"wx4868b35061f87885"
-                               appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
+         [appInfo SSDKSetupWeChatByAppId:@"wx074911d2b40d6615"
+                               appSecret:@"ce4569ffe36c0732c8b64119e2372528"];
          break;
        case SSDKPlatformTypeQQ:
          [appInfo SSDKSetupQQByAppId:@"1106121987"

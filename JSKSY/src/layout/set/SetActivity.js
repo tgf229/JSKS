@@ -65,6 +65,17 @@ export default class SetActivity extends React.Component{
 							如果要开启或者关闭“江苏招考”接收消息通知，请在iPhone的”设置－通知“中找到“江苏招考”进行更改
 						</Text>
 					</View>
+					<View style={{height:10,backgroundColor:'#eeeeee'}}/>
+
+					<View style={{flexDirection:'row',height:40,alignItems:'center',justifyContent:'space-between',paddingLeft:20,paddingRight:20}}>
+						<Text style={{fontSize:15,color:'#666666'}}>技术服务热线</Text>
+						<Text style={{fontSize:15,color:'#666666'}}>025-83235849</Text>
+					</View>
+					<View style={{height:1,backgroundColor:'#eeeeee'}}/>
+					<View style={{flexDirection:'row',height:40,alignItems:'center',justifyContent:'space-between',paddingLeft:20,paddingRight:20}}>
+						<Text style={{fontSize:15,color:'#666666'}}>工作时间</Text>
+						<Text style={{fontSize:15,color:'#666666'}}>9:00~17:00</Text>
+					</View>
 				</ScrollView>
 				<Text style={{fontSize:12,color:'#999999',alignSelf:'center',marginBottom:20}}>江苏华胜天成教育科技有限公司技术支持</Text>
 			</View>

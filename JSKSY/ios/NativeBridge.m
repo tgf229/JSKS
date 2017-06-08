@@ -48,7 +48,13 @@ RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSStr
     [SSUIShareActionSheetStyle setShareActionSheetStyle:ShareActionSheetStyleSimple];
     dispatch_async(dispatch_get_main_queue(), ^{
     [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
-                             items:nil
+                             items:@[
+                                     @(SSDKPlatformSubTypeWechatSession),
+                                     @(SSDKPlatformSubTypeWechatTimeline),
+                                     @(SSDKPlatformTypeQQ),
+                                     @(SSDKPlatformSubTypeQZone),
+                                     @(SSDKPlatformTypeSinaWeibo),
+                                     ]
                        shareParams:shareParams
                onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                  
