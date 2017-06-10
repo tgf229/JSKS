@@ -14,8 +14,8 @@ import React, {
   View
 } from 'react-native';
 import PointResult_Success from './component/PointResult_Success';
-import App_Title from '../common/App_Title';
-import { netClientPostEncrypt,BUS_200201} from '../../util/NetUtil';
+import App_Title_Share from '../common/App_Title_Share';
+import { netClientPostEncrypt,BUS_200201,BUS_200301,URL_ADDR} from '../../util/NetUtil';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -29,6 +29,23 @@ export default class PointResult extends React.Component{
 			errorTips:'正在拼命查询中，请稍候...',
 		}
 		data = {};
+	}
+
+	onRightNavCilck(){
+		var dict = {
+			a : "1",
+			b : this.props.sNum,
+		};
+		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				events.encrypt='simple';
+				var data = Object.keys(events).map(key=> key+'='+encodeURIComponent(events[key])).join('&');
+				var url = URL_ADDR+BUS_200301+"?"+data;
+				NativeBridge.NATIVE_shareSDK(1,"江苏招考-2017高考成绩分享",url);
+			}
+		})  
 	}
 
 	BUS_200201_CB(object,response){
@@ -106,9 +123,8 @@ export default class PointResult extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white',}}>
-			<App_Title title={'高考查分'} navigator={this.props.navigator} />
+			<App_Title_Share title={'高考查分'} navigator={this.props.navigator} obj={this}/>
 			<ScrollView
-
 			  	contentContainerStyle={styles.contentContainer}>
 			
 				{

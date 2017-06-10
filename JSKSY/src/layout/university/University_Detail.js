@@ -137,9 +137,16 @@ export default class University_Detail extends Component{
 							<Text style={{fontSize:15,color:'white'}}>{this.state.detail.name}</Text>
 							<View style={{flexDirection:'row',marginTop:10}}>
 								{
+									this.props.uCode
+									?
+									<Text style={[styles.tipsText]}>院校代号{this.props.uCode}</Text>
+									:
+									null
+								}
+								{
 									this.state.detail.type
 									?
-									<Text style={[styles.tipsText,{fontSize:12}]}>{this.state.detail.type}</Text>
+									<Text style={[styles.tipsText_ch]}>{this.state.detail.type}</Text>
 									:
 									null
 								}
@@ -211,6 +218,16 @@ const styles = StyleSheet.create({
 		marginRight:8,
 		paddingTop:3,
 		paddingBottom:3,
+		paddingLeft:6,
+		paddingRight:6,
+		backgroundColor:'rgba(255, 255, 255, 0.3)',
+		color:'white',
+		fontSize:10
+	},
+	tipsText_ch:{
+		marginRight:8,
+		paddingTop:4,
+		paddingBottom:3.5,
 		paddingLeft:6,
 		paddingRight:6,
 		backgroundColor:'rgba(255, 255, 255, 0.3)',

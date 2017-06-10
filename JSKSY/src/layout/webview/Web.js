@@ -28,6 +28,10 @@ var NativeBridge = require('react-native').NativeModules.NativeBridge;
     }
   }
 
+  onLeftCloseNavCilck(){
+     this.props.navigator.pop();
+  }
+
   onRightNavCilck(){
     NativeBridge.NATIVE_shareSDK(1,this.state.title,this.state.url);
   }
@@ -46,7 +50,7 @@ var NativeBridge = require('react-native').NativeModules.NativeBridge;
   render(){
       return (
         <View style={{flex:1,backgroundColor:'white',}}>
-          <App_Title_WebView title={'详情'} navigator={this.props.navigator} obj={this}/>
+          <App_Title_WebView title={'详情'} navigator={this.props.navigator} obj={this} rightBtnHide={this.props.rightBtnHide}/>
           <WebView style={styles.webview_style} 
             ref='webview'
             url={this.props.url}

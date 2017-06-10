@@ -15,7 +15,7 @@ export function urlForQueryAndPage(key,value,pageNum) {
 
 export const URL_ADDR = "https://app.jseea.cn/";
 // export const URL_ADDR = "http://58.213.145.35/";
-// export const URL_ADDR = "http://192.168.0.102:8888/";
+// export const URL_ADDR = "http://10.2.40.165:18011/";
 // export const URL_ADDR = "http://192.168.1.104:8888/web-mobile/";
 // export const URL_ADDR = "http://172.16.1.8:8080/web-mobile/";
 
@@ -27,6 +27,7 @@ export const BUS_100501 = "Bus100501";
 
 export const BUS_200101 = "Bus200101";
 export const BUS_200201 = "Bus200201";
+export const BUS_200301 = "sharePlatform";
 
 export const BUS_300101 = "Bus300101";
 export const BUS_300201 = "Bus300201";

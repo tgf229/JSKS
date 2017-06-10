@@ -77,6 +77,7 @@ export default class SetActivity extends React.Component{
 						<Text style={{fontSize:15,color:'#666666'}}>9:00~17:00</Text>
 					</View>
 				</ScrollView>
+				<Text style={{fontSize:12,color:'#999999',alignSelf:'center'}}>江苏省教育考试院权威发布</Text>
 				<Text style={{fontSize:12,color:'#999999',alignSelf:'center',marginBottom:20}}>江苏华胜天成教育科技有限公司技术支持</Text>
 			</View>
 		)

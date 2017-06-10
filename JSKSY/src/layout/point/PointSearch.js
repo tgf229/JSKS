@@ -90,6 +90,11 @@ export default class PointSearch extends React.Component{
 	onSubmit(){
 		var num = trim(this.state.sNumStr);
 		var tick = trim(this.state.sTicketStr);
+		//测试用======
+		// num = "16320113470013";
+		// tick = "270974";
+
+
 		if (num === '') {
 			AlertIOS.alert(
 				'温馨提示',
@@ -110,7 +115,9 @@ export default class PointSearch extends React.Component{
 				sNum:num,
 				sTicket:tick,
 				sCheckA:this.checkA_Num+this.checkA_Point,
+				// sCheckA:'A1',
 				sCheckB:this.checkB_Num+this.checkB_Point,
+				// sCheckB:'A2',
 			}
 		});
 	}

@@ -10,12 +10,14 @@ import React, {
   StyleSheet,
   Image,
   Dimensions,
+  TouchableOpacity,
   Text,
   TouchableHighlight,
   ListView,
   View
 } from 'react-native';
-
+var NativeBridge = require('react-native').NativeModules.NativeBridge;
+import { BUS_200301,URL_ADDR} from '../../../util/NetUtil';
 import WishAgreement from '../../wish/WishAgreement';
 import Web from '../../webview/Web';
 
@@ -144,6 +146,23 @@ export default class PointResult_Success extends React.Component{
 		}
 	}
 
+	onShareClick(channel){
+		var dict = {
+			a : "2",
+			b : this.props.sNum,
+		};
+		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
+			if (error) {
+				console.log(error);
+			}else{
+				events.encrypt='simple';
+				var data = Object.keys(events).map(key=> key+'='+encodeURIComponent(events[key])).join('&');
+				var url = URL_ADDR+BUS_200301+"?"+data;
+				NativeBridge.NATIVE_shareSDKWithOutUI(1,channel,"江苏招考-2017高考成绩分享",url);
+			}
+		}) 
+	}
+
 	onWishClick(){
 		this.props.navigator.push({
 			component: WishAgreement,
@@ -181,16 +200,13 @@ export default class PointResult_Success extends React.Component{
 		
 		return(
 			<View>
-				<Image
-					style={{width:Dimensions.get('window').width,height:Dimensions.get('window').width*0.6}}
-				  	source={require('image!point_result_top')} >
-				  	<View style={{position:'absolute',left:(Dimensions.get('window').width-288)/2,bottom:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}}>
-					  	<Text style={{fontSize:12,color:'white'}}>姓名：{this.props.data.sName}      考生号：{this.props.sNum}</Text>
-					</View>
-				</Image>
+				
 				<Image
 				  style={{alignItems:'center',justifyContent:'center',width:Dimensions.get('window').width,height:Dimensions.get('window').width*0.8}}
 				  source={require('image!point_result_bg')} >
+				  <View style={{position:'absolute',left:(Dimensions.get('window').width-288)/2,top:10,alignItems:'center',justifyContent:'center',backgroundColor:'#1a7eb2',width:288,height:28,borderRadius:20}}>
+					  	<Text style={{fontSize:12,color:'white'}}>姓名：{this.props.data.sName}      考生号：{this.props.sNum}</Text>
+					</View>
 				  	<View style={{alignItems:'center'}}>
 				  		{
 				  			isSingle
@@ -345,6 +361,35 @@ export default class PointResult_Success extends React.Component{
 
 				<Text style={{marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}}>{this.props.data.tipContent}考生成绩以成绩通知单为准。</Text>
 				<Text style={{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}}>数据来源 BY 江苏省教育考试院</Text>
+
+				<View style={{height:50,flexDirection:'row',justifyContent:'center',alignItems:'center',paddingLeft:30,paddingRight:30}}>
+					<View style={{backgroundColor:'#d5d5d5',flex:1,height:1}}/>
+					<Text style={{marginLeft:11,marginRight:11,fontSize:12,color:'#444444'}}>分享</Text>
+					<View style={{backgroundColor:'#d5d5d5',flex:1,height:1}}/>
+				</View>
+				<Text style={{fontSize:11,color:'#aeaeae',textAlign:'center'}}>分享内容会隐去个人信息以保护考生个人隐私</Text>
+				<View style={{flexDirection:'row',justifyContent:'space-around',marginTop:20,marginBottom:20}}>
+					<TouchableOpacity
+						onPress={()=>this.onShareClick(1)}>
+						<Image source={require('image!share_icon_wx')}/>
+						<Text style={{fontSize:13,color:'#444444',marginTop:10,alignSelf:'center'}}>微信好友</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={()=>this.onShareClick(2)}>
+						<Image source={require('image!share_icon_wx_timeline')}/>
+						<Text style={{fontSize:13,color:'#444444',marginTop:10,alignSelf:'center'}}>朋友圈</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={()=>this.onShareClick(3)}>
+						<Image source={require('image!share_icon_qq')}/>
+						<Text style={{fontSize:13,color:'#444444',marginTop:10,alignSelf:'center'}}>QQ好友</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={()=>this.onShareClick(4)}>
+						<Image source={require('image!share_icon_qq_timeline')}/>
+						<Text style={{fontSize:13,color:'#444444',marginTop:10,alignSelf:'center'}}>QQ空间</Text>
+					</TouchableOpacity>
+				</View>
 
 				<View style={{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,
 					paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>

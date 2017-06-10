@@ -9,7 +9,7 @@ import React, {
   Component,
   StyleSheet,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
   Text,
   View
 } from 'react-native';
@@ -26,6 +26,10 @@ export default class App_Title_WebView extends React.Component{
 		obj.onLeftNavCilck();
 	}
 
+	onLeftCloseClick(obj){
+		obj.onLeftCloseNavCilck();
+	}
+
 	onRightClick(obj){
 		obj.onRightNavCilck();
 	}
@@ -34,21 +38,34 @@ export default class App_Title_WebView extends React.Component{
 		return(
 			<View style={{backgroundColor:'#67aef7'}} >
 				<View style={{height:20}}/>
-				<View style={{height:44,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-					<TouchableHighlight
-						style={{position:'absolute',left:10,paddingRight:60,paddingLeft:10,paddingTop:10,paddingBottom:10}}
-						onPress={()=>this.onLeftClick(this.props.obj)}
-						underlayColor='#67aef7'>
+				<View style={{height:44,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+					<View style={{flexDirection:'row',alignItems:'center'}}>
+					<TouchableOpacity
+						style={{paddingLeft:20,paddingRight:30}}
+						onPress={()=>this.onLeftClick(this.props.obj)}>
 						<Image 
 							source={require('image!back_btn')}/>
-					</TouchableHighlight>
-				<Text style={{textAlign:'center',fontSize:18,color:'white'}}>{this.props.title}</Text>
-					<TouchableHighlight
-						style={{position:'absolute',right:5,paddingRight:10,top:5,paddingLeft:20,paddingTop:8,paddingBottom:10}}
-						onPress={()=>this.onRightClick(this.props.obj)}
-						underlayColor='#67aef7'>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={{paddingLeft:10,paddingRight:30}}
+						onPress={()=>this.onLeftCloseClick(this.props.obj)}>
+						<Image 
+							source={require('image!icon_btn_cancle')}/>
+					</TouchableOpacity>
+					</View>
+					<Text style={{fontSize:18,color:'white',textAlign:'center'}}>{this.props.title}</Text>
+					{
+					this.props.rightBtnHide
+					?
+					<View style={{paddingRight:110}}/>
+					:
+					<TouchableOpacity
+						style={{paddingLeft:60,paddingRight:30}}
+						onPress={()=>this.onRightClick(this.props.obj)}>
 						<Image source={require('image!btn_share')}/>
-					</TouchableHighlight>
+					</TouchableOpacity>
+					}
+					
 				</View>
 			</View>
 		)

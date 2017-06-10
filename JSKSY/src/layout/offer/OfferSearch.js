@@ -71,6 +71,8 @@ export default class OfferSearch extends React.Component{
 	onSubmit(){
 		var num = trim(this.state.sNumStr);
 		var tick = trim(this.state.sTicketStr);
+		// num="16320621450919";
+		// tick="1606214501922";
 		if (num === '') {
 			AlertIOS.alert(
 				'温馨提示',

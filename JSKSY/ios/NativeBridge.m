@@ -29,6 +29,63 @@
 RCT_EXPORT_MODULE();
 
 //*********************************************************
+RCT_EXPORT_METHOD(NATIVE_shareSDKWithOutUI:(id)dic channel:(int)channel content:(NSString *)content url:(NSString *)url)
+{
+  //1、创建分享参数
+  NSArray* imageArray = @[[UIImage imageNamed:@"set_icon.png"]];
+  //创建分享参数
+  NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+
+  [shareParams SSDKSetupShareParamsByText:[content stringByAppendingString: url]
+                                   images:imageArray
+                                      url:[NSURL URLWithString:url]
+                                    title:content
+                                     type:SSDKContentTypeAuto];
+  SSDKPlatformType plat;
+  if (channel == 1) {
+    plat = SSDKPlatformSubTypeWechatSession;
+  }else if(channel == 2){
+    plat = SSDKPlatformSubTypeWechatTimeline;
+  }else if(channel == 3){
+    plat = SSDKPlatformTypeQQ;
+  }else if(channel == 4){
+    plat = SSDKPlatformSubTypeQZone;
+  }
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+  //进行分享
+  [ShareSDK share:plat //传入分享的平台类型
+       parameters:shareParams
+   onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+//     switch (state) {
+//       case SSDKResponseStateSuccess:
+//       {
+//         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+//                                                             message:nil
+//                                                            delegate:nil
+//                                                   cancelButtonTitle:@"确定"
+//                                                   otherButtonTitles:nil];
+//         [alertView show];
+//         break;
+//       }
+//       case SSDKResponseStateFail:
+//       {
+//         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+//                                                         message:[NSString stringWithFormat:@"%@",error]
+//                                                        delegate:nil
+//                                               cancelButtonTitle:@"OK"
+//                                               otherButtonTitles:nil, nil];
+//         [alert show];
+//         break;
+//       }
+//       default:
+//         break;
+//     }
+      }];
+   });
+}
+
+
 //cb:(RCTResponseSenderBlock)callback
 RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSString *)url)
 {
@@ -38,11 +95,21 @@ RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSStr
   if (imageArray) {
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:content
+    [shareParams SSDKSetupShareParamsByText:[content stringByAppendingString: url]
                                      images:imageArray
                                         url:[NSURL URLWithString:url]
-                                      title:@"江苏招考"
+                                      title:content
                                        type:SSDKContentTypeAuto];
+
+
+//    [shareParams SSDKSetupSinaWeiboShareParamsByText:[content stringByAppendingString: url]
+//                                               title:@"测试标题"
+//                                               image:imageArray[0]
+//                                                 url:[NSURL URLWithString:url]
+//                                            latitude:0
+//                                           longitude:0
+//                                            objectID:@"分享"
+//                                                type:SSDKContentTypeAuto];
     //2、分享（可以弹出我们的分享菜单和编辑界面）
    
     [SSUIShareActionSheetStyle setShareActionSheetStyle:ShareActionSheetStyleSimple];

@@ -179,11 +179,11 @@ export default class OfferResult extends React.Component{
 					? 
 						this.state.isSuccess
 						?	
-						<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
+						<App_Title title={'录取结果'} navigator={this.props.navigator}/>
 						:
 						<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} rightText={'取消预约'} obj={this}/>
 					:
-					<App_Title title={'录取结果'} navigator={this.props.navigator} rightShow={true} obj={this}/>
+					<App_Title title={'录取结果'} navigator={this.props.navigator}/>
 				}
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
@@ -193,7 +193,7 @@ export default class OfferResult extends React.Component{
 						? 
 							this.state.isSuccess
 								?	
-								<OfferResult_Success data={data} sNum={this.props.sNum}/>
+								<OfferResult_Success data={data} sNum={this.props.sNum} navigator={this.props.navigator}/>
 								:
 								<OfferResult_Fail data={data} sNum={this.props.sNum}/>
 						:

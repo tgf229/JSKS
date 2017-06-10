@@ -63,7 +63,7 @@ export default class App_Title extends React.Component{
 								onChangeText={this._onNameChangeText}
 								onSubmitEditing={this._onSubmit}
 								enablesReturnKeyAutomatically={false}
-								placeholder='搜索学校'
+								placeholder='请输入院校名称或院校代号'
 								/>
 						</View>	
 				</View>

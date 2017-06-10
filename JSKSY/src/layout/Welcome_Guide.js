@@ -45,12 +45,15 @@ export default class Welcome_Guide extends React.Component{
 					            <View style={styles.slide}>
 					             	<Image style={styles.image} source={require('image!guide4')} />
 					            </View>
+					            <View style={styles.slide}>
+					             	<Image style={styles.image} source={require('image!guide5')} />
+					            </View>
 					            <TouchableHighlight
 					            	underlayColor='#fcfcfc'
 					            	onPress={()=>guideThis.onClick()}
 					            	>
 					            <View style={styles.slide}>
-					            	<Image style={styles.image} source={require('image!guide5')} />
+					            	<Image style={styles.image} source={require('image!guide6')} />
 					            </View>
 					            </TouchableHighlight>
 					</Swiper>
