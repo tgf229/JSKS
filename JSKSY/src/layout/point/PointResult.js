@@ -14,7 +14,7 @@ import React, {
   View
 } from 'react-native';
 import PointResult_Success from './component/PointResult_Success';
-import App_Title_Share from '../common/App_Title_Share';
+import App_Title from '../common/App_Title';
 import { netClientPostEncrypt,BUS_200201,BUS_200301,URL_ADDR} from '../../util/NetUtil';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
@@ -123,7 +123,7 @@ export default class PointResult extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white',}}>
-			<App_Title_Share title={'高考查分'} navigator={this.props.navigator} obj={this}/>
+			<App_Title title={'高考查分'} navigator={this.props.navigator} obj={this}/>
 			<ScrollView
 			  	contentContainerStyle={styles.contentContainer}>
 			

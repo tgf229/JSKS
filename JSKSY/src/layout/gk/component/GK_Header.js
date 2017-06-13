@@ -91,7 +91,7 @@ export default class GK_Header extends React.Component{
 								<Image
 								  style={{alignSelf:'center'}}
 								  source={require('image!home_icon_query')} />
-								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>录取资料</Text>
+								<Text style={{marginTop:8,fontSize:12,color:'#444444',textAlign:'center'}}>志愿参考</Text>
 							</View>
 						</TouchableHighlight>
 						<TouchableHighlight

@@ -149,12 +149,13 @@ export default class PointWait extends React.Component{
 					{
 						this.props.flag === '1'?
 						<View>
-							<Text style={{paddingLeft:20,paddingRight:20,marginTop:20,fontSize:15,color:'#666666',lineHeight:22}}>    录取资料查询服务结合考生当年高考成绩及全省位次、近四年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出参考院校及所含专业信息。本服务不仅是考生填报普通高校的参考资料。同时对家长、招考工作人员和中学教师也具有一定的参考价值。
+							<Text style={{paddingLeft:20,paddingRight:20,marginTop:20,fontSize:15,color:'#666666',lineHeight:22}}>    志愿参考服务结合考生当年高考成绩及所在科类全省位次、近四年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出志愿参考院校及所含专业信息。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。
+
 							</Text>
 							<View
 								style={{flexDirection:'row',marginTop:10,paddingLeft:20,paddingRight:20}}>
 								<Text style={{width:35,fontSize:13,color:'#d0021b',lineHeight:23}}>PS：</Text>
-								<Text style={{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}}>本服务只针对进入文理科第一阶段位次的考生开放；{'\n'}院校数据仅包含文理科本一及本二批次院校；{'\n'}本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。</Text>
+								<Text style={{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}}>本服务只针对进入文理科第一阶段的考生开放；{'\n'}院校数据仅包含文理科第一批次及第二批次院校；{'\n'}本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。</Text>
 							</View>
 						</View>
 						:

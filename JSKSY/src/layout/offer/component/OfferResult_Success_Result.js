@@ -15,7 +15,7 @@ import React, {
   Text,
   View
 } from 'react-native';
-import App_Title_Share from '../../common/App_Title_Share';
+import App_Title from '../../common/App_Title';
 import { BUS_200301,URL_ADDR} from '../../../util/NetUtil';
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -64,7 +64,7 @@ export default class OfferResult_Success_Result extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1,}}>
-				<App_Title_Share title={'录取结果'} navigator={this.props.navigator} obj={this}/>
+				<App_Title title={'录取结果'} navigator={this.props.navigator} obj={this}/>
 				<ScrollView
 					contentContainerStyle={styles.contentContainer}>
 				<Image

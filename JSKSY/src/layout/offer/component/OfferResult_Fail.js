@@ -43,6 +43,7 @@ export default class OfferResult_Fail extends React.Component{
 						  this.props.data.doc.map(function(item){
 							return(
 								<View>
+									<View style={{backgroundColor:'#f0f0f0',height:10}}/>
 									<View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',height:30,paddingLeft:15,paddingRight:15}}>
 										<Text style={{fontSize:11,color:'#444444'}}>退档信息</Text>
 										<Text style={{fontSize:11,color:'#444444'}}>{item.time}</Text>
@@ -65,7 +66,7 @@ export default class OfferResult_Fail extends React.Component{
 										</View>
 										<View style={{backgroundColor:'#d5d5d5',height:50,width:0.5,alignSelf:'center'}}/>
 										<View style={{flex:1.5,paddingTop:15,paddingBottom:15}}>
-											<Text style={{textAlign:'center',fontSize:9,color:'#cecece'}}>退档原因</Text>
+											<Text style={{textAlign:'center',fontSize:9,color:'#cecece'}}>院校退档原因</Text>
 											<Text style={{textAlign:'center',marginTop:6,fontSize:10,color:'#444444'}}>{item.reason}</Text>
 										</View>
 									</View>
@@ -73,7 +74,6 @@ export default class OfferResult_Fail extends React.Component{
 									<View style={{paddingTop:10,paddingBottom:10,paddingLeft:15,paddingRight:15}}>
 										<Text style={{fontSize:10,color:'#999999'}}>备注：{item.ps}</Text>
 									</View>
-									<View style={{backgroundColor:'#f0f0f0',height:10}}/>
 								</View>
 							)
 						})

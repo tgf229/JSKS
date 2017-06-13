@@ -148,7 +148,7 @@ export default class PointResult_Success extends React.Component{
 
 	onShareClick(channel){
 		var dict = {
-			a : "2",
+			a : "1",
 			b : this.props.sNum,
 		};
 		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
@@ -367,7 +367,7 @@ export default class PointResult_Success extends React.Component{
 					<Text style={{marginLeft:11,marginRight:11,fontSize:12,color:'#444444'}}>分享</Text>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:1}}/>
 				</View>
-				<Text style={{fontSize:11,color:'#aeaeae',textAlign:'center'}}>分享内容会隐去个人信息以保护考生个人隐私</Text>
+				<Text style={{fontSize:11,color:'#aeaeae',textAlign:'center'}}>分享内容将隐去个人信息以保护考生个人隐私</Text>
 				<View style={{flexDirection:'row',justifyContent:'space-around',marginTop:20,marginBottom:20}}>
 					<TouchableOpacity
 						onPress={()=>this.onShareClick(1)}>

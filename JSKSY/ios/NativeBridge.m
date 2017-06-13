@@ -95,6 +95,7 @@ RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSStr
   if (imageArray) {
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+//    [shareParams SSDKSetupShareParamsByText:[content stringByAppendingString: url]
     [shareParams SSDKSetupShareParamsByText:[content stringByAppendingString: url]
                                      images:imageArray
                                         url:[NSURL URLWithString:url]
@@ -113,45 +114,84 @@ RCT_EXPORT_METHOD(NATIVE_shareSDK:(id)dic content:(NSString *)content url:(NSStr
     //2、分享（可以弹出我们的分享菜单和编辑界面）
    
     [SSUIShareActionSheetStyle setShareActionSheetStyle:ShareActionSheetStyleSimple];
+//    [shareParams SSDKEnableUseClientShare];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-    [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
-                             items:@[
-                                     @(SSDKPlatformSubTypeWechatSession),
-                                     @(SSDKPlatformSubTypeWechatTimeline),
-                                     @(SSDKPlatformTypeQQ),
-                                     @(SSDKPlatformSubTypeQZone),
-                                     @(SSDKPlatformTypeSinaWeibo),
-                                     ]
-                       shareParams:shareParams
-               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
-                 
-                 switch (state) {
-                   case SSDKResponseStateSuccess:
-                   {
-                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                         message:nil
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles:nil];
-                     [alertView show];
-                     break;
-                   }
-                   case SSDKResponseStateFail:
-                   {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                     message:[NSString stringWithFormat:@"%@",error]
-                                                                    delegate:nil
-                                                           cancelButtonTitle:@"OK"
-                                                           otherButtonTitles:nil, nil];
-                     [alert show];
-                     break;
-                   }
-                   default:
-                     break;
-                 }
-               }
-        ];
+    SSUIShareActionSheetController *sheet = [ShareSDK showShareActionSheet:nil
+                                                                     items:@[
+                                                                             @(SSDKPlatformSubTypeWechatSession),
+                                                                             @(SSDKPlatformSubTypeWechatTimeline),
+                                                                             @(SSDKPlatformTypeQQ),
+                                                                             @(SSDKPlatformSubTypeQZone),
+                                                                             @(SSDKPlatformTypeSinaWeibo),
+                                                                             ]
+                                                               shareParams:shareParams
+                                                       onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                                                         switch (state) {
+                                                           case SSDKResponseStateSuccess:{
+                                            UIAlertView *alertView = [[UIAlertView alloc]
+                                                                      initWithTitle:@"分享成功"
+                                                                      message:nil
+                                                                      delegate:nil
+                                                                      cancelButtonTitle:@"确定"
+                                                                      otherButtonTitles:nil];
+                                                      [alertView show];
+                                                             break;
+                                                           }
+                                                           case SSDKResponseStateFail:
+                                                             NSLog(@"分享失败%@",error);
+                                                             break;
+                                                           case SSDKResponseStateCancel:
+                                                             NSLog(@"分享已取消");
+                                                             break;
+                                                           default:
+                                                             break;
+                                                         }
+                                                       }];
+    //删除和添加平台示例
+//    [sheet.directSharePlatforms removeObject:@(SSDKPlatformTypeWechat)];
+    [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeSinaWeibo)];
     });
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//    [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+//                             items:@[
+//                                     @(SSDKPlatformSubTypeWechatSession),
+//                                     @(SSDKPlatformSubTypeWechatTimeline),
+//                                     @(SSDKPlatformTypeQQ),
+//                                     @(SSDKPlatformSubTypeQZone),
+//                                     @(SSDKPlatformTypeSinaWeibo),
+//                                     ]
+//                       shareParams:shareParams
+//               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+//                 
+//                 switch (state) {
+//                   case SSDKResponseStateSuccess:
+//                   {
+//                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+//                                                                         message:nil
+//                                                                        delegate:nil
+//                                                               cancelButtonTitle:@"确定"
+//                                                               otherButtonTitles:nil];
+//                     [alertView show];
+//                     break;
+//                   }
+//                   case SSDKResponseStateFail:
+//                   {
+//                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+//                                                                     message:[NSString stringWithFormat:@"%@",error]
+//                                                                    delegate:nil
+//                                                           cancelButtonTitle:@"OK"
+//                                                           otherButtonTitles:nil, nil];
+//                     [alert show];
+//                     break;
+//                   }
+//                   default:
+//                     break;
+//                 }
+//               }
+//        ];
+//    });
   }
 //  callback(@[@"nothing"]);
 }

@@ -274,9 +274,9 @@ export default class WishList extends React.Component{
 			<View style={{flex:1,backgroundColor:'white',}}>
 			{
 			this.state.errorLoading? 
-				<App_Title title={'录取资料'} navigator={this.props.navigator} rightShow={false} obj={this}/>
+				<App_Title title={'志愿参考'} navigator={this.props.navigator} rightShow={false} obj={this}/>
 				:
-				<App_Title title={'录取资料'} navigator={this.props.navigator} rightShow={true} rightText={'筛选'} obj={this}/>
+				<App_Title title={'志愿参考'} navigator={this.props.navigator} rightShow={true} rightText={'筛选'} obj={this}/>
 			}
 				
 				{

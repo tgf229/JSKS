@@ -46,7 +46,7 @@ export default class PayAgreement extends React.Component{
 			  contentContainerStyle={styles.contentContainer}>
 
 			  	<View style={{height:106,flexDirection:'row',alignItems:'center'}}>
-			  		<Text style={{fontSize:15,color:'#666666'}}>录取资料服务支付金额</Text>
+			  		<Text style={{fontSize:15,color:'#666666'}}>志愿参考服务支付金额</Text>
 			  		<Text style={{fontSize:20,color:'#ff902d',position:'absolute',top:40,right:1}}>¥98</Text>
 			  	</View>
 			 	

@@ -4,6 +4,8 @@
 <dict>
 	<key>App Transport Security Settings</key>
 	<dict>
+		<key>Allow Arbitrary Loads</key>
+		<true/>
 		<key>Exception Domains</key>
 		<dict>
 			<key>qq.com</key>
@@ -17,10 +19,10 @@
 			</dict>
 			<key>sina.com.cn</key>
 			<dict>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.0</string>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>
@@ -28,10 +30,10 @@
 			</dict>
 			<key>weibo.cn</key>
 			<dict>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.0</string>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>
@@ -39,18 +41,16 @@
 			</dict>
 			<key>weibo.com</key>
 			<dict>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.0</string>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 		</dict>
-		<key>Allow Arbitrary Loads</key>
-		<true/>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -65,7 +65,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.1</string>
+	<string>2.3.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -100,7 +100,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mqzoneopensdk</string>

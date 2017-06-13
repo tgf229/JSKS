@@ -40,7 +40,7 @@ export default class WishPaySuccess extends React.Component{
 	render(){
 		return(
 			<View style={{flex:1,backgroundColor:'white'}}>
-			<App_Title title={'录取资料'} navigator={this.props.navigator}/>
+			<App_Title title={'志愿参考'} navigator={this.props.navigator}/>
 			<ScrollView
 			  contentContainerStyle={styles.contentContainer}>
 

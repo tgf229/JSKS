@@ -122,7 +122,7 @@ export default class OfferSearch extends React.Component{
 				  		style={{alignSelf:'center'}}
 				    	source={require('image!offer_tongzhi')} />
 				    <Text style={{color:'#666666',fontSize:15,marginTop:34,lineHeight:22}}>
-				    	志愿填报后如何最快得到录取结果？赶快预约我们最新的录取通知服务吧，我们将在录取结果发布后第一时间将录取结果推送至您的手机。
+				    	志愿填报后如何最快得到录取结果？赶快预约我们的录取通知服务吧！录取工作开始后我们将每天三次更新录取信息并通过客户端推送通知考生。同时今年江苏省考试院升级了数据接口，除了录取信息，考生还可查询到本人的退档情况和原因。
 				    </Text>
 				  
 				  	<Text style={{marginTop:10,fontSize:13,color:'#d0021b',lineHeight:23}}>PS：本服务将于2017-6-25日正式启用</Text>
