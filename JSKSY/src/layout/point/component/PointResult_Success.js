@@ -362,12 +362,14 @@ export default class PointResult_Success extends React.Component{
 				<Text style={{marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}}>{this.props.data.tipContent}考生成绩以成绩通知单为准。</Text>
 				<Text style={{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}}>数据来源 BY 江苏省教育考试院</Text>
 
-				<View style={{height:50,flexDirection:'row',justifyContent:'center',alignItems:'center',paddingLeft:30,paddingRight:30}}>
+				<View style={{backgroundColor:'#eeeeee'}}>
+
+				<View style={{height:50,flexDirection:'row',justifyContent:'center',alignItems:'center',paddingLeft:12,paddingRight:12}}>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:1}}/>
 					<Text style={{marginLeft:11,marginRight:11,fontSize:12,color:'#444444'}}>分享</Text>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:1}}/>
 				</View>
-				<Text style={{fontSize:11,color:'#aeaeae',textAlign:'center'}}>分享内容将隐去个人信息以保护考生个人隐私</Text>
+				<Text style={{fontSize:11,color:'#999999',textAlign:'center'}}>分享内容会隐去考生号后六位以保护考生个人隐私</Text>
 				<View style={{flexDirection:'row',justifyContent:'space-around',marginTop:20,marginBottom:20}}>
 					<TouchableOpacity
 						onPress={()=>this.onShareClick(1)}>
@@ -391,13 +393,13 @@ export default class PointResult_Success extends React.Component{
 					</TouchableOpacity>
 				</View>
 
-				<View style={{backgroundColor:'#eeeeee',paddingTop:17,paddingBottom:17,paddingLeft:12,
+				<View style={{paddingTop:17,paddingBottom:17,paddingLeft:12,
 					paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
-					<Text style={{marginLeft:20,marginRight:20,fontSize:11,color:'#444444'}}>推广</Text>
+					<Text style={{marginLeft:20,marginRight:20,fontSize:12,color:'#444444'}}>推广</Text>
 					<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
 				</View>
-				<View style={{backgroundColor:'#eeeeee',paddingLeft:12,
+				<View style={{paddingLeft:12,
 					paddingRight:12}}>
 					<TouchableHighlight
 						onPress={()=>this.onWishClick()}
@@ -408,6 +410,7 @@ export default class PointResult_Success extends React.Component{
 									marginBottom:15}}
 								source={require('image!point_ad')} />
 					</TouchableHighlight>
+				</View>
 				</View>
 
 				<ListView

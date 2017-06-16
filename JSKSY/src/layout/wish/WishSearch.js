@@ -19,7 +19,7 @@ import React, {
 
 import WishList from './WishList';
 import App_Title from '../common/App_Title';
-import Web from '../webview/Web';
+import Web_wish from '../webview/Web_wish';
 import { URL_ADDR} from '../../util/NetUtil';
 
 function trim(str){ //删除左右两端的空格
@@ -76,7 +76,7 @@ export default class WishSearch extends React.Component{
 		//暂时跳转 H5版本
 		var url = URL_ADDR+"scoreDetail?encrypt=none&sNum="+num+"&sTicket="+tick
 		this.props.navigator.push({
-				component:Web,
+				component:Web_wish,
 				params:{
 					url:url,
 					rightBtnHide:true,

@@ -106,7 +106,7 @@ export default class GK_Home extends React.Component{
 				onPress={()=>this.rowPressed(rowData)}
 			    underlayColor='#fcfcfc'>
 			  	<View>
-				  	<View style={{height:100,paddingTop:20,paddingBottom:20,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
+				  	<View style={{height:84,paddingTop:12,paddingBottom:12,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
 				  		<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
 				  		<Text style={styles.time}>发布于{rowData.time}</Text>
 				  	</View>
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
 	time:{
 		fontSize:12,
 		color:'#999999',
-		marginTop:12,
+		marginTop:5,
 	},
 	title:{
 		fontSize:15,

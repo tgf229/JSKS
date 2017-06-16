@@ -6,11 +6,11 @@ import {
   View,
   WebView,
   Text} from 'react-native';
-import App_Title_WebView from '../common/App_Title_WebView';
+import App_Title_Wish from '../common/App_Title_Wish';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
  
- export default class Web extends Component{
+ export default class Web_wish extends Component{
   constructor(props){
     super(props);
     this.state={
@@ -50,7 +50,7 @@ var NativeBridge = require('react-native').NativeModules.NativeBridge;
   render(){
       return (
         <View style={{flex:1,backgroundColor:'white',}}>
-          <App_Title_WebView title={this.state.title} navigator={this.props.navigator} obj={this} rightBtnHide={this.props.rightBtnHide}/>
+          <App_Title_Wish title={this.state.title} navigator={this.props.navigator} obj={this} rightBtnHide={this.props.rightBtnHide}/>
           <WebView style={styles.webview_style} 
             ref='webview'
             url={this.props.url}

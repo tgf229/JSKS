@@ -14,7 +14,7 @@ import React, {
   View
 } from 'react-native';
 
-export default class App_Title_WebView extends React.Component{
+export default class App_Title_Wish extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -46,27 +46,16 @@ export default class App_Title_WebView extends React.Component{
 						<Image 
 							source={require('image!back_btn')}/>
 					</TouchableOpacity>
-					<TouchableOpacity
-						style={{paddingLeft:10,paddingRight:30}}
-						onPress={()=>this.onLeftCloseClick(this.props.obj)}>
-						<Image 
-							source={require('image!icon_btn_cancle')}/>
-					</TouchableOpacity>
 					</View>
 					<Text 
 						numberOfLines={1}
 						style={{fontSize:18,color:'white',textAlign:'center',width:120}}>{this.props.title}</Text>
-					{
-					this.props.rightBtnHide
-					?
-					<View style={{paddingRight:110}}/>
-					:
 					<TouchableOpacity
-						style={{paddingLeft:60,paddingRight:30}}
-						onPress={()=>this.onRightClick(this.props.obj)}>
-						<Image source={require('image!btn_share')}/>
+						style={{paddingLeft:20,paddingRight:30}}
+						onPress={()=>this.onLeftCloseClick(this.props.obj)}>
+						<Image 
+							source={require('image!icon_btn_cancle')}/>
 					</TouchableOpacity>
-					}
 					
 				</View>
 			</View>

@@ -12,6 +12,7 @@ import React, {
   Text,
   TextInput,
   Dimensions,
+  Image,
   ActivityIndicatorIOS,
   AlertIOS,
   View
@@ -19,7 +20,10 @@ import React, {
 import PointResult from './PointResult'
 import PointWait from './component/PointWait'
 import App_Title from '../common/App_Title';
-import { netClientPost,BUS_200101} from '../../util/NetUtil';
+import { netClientPost,BUS_200101,BUS_100501} from '../../util/NetUtil';
+import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
+import Web from '../webview/Web';
+import University_Detail from '../university/University_Detail';
 
 function trim(str){ //删除左右两端的空格
 	return str.replace(/(^\s*)|(\s*$)/g, "");
@@ -42,6 +46,7 @@ export default class PointSearch extends React.Component{
 			sTicketStr:'',
 			isLoaded:false,	//是否调用时间基准接口完毕
 			isPointSearchOpen:false, //查分是否一开始
+			adDoc:[] //广告列表
 		}
 	}
 
@@ -75,8 +80,51 @@ export default class PointSearch extends React.Component{
 		netClientPost(this,BUS_200101,this.BUS_200101_CB,params);
 	}
 
+		//行点击
+	adPressed(item){
+		if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+			const dId = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:dId,
+				},
+			});
+		}else{
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:item.aUrl,
+				},
+			});
+		}
+	}
+
+	//广告列表接口回调
+	BUS_100501_CB(object,json){
+		if (json.retcode === '000000') {
+			if (json.doc.length > 0) {
+				object.setState({
+					adDoc:json.doc
+				});
+			}
+		}else{
+			// console.log('Home BUS_100501_CB 失败');
+		}
+	}
+
+	//广告列表接口请求
+	BUS_100501_REQ(){
+		var params = {
+			encrypt:'none',
+			type:'2'
+		}
+		netClientPost(this,BUS_100501,this.BUS_100501_CB,params);
+	}
+
 	componentDidMount() {
 		this.BUS_200101_REQ();
+		this.BUS_100501_REQ();
 	}
 
 	onNumChangeText(e){
@@ -123,6 +171,7 @@ export default class PointSearch extends React.Component{
 	}
 
 	render(){
+		var that = this;
 		return(
 			<View style={{flex:1,backgroundColor:'white',}}>
 			<App_Title title={'高考查分'} navigator={this.props.navigator} />
@@ -130,8 +179,10 @@ export default class PointSearch extends React.Component{
 				this.state.isLoaded?
 					(this.state.isPointSearchOpen?
 						<ScrollView
-							keyboardDismissMode={'on-drag'}
-						  	contentContainerStyle={styles.contentContainer}>
+							keyboardDismissMode={'on-drag'}>
+
+							<View 
+								style={styles.contentContainer}>
 						  	<TextInput
 								style={{borderWidth:1,height:50,borderColor:'#d5d5d5',borderRadius:3,padding:5,fontSize:15,color:'#999999'}}
 								clearButtonMode='while-editing'
@@ -170,12 +221,66 @@ export default class PointSearch extends React.Component{
 							</Text>
 							
 							<TouchableHighlight
-								style={{marginTop:30,justifyContent:'center',alignItems:'center',
+								style={{marginTop:30,marginBottom:30,justifyContent:'center',alignItems:'center',
 									backgroundColor:'#ff902d',height:45,borderRadius:3}}
 								onPress={()=>this.onSubmit()}
 								underlayColor='#fcfcfc'>
 								<Text style={{fontSize:16,color:'white'}}>查询</Text>
 							</TouchableHighlight>
+							</View>
+							<View 
+								style={{backgroundColor:'#eeeeee'}}>
+								{
+									this.state.adDoc.length > 0
+									?
+									<View style={{paddingTop:17,paddingBottom:17,paddingLeft:12,
+										paddingRight:12,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+										<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
+										<Text style={{marginLeft:20,marginRight:20,fontSize:12,color:'#444444'}}>推广</Text>
+										<View style={{backgroundColor:'#d5d5d5',flex:1,height:0.5}}></View>
+									</View>
+									:
+									null
+								}
+								{
+									
+									this.state.adDoc.map(function(item){
+										if (item.type === '1') {
+											return(
+												<TouchableHighlight
+													onPress={()=>that.adPressed(item)}
+												    underlayColor='#fcfcfc'>
+												  	<View>
+												  		<View style={{padding:14}}>
+												 			<Image
+													  			 style={{width:Dimensions.get('window').width-28, height:(Dimensions.get('window').width-28)*2/7}}
+													 			 source={{uri: item.imageUrl}} />
+											  			</View>
+												  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
+												  	</View>
+												</TouchableHighlight>
+												)
+											}else{
+											return(
+												<TouchableHighlight
+													onPress={()=>that.adPressed(item)}
+												    underlayColor='#fcfcfc'>
+												  	<View>
+													  	<View style={{height:84,paddingTop:12,paddingBottom:12,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
+													  		<Text style={styles.title} numberOfLines={2}>{item.name}</Text>
+													  		<Text style={styles.time}>发布于{item.time}</Text>
+													  	</View>
+												  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
+												  	</View>
+												</TouchableHighlight>
+												)
+											}
+									})
+								}
+							</View>
+
+							
+
 						</ScrollView>
 					:
 					<PointWait cuTime={cuTime} exTime={exTime} content={'距离江苏省高考成绩发布还有'} searchObj={this}/>)
@@ -194,6 +299,16 @@ const styles = StyleSheet.create({
 		paddingTop:54,
 		paddingLeft:20,
 		paddingRight:20,
+	},
+	time:{
+		fontSize:12,
+		color:'#999999',
+		marginTop:5,
+	},
+	title:{
+		fontSize:15,
+		lineHeight:20,
+		color:'#444444',
 	},
 });
 

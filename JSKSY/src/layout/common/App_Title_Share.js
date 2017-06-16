@@ -14,7 +14,7 @@ import React, {
   View
 } from 'react-native';
 
-export default class App_Title_WebView extends React.Component{
+export default class App_Title_Share extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={

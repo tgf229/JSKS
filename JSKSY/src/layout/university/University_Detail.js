@@ -16,6 +16,7 @@ import {BUS_700201,netClientPost,ERROR_TIPS,REQ_TIPS} from '../../util/NetUtil';
 import University_Detail_One from './University_Detail_One';
 import University_Detail_Two from './University_Detail_Two';
 import University_Detail_Three from './University_Detail_Three';
+import Web from '../webview/Web';
 
 //按钮同步锁
 var syncClick = true;
@@ -111,6 +112,15 @@ export default class University_Detail extends Component{
 		this.props.navigator.pop();
 	}
 
+	_goToWeb(url){
+		this.props.navigator.push({
+				component:Web,
+				params:{
+					url:"http://"+url,
+				},
+			});
+	}
+
 	render(){
 		return(
 			<ScrollView style={{backgroundColor:'white'}}>
@@ -124,6 +134,12 @@ export default class University_Detail extends Component{
 						<Image
 							style={{width:35,height:35}}
 							source={require('image!school_btn_back')}/>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={{position:'absolute',right:20,top:45}}
+						onPress={()=>this._goToWeb(this.state.detail.web)}>
+						<Image
+							source={require('image!school_detail_web_btn')}/>
 					</TouchableOpacity>
 					<View style={{position:'absolute',bottom:0,backgroundColor:'rgba(0, 0, 0, 0.4)',width:global.windowWidth,height:80,flexDirection:'row',alignItems:'center'}}>
 						<View
