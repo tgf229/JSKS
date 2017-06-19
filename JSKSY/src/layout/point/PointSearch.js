@@ -21,9 +21,10 @@ import PointResult from './PointResult'
 import PointWait from './component/PointWait'
 import App_Title from '../common/App_Title';
 import { netClientPost,BUS_200101,BUS_100501} from '../../util/NetUtil';
-import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
+import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../util/Global';
 import Web from '../webview/Web';
 import University_Detail from '../university/University_Detail';
+import University_List from '../university/University_List';
 
 function trim(str){ //删除左右两端的空格
 	return str.replace(/(^\s*)|(\s*$)/g, "");
@@ -90,6 +91,14 @@ export default class PointSearch extends React.Component{
 					uCode:dId,
 				},
 			});
+		}else if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_LIST)!= -1) {
+			const keyword = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_List,
+				params:{
+					uName:keyword,
+				},
+			});
 		}else{
 			this.props.navigator.push({
 				component:Web,
@@ -138,10 +147,6 @@ export default class PointSearch extends React.Component{
 	onSubmit(){
 		var num = trim(this.state.sNumStr);
 		var tick = trim(this.state.sTicketStr);
-		//测试用======
-		// num = "16320113470013";
-		// tick = "270974";
-
 
 		if (num === '') {
 			AlertIOS.alert(
@@ -163,9 +168,7 @@ export default class PointSearch extends React.Component{
 				sNum:num,
 				sTicket:tick,
 				sCheckA:this.checkA_Num+this.checkA_Point,
-				// sCheckA:'A1',
 				sCheckB:this.checkB_Num+this.checkB_Point,
-				// sCheckB:'A2',
 			}
 		});
 	}

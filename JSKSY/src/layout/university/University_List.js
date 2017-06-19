@@ -27,7 +27,7 @@ export default class University_List extends Component{
 		this.listData = [];
 		this.hasMore = false;
 		this.PAGE_NUM = 1;
-		this.uName = '';
+		this.uName = this.props.uName?this.props.uName:'';
 	  	this.state = {
 	  		dataSource : this.ds.cloneWithRows(this.listData),
 	  		flag_success : true,

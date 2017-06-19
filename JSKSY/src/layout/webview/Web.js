@@ -59,7 +59,7 @@ var NativeBridge = require('react-native').NativeModules.NativeBridge;
             startInLoadingState={true}
             domStorageEnabled={true}
             javaScriptEnabled={true}
-            scalesPageToFit={true}
+            scalesPageToFit={false}
             >
           </WebView>
         </View>

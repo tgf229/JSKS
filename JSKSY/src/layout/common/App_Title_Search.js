@@ -21,7 +21,7 @@ export default class App_Title extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			uName:'',
+			uName:this.props.cbObj.uName?this.props.cbObj.uName:'',
 		}
 	}
 

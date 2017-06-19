@@ -22,7 +22,8 @@ import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import Web from '../webview/Web';
 import University_Detail from '../university/University_Detail';
-import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
+import University_List from '../university/University_List';
+import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -71,6 +72,14 @@ export default class GK_Home extends React.Component{
 				component:University_Detail,
 				params:{
 					uCode:dId,
+				},
+			});
+		}else if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_LIST)!= -1) {
+			const keyword = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_List,
+				params:{
+					uName:keyword,
 				},
 			});
 		}else{

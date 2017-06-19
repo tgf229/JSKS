@@ -23,7 +23,8 @@ import App_Title from '../common/App_Title';
 import DeviceUUID from "react-native-device-uuid";
 import Web from '../webview/Web';
 import University_Detail from '../university/University_Detail';
-import {URL_SCHEMA_SCHOOL_DETAIL} from '../../util/Global';
+import University_List from '../university/University_List';
+import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -50,6 +51,14 @@ export default class Home extends React.Component{
 				component:University_Detail,
 				params:{
 					uCode:dId,
+				},
+			});
+		}else if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_LIST)!= -1) {
+			const keyword = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_List,
+				params:{
+					uName:keyword,
 				},
 			});
 		}else{
@@ -122,7 +131,7 @@ export default class Home extends React.Component{
 			encrypt:'none',
 			type:'2',
 			model:model,
-			version:'2.3.0',
+			version:'2.3.1',
 			imei:uuid,
 		}
 		netClientPost(this,BUS_100101,this.BUS_100101_CB,params);

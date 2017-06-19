@@ -93,7 +93,7 @@ export default class WishAgreement extends React.Component{
 							<View
 								style={{flexDirection:'row',marginTop:20}}>
 								<Text style={{width:35,fontSize:13,color:'#d0021b',lineHeight:23}}>PS：</Text>
-								<Text style={{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}}>本服务只针对进入文理科第一阶段的考生开放；{'\n'}院校数据仅包含文理科第一批次及第二批次院校；{'\n'}专业预估录取分数区间为模型算法根据往年录取数据结合今年招生计划等数据预估，仅供用户参考，并不代表本年度实际录取分数区间；{'\n'}本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。</Text>
+								<Text style={{flex:1,fontSize:13,color:'#d0021b',lineHeight:22}}>本服务只针对进入文理科第一阶段的考生开放；{'\n'}院校数据仅包含文理科第一批次及第二批次院校；{'\n'}本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。</Text>
 							</View>
 
 							<TouchableHighlight

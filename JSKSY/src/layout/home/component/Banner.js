@@ -13,7 +13,8 @@ import Swiper from 'react-native-swiper';
 import { netClientPost,BUS_100201} from '../../../util/NetUtil';
 import Web from '../../webview/Web';
 import University_Detail from '../../university/University_Detail';
-import {URL_SCHEMA_SCHOOL_DETAIL} from '../../../util/Global';
+import University_List from '../../university/University_List';
+import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../../util/Global';
 
 export default class Banner extends React.Component{
 	constructor(props){
@@ -31,6 +32,14 @@ export default class Banner extends React.Component{
 				component:University_Detail,
 				params:{
 					uCode:dId,
+				},
+			});
+		}else if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_LIST)!= -1) {
+			const keyword = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_List,
+				params:{
+					uName:keyword,
 				},
 			});
 		}else{
