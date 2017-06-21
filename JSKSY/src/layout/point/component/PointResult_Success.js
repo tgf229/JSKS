@@ -359,7 +359,7 @@ export default class PointResult_Success extends React.Component{
 					</View>
 				}
 
-				<Text style={{marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}}>{this.props.data.tipContent}考生成绩以成绩通知单为准。</Text>
+				<Text style={{textAlign:'center',marginLeft:15,marginRight:15,marginTop:10,fontSize:8,color:'#666666'}}>{this.props.data.tipContent}考生成绩以成绩通知单为准。</Text>
 				<Text style={{textAlign:'center',marginTop:10,marginBottom:20,fontSize:8,color:'#b1b1b1'}}>数据来源 BY 江苏省教育考试院</Text>
 
 				<View style={{backgroundColor:'#eeeeee'}}>
