@@ -32,7 +32,7 @@ export const BUS_200301 = "sharePlatform";
 export const BUS_300101 = "Bus300101";
 export const BUS_300201 = "Bus300201";
 
-export const BUS_400101 = "Bus400101";
+export const BUS_400102 = "Bus400102";
 export const BUS_400201 = "Bus400201";
 
 export const BUS_600101 = "Bus600101";

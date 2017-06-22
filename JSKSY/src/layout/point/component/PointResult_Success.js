@@ -19,7 +19,10 @@ import React, {
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 import { BUS_200301,URL_ADDR} from '../../../util/NetUtil';
 import WishAgreement from '../../wish/WishAgreement';
+import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../../util/Global';
 import Web from '../../webview/Web';
+import University_Detail from '../../university/University_Detail';
+import University_List from '../../university/University_List';
 
 var totalTitle; 
 var totalPoint;
@@ -170,12 +173,37 @@ export default class PointResult_Success extends React.Component{
 	}
 
 	onAdClick(adUrl){
-		this.props.navigator.push({
-			component:Web,
-			params:{
-				url:adUrl+'?n='+this.props.data.sName+'&k='+this.props.data.type+'&zf1='+this.zf1+'&zf2='+this.zf2,
-			},
-		});
+		if (adUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
+			const dId = adUrl.substring(adUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_Detail,
+				params:{
+					uCode:dId,
+				},
+			});
+		}else if (adUrl.indexOf(URL_SCHEMA_SCHOOL_LIST)!= -1) {
+			const keyword = adUrl.substring(adUrl.lastIndexOf("/")+1);
+			this.props.navigator.push({
+				component:University_List,
+				params:{
+					uName:keyword,
+				},
+			});
+		}else{
+			this.props.navigator.push({
+				component:Web,
+				params:{
+					url:adUrl,
+				},
+			});
+		}
+
+		// this.props.navigator.push({
+		// 	component:Web,
+		// 	params:{
+		// 		url:adUrl+'?n='+this.props.data.sName+'&k='+this.props.data.type+'&zf1='+this.zf1+'&zf2='+this.zf2,
+		// 	},
+		// });
 	}
 
 	//渲染cell

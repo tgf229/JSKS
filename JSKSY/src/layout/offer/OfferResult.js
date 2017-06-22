@@ -21,7 +21,7 @@ import React, {
 import OfferResult_Fail from './component/OfferResult_Fail';
 import OfferResult_Success from './component/OfferResult_Success';
 import App_Title from '../common/App_Title';
-import { netClientPostEncrypt,BUS_400101,BUS_400201} from '../../util/NetUtil';
+import { netClientPostEncrypt,BUS_400102,BUS_400201} from '../../util/NetUtil';
 import { STORAGE_KEY_SNUM,STORAGE_KEY_STICKET} from '../../util/Global';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
@@ -44,6 +44,8 @@ export default class OfferResult extends React.Component{
 	      try{
 	         await AsyncStorage.removeItem(STORAGE_KEY_SNUM);
 	         await AsyncStorage.removeItem(STORAGE_KEY_STICKET);
+	         await AsyncStorage.removeItem('SCHECKA');
+	         await AsyncStorage.removeItem('SCHECKB');
 	         console.log('数据删除成功...');
 	         //调用原生 设置JPUSH别名
 	         NativeBridge.NATIVE_setAlias('');
@@ -57,6 +59,8 @@ export default class OfferResult extends React.Component{
 	     try{
 		    await AsyncStorage.setItem(STORAGE_KEY_SNUM,this.props.sNum);
 		    await AsyncStorage.setItem(STORAGE_KEY_STICKET,this.props.sTicket);
+		    await AsyncStorage.setItem('SCHECKA',this.props.sCheckA);
+		    await AsyncStorage.setItem('SCHECKB',this.props.sCheckB);
 		    console.log('保存到存储的数据成功');
 		    //调用原生 清除JPUSH别名
 			NativeBridge.NATIVE_setAlias(this.props.alias);
@@ -65,13 +69,13 @@ export default class OfferResult extends React.Component{
 		    }
 	}
 
-	BUS_400101_CB(object,response){
+	BUS_400102_CB(object,response){
 		//加解密参数
 		NativeBridge.NATIVE_getDecryptData(response._bodyText,(error,events)=>{
 			if (error) {
 				console.log(error);
 			}else{
-				console.log('BUS_400101_CB = '+events)
+				console.log('BUS_400102_CB = '+events)
 				var json = JSON.parse(events);
 				if (json.retcode === '000000') {
 					data = json;
@@ -105,10 +109,12 @@ export default class OfferResult extends React.Component{
 		})
 	}
 
-	BUS_400101_REQ(){
+	BUS_400102_REQ(){
 		var dict = {
 			sNum : this.props.sNum,
-			sTicket : this.props.sTicket,
+			sCheck : this.props.sTicket,
+			sCheckKeyA : this.props.sCheckA,
+			sCheckKeyB : this.props.sCheckB,
 			type:'2',
 			alias:this.props.alias,
 		};
@@ -117,7 +123,7 @@ export default class OfferResult extends React.Component{
 				console.log(error);
 			}else{
 				events.encrypt='simple';
-				netClientPostEncrypt(this,BUS_400101,this.BUS_400101_CB,events);
+				netClientPostEncrypt(this,BUS_400102,this.BUS_400102_CB,events);
 			}
 		})
 	}
@@ -150,7 +156,7 @@ export default class OfferResult extends React.Component{
 	BUS_400201_REQ(){
 		var dict = {
 			sNum:this.props.sNum,
-			sTicket:this.props.sTicket,
+			sTicket:'',  //兼容Bus400102，没有准考证号了，此字段传空
 			alias:this.props.alias,
 		};
 		NativeBridge.NATIVE_getEncryptData(dict,(error,events)=>{
@@ -164,7 +170,7 @@ export default class OfferResult extends React.Component{
 	}
 
 	componentDidMount() {
-		this.BUS_400101_REQ();
+		this.BUS_400102_REQ();
 	}
 
 	onRightNavCilck(){
