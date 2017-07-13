@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_eeeeee"
+    android:orientation="vertical" >
+	
+        <HorizontalScrollView
+	        android:layout_width="match_parent"
+	        android:layout_height="44dp"
+	        android:background="@color/color_ffffff"
+	        android:padding="2dp"
+	        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/condition_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/batch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:background="@color/color_f3f9ff"
+                android:gravity="center"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/batch_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本科三批"
+                    android:textColor="@color/color_85add7"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/prov_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:background="@color/color_f3f9ff"
+                android:gravity="center"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/prov_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全国"
+                    android:textColor="@color/color_85add7"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/school_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:background="@color/color_f3f9ff"
+                android:gravity="center"
+                android:visibility="gone"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/school_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_85add7"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/major_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:visibility="gone"
+                android:background="@color/color_f3f9ff"
+                android:gravity="center"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/major_val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_85add7"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eyy_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:visibility="gone"
+                android:background="@color/color_f3f9ff"
+                android:gravity="center"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="211"
+                    android:textColor="@color/color_85add7"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jbw_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_margin="4dp"
+                android:background="@color/color_f3f9ff"
+                android:visibility="gone"
+                android:gravity="center"
+                android:minWidth="64dp"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_85add7"
+                    android:text="985"
+                    android:textSize="13dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

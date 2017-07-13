@@ -1,0 +1,107 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <style name="AppTheme" parent="android:Theme.Light.NoTitleBar">
+        <item name="vpiCirclePageIndicatorStyle">@style/TabStyle</item> -
+    </style>
+
+    <style name="TabStyle" parent="Widget.TabPageIndicator">
+        <item name="android:textColor">#FF33AA33</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">8dp</item>
+    </style>
+    
+        <!-- 对话框 -->
+    <style name="loading_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    
+     <style name="main_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    
+    <style name="CustomCirclePageIndicator">
+	    <item name="fillColor">#FF888888</item>
+	    <item name="strokeColor">#FF000000</item>
+	    <item name="strokeWidth">2dp</item>
+	    <item name="radius">10dp</item>
+	    <item name="centered">true</item>
+	</style>
+    
+    <style name="app_title">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@color/color_67aef7</item>
+    </style>
+    
+    <style name="app_title_back">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:paddingRight">25dip</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    
+     <style name="app_title_btn_back">
+        <item name="android:layout_width">13dp</item>
+        <item name="android:layout_height">21dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@drawable/left_arrow</item>
+    </style>
+    
+     <style name="app_title_name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    
+     <style name="app_title_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:paddingRight">15dip</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    
+     <style name="app_title_btn_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+</resources>

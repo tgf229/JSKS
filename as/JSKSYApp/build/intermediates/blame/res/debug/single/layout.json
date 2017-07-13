@@ -1,0 +1,458 @@
+[
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_test.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_test.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/point_adv_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/point_adv_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/school_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/school_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/softupdate_progress.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/softupdate_progress.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/fragment_school_detail_two.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/fragment_school_detail_two.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/set.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/set.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/app_title_webview.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/app_title_webview.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/refresh_footer.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/refresh_footer.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_condition_list.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_condition_list.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/component_offer_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/component_offer_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/point_search.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/point_search.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/offer_search.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/offer_search.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/home.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/home.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/offer_success.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/offer_success.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/jpush_webview_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/jpush_webview_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/school_clazz_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/school_clazz_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/enroll_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/enroll_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/two_button_list_dialog.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/two_button_list_dialog.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_set_qrcode.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_set_qrcode.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_list.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_list.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/guide_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/guide_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_pay.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_pay.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/fragment_school_detail_one.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/fragment_school_detail_one.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/point_result.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/point_result.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/point_wait.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/point_wait.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/app_title_search.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/app_title_search.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/component_school_detail_header.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/component_school_detail_header.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_school_detail.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_school_detail.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/home_list_head.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/home_list_head.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/component_detail_fragment_two_batch.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/component_detail_fragment_two_batch.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/fragment_school_detail_three.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/fragment_school_detail_three.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/welcome.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/welcome.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/guide_item_last.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/guide_item_last.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/dialog_loading.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/dialog_loading.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/home_banner_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/home_banner_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/list_header.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/list_header.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_list_head.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_list_head.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/web_view_main.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/web_view_main.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_school_list.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_school_list.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/offer_fail.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/offer_fail.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/zz_point_search.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/zz_point_search.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/major_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/major_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_agreement.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_agreement.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/refresh_header.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/refresh_header.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_school_detail_major.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_school_detail_major.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/gk_home_list_adv_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/gk_home_list_adv_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_offer_result.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_offer_result.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_condition.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_condition.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/app_title.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/app_title.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/jpush_popwin_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/jpush_popwin_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/gk_home_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/gk_home_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/gk_home.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/gk_home.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/two_button_list_dialog_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/two_button_list_dialog_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/zz_point_result_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/zz_point_result_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_search.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_search.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/activity_school_detail_enroll.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/activity_school_detail_enroll.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_condition_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_condition_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/gk_home_list_head.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/gk_home_list_head.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/loading.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/loading.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/wish_pay_success.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/wish_pay_success.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/home_list_item.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/home_list_item.xml"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/layout/zz_point_result.xml",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/layout/zz_point_result.xml"
+    }
+]

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">江苏招考</string>
+    <string name="action_settings">Settings</string>
+    <string name="home_back">请再按一次退出</string>
+
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_release_label">释放立即刷新</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新\u2026</string>
+    <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+
+    <string name="set_update_cancel">取消</string>
+    <string name="set_update_quit">退出</string>
+    <string name="updateVersion">更新</string>
+    <string name="updateVersionTitel">软件更新</string>
+    <string name="updating">正在更新</string>
+
+    <string name="share_point_text">江苏招考-2017高考成绩分享</string>
+    <string name="share_offer_text">江苏招考-2017高考录取结果分享</string>
+
+</resources>

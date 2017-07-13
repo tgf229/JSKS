@@ -17,7 +17,7 @@ import React, {
   View
 } from 'react-native';
 import GK_Header from './component/GK_Header'
-import {BUS_100501 ,netClientPost} from '../../util/NetUtil';
+import {BUS_100501 ,netClientPost,BUS_100601} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import Web from '../webview/Web';
@@ -64,8 +64,26 @@ export default class GK_Home extends React.Component{
 	  this.timer && clearTimeout(this.timer);
 	}
 
+	//广告日志接口回调
+	BUS_100601_CB(object,json){
+	}
+
+	//广告日志接口
+	BUS_100601_REQ(aId){
+		var params = {
+			encrypt:'none',
+			imei:global.uuid,
+			aType:'5',
+			aId:aId
+		}
+		netClientPost(this,BUS_100601,this.BUS_100601_CB,params);
+	}
+
 	//行点击
 	rowPressed(rowData){
+		if (rowData.type == '1') {
+			this.BUS_100601_REQ(rowData.aId);
+		}
 		if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
 			const dId = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
 			this.props.navigator.push({

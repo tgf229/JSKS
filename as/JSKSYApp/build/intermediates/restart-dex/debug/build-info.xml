@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86,armeabi-v7a,armeabi"
+    api-level="21"
+    density="xhdpi"
+    format="7"
+    timestamp="5359791580385"
+    token="3653851027203050560" >
+
+    <task
+        name="javac"
+        duration="2960" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="1726" />
+    <task
+        name="verifier"
+        duration="149" />
+
+    <artifact
+        location="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/outputs/apk/JSKSYApp-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="5359791580385" >
+        <artifact
+            location="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/outputs/apk/JSKSYApp-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/de.hdodenhof-circleimageview-2.1.0_dd751941ef7c3d9d4a555f87ec44c25e1ee1a9a8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_2a578b8b5a767b5c9cafaffdc40867bb9cc47153/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_2bcd2e0af32d21e9933572e78b857492981f8ee6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-Wechat-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="6c77dd3832635149e694df173896f81e1e2d07aa">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-Wechat-2.8.3_825da06b75dd20f1a2f0ae254a373fac0aef0297/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_bfb5a4d6226459c3b78baaa5343fada300b6f110/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5b93689c8e4a1d7369d75944fdf833dae2a2a946/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="e430f303f3cea937a035efc89add9de659923b44">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c2d1714a386bd0f5c19bf969a2fadef4e149bf3b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/universal-image-loader-1.9.4.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.4_d47dbcdaf0c23d17f007926d07cacc3b49316bd1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_2770eb13777491ba890827bdd73d63eddff75ead/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-Wechat-Moments-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="415c1cb912f11e414e6beaf1e59090c154f6da8d">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-Wechat-Moments-2.8.3_73abc1aecf8e849620c3a1ac3fa71bac064742c8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_8d3224d5dbc8014ab3807e64b781cdcd2f7f01b5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_796d2183f5a027805f6124c03f4a7bae9cea402c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.9.0_79765f88b021b88853a238335965608e06559f9c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_a90309fa1b274d6af265a4b1ad45f48a10399302/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/httpmime-4.1.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="e70d34d98f7f7f3b2b92105b9f2fe2a7a7184461">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/httpmime-4.1.3_a533ba053ee7b64f97423c8b4cba2b2dc8c45947/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_841d060f1010691863d3b60438ea4286461a00e8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_1b6df569e50bcb8eb4c658b170dd001506f7381f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/Baidu_Mtj_3.7.3.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="0ab737d9138609f5080e154a97f6073863de2a6c">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/Baidu_Mtj_3.7.3.1_9669ccc0e702dc1401fe6c7adad87ac62911fdfc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/jpush-android-2.1.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="fad60eea64007823d74948fc6708371dee57fe36">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/jpush-android-2.1.3_785f38742d6755f6035d9827dfdc79afaed4b267/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.4.1_6783496bed61789b170a5f67efcdd21609c29ab6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_fde00ff8fb807f1543639f8889d883c3360b1e84/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_74bc716ae15ea254755cd472ac047a533df97078/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="b3d9ecdd6703f0376ac971c69f741594e7ca7081">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_41f7bffeb6138b25b535704d1d2365069de1cd1e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_5d9f3cbcde8e8a2c9173a9d392fbf83e5877a86c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.github.lecho/hellocharts-library/1.5.8/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="56c6a22c42588628903e9dda5d8f3aa1c1b4372f">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.lecho-hellocharts-library-1.5.8_8cf3b6fcd672864610732bc9f359a842c09665f3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/MobCommons-2017.0412.1554.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="f93319b520c12b41265a55d1ccacde97b9f18a9c">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/MobCommons-2017.0412.1554_b7f1973134417f02d158de62e18bee84c949a7ab/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.31/1ca964122c53f03f6fc3938b58c16d63b40490ab/fastjson-1.2.31.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="1ca964122c53f03f6fc3938b58c16d63b40490ab">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/fastjson-1.2.31_5e65da92df608ceb708d982ecea99322fb79e35d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_bff4c2f51597a20358fe5f66d56059d33a56e81e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-QQ-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="56808c93d53310bb7e5d79a1a5709dfd2c11d532">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-QQ-2.8.3_dffbaaf4c3c26b081fee5d00a58966270d1dbf9c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/Bughd_android_sdk_v1.3.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="2908665768397a2ea788326053164cb143ffd200">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/Bughd_android_sdk_v1.3.3_116400dd4dc9fc189460759f6c6ff3f773582923/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-SinaWeibo-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="23b18b312360535b71c0702b842da81fbadcdba3">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-SinaWeibo-2.8.3_5cb570200874efcbaf363cc936376e8937b8c870/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_a204dd64abe0378faf384ffd9f990b96f4bbab66/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-QZone-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="fd16dfa76c87ad822163bee854914bd065042059">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-QZone-2.8.3_2a004643cea5a8c0ac588d357350ecd8f1e76eec/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/MobTools-2017.0412.1554.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="ff1c0540ed5607fa34269a7adc63679e4fcfb714">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/MobTools-2017.0412.1554_635d49bd7b7631f1b746798d932a729f52bd4042/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/prettytime-3.2.5.Final.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="84f05b7911e736cd6913301e90bab3fbaa2f40da">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/prettytime-3.2.5.Final_8916808e689c4d7b3dcfae8a89aceac2a01d39ab/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_37c9dbb6af8329b4088f7814be86b04549cc5347/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-Wechat-Core-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="65d3d26aac0c67984e4612539017f7a5f4bd6507">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-Wechat-Core-2.8.3_3896012b841aa1f803ff84240c53e9c8fd697bbb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/libs/ShareSDK-Core-2.8.3.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="da4b0def0be4d4be0d3460638e087d01f60347c0">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/2/ShareSDK-Core-2.8.3_33767f95d63d4bed777f14908187a8fa7771e51a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.7.0_69e741453e4cdbf533b902aba70beb071cc0cf10/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_f600a22b185e276da984bcd794d16dfe4e72df3f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_afd1af2a84eb0153bbf45d7cdf3ec19e7c15a0cd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="25.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_043601d4f0be29bb02c13c84d595b78f24965cf8/classes.dex" />
+    </item>
+
+</items>

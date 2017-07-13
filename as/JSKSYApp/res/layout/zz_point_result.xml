@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/app_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 等待提示页面 -->
+	        <LinearLayout
+	            android:id="@+id/load_layout"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:orientation="vertical">
+	            <ImageView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="90dp"
+	                android:src="@drawable/point_check_pic"/>
+	            <ProgressBar
+	                android:id="@+id/load_progress"
+			        android:layout_width="40dp"
+			        android:layout_height="40dp"
+			        android:background="@null"
+			        android:indeterminateDrawable="@drawable/loading_progress"
+			        android:padding="10dip" />
+	            <TextView
+	                android:id="@+id/load_txt"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="10dp"
+	                android:textSize="20dp"
+	                android:textColor="@color/color_888888"
+	                android:text="正在拼命查询，请稍候..."/>
+	        </LinearLayout>
+        	
+	        <LinearLayout 
+	             android:id="@+id/content_layout"
+	             android:layout_width="match_parent"
+	     	    android:layout_height="wrap_content"
+	     	    android:orientation="vertical"
+	     	     android:visibility="gone">
+	            
+	     	<LinearLayout 
+	     	    android:layout_width="match_parent"
+	     	    android:layout_height="wrap_content"
+	     	    android:orientation="vertical"
+	     	    android:background="@color/color_7bbcff"
+	     	    android:paddingLeft="15dp"
+	     	    android:paddingRight="15dp">
+	     		<RelativeLayout 
+		          android:layout_width="match_parent"
+		          android:layout_height="50dp"
+		          android:gravity="center_vertical">
+		          <TextView 
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:text="姓名"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		          <TextView 
+		              android:id="@+id/name_txt"
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:layout_alignParentRight="true"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		      </RelativeLayout>
+		      <TextView 
+		          android:layout_width="match_parent"
+		          android:layout_height="1px"
+		          android:background="@color/color_afd6ff"/>
+		      <RelativeLayout 
+		          android:layout_width="match_parent"
+		          android:layout_height="50dp"
+		          android:gravity="center_vertical">
+		          <TextView 
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:text="考籍号"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		          <TextView 
+		              android:id="@+id/num_txt"
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:layout_alignParentRight="true"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		      </RelativeLayout>
+	     	  <TextView 
+		          android:layout_width="match_parent"
+		          android:layout_height="1px"
+		          android:background="@color/color_afd6ff"/>
+	     	  <RelativeLayout 
+		          android:layout_width="match_parent"
+		          android:layout_height="50dp"
+		          android:gravity="center_vertical">
+		          <TextView 
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:text="身份证号"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		          <TextView 
+		              android:id="@+id/card_txt"
+		              android:layout_width="wrap_content"
+		              android:layout_height="wrap_content"
+		              android:layout_alignParentRight="true"
+		              android:textColor="@color/color_ffffff"
+		              android:textSize="14dp"/>
+		      </RelativeLayout>
+	     	</LinearLayout>
+	     	
+	     	<ImageView 
+	     	    android:layout_width="match_parent"
+	     	    android:layout_height="wrap_content"
+	     	    android:scaleType="fitXY"
+	     	    android:src="@drawable/zz_cloud"/>
+	     	
+	     	<com.jsksy.app.view.MyGridView  
+	     	    android:id="@+id/point_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:layout_marginTop="28dp"
+				android:gravity="center_vertical"
+				android:listSelector="#00000000" 
+                android:focusable="false"
+                android:numColumns="3"
+                android:verticalSpacing="40dp"
+                android:stretchMode="columnWidth">
+	     	</com.jsksy.app.view.MyGridView>
+	     
+	        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

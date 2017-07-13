@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/JRReceiver.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/bean/home/AdResponse.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/network/ConnectService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/WebviewActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/gk/adapter/GKNewsAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/home/HomeActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/home/adapter/FreshNewsAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/offer/OfferSuccessActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/point/PointWaitActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/set/SetActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/wish/WishAgreementActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/wish/WishConditionActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/wish/WishListActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/wish/adapter/WishListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/ui/zz/ZZPointResultActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JSKSYApp/src/com/jsksy/app/view/PullToRefreshView.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

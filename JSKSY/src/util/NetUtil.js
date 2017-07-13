@@ -24,6 +24,7 @@ export const BUS_100201 = "Bus100201";
 export const BUS_100301 = "Bus100301";
 export const BUS_100401 = "Bus100401";
 export const BUS_100501 = "Bus100501";
+export const BUS_100601 = "Bus100601";
 
 export const BUS_200101 = "Bus200101";
 export const BUS_200201 = "Bus200201";

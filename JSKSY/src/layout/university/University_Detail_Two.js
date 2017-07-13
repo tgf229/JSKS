@@ -94,6 +94,7 @@ export default class University_Detail_Two extends Component{
 	render(){
 		const detail = this.props.detail;
 		this.clazzDoc = detail.clazzDoc?detail.clazzDoc:[];
+		// BUG clazzDoc为空数组是true 会导致undefined
 		this.batchDoc = detail.clazzDoc?detail.clazzDoc[this.state.currentClazzIndex].batchDoc:[];
 		if (this.clazzDoc.length > 0 && this.batchDoc.length >0 && this.isFirstIn) {
 			this._firstInChartSearch(); //如果第一次进来，且详情接口已经返回数据且数据不为空，则查询图表数据。

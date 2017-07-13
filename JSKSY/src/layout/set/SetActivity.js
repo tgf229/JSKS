@@ -61,7 +61,7 @@ export default class SetActivity extends React.Component{
 				  		source={require('image!set_icon')}
 				  		/>
 					<Text style={{alignSelf:'center',fontSize:16,color:'#444444',marginTop:14}}>江苏招考</Text>
-					<Text style={{alignSelf:'center',fontSize:12,color:'#999999',marginTop:8}}>当前版本P2.3.2-{this.state.aliasVal}</Text>
+					<Text style={{alignSelf:'center',fontSize:12,color:'#999999',marginTop:8}}>当前版本P2.3.8-{this.state.aliasVal}</Text>
 					<View style={{marginTop:30,backgroundColor:'#d5d5d5',height:0.5,width:Dimensions.get('window').width}}></View>
 					<TouchableOpacity 
 						onPress={()=>this.goToQrcodeShare()}

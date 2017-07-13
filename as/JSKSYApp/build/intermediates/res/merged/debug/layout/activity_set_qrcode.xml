@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jsksy.app.ui.set.SetQrcodeActivity">
+
+    <include layout="@layout/app_title_webview" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/set_qrcode"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:textColor="@color/color_444444"
+        android:textSize="16dp"
+        android:layout_gravity="center_horizontal"
+        android:text="请使用手机扫描上方二维码"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/color_444444"
+        android:textSize="16dp"
+        android:layout_gravity="center_horizontal"
+        android:text="即可安装「江苏招考」"/>
+</LinearLayout>

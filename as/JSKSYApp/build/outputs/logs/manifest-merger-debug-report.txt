@@ -1,0 +1,724 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:2:1-265:12
+	package
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+permission#com.jsksy.app.permission.JPUSH_MESSAGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:6:5-8:47
+	android:protectionLevel
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:8:9-44
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:7:9-62
+uses-permission#android.permission.CALL_PHONE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:11:5-69
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:11:22-66
+uses-permission#com.jsksy.app.permission.JPUSH_MESSAGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:12:5-78
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:12:22-75
+uses-permission#android.permission.RECEIVE_USER_PRESENT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:13:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:14:5-67
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:14:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:15:5-68
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:15:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:16:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:17:5-80
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:17:22-77
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:18:5-66
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:18:22-63
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:19:5-84
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:19:22-81
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:20:5-79
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:20:22-76
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:21:5-73
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:21:22-70
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:22:5-76
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:22:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:23:22-76
+uses-permission#android.permission.GET_TASKS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:24:22-65
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:25:5-74
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:25:22-71
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:26:5-75
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:26:22-72
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:27:5-76
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:27:22-73
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:28:5-71
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:28:22-68
+application
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:30:5-263:19
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:design:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:34:9-41
+	android:allowBackup
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:32:9-35
+	android:icon
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:33:9-45
+	android:largeHeap
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:35:9-33
+	android:theme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:36:9-65
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:31:9-41
+meta-data#BUG_HD_SDK_GENERAL_KEY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:42:9-44:64
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:44:13-61
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:43:13-50
+activity#com.jsksy.app.ui.WelcomeActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:46:9-55:20
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:48:13-49
+	android:label
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:49:13-45
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:47:13-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:50:13-54:29
+action#android.intent.action.MAIN
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:51:17-69
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:51:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:53:17-77
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:53:27-74
+activity#com.jsksy.app.ui.home.HomeActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:56:9-59:58
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:58:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:59:13-55
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:57:13-49
+activity#com.jsksy.app.ui.point.PointSearchActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:60:9-63:68
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:62:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:63:13-65
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:61:13-57
+activity#com.jsksy.app.ui.point.PointResultActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:64:9-65:15
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:64:64-100
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:64:19-63
+activity#com.jsksy.app.ui.point.PointWaitActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:66:9-100
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:66:62-98
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:66:19-61
+activity#com.jsksy.app.ui.offer.OfferSearchActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:67:9-70:68
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:69:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:70:13-65
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:68:13-57
+activity#com.jsksy.app.ui.offer.OfferFailActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:71:9-100
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:71:62-98
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:71:19-61
+activity#com.jsksy.app.ui.offer.OfferSuccessActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:72:9-103
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:72:65-101
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:72:19-64
+activity#com.jsksy.app.ui.wish.WishSearchActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:73:9-100
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:73:62-98
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:73:19-61
+activity#com.jsksy.app.ui.wish.WishAgreementActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:74:9-103
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:74:65-101
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:74:19-64
+activity#com.jsksy.app.ui.wish.WishPayActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:75:9-97
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:75:59-95
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:75:19-58
+activity#com.jsksy.app.ui.wish.WishPaySuccessActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:76:9-104
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:76:66-102
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:76:19-65
+activity#com.jsksy.app.ui.wish.WishListActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:77:9-98
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:77:60-96
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:77:19-59
+activity#com.jsksy.app.ui.wish.WishConditionActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:78:9-103
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:78:65-101
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:78:19-64
+activity#com.jsksy.app.ui.wish.WishConditionListActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:79:9-107
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:79:69-105
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:79:19-68
+activity#com.jsksy.app.ui.set.SetActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:80:9-92
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:80:54-90
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:80:19-53
+activity#com.jsksy.app.ui.WebviewActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:81:9-92
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:81:54-90
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:81:19-53
+activity#com.jsksy.app.ui.gk.GKHomeActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:82:9-94
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:82:56-92
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:82:19-55
+activity#com.jsksy.app.ui.zz.ZZPointSearchActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:83:9-101
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:83:63-99
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:83:19-62
+activity#com.jsksy.app.ui.zz.ZZPointResultActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:84:9-101
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:84:63-99
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:84:19-62
+service#cn.jpush.android.service.PushService
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:89:9-99:19
+	android:enabled
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:91:13-35
+	android:exported
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:92:13-37
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:90:13-64
+intent-filter#cn.jpush.android.intent.PUSH_TIME+cn.jpush.android.intent.PushService+cn.jpush.android.intent.REGISTER+cn.jpush.android.intent.REPORT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:93:13-98:29
+action#cn.jpush.android.intent.REGISTER
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:94:17-75
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:94:25-72
+action#cn.jpush.android.intent.REPORT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:95:17-73
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:95:25-70
+action#cn.jpush.android.intent.PushService
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:96:17-78
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:96:25-75
+action#cn.jpush.android.intent.PUSH_TIME
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:97:17-76
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:97:25-73
+receiver#cn.jpush.android.service.PushReceiver
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:102:9-121:20
+	android:enabled
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:104:13-35
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:103:13-65
+intent-filter#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+com.jsksy.app
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:105:13-109:29
+	android:priority
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:105:28-51
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:106:17-94
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:106:25-91
+category#com.jsksy.app
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:108:17-58
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:108:27-55
+intent-filter#android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:110:13-113:29
+action#android.intent.action.USER_PRESENT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:111:17-77
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:111:25-74
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:112:17-79
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:112:25-76
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:115:13-120:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:116:17-78
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:116:25-75
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:117:17-80
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:117:25-77
+data
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:119:17-50
+	android:scheme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:119:23-47
+activity#cn.jpush.android.ui.PushActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:123:9-133:20
+	android:exported
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:126:13-37
+	android:configChanges
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:125:13-63
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:124:13-60
+intent-filter#android.intent.category.DEFAULT+cn.jpush.android.ui.PushActivity+com.jsksy.app
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:127:13-132:29
+action#cn.jpush.android.ui.PushActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:128:17-75
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:128:25-72
+category#android.intent.category.DEFAULT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:130:17-76
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:130:27-73
+service#cn.jpush.android.service.DownloadService
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:135:9-138:40
+	android:enabled
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:137:13-35
+	android:exported
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:138:13-37
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:136:13-68
+receiver#cn.jpush.android.service.AlarmReceiver
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:140:9-75
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:140:19-72
+receiver#com.jsksy.app.JRReceiver
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:142:9-155:20
+	android:enabled
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:144:13-35
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:143:13-39
+intent-filter#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+cn.jpush.android.intent.CONNECTION+cn.jpush.android.intent.MESSAGE_RECEIVED+cn.jpush.android.intent.NOTIFICATION_OPENED+cn.jpush.android.intent.NOTIFICATION_RECEIVED+cn.jpush.android.intent.REGISTRATION+com.jsksy.app
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:145:13-154:29
+action#cn.jpush.android.intent.REGISTRATION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:146:17-79
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:146:25-76
+action#cn.jpush.android.intent.MESSAGE_RECEIVED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:147:17-83
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:147:25-80
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:148:17-88
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:148:25-85
+action#cn.jpush.android.intent.NOTIFICATION_OPENED
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:149:17-86
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:149:25-83
+action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:150:17-91
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:150:25-88
+action#cn.jpush.android.intent.CONNECTION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:151:17-77
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:151:25-74
+meta-data#JPUSH_CHANNEL
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:163:9-165:49
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:165:13-46
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:164:13-41
+meta-data#JPUSH_APPKEY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:167:9-169:56
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:169:13-53
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:168:13-40
+meta-data#BaiduMobAd_STAT_ID
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:172:9-174:42
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:174:13-39
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:173:13-46
+meta-data#BaiduMobAd_CHANNEL
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:176:9-178:39
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:178:13-36
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:177:13-46
+meta-data#BaiduMobAd_EXCEPTION_LOG
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:181:9-183:36
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:183:13-33
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:182:13-52
+meta-data#BaiduMobAd_SEND_STRATEGY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:185:9-187:41
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:187:13-38
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:186:13-52
+meta-data#BaiduMobAd_ONLY_WIFI
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:191:9-193:36
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:193:13-33
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:192:13-48
+meta-data#BaiduMobAd_CELL_LOCATION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:195:9-197:36
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:197:13-33
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:196:13-52
+meta-data#BaiduMobAd_GPS_LOCATION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:199:9-201:36
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:201:13-33
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:200:13-51
+meta-data#BaiduMobAd_WIFI_LOCATION
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:203:9-205:36
+	android:value
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:205:13-33
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:204:13-52
+activity#com.jsksy.app.ui.school.SchoolListActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:207:9-210:72
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:209:13-49
+	android:theme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:210:13-69
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:208:13-57
+activity#com.jsksy.app.ui.school.SchoolDetailActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:211:9-214:72
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:213:13-49
+	android:theme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:214:13-69
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:212:13-59
+activity#com.jsksy.app.ui.school.SchoolDetailMajorActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:215:9-109
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:215:71-107
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:215:19-70
+activity#com.jsksy.app.ui.school.SchoolDetailEnrollActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:216:9-110
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:216:72-108
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:216:19-71
+activity#com.jsksy.app.ui.school.TestActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:217:9-96
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:217:58-94
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:217:19-57
+provider#android.support.v4.content.FileProvider
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:219:9-227:20
+	android:authorities
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:221:13-61
+	android:grantUriPermissions
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:223:13-47
+	android:exported
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:222:13-37
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:220:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:224:13-226:54
+	android:resource
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:226:17-51
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:225:17-67
+activity#com.jsksy.app.ui.offer.OfferResultActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:229:9-102
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:229:64-100
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:229:19-63
+activity#com.mob.tools.MobUIShell
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:232:9-254:20
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:235:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:237:13-67
+	android:configChanges
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:234:13-74
+	android:theme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:236:13-72
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:233:13-52
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:240:13-247:29
+action#android.intent.action.VIEW
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:243:17-69
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:243:25-66
+category#android.intent.category.BROWSABLE
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:245:17-78
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:245:27-75
+intent-filter#android.intent.category.DEFAULT+com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:249:13-253:29
+action#com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:250:17-92
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:250:25-89
+activity#com.jsksy.app.wxapi.WXEntryActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:256:9-261:75
+	android:screenOrientation
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:260:13-49
+	android:exported
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:259:13-36
+	android:configChanges
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:258:13-74
+	android:theme
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:261:13-72
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:257:13-50
+activity#com.jsksy.app.ui.set.SetQrcodeActivity
+ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:262:9-71
+	android:name
+		ADDED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml:262:19-59
+uses-sdk
+INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/AndroidManifest.xml:18:5-42
+MERGED from [as:ViewPageIndicatorJar:unspecified] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:design:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.lecho:hellocharts-library:1.5.8] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.github.lecho/hellocharts-library/1.5.8/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.2.1] /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml
+		INJECTED from /Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/AndroidManifest.xml

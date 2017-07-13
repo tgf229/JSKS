@@ -10,7 +10,7 @@ import React, {
   View
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import { netClientPost,BUS_100201} from '../../../util/NetUtil';
+import { netClientPost,BUS_100201,BUS_100601} from '../../../util/NetUtil';
 import Web from '../../webview/Web';
 import University_Detail from '../../university/University_Detail';
 import University_List from '../../university/University_List';
@@ -25,7 +25,24 @@ export default class Banner extends React.Component{
 		}
 	}
 
+	//广告日志接口回调
+	BUS_100601_CB(object,json){
+	}
+
+	//广告日志接口
+	BUS_100601_REQ(aId){
+		const aType = this.props.type?'4':'2';
+		var params = {
+			encrypt:'none',
+			imei:global.uuid,
+			aType:aType,
+			aId:aId
+		}
+		netClientPost(this,BUS_100601,this.BUS_100601_CB,params);
+	}
+
 	onBannerClick(item){
+		this.BUS_100601_REQ(item.aId);
 		if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
 			const dId = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
 			this.props.navigator.push({

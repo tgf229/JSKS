@@ -31,6 +31,7 @@ class MyProject extends React.Component{
 		this.state={
 			loadAD:true,
 			adUrl:'',
+			aId:'',
 		}
 	}
 
@@ -49,7 +50,7 @@ class MyProject extends React.Component{
 			        }}
 			        renderScene={(route, navigator) => {
 			            let Component = route.component;
-			            return <Component {...route.params} adUrl={this.state.adUrl} navigator={navigator} />
+			            return <Component {...route.params} adUrl={this.state.adUrl} aId={this.state.aId} navigator={navigator} />
 			        }} />
 			)
 		}else{

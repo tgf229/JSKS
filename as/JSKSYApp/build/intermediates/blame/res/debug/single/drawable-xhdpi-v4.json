@@ -1,0 +1,830 @@
+[
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_b_add.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_b_add.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_result_word.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_result_word.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_shuxue.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_shuxue.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_result_total_small.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_result_total_small.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/refresh_pull.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/refresh_pull.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/switch_on.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/switch_on.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/inputbox_press.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/inputbox_press.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_facebookmessenger.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_facebookmessenger.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_laiwangmoments.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_laiwangmoments.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_three.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_three.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_pay_success.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_pay_success.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_back_arr.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_back_arr.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_agreement_tips.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_agreement_tips.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_shengwu.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_shengwu.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/dialog_two_cancle_bg_press.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/dialog_two_cancle_bg_press.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_yuanxiaoku.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_yuanxiaoku.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/school_icon_search.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/school_icon_search.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_news.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_news.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_linkedin.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_linkedin.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_result_bottom.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_result_bottom.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_qzone.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_qzone.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_check_checked.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_check_checked.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/school_triangle_orange.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/school_triangle_orange.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/left_arrow.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/left_arrow.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_icon_phone.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_icon_phone.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/school_detail_web_btn.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/school_detail_web_btn.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_alipay.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_alipay.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_share.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/btn_share.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_it.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_it.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/setting.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/setting.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_evernote.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_evernote.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/share_icon_qq.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/share_icon_qq.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_dingding.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_dingding.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_wechat.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_wechat.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_ad.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_ad.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/tips_none.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/tips_none.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_yuwen.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_yuwen.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_checkbox_press.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_checkbox_press.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_yingyu.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_yingyu.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_dark.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_tencentweibo.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_tencentweibo.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_one.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_one.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_renren.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_renren.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_logo.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_logo.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/school_triangle_grey.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/school_triangle_grey.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_tongzhi.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_tongzhi.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_buy_circleline.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_buy_circleline.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_line.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_line.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_mingdao.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_mingdao.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_qq.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_qq.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_dili.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_dili.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_light.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/arrow_grey.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/arrow_grey.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_two.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_two.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_bluetooth.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_bluetooth.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_laiwang.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_laiwang.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_youdao.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_youdao.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_auth_title_back.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_auth_title_back.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_result_rank.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_result_rank.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_btn_gaokao.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_btn_gaokao.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_googleplus.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_googleplus.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_whatsapp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_whatsapp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_pocket.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_pocket.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_unselected_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_unselected_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_result_bg.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_result_bg.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_meipai.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_meipai.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_check_circle.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_check_circle.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/inputbox_blank.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/inputbox_blank.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_jineng.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_jineng.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_36dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_pinterest.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_pinterest.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_unselected_pressed_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_icon_share.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_icon_share.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_kaixin.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_kaixin.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_yixin.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_yixin.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_check_circle_press.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_check_circle_press.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_six.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_six.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_icon_tuisong.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_icon_tuisong.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/weixin.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/weixin.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_kakaotalk.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_kakaotalk.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_instapaper.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_instapaper.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_48dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_icon_set.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_icon_set.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_wechatmoments.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_wechatmoments.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_foursquare.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_foursquare.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/dialog_two_sure_bg.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/dialog_two_sure_bg.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/arrow_blue.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/arrow_blue.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_time_bg.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_time_bg.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/yinlian.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/yinlian.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_qrcode.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_qrcode.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_icon_check.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_icon_check.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_a_add.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_a_add.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_result_top.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_result_top.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/share_icon_qq_timeline.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/share_icon_qq_timeline.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_check_default.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_check_default.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_result_total_big.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_result_total_big.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_facebook.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_facebook.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_douban.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_douban.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_icon_volunteer.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_icon_volunteer.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_icon.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_icon.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_tumblr.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_tumblr.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_huaxue.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_huaxue.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_shortmessage.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_shortmessage.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_banner.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_banner.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/dialog_bg.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/dialog_bg.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_yingyu.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_yingyu.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/end_tips.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/end_tips.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_btn_zhongzhi.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_btn_zhongzhi.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_time_point.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_time_point.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_selected_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_selected_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_youtube.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_youtube.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_btn_yuanxiaoku.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_btn_yuanxiaoku.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_four.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_four.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_dropbox.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_dropbox.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_yuwen.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_yuwen.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_check_pic.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_check_pic.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_title_div.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_title_div.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/wish_checkbox_none.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/wish_checkbox_none.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_selected_pressed_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_zhuanye.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_zhuanye.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_16dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_wait.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_wait.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_vkontakte.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_vkontakte.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/pay.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/pay.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_message_red.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_message_red.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_yixinmoments.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_yixinmoments.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_icon_query.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/home_icon_query.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_twitter.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_twitter.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/circle_blue.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/circle_blue.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_sinaweibo.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_sinaweibo.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/share_icon_wx.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/share_icon_wx.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/set_icon_time.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/set_icon_time.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_unselected_focused_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_unselected_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_wechatfavorite.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_wechatfavorite.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_cloud.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_cloud.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/vpi__tab_selected_focused_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/as/ViewPageIndicatorJar/unspecified/res/drawable-xhdpi-v4/vpi__tab_selected_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_lishi.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_lishi.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_girl.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_girl.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_grey.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_grey.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_dark.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_switch_track_mtrl_alpha.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/offer_icon_user.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/offer_icon_user.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_kakaostory.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_kakaostory.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_list_focused_holo.9.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_zhengzhi.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_zhengzhi.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/guide_five.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/guide_five.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_flickr.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_flickr.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_wuli.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_wuli.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_call.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/btn_call.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/switch_off.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/switch_off.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/default_pic.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/default_pic.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/state_select.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/state_select.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_instagram.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_instagram.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zz_deyu.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zz_deyu.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/detail_bg_cloud.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/detail_bg_cloud.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_policy.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_policy.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_icon_shuxue.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_icon_shuxue.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_alipaymoments.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_alipaymoments.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/school_btn_back.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/school_btn_back.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_boy.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_boy.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/dialog_two_sure_bg_press.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/dialog_two_sure_bg_press.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_btn_cancle.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/icon_btn_cancle.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/dialog_two_cancle_bg.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/dialog_two_cancle_bg.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/zhifubao.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/zhifubao.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/point_result_word.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/point_result_word.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_classic_email.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/ssdk_oks_classic_email.png"
+    },
+    {
+        "merged": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/build/intermediates/res/merged/debug/drawable-xhdpi-v4/share_icon_wx_timeline.png",
+        "source": "/Users/tugaofeng/tgf/android_workspace/as/JSKSYApp/res/drawable-xhdpi/share_icon_wx_timeline.png"
+    }
+]

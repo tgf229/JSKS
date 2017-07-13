@@ -17,7 +17,7 @@ import React, {
   View
 } from 'react-native';
 import Header from './component/Header'
-import { BUS_100101,BUS_100501 ,netClientPost,URL_ADDR} from '../../util/NetUtil';
+import { BUS_100101,BUS_100501 ,BUS_100601,netClientPost,URL_ADDR} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
 import DeviceUUID from "react-native-device-uuid";
@@ -43,8 +43,26 @@ export default class Home extends React.Component{
 		};
 	}
 
+		//广告日志接口回调
+	BUS_100601_CB(object,json){
+	}
+
+	//广告日志接口
+	BUS_100601_REQ(uuid,aType,aId){
+		var params = {
+			encrypt:'none',
+			imei:uuid,
+			aType:aType,
+			aId:aId
+		}
+		netClientPost(this,BUS_100601,this.BUS_100601_CB,params);
+	}
+
 	//行点击
 	rowPressed(rowData){
+		if (rowData.type == '1') {
+			this.BUS_100601_REQ(global.uuid,'3',rowData.aId);
+		}
 		if (rowData.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
 			const dId = rowData.aUrl.substring(rowData.aUrl.lastIndexOf("/")+1);
 			this.props.navigator.push({
@@ -122,7 +140,6 @@ export default class Home extends React.Component{
 		}else{
 
 		}
-		
 	}
 
 	//初始化接口请求
@@ -131,7 +148,7 @@ export default class Home extends React.Component{
 			encrypt:'none',
 			type:'2',
 			model:model,
-			version:'2.3.2',
+			version:'2.3.8',
 			imei:uuid,
 		}
 		netClientPost(this,BUS_100101,this.BUS_100101_CB,params);
@@ -144,7 +161,11 @@ export default class Home extends React.Component{
 					if (error) {
 						console.log(error);
 					}else{
+						global.uuid = uuid;
 						this.BUS_100101_REQ(events,uuid);
+						if (this.props.aId) {
+							this.BUS_100601_REQ(uuid,'1',this.props.aId);	
+						}
 					}
 				}) 
 			});

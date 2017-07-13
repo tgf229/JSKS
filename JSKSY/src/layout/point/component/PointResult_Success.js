@@ -17,7 +17,7 @@ import React, {
   View
 } from 'react-native';
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
-import { BUS_200301,URL_ADDR} from '../../../util/NetUtil';
+import { BUS_200301,URL_ADDR,BUS_100601,netClientPost} from '../../../util/NetUtil';
 import WishAgreement from '../../wish/WishAgreement';
 import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../../util/Global';
 import Web from '../../webview/Web';
@@ -172,7 +172,24 @@ export default class PointResult_Success extends React.Component{
 		});
 	}
 
-	onAdClick(adUrl){
+	//广告日志接口回调
+	BUS_100601_CB(object,json){
+	}
+
+	//广告日志接口
+	BUS_100601_REQ(aId){
+		var params = {
+			encrypt:'none',
+			imei:global.uuid,
+			aType:'7',
+			aId:aId
+		}
+		netClientPost(this,BUS_100601,this.BUS_100601_CB,params);
+	}
+
+	onAdClick(rowData){
+		this.BUS_100601_REQ(rowData.aId);
+		const adUrl = rowData.aUrl;
 		if (adUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
 			const dId = adUrl.substring(adUrl.lastIndexOf("/")+1);
 			this.props.navigator.push({
@@ -212,7 +229,7 @@ export default class PointResult_Success extends React.Component{
 			<View style={{backgroundColor:'#eeeeee',paddingLeft:12,
 					paddingRight:12}}>
 					<TouchableHighlight
-						onPress={e=> this.onAdClick(rowData.aUrl)}
+						onPress={e=> this.onAdClick(rowData)}
 						underlayColor='#fcfcfc'>
 						<Image 
 							style={{width:Dimensions.get('window').width-24,

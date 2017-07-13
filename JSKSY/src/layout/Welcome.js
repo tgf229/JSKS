@@ -105,6 +105,7 @@ export default class Welcome extends React.Component{
 		this.props.homeObj.setState({
 			loadAD:false,
 			adUrl:this.state.adData.aUrl,
+			aId:this.state.adData.aId,
 		});
 	}
 

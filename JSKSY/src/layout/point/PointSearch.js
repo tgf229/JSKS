@@ -20,7 +20,7 @@ import React, {
 import PointResult from './PointResult'
 import PointWait from './component/PointWait'
 import App_Title from '../common/App_Title';
-import { netClientPost,BUS_200101,BUS_100501} from '../../util/NetUtil';
+import { netClientPost,BUS_200101,BUS_100501,BUS_100601} from '../../util/NetUtil';
 import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../util/Global';
 import Web from '../webview/Web';
 import University_Detail from '../university/University_Detail';
@@ -80,9 +80,26 @@ export default class PointSearch extends React.Component{
 		};
 		netClientPost(this,BUS_200101,this.BUS_200101_CB,params);
 	}
+	//广告日志接口回调
+	BUS_100601_CB(object,json){
+	}
+
+	//广告日志接口
+	BUS_100601_REQ(aId){
+		var params = {
+			encrypt:'none',
+			imei:global.uuid,
+			aType:'6',
+			aId:aId
+		}
+		netClientPost(this,BUS_100601,this.BUS_100601_CB,params);
+	}
 
 		//行点击
 	adPressed(item){
+		if (item.type == '1') {
+			this.BUS_100601_REQ(item.aId);
+		}
 		if (item.aUrl.indexOf(URL_SCHEMA_SCHOOL_DETAIL)!= -1) {
 			const dId = item.aUrl.substring(item.aUrl.lastIndexOf("/")+1);
 			this.props.navigator.push({

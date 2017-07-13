@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/app_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/wish_agreement_tips" />
+
+             <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="20dp"
+                android:lineSpacingExtra="5dp"
+		        android:textSize="15dp"
+		        android:textColor="@color/color_888888"
+		        android:text="        志愿参考服务结合考生当年高考成绩及所在科类全省位次、近四年高考录取数据、本年度各院校省内招生计划，并按照院校所在省份、专业、批次等附加条件检索出志愿参考院校及所含专业信息。本服务不仅是考生填报普通高校的参考资料，同时对家长、招生工作人员和中学教师也具有一定的参考价值。"/>
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="12dp"
+			        android:lineSpacingExtra="5dp"
+			        android:textColor="@color/color_d0021b"
+			        android:text="PS："/>
+                <TextView 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:lineSpacingExtra="5dp"
+			        android:textColor="@color/color_d0021b"
+			        android:textSize="12dp"
+			        android:text="本服务只针对进入文理科第一阶段的考生开放；\n院校数据仅包含文理科第一批次及第二批次院校；\n本服务为测试版。由于时间仓促，内容繁多，难免有疏漏、不当之处，恳请用户批评指正。"/>
+            </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5px"
+                android:layout_marginTop="25dp"
+                android:background="@color/color_d5d5d5"/>
+            
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/btn_click"
+                android:text="下一步"
+                android:textColor="@color/color_ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
