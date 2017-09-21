@@ -37,7 +37,7 @@ class MyProject extends React.Component{
 
 	componentDidMount(){
 	    // codePush.sync();
-	    StatusBarIOS.setStyle('light-content');
+	    StatusBarIOS.setStyle('default');
 	}
 
 	render(){

@@ -10,7 +10,7 @@ import React, {
   StyleSheet,
   Image,
   TextInput,
-  TouchableHighlight,
+  TouchableOpacity,
   Text,
   View
 } from 'react-native';
@@ -39,17 +39,16 @@ export default class App_Title extends React.Component{
 
 	render(){
 		return(
-			<View style={{backgroundColor:'#67aef7'}} >
+			<View>
 				<View style={{height:20}}/>
 				<View style={{height:44,flexDirection:'row',alignItems:'center'}}>
-					<TouchableHighlight
+					<TouchableOpacity
 						style={{paddingRight:20,paddingLeft:20,paddingTop:10,paddingBottom:10}}
-						onPress={()=>this.onLeftClick()}
-						underlayColor='#67aef7'>
+						onPress={()=>this.onLeftClick()}>
 						<Image 
-							source={require('image!back_btn')}/>
-					</TouchableHighlight>
-						<View style={{flex:1,height:34,marginRight:20,backgroundColor:'white',flexDirection:'row',alignItems:'center'}}>
+							source={require('image!btn_back_black')}/>
+					</TouchableOpacity>
+						<View style={{flex:1,height:34,marginRight:20,backgroundColor:'#f7f7f7',flexDirection:'row',alignItems:'center'}}>
 							<Image 
 								style={{marginLeft:15,marginRight:10}}
 								source={require('image!school_icon_search')}/>
@@ -67,6 +66,7 @@ export default class App_Title extends React.Component{
 								/>
 						</View>	
 				</View>
+				<View style={{height:0.5,backgroundColor:'#c6c6cc'}}/>
 			</View>
 		)
 	}

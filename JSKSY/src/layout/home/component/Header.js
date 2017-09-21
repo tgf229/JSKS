@@ -63,34 +63,54 @@ export default class Header extends React.Component{
 		return(
 			<View style={{backgroundColor:'#ffffff'}}>
 					<Banner navigator={this.props.navigator}></Banner>
-					<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
-					<View style={{padding:9,flexDirection:'row'}}>
-						<TouchableOpacity
-							onPress={()=>this.onBtnClick(1)}>
-							<Image 
-								style={{width:(global.windowWidth-34)/3}}
-								source={require('image!home_btn_gaokao')}/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={()=>this.onBtnClick(2)}>
-							<Image
-								style={{marginLeft:8,marginRight:8,width:(global.windowWidth-34)/3}}
-								source={require('image!home_btn_yuanxiaoku')}/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={()=>this.onBtnClick(3)}>
-							<Image
-								style={{width:(global.windowWidth-34)/3}}
-								source={require('image!home_btn_zhongzhi')}/>
-						</TouchableOpacity>
+					<View style={{height:0.5,backgroundColor:'#e6e6e6'}}/>
+					<View style={{padding:10,}}>
+						<View style={{flexDirection:'row'}}>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(1)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/2}}
+									source={require('image!home_icon_channel_gk')}/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(1)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/4}}
+									source={require('image!home_icon_channel_ck')}/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(1)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/4}}
+									source={require('image!home_icon_channel_zk')}/>
+							</TouchableOpacity>
+						</View>
+						<View style={{flexDirection:'row'}}>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(1)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/4}}
+									source={require('image!home_icon_channel_yjsks')}/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(1)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/4}}
+									source={require('image!home_icon_channel_sk')}/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={()=>this.onBtnClick(3)}>
+								<Image 
+									style={{width:(global.windowWidth-30)/2}}
+									source={require('image!home_icon_channel_zz')}/>
+							</TouchableOpacity>
+						</View>
 					</View>
-					<View style={{height:10,backgroundColor:'#f3f3f3'}}/>
-					<View style={{height:33,flexDirection:'row',paddingLeft:15,alignItems:'center'}}>
-						<Image 
-							source={require('image!icon_news')}/>
-						<Text style={{marginLeft:5,textSize:'12',color:'#444444'}}>招考要闻</Text>
+					<View style={{height:0.5,backgroundColor:'#e6e6e6'}}/>
+					<View style={{height:34,flexDirection:'row',paddingLeft:15,alignItems:'center'}}>
+						<View style={{backgroundColor:'#67b2ff',width:4,height:14}}/>
+						<Text style={{marginLeft:6,textSize:'12',color:'#000000'}}>招考要闻</Text>
 					</View>
-					<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
 			</View>
 		)
 	}

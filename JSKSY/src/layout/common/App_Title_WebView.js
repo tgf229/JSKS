@@ -36,7 +36,7 @@ export default class App_Title_WebView extends React.Component{
 
 	render(){
 		return(
-			<View style={{backgroundColor:'#67aef7'}} >
+			<View>
 				<View style={{height:20}}/>
 				<View style={{height:44,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
 					<View style={{flexDirection:'row',alignItems:'center'}}>
@@ -44,7 +44,7 @@ export default class App_Title_WebView extends React.Component{
 						style={{paddingLeft:20,paddingRight:30}}
 						onPress={()=>this.onLeftClick(this.props.obj)}>
 						<Image 
-							source={require('image!back_btn')}/>
+							source={require('image!btn_back_black')}/>
 					</TouchableOpacity>
 					<TouchableOpacity
 						style={{paddingLeft:10,paddingRight:30}}
@@ -55,7 +55,7 @@ export default class App_Title_WebView extends React.Component{
 					</View>
 					<Text 
 						numberOfLines={1}
-						style={{fontSize:18,color:'white',textAlign:'center',width:120}}>{this.props.title}</Text>
+						style={{fontSize:18,color:'black',textAlign:'center',width:120}}>{this.props.title}</Text>
 					{
 					this.props.rightBtnHide
 					?
@@ -69,6 +69,7 @@ export default class App_Title_WebView extends React.Component{
 					}
 					
 				</View>
+				<View style={{height:0.5,backgroundColor:'#c6c6cc'}}/>
 			</View>
 		)
 	}

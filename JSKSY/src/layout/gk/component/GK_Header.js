@@ -129,12 +129,14 @@ export default class GK_Header extends React.Component{
 						:
 						null
 					}
+
 					<View style={{height:33,flexDirection:'row',marginTop:11,paddingLeft:15,alignItems:'center',backgroundColor:'white'}}>
-						<Image 
-							source={require('image!icon_news')}/>
-						<Text style={{marginLeft:5,textSize:'12',color:'#444444'}}>高考资讯</Text>
+						<View style={{backgroundColor:'#67b2ff',width:4,height:14}}/>
+						<Text style={{marginLeft:6,textSize:'12',color:'#000000'}}>高考资讯</Text>
 					</View>
 					<View style={{height:0.5,backgroundColor:'#d5d5d5'}}/>
+
+
 			</View>
 		)
 	}
