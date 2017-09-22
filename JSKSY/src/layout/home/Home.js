@@ -8,7 +8,7 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   ListView,
   ActivityIndicatorIOS,
   PixelRatio,
@@ -16,7 +16,7 @@ import React, {
   Image,
   View
 } from 'react-native';
-import Header from './component/Header'
+import Header from './component/Header';
 import { BUS_100101,BUS_100501 ,BUS_100601,netClientPost,URL_ADDR} from '../../util/NetUtil';
 import GiftedListView from 'react-native-gifted-listview';
 import App_Title from '../common/App_Title';
@@ -25,6 +25,7 @@ import Web from '../webview/Web';
 import University_Detail from '../university/University_Detail';
 import University_List from '../university/University_List';
 import {URL_SCHEMA_SCHOOL_DETAIL,URL_SCHEMA_SCHOOL_LIST} from '../../util/Global';
+import NewsComponent from './component/NewsComponent';
 
 var NativeBridge = require('react-native').NativeModules.NativeBridge;
 
@@ -91,37 +92,11 @@ export default class Home extends React.Component{
 
 	//渲染cell
 	renderRow(rowData,sectionID,rowID){
-		if (rowData.type === '1') {
 		return(
-			<TouchableHighlight
-				onPress={()=>this.rowPressed(rowData)}
-			    underlayColor='#fcfcfc'>
-			  	<View>
-			  		<View style={{padding:14}}>
-			 			<Image
-				  			 style={{width:Dimensions.get('window').width-28, height:(Dimensions.get('window').width-28)*2/7}}
-				 			 source={{uri: rowData.imageUrl}} />
-		  			</View>
-			  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
-			  	</View>
-			</TouchableHighlight>
-			)
-		}else{
-		return(
-			<TouchableHighlight
-				onPress={()=>this.rowPressed(rowData)}
-			    underlayColor='#fcfcfc'>
-			  	<View>
-				  	<View style={{height:84,paddingTop:12,paddingBottom:12,paddingLeft:15,paddingRight:15,justifyContent:'center'}}>
-				  		<Text style={styles.title} numberOfLines={2}>{rowData.name}</Text>
-				  		<Text style={styles.time}>发布于{rowData.time}</Text>
-				  	</View>
-			  		<View style={{height:0.5,backgroundColor:'#d5d5d5'}}></View>
-			  	</View>
-			</TouchableHighlight>
-			)
-		}
+			<NewsComponent rowData={rowData}/>
+		)
 	}
+		
 	
 	//头部界面
 	renderHeader(){
@@ -242,14 +217,5 @@ export default class Home extends React.Component{
 }
 
 const styles = StyleSheet.create({
-	time:{
-		fontSize:12,
-		color:'#999999',
-		marginTop:5,
-	},
-	title:{
-		fontSize:15,
-		lineHeight:20,
-		color:'#444444',
-	},
+
 });

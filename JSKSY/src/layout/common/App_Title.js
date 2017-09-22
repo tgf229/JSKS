@@ -39,7 +39,7 @@ export default class App_Title extends React.Component{
 
 	render(){
 		return(
-			<View>
+			<View style={{backgroundColor:'white'}}>
 				<View style={{height:20}}/>
 				<View style={{height:44,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
 				{
